@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- DATUM: the datum feature symbol (a framed letter on a leader, a datum triangle on the reference surface).
+       The surface is the three app accents: every Datum app stands on one datum. One amber diamond, as in every family logo. -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E8EE"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E3E7EC"/></linearGradient>
   </defs>
-  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#CDD4DE" stroke-width="4"/>
-  <path d="M66 58h44a70 70 0 0 1 0 140H66z" fill="#FFFFFF" stroke="#0C1A2B" stroke-width="11" stroke-linejoin="round"/>
-  <circle cx="104" cy="98" r="12" fill="#0B5CAD"/>
-  <circle cx="134" cy="128" r="12" fill="#0E8C7F"/>
-  <circle cx="104" cy="158" r="12" fill="#6C4AB6"/>
-  <path d="M206 183l13 13-13 13-13-13z" fill="#F2B233"/>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#CBD2DB" stroke-width="4"/>
+  <rect x="88" y="44" width="80" height="80" rx="6" fill="#FFFFFF" stroke="#0C1A2B" stroke-width="11"/>
+  <path d="M112 64v40h10a20 20 0 0 0 0-40z" fill="none" stroke="#0C1A2B" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M128 124v26" stroke="#0C1A2B" stroke-width="11"/>
+  <path d="M128 148l26 38h-52z" fill="#0C1A2B" stroke="#0C1A2B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M50 192h50" stroke="#0B5CAD" stroke-width="11" stroke-linecap="round"/>
+  <path d="M103 192h50" stroke="#0E8C7F" stroke-width="11"/>
+  <path d="M156 192h50" stroke="#6C4AB6" stroke-width="11" stroke-linecap="round"/>
+  <path d="M199 71l13 13-13 13-13-13z" fill="#F2B233"/>
 </svg>

@@ -3,6 +3,7 @@
 // the app shows "Coming soon" (or the values from apps.json) instead.
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
+import sharp from "sharp";
 import { marked } from "marked";
 
 export type Stage = { v: string; title: string; when: string; items: string[] };
@@ -35,7 +36,7 @@ async function get(url: string, kind: "text" | "json" | "bytes" = "text"): Promi
 
 // Public text never names other products (FAMILY.md, "How we talk about Datum"). Lines in an app's
 // CHANGELOG or site.json that do are left out of the site and listed in the build log for rewording.
-const NAMES = /\b(MS Project|Microsoft Project|Primavera|P6|GraphPad|Prism|OriginPro|Granta|Ansys)\b/i;
+export const NAMES = /\b(MS Project|Microsoft Project|MSP|Primavera|P6|GraphPad|Prism|OriginPro|Origin(?=[- ](power|style|like|look))|Granta|Ansys)\b/i;
 export const flagged: string[] = [];
 const plain = (text: string, where: string) => {
   if (!NAMES.test(text)) return true;
@@ -80,10 +81,12 @@ async function loadApp(e: any): Promise<App> {
     roadmap: (s.roadmap ?? []).map((r: Stage) => ({ ...r, items: r.items.filter(i => plain(i, `${e.id} roadmap ${r.v}`)) })), changelog, releases: [],
     shots: [],
   };
-  // Screenshots are downloaded now and written into dist after the build; one that fails is left out.
-  const shots = await Promise.all((s.screenshots ?? []).map(async (p: string): Promise<Shot> => {
-    const base = p.split("/").pop()!;
-    return { path: p, raw: raw(p), file: `apps/${e.id}/${base}`, alt: `${app.name}: ${base.replace(/\.\w+$/, "").replace(/[-_]/g, " ")}`, bytes: await get(raw(p), "bytes") };
+  // The first screenshot is downloaded now and written into dist after the build; one that fails is left out.
+  const shots = await Promise.all((s.screenshots ?? (e.shot ? [e.shot] : [])).slice(0, 1).map(async (p: string): Promise<Shot> => {
+    const base = p.split("/").pop()!.replace(/\.\w+$/, "");
+    const png = await get(raw(p), "bytes");
+    const bytes = png ? new Uint8Array(await sharp(png).resize({ width: 1440, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer().catch(() => png)) : null;
+    return { path: p, raw: raw(p), file: `apps/${e.id}/${base}.webp`, alt: `${app.name}: ${base.replace(/[-_]/g, " ")}`, bytes: bytes ?? undefined };
   }));
   app.shots = shots.filter(x => x.bytes);
   const gh = `https://github.com/${e.repo}`;

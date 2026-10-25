@@ -1,82 +1,315 @@
 ---
 import Base from "../layouts/Base.astro";
-import AppCard from "../components/AppCard.astro";
-import Feature from "../components/Feature.astro";
-import { loadAll, latestReleases, familyLogo, fmtDate } from "../lib/github";
+import { loadAll, latestReleases, fmtDate, fmtSize } from "../lib/github";
+import { loadBrain, radius, TYPE_COLOR } from "../lib/brain";
 
 const apps = await loadAll();
+const brain = await loadBrain();
 const recent = latestReleases(apps, 6);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const letters = "ABCDEFGH";
+const releases = apps.reduce((n, a) => n + a.changelog.length, 0);
+const decisions = brain.nodes.filter(n => n.type === "decision").length;
+const stats: [string, string][] = [[String(apps.length).padStart(2, "0"), "Apps"], [String(releases), "Releases"], [String(decisions), "Decisions recorded"], ["0", "Accounts · telemetry"]];
+
+// The network preview: the build-time layout, scaled into a fixed box.
+const xs = brain.nodes.map(n => n.x!), ys = brain.nodes.map(n => n.y!);
+const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+const pos = new Map(brain.nodes.map(n => [n.id, n]));
+const accent = (app?: string) => app === "plan" ? "#4C9BEA" : app === "plot" ? "#3FC2B2" : app === "atlas" ? "#A58BEA" : "#F2B233";
+const fill = (n: (typeof brain.nodes)[number]) => n.type === "app" ? accent(n.app) : TYPE_COLOR[n.type];
+const r1 = (v: number) => Math.round(v);
 ---
-<Base title="Datum" description="Free, open-source desktop tools for engineers, scientists, researchers and analysts. Small, fast apps for serious technical work.">
-  <section class="hero dots">
-    <div class="wrap">
-      <img class="logo" src={familyLogo} width="96" height="96" alt="The Datum logo" />
-      <h1>Free, open-source desktop tools for engineers, scientists, researchers and analysts.</h1>
-      <p class="lead">Small, fast apps that do serious technical work, written from scratch in Rust, with one look and one way of working. No accounts, no subscriptions, no telemetry: your files stay on your computer.</p>
-      <p class="tags cap"><span>Free</span><span>Open source (MIT)</span><span>Windows</span><span>Installs in seconds</span><span>Updates itself</span></p>
-    </div>
-  </section>
+<Base title="Datum: free, open-source desktop tools for technical work" description="Datum is a family of free, open-source desktop tools for engineers, scientists, researchers and analysts: Datum Plan, Datum Plot and Datum Atlas.">
+  <!-- Hero: the datum drawing, the word, and the three apps placed on it. -->
+  <section class="hero ruled" aria-labelledby="hero-title">
+    <div class="frame">
+      <svg class="drawing" viewBox="-640 -400 1280 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g class="thin">
+          <circle r="150" /><circle r="236" /><circle r="430" /><circle r="600" class="dash" />
+          <path class="axis" d="M-640 0H640M0 -400V400" />
+          <path d="M-430 0v-14M430 0v-14M0 -236h14M0 236h14" />
+        </g>
+        <g class="ring">
+          {Array.from({ length: 144 }, (_, i) => { const a = (i / 144) * Math.PI * 2, l = i % 12 === 0 ? 18 : i % 6 === 0 ? 11 : 6, r = 330;
+            return <path d={`M${r1(Math.cos(a) * r)} ${r1(Math.sin(a) * r)}L${r1(Math.cos(a) * (r + l))} ${r1(Math.sin(a) * (r + l))}`} />; })}
+          {Array.from({ length: 12 }, (_, i) => { const a = (i / 12) * Math.PI * 2; return <text x={r1(Math.cos(a) * 372)} y={r1(Math.sin(a) * 372) + 4}>{String(i * 30).padStart(3, "0")}</text>; })}
+        </g>
+        <g class="dim">
+          <path d="M-430 330H430M-430 318v24M430 318v24" /><path d="M-430 330l16-5v10zM430 330l-16-5v10z" class="solid" />
+          <text x="0" y="320">Ø 860 · REFERENCE A</text>
+        </g>
+        <g class="datum">
+          <rect x="-612" y="-40" width="34" height="34" /><text x="-595" y="-17">A</text><path d="M-595 -6v20M-608 14h26l-13 -18z" />
+          <rect x="560" y="-40" width="34" height="34" /><text x="577" y="-17">B</text><path d="M577 -6v20M564 14h26l-13 -18z" />
+          <rect x="262" y="-318" width="34" height="34" /><text x="279" y="-295">C</text><path d="M279 -284v20M266 -264h26l-13 -18z" />
+        </g>
+      </svg>
 
-  <section class="section" aria-labelledby="apps-h">
-    <div class="wrap">
-      <h2 id="apps-h" class="cap">The apps</h2>
-      <div class="grid">{apps.map(a => <AppCard app={a} />)}</div>
-    </div>
-  </section>
+      <div class="hero-plates">
+        {apps.map((a, i) => (
+          <a class={`plate p${i}`} href={`#app-${a.id}`} style={`--c:var(--${a.id}, ${a.accent})`}>
+            <span class="plate-ref mono"><b>{letters[i]}</b> Datum {letters[i]}</span>
+            <span class="plate-main"><img src={a.logo} width="44" height="44" alt="" /><span><b>{a.name}</b><span class="mono">{a.latest ? `v${a.latest.version}` : "Coming soon"}</span></span></span>
+          </a>
+        ))}
+      </div>
 
-  <section class="section" aria-labelledby="same-h">
-    <div class="wrap">
-      <h2 id="same-h" class="cap">Built the same way</h2>
-      <div class="grid four">
-        <Feature title="Small and fast">Quick to install, opens in a moment and stays smooth with large files.</Feature>
-        <Feature title="Private">Your files stay on your computer. The only network call is the update check.</Feature>
-        <Feature title="One design">The same window, ribbon, help and printing in every app. Learn one, know them all.</Feature>
-        <Feature title="Free forever">MIT licence. Built in the open, in small tested releases that install themselves.</Feature>
+      <div class="hero-text">
+        <p class="mono kicker">A family of desktop tools</p>
+        <h1 id="hero-title" class="display hero-word">Datum</h1>
+        <p class="hero-sub">Tools for <em>serious technical work.</em></p>
+        <p class="lead">Free, open-source desktop apps for engineers, scientists, researchers and analysts. Small and fast, written from scratch, with one look and one way of working. No accounts, no subscriptions, no telemetry: your files stay on your computer.</p>
+        <div class="btns center">
+          <a class="btn btn-solid" href="#apps">Get the apps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v13M6 11l6 6 6-6M5 20h14" /></svg></a>
+          <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>
+        </div>
+        <p class="mono tags"><span>Engineering</span><span>Science</span><span>Research</span><span>Analysis</span></p>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="rel-h">
-    <div class="wrap">
-      <h2 id="rel-h" class="cap">Latest releases</h2>
-      {recent.length ? (
-        <ol class="rel">
-          {recent.map(r => (
-            <li style={`--a:${r.accent}`}>
-              <a class="app" href={`${base}/${r.app}`}>{r.name}</a>
-              <a class="ver" href={r.url}>{r.version}</a>
-              <time datetime={r.date}>{fmtDate(r.date)}</time>
-              <span class="sum">{r.summary || "See the release notes."}</span>
-            </li>
-          ))}
-        </ol>
-      ) : <p class="muted">Releases will appear here.</p>}
+  <!-- Statement and figures. -->
+  <section class="ruled" aria-label="Datum in figures">
+    <div class="frame intro">
+      <p class="statement h2">Small, fast apps for the work behind every project, every paper and every part. <span class="dim">Written from scratch, built the same way,</span> <em>free for everyone.</em></p>
+    </div>
+    <div class="frame stats">
+      {stats.map(([n, l]) => <div><span class="display stat-n">{n}</span><span class="mono muted">{l}</span></div>)}
+    </div>
+  </section>
+
+  <!-- 01 The apps -->
+  <section id="apps" class="ruled" aria-labelledby="apps-h">
+    <div class="frame">
+      <div class="bar mono"><span><b>01</b> / The apps</span><span class="r">Windows 10 and 11 · installs in seconds · updates itself</span></div>
+      <div class="pad sec-intro">
+        <h2 id="apps-h" class="h2">{apps.length === 3 ? "Three" : apps.length} tools. <em>One way of working.</em></h2>
+        <p class="lead">Each app does one kind of technical work well. They share one window, one ribbon, one help system and one updater, so learning one means knowing them all.</p>
+      </div>
+      {apps.map((a, i) => (
+        <article id={`app-${a.id}`} class:list={["app", { flip: i % 2 }]} style={`--c:var(--${a.id}, ${a.accent})`} aria-labelledby={`${a.id}-name`}>
+          <div class="bar mono"><span><b>{letters[i]}</b> / {a.name}</span><span class="r">{a.latest ? <>v{a.latest.version} · {fmtDate(a.latest.date)}</> : "Coming soon"}</span></div>
+          <div class="app-body">
+            <figure class="app-shot">
+              {a.shots[0]
+                ? <img src={`${base}/${a.shots[0].file}`} width="1440" height="900" alt={`${a.name}: the main window`} loading="lazy" decoding="async" />
+                : <img class="app-logo-big" src={a.logo} width="200" height="200" alt="" />}
+            </figure>
+            <div class="app-text">
+              <img src={a.logo} width="56" height="56" alt="" />
+              <h3 id={`${a.id}-name`} class="display app-name">{a.name.replace(/^Datum /, "")}</h3>
+              <p class="app-tag">{a.tagline}</p>
+              <p class="app-for"><span class="mono">For</span> {a.for}</p>
+              {a.highlights.length > 0 && <ul class="hl">{a.highlights.slice(0, 4).map(h => <li>{h}</li>)}</ul>}
+              <div class="btns">
+                {a.latest
+                  ? <a class="btn btn-solid" href={a.latest.download}>Download for Windows{a.latest.size ? <span class="dim">{fmtSize(a.latest.size)}</span> : null}</a>
+                  : <span class="btn btn-line" aria-disabled="true">Coming soon</span>}
+                <a class="btn btn-line" href={`https://github.com/${a.repo}`}>Source</a>
+              </div>
+              <p class="mono app-links"><a href={`https://github.com/${a.repo}/blob/HEAD/CHANGELOG.md`}>What's new</a><a href={`https://github.com/${a.repo}/releases`}>All releases</a><a href={`https://github.com/${a.repo}/issues/new`}>Report an issue</a></p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 02 Built the same way -->
+  <section class="ruled" aria-labelledby="built-h">
+    <div class="frame">
+      <div class="bar mono"><span><b>02</b> / Built the same way</span><span class="r">Engine · window · release · memory</span></div>
+      <div class="pad sec-intro">
+        <h2 id="built-h" class="h2">One method, <em>every app.</em></h2>
+      </div>
+      <ol class="steps">
+        <li><span class="mono">01 · Engine</span><h3 class="h3">Calculation first</h3><p class="muted">Every app has its own engine in a pure Rust crate, with unit tests. The window only shows what the engine computes.</p>
+          <svg viewBox="0 0 120 64" aria-hidden="true"><rect x="8" y="12" width="40" height="40" /><path d="M48 32h24M72 20h40v24H72z" /><path d="M18 24h20M18 32h20M18 40h12" /></svg></li>
+        <li><span class="mono">02 · Window</span><h3 class="h3">One design</h3><p class="muted">The same ribbon, sidebar, help beside every tool, printing and themes in every app. Only the accent colour changes.</p>
+          <svg viewBox="0 0 120 64" aria-hidden="true"><rect x="8" y="8" width="104" height="48" /><path d="M8 20h104M30 20v36" /><path d="M14 14h10" /></svg></li>
+        <li><span class="mono">03 · Release</span><h3 class="h3">Small and often</h3><p class="muted">Small numbered releases, each one checked and installed with one click from inside the app.</p>
+          <svg viewBox="0 0 120 64" aria-hidden="true"><path d="M8 48h104" /><circle cx="20" cy="48" r="5" /><circle cx="48" cy="48" r="5" /><circle cx="76" cy="48" r="5" /><path d="M104 36l8 12-8 12-8-12z" class="amber" /></svg></li>
+        <li><span class="mono">04 · Memory</span><h3 class="h3">Written down</h3><p class="muted">Every plan, decision and session is recorded in the repositories, and drawn as one map: the Datum network.</p>
+          <svg viewBox="0 0 120 64" aria-hidden="true"><path d="M20 32L52 14M20 32l32 18M52 14l40 4M52 50l40-6M92 18v26M52 14v36" /><circle cx="20" cy="32" r="5" /><circle cx="52" cy="14" r="4" /><circle cx="52" cy="50" r="4" /><circle cx="92" cy="18" r="4" /><circle cx="92" cy="44" r="4" /></svg></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 Latest releases -->
+  <section class="ruled" aria-labelledby="rel-h">
+    <div class="frame">
+      <div class="bar mono"><span><b>03</b> / Latest releases</span><span class="r">Newest first</span></div>
+      <h2 id="rel-h" class="sr">Latest releases</h2>
+      <ol class="rel">
+        {recent.map(r => (
+          <li style={`--c:var(--${r.app}, ${r.accent})`}>
+            <span class="mono rel-app">{r.name}</span>
+            <a class="rel-v display" href={r.url}>{r.version}</a>
+            <time class="mono muted" datetime={r.date}>{fmtDate(r.date)}</time>
+            <span class="rel-sum">{r.summary || "See the release notes."}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 04 The Datum network -->
+  <section class="ruled" aria-labelledby="net-h">
+    <div class="frame">
+      <div class="bar mono"><span><b>04</b> / The Datum network</span><span class="r">{brain.nodes.length} nodes · {brain.edges.length} links</span></div>
+      <a class="net" href={`${base}/network`} aria-label="Open the Datum network">
+        <svg class="net-svg" viewBox={`${r1(x0 - 40)} ${r1(y0 - 40)} ${r1(x1 - x0 + 80)} ${r1(y1 - y0 + 80)}`} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="net-e">{brain.edges.map(e => { const s = pos.get(e.source)!, t = pos.get(e.target)!; return <path d={`M${r1(s.x!)} ${r1(s.y!)}L${r1(t.x!)} ${r1(t.y!)}`} />; })}</g>
+          <g>{brain.nodes.map(n => <circle cx={r1(n.x!)} cy={r1(n.y!)} r={r1(radius(n) * 1.2)} fill={fill(n)} />)}</g>
+        </svg>
+        <div class="net-text">
+          <h2 id="net-h" class="h2">The brain of <em>the whole family.</em></h2>
+          <p>Every app, design rule, technology, source file, decision, release, plan and working session, linked in one living map. It rebuilds from the repositories every day, and every new app starts from it.</p>
+          <span class="btn btn-solid inverse">Open the network</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Get to work -->
+  <section class="ruled" aria-labelledby="go-h">
+    <div class="frame go">
+      <div class="bar mono"><span><b>05</b> / Get started</span><span class="r">Free · MIT licence</span></div>
+      <h2 id="go-h" class="display go-word">Get to work.</h2>
+      <p class="lead center">Download an app, run the installer, and start. No account to create, nothing to configure.</p>
+      <div class="btns center">
+        {apps.map(a => a.latest
+          ? <a class="btn btn-solid" style={`--c:var(--${a.id}, ${a.accent})`} href={`https://github.com/${a.repo}/releases/latest`}>{a.name}</a>
+          : <span class="btn btn-line">{a.name} · soon</span>)}
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .hero { border-bottom: 1px solid var(--line); padding: 56px 0 48px; }
-  .logo { display: block; margin-bottom: 20px; }
-  h1 { max-width: 20em; }
-  .lead { font-size: 18px; color: var(--text2); max-width: 40em; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px 0; margin: 20px 0 0; color: var(--text2); }
-  .tags span + span::before { content: "·"; margin: 0 10px; color: var(--amber); }
-  .four { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 24px; }
-  .rel { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: var(--r); background: var(--bg2); }
-  .rel li { display: grid; grid-template-columns: 120px 70px 110px 1fr; gap: 12px; align-items: baseline; padding: 12px 16px; border-left: 3px solid var(--a); }
-  .rel li + li { border-top: 1px solid var(--line2); }
-  .rel li:first-child { border-top-left-radius: var(--r); }
-  .rel li:last-child { border-bottom-left-radius: var(--r); }
-  .app { font-weight: 600; color: var(--text); text-decoration: none; }
-  .ver { font: 600 13px var(--mono); }
-  time { font: 12.5px var(--mono); color: var(--muted); }
-  .sum { font-size: 14px; color: var(--text2); }
-  @media (max-width: 720px) {
-    .hero { padding: 36px 0 32px; }
-    .lead { font-size: 16px; }
-    .rel li { grid-template-columns: auto auto 1fr; }
-    .sum { grid-column: 1 / -1; }
+  /* Hero */
+  .hero .frame { min-height: min(860px, calc(100svh - var(--head))); display: grid; place-items: center; overflow: hidden; padding: 72px var(--pad) 64px; }
+  .drawing { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .drawing :is(circle, path, rect) { fill: none; stroke: var(--line-2); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .drawing .dash { stroke-dasharray: 2 6; }
+  .drawing .axis { stroke-dasharray: 28 6 3 6; stroke: var(--line-2); }
+  .drawing .ring { animation: spin 300s linear infinite; transform-origin: 0 0; }
+  .drawing text { font: 500 11px var(--mono); letter-spacing: .12em; fill: var(--faint); text-anchor: middle; stroke: none; }
+  .drawing .dim path { stroke: var(--muted); }
+  .drawing .dim .solid { fill: var(--muted); stroke: none; }
+  .drawing .datum rect, .drawing .datum path { stroke: var(--muted); }
+  .drawing .datum path:last-of-type { fill: var(--muted); }
+  .drawing .datum text { font: 700 16px var(--mono); fill: var(--ink); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hero-text { position: relative; z-index: 2; text-align: center; display: grid; justify-items: center; gap: 18px; }
+  .kicker { color: var(--muted); }
+  .hero-word { font-size: clamp(76px, 17vw, 236px); margin: 4px 0 0; }
+  .hero-sub { font-family: var(--display); font-stretch: 112%; font-weight: 650; font-size: clamp(24px, 3.4vw, 44px); letter-spacing: -.02em; line-height: 1.05; }
+  .hero-text .lead { margin-inline: auto; }
+  .center { justify-content: center; text-align: center; margin-inline: auto; }
+  .tags { display: flex; flex-wrap: wrap; justify-content: center; color: var(--muted); }
+  .tags span + span::before { content: "·"; margin: 0 14px; color: var(--amber); }
+
+  .hero-plates { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  .plate { position: absolute; pointer-events: auto; display: grid; gap: 8px; padding: 12px 14px; background: color-mix(in srgb, var(--card) 88%, transparent);
+    border: 1px solid var(--line-2); border-top: 3px solid var(--c); box-shadow: 0 18px 40px -24px rgb(12 26 43 / .45); backdrop-filter: blur(6px);
+    transition: transform .4s var(--ease), border-color .3s; animation: float 9s ease-in-out infinite; }
+  .plate:hover { border-color: var(--c); }
+  .plate-ref { color: var(--muted); font-size: 10.5px; }
+  .plate-ref b { display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--ink); color: var(--ink); margin-right: 6px; }
+  .plate-main { display: flex; gap: 12px; align-items: center; }
+  .plate-main > span { display: grid; }
+  .plate-main b { font-weight: 600; }
+  .plate-main .mono { color: var(--c); font-size: 11px; }
+  .p0 { left: 5%; top: 56%; }
+  .p1 { right: 5%; top: 50%; animation-delay: -3s; }
+  .p2 { right: 12%; top: 11%; animation-delay: -6s; }
+  @keyframes float { 50% { transform: translateY(-10px); } }
+  @media (max-width: 1100px) {
+    .hero .frame { place-items: start center; }
+    .hero-plates { position: relative; inset: auto; order: 2; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+    .plate { position: relative; left: auto; right: auto; top: auto; animation: none; }
   }
+
+  /* Statement and figures */
+  .intro { padding: clamp(64px, 9vw, 128px) var(--pad); }
+  .statement { max-width: 22ch; font-size: clamp(30px, 4.6vw, 62px); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .stats > div { display: grid; gap: 14px; padding: 36px var(--pad); border-right: 1px solid var(--line); }
+  .stats > div:last-child { border-right: 0; }
+  .stat-n { font-size: clamp(48px, 6.4vw, 92px); }
+  @media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; } .stats > div:nth-child(2) { border-right: 0; } .stats > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+
+  .sec-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end; padding-block: clamp(48px, 7vw, 96px); }
+  @media (max-width: 860px) { .sec-intro { grid-template-columns: 1fr; } }
+
+  /* Apps */
+  .app-body { display: grid; grid-template-columns: 1.25fr 1fr; }
+  .app.flip .app-shot { order: 2; border-right: 0; border-left: 1px solid var(--line); }
+  .app-shot { display: grid; place-items: center; padding: clamp(24px, 4vw, 56px); border-right: 1px solid var(--line); min-height: 420px;
+    background-color: color-mix(in srgb, var(--c) 9%, var(--paper));
+    background-image: linear-gradient(color-mix(in srgb, var(--c) 16%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--c) 16%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px; }
+  .app-shot img { width: 100%; border: 1px solid color-mix(in srgb, var(--c) 30%, var(--line)); box-shadow: 0 30px 60px -30px rgb(12 26 43 / .5); transform: perspective(1600px) rotateY(-4deg); transition: transform .6s var(--ease); }
+  .app.flip .app-shot img { transform: perspective(1600px) rotateY(4deg); }
+  .app:hover .app-shot img { transform: none; }
+  .app-shot .app-logo-big { width: 200px; border: 0; box-shadow: none; transform: none; }
+  .app-text { padding: clamp(28px, 4vw, 56px) var(--pad); display: grid; gap: 16px; align-content: center; justify-items: start; }
+  .app-name { font-size: clamp(54px, 7vw, 104px); color: var(--c); }
+  .app-tag { font-size: clamp(18px, 1.6vw, 21px); font-weight: 600; max-width: 30ch; }
+  .app-for { color: var(--muted); }
+  .app-for .mono { color: var(--ink); margin-right: 8px; }
+  .hl { display: grid; gap: 8px; font-size: 15px; color: var(--ink-2); }
+  .hl li { padding-left: 22px; position: relative; }
+  .hl li::before { content: ""; position: absolute; left: 3px; top: .55em; width: 8px; height: 8px; background: var(--amber); transform: rotate(45deg); }
+  .app .btn-solid:hover { background: var(--c); border-color: var(--c); }
+  .app-links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11px; }
+  .app-links a { color: var(--muted); border-bottom: 1px solid var(--line-2); }
+  .app-links a:hover { color: var(--c); border-color: var(--c); }
+  @media (max-width: 900px) {
+    .app-body { grid-template-columns: 1fr; }
+    .app-shot, .app.flip .app-shot { order: 0; border: 0; border-bottom: 1px solid var(--line); min-height: 0; }
+    .app-shot img, .app.flip .app-shot img { transform: none; }
+  }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .steps li { display: grid; gap: 12px; align-content: start; padding: 36px var(--pad) 40px; border-right: 1px solid var(--line); }
+  .steps li:last-child { border-right: 0; }
+  .steps .mono { color: var(--em); }
+  .steps p { font-size: 15px; }
+  .steps svg { width: 120px; margin-top: 8px; }
+  .steps svg :is(rect, path, circle) { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+  .steps svg .amber { fill: var(--amber); stroke: none; }
+  @media (max-width: 1000px) { .steps { grid-template-columns: 1fr 1fr; } .steps li:nth-child(2) { border-right: 0; } .steps li:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .steps li { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+  /* Releases */
+  .rel li { display: grid; grid-template-columns: 170px 120px 130px 1fr; gap: 16px; align-items: baseline; padding: 20px var(--pad); border-bottom: 1px solid var(--line); }
+  .rel li:last-child { border-bottom: 0; }
+  .rel-app { color: var(--c); }
+  .rel-v { font-size: 28px; }
+  .rel-v:hover { color: var(--c); }
+  .rel-sum { color: var(--ink-2); font-size: 15px; }
+  @media (max-width: 760px) { .rel li { grid-template-columns: auto auto 1fr; } .rel-sum { grid-column: 1 / -1; } }
+
+  /* Network teaser: always dark, like the network page. */
+  .net { display: grid; grid-template-columns: 1.4fr 1fr; background: #070C13; color: #E6EDF5; min-height: 460px; overflow: hidden; }
+  .net-svg { width: 100%; height: 100%; max-height: 560px; padding: 20px; }
+  .net-e path { stroke: #7F93AD; stroke-opacity: .22; stroke-width: 1.2; }
+  .net-svg circle { transition: opacity .3s; }
+  .net-text { display: grid; gap: 20px; align-content: center; justify-items: start; padding: 40px var(--pad); border-left: 1px solid #1B2634; }
+  .net-text p { color: #A9B6C6; }
+  .net-text em { color: #F2B233; }
+  .inverse { background: #E6EDF5; color: #070C13; border-color: #E6EDF5; }
+  .net:hover .inverse { background: #F2B233; border-color: #F2B233; }
+  @media (max-width: 900px) { .net { grid-template-columns: 1fr; } .net-text { border-left: 0; border-top: 1px solid #1B2634; } }
+
+  /* Get to work */
+  .go { text-align: center; padding-bottom: clamp(56px, 8vw, 112px); display: grid; gap: 24px; }
+  .go .bar { text-align: left; }
+  .go-word { font-size: clamp(56px, 12vw, 170px); padding: clamp(40px, 6vw, 80px) var(--pad) 0; }
+  .go .btns { padding: 0 var(--pad); }
 </style>

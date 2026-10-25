@@ -1,0 +1,11 @@
+<!-- The Datum mark without its tile: for headers and dark backgrounds use currentColor instead of navy. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 36 184 168" width="184" height="168">
+  <rect x="88" y="44" width="80" height="80" rx="6" fill="none" stroke="#0C1A2B" stroke-width="11"/>
+  <path d="M112 64v40h10a20 20 0 0 0 0-40z" fill="none" stroke="#0C1A2B" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M128 124v26" stroke="#0C1A2B" stroke-width="11"/>
+  <path d="M128 148l26 38h-52z" fill="#0C1A2B" stroke="#0C1A2B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M50 192h50" stroke="#0B5CAD" stroke-width="11" stroke-linecap="round"/>
+  <path d="M103 192h50" stroke="#0E8C7F" stroke-width="11"/>
+  <path d="M156 192h50" stroke="#6C4AB6" stroke-width="11" stroke-linecap="round"/>
+  <path d="M199 71l13 13-13 13-13-13z" fill="#F2B233"/>
+</svg>

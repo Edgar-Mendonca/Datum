@@ -1,35 +1,39 @@
 ---
+import Mark from "./Mark.astro";
 import { loadAll } from "../lib/github";
 const apps = await loadAll();
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const gh = "https://github.com/Edgar-Mendonca/Datum";
 ---
-<footer>
-  <div class="wrap cols">
-    <div>
-      <p class="cap">Datum</p>
-      <p class="muted">Free, open-source desktop tools for engineers, scientists, researchers and analysts. MIT licence. No accounts, no subscriptions, no telemetry.</p>
+<footer class="site-foot ruled">
+  <div class="frame">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href={`${base}/`} aria-label="Datum home"><Mark /><span class="word">DATUM</span></a>
+        <p class="muted" style="margin-top:18px;max-width:36ch">Free, open-source desktop tools for engineers, scientists, researchers and analysts. No accounts, no subscriptions, no telemetry.</p>
+      </div>
+      <div>
+        <h2 class="mono">Download</h2>
+        <ul>{apps.map(a => <li><a href={`https://github.com/${a.repo}/releases/latest`}>{a.name}</a></li>)}</ul>
+      </div>
+      <div>
+        <h2 class="mono">Project</h2>
+        <ul>
+          <li><a href={`${base}/network`}>The Datum network</a></li>
+          <li><a href={`${gh}/blob/HEAD/FAMILY.md`}>Design guide</a></li>
+          <li><a href={`${gh}/blob/HEAD/MEMORY.md`}>Family memory</a></li>
+          <li><a href={gh}>Source on GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mono">Feedback</h2>
+        <ul>
+          {apps.map(a => <li><a href={`https://github.com/${a.repo}/issues/new`}>{a.name.replace("Datum ", "")}: report an issue</a></li>)}
+          <li><a href={`${gh}/issues/new`}>Idea for a new app</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <p class="cap">Apps</p>
-      <ul>{apps.map(a => <li><a href={`${base}/${a.id}`}>{a.name}</a></li>)}</ul>
-    </div>
-    <div>
-      <p class="cap">Project</p>
-      <ul>
-        <li><a href={`${base}/family`}>How the family is built</a></li>
-        <li><a href={`${base}/about`}>About and contributing</a></li>
-        <li><a href="https://github.com/Edgar-Mendonca/Datum">Datum on GitHub</a></li>
-      </ul>
-    </div>
+    <div class="foot-word display" aria-hidden="true">DATUM</div>
+    <div class="foot-base mono"><span>MIT licence · © 2026 Edgar Mendonca</span><span>Built from the app repositories every day</span></div>
   </div>
-  <div class="wrap fine muted">MIT © 2026 Edgar Mendonca. Built from each app's repository on every release.</div>
 </footer>
-
-<style>
-  footer { border-top: 1px solid var(--line); background: var(--panel); margin-top: 48px; padding: 32px 0 20px; font-size: 14px; }
-  .cols { display: grid; gap: 24px; grid-template-columns: 2fr 1fr 1fr; }
-  ul { list-style: none; margin: 0; padding: 0; }
-  li { margin: 4px 0; }
-  .fine { margin-top: 24px; font-size: 13px; }
-  @media (max-width: 640px) { .cols { grid-template-columns: 1fr 1fr; } .cols > :first-child { grid-column: 1 / -1; } }
-</style>

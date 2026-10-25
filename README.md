@@ -47,7 +47,8 @@ Every app is free and open source (MIT), Windows first, installs in seconds for 
 - [**MEMORY.md**](MEMORY.md): the family memory: decisions that apply to every app, the apps list, the session log.
 - [**apps.json**](apps.json): the registry the website builds from. Adding an app is one line.
 - [**brand/**](brand): the family mark and every app icon.
-- [**site/**](site): the website (Astro). It reads each app's `docs/site.json`, `CHANGELOG.md` and latest release when it builds, every day and on every push.
+- [**brain/**](brain): the Datum brain: `graph.json`, one graph of every app, design rule, technology, source file, decision, release, plan and session, generated from the repositories ([BRAIN.md](brain/BRAIN.md)). Read it before starting anything new.
+- [**site/**](site): the website (Astro): one landing page and the interactive [Datum network](https://edgar-mendonca.github.io/Datum/network). It reads each app's `docs/site.json`, `CHANGELOG.md`, latest release and the brain when it builds, every day and on every push.
 
 ### Starting a new app
 
@@ -66,6 +67,10 @@ npm ci
 npm run build      # works without a token; set GITHUB_TOKEN to read releases without rate limits
 npm run preview    # http://localhost:4321/Datum/
 ```
+
+Regenerate the brain file with `node brain/brain.mjs` (from the repo root).
+
+GitHub Pages must use **Settings › Pages › Source: GitHub Actions** (the workflow in `.github/workflows/pages.yml` builds and deploys the site).
 
 ## Contribute and feedback
 

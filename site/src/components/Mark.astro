@@ -1,0 +1,16 @@
+---
+// The Datum mark without its tile (brand/datum-mark.svg): the datum feature symbol in the text colour,
+// standing on the three app accents, with the family's amber diamond.
+interface Props { class?: string; title?: string }
+const { class: cls, title } = Astro.props;
+---
+<svg class={cls} viewBox="40 36 184 168" role={title ? "img" : undefined} aria-label={title} aria-hidden={title ? undefined : "true"}>
+  <rect x="88" y="44" width="80" height="80" rx="6" fill="none" stroke="currentColor" stroke-width="11"/>
+  <path d="M112 64v40h10a20 20 0 0 0 0-40z" fill="none" stroke="currentColor" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M128 124v26" stroke="currentColor" stroke-width="11"/>
+  <path d="M128 148l26 38h-52z" fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M50 192h50" stroke="#0B5CAD" stroke-width="11" stroke-linecap="round"/>
+  <path d="M103 192h50" stroke="#0E8C7F" stroke-width="11"/>
+  <path d="M156 192h50" stroke="#6C4AB6" stroke-width="11" stroke-linecap="round"/>
+  <path d="M199 71l13 13-13 13-13-13z" fill="#F2B233"/>
+</svg>

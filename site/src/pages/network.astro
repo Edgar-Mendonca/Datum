@@ -1,0 +1,148 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadBrain, TYPE_COLOR, ANCHOR } from "../lib/brain";
+
+const brain = await loadBrain();
+const count = (t: string) => brain.nodes.filter(n => n.type === t).length;
+const types = Object.entries(brain.types).filter(([t]) => count(t));
+const apps = [...brain.apps, { id: "hub", name: "Family (shared)", accent: "#F2B233", repo: "" }];
+// The page reads the graph from this JSON; the list below the canvas is the same data as text.
+const data = JSON.stringify({ types: brain.types, colors: TYPE_COLOR, anchors: ANCHOR, apps: brain.apps, nodes: brain.nodes, edges: brain.edges }).replace(/</g, "\\u003c");
+const byType = types.map(([t, name]) => ({ t, name, nodes: brain.nodes.filter(n => n.type === t).sort((a, b) => (a.app ?? "").localeCompare(b.app ?? "") || a.label.localeCompare(b.label)) }));
+---
+<Base title="The Datum network" description="Every Datum app, design rule, technology, source file, decision, release and plan, as one interactive map." footer={false}>
+  <section class="stage" aria-label="The Datum network">
+    <canvas id="net" aria-label={`An interactive map of ${brain.nodes.length} nodes and ${brain.edges.length} links. The same content is listed below the map.`}></canvas>
+
+    <div class="panel left">
+      <p class="mono kick">Datum network · {brain.generated}</p>
+      <h1 class="ttl">The <em>brain</em> of the family</h1>
+      <p class="sub">{brain.nodes.length} nodes · {brain.edges.length} links, read from the repositories. Drag, zoom, click anything.</p>
+      <label class="search"><span class="sr">Search the network</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" /></svg>
+        <input id="q" type="search" placeholder="Search: updater, help.tsx, Python…" autocomplete="off" />
+        <kbd class="mono">/</kbd>
+      </label>
+      <p id="qn" class="mono hint" aria-live="polite"></p>
+      <div class="seg mono" role="group" aria-label="Layout">
+        <button type="button" data-layout="net" aria-pressed="true">Network</button>
+        <button type="button" data-layout="flow" aria-pressed="false">Flow</button>
+      </div>
+      <details class="filters" open>
+        <summary class="mono">Show</summary>
+        <div class="chips" role="group" aria-label="Kinds of node">
+          {types.map(([t, name]) => <button type="button" class="chip" data-type={t} aria-pressed="true"><i style={`--k:${TYPE_COLOR[t]}`}></i>{name}<span>{count(t)}</span></button>)}
+        </div>
+        <div class="chips" role="group" aria-label="Apps">
+          {apps.map(a => <button type="button" class="chip" data-app={a.id} aria-pressed="true"><i style={`--k:${a.accent}`}></i>{a.name}</button>)}
+        </div>
+      </details>
+    </div>
+
+    <aside id="info" class="panel right" hidden aria-live="polite">
+      <button type="button" class="close" id="close" aria-label="Close">×</button>
+      <p class="mono kind" id="i-kind"></p>
+      <h2 id="i-title"></h2>
+      <p class="mono meta" id="i-meta"></p>
+      <div id="i-text" class="txt"></div>
+      <a id="i-link" class="mono src" href="#" target="_blank" rel="noopener">Open the source ↗</a>
+      <p class="mono kind">Connected</p>
+      <ul id="i-links" class="links"></ul>
+    </aside>
+
+    <div class="zoom mono">
+      <button type="button" id="zin" aria-label="Zoom in">+</button>
+      <button type="button" id="zout" aria-label="Zoom out">−</button>
+      <button type="button" id="zfit" aria-label="Fit everything">Fit</button>
+      <a href={`https://github.com/Edgar-Mendonca/Datum/blob/HEAD/brain/graph.json`} title="The graph file Claude reads">graph.json</a>
+    </div>
+    <p id="tip" class="tip mono" hidden></p>
+  </section>
+
+  <section class="list ruled" aria-labelledby="list-h">
+    <div class="frame">
+      <div class="bar mono"><span><b>All</b> / The network as a list</span><span class="r">{brain.hidden ? `${brain.hidden} internal notes not shown` : ""}</span></div>
+      <h2 id="list-h" class="sr">The network as a list</h2>
+      <div class="cols pad">
+        {byType.map(g => (
+          <details>
+            <summary><i style={`--k:${TYPE_COLOR[g.t]}`}></i>{g.name} <span class="mono muted">{g.nodes.length}</span></summary>
+            <ul>{g.nodes.map(n => <li><b>{n.label}</b>{n.app && n.app !== "hub" && <span class="mono muted"> · {n.app}</span>}{n.text && <p>{n.text.slice(0, 220)}{n.text.length > 220 ? "…" : ""}</p>}</li>)}</ul>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script type="application/json" id="brain" set:html={data}></script>
+</Base>
+
+<script>
+  import { start } from "../scripts/network";
+  start();
+</script>
+
+<style>
+  .stage { position: relative; height: calc(100svh - var(--head)); min-height: 560px; background: radial-gradient(ellipse at 50% 45%, #0E1A2A 0%, #070C13 70%); color: #E6EDF5; overflow: hidden; }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+  canvas.grabbing { cursor: grabbing; }
+  canvas.pointing { cursor: pointer; }
+  .panel { position: absolute; z-index: 2; background: rgb(9 15 24 / .82); border: 1px solid #1E2B3B; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .left { top: 16px; left: 16px; width: 330px; max-height: calc(100% - 32px); overflow: auto; padding: 18px; display: grid; gap: 12px; }
+  .kick { color: #8FA3B8; font-size: 10.5px; }
+  .ttl { font-family: var(--display); font-stretch: 115%; font-weight: 700; font-size: 26px; line-height: 1.05; }
+  .ttl em { color: #F2B233; }
+  .sub { color: #A9B6C6; font-size: 14px; }
+  .search { display: flex; align-items: center; gap: 8px; border: 1px solid #2A3A4D; padding: 0 10px; background: #0B131E; }
+  .search:focus-within { border-color: #F2B233; }
+  .search svg { width: 16px; height: 16px; color: #8FA3B8; flex: none; }
+  .search input { flex: 1; min-width: 0; height: 40px; background: none; border: 0; color: inherit; font: 14px var(--sans); outline: none; }
+  kbd { font-size: 11px; color: #8FA3B8; border: 1px solid #2A3A4D; padding: 0 6px; }
+  .hint { color: #8FA3B8; font-size: 10.5px; min-height: 1em; }
+  .seg { display: flex; border: 1px solid #2A3A4D; }
+  .seg button { flex: 1; padding: 9px; font-size: 11px; color: #A9B6C6; }
+  .seg button[aria-pressed="true"] { background: #E6EDF5; color: #070C13; }
+  .filters summary { cursor: pointer; color: #8FA3B8; font-size: 11px; padding: 4px 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; border: 1px solid #2A3A4D; font-size: 12px; color: #C4CEDA; }
+  .chip i, .cols summary i { width: 9px; height: 9px; border-radius: 50%; background: var(--k); flex: none; display: inline-block; }
+  .chip span { color: #8FA3B8; font: 11px var(--mono); }
+  .chip[aria-pressed="false"] { opacity: .38; }
+  .chip:hover { border-color: #8FA3B8; }
+
+  .right { top: 16px; right: 16px; width: 380px; max-height: calc(100% - 32px); overflow: auto; padding: 22px 20px; display: grid; gap: 10px; align-content: start; }
+  .right[hidden] { display: none; }
+  .close { position: absolute; top: 8px; right: 10px; font-size: 22px; color: #8FA3B8; width: 32px; height: 32px; }
+  .close:hover { color: #fff; }
+  .kind { color: #8FA3B8; font-size: 10.5px; }
+  .right h2 { font-family: var(--display); font-stretch: 108%; font-size: 21px; line-height: 1.2; padding-right: 24px; }
+  .meta { color: #F2B233; font-size: 11px; }
+  .txt { color: #C4CEDA; font-size: 14px; display: grid; gap: 6px; }
+  .src { color: #E6EDF5; font-size: 11px; border-bottom: 1px solid #3A4B5F; justify-self: start; }
+  .src:hover { color: #F2B233; border-color: #F2B233; }
+  .links { display: grid; gap: 2px; }
+  .links :global(button) { display: flex; gap: 8px; align-items: baseline; width: 100%; text-align: left; padding: 6px 8px; font-size: 13px; color: #C4CEDA; border-left: 2px solid var(--k); }
+  .links :global(button:hover) { background: #142030; color: #fff; }
+  .links :global(small) { font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #8FA3B8; flex: none; min-width: 64px; }
+
+  .zoom { position: absolute; z-index: 2; right: 16px; bottom: 16px; display: flex; border: 1px solid #1E2B3B; background: rgb(9 15 24 / .82); }
+  .zoom button, .zoom a { min-width: 40px; height: 40px; padding: 0 12px; display: grid; place-items: center; font-size: 12px; color: #C4CEDA; border-right: 1px solid #1E2B3B; }
+  .zoom a { border-right: 0; font-size: 11px; }
+  .zoom :is(button, a):hover { color: #F2B233; }
+  .tip { position: absolute; z-index: 3; pointer-events: none; padding: 6px 9px; background: #E6EDF5; color: #070C13; font-size: 11px; max-width: 280px; text-transform: none; letter-spacing: .02em; }
+
+  @media (max-width: 760px) {
+    .stage { height: calc(100svh - var(--head)); }
+    .left { width: auto; right: 16px; padding: 14px; gap: 10px; max-height: 46%; }
+    .ttl { font-size: 21px; }
+    .sub, .kick { display: none; }
+    .right { top: auto; bottom: 0; left: 0; right: 0; width: auto; max-height: 55%; border-inline: 0; border-bottom: 0; }
+    .zoom { right: 12px; bottom: 12px; }
+  }
+
+  .list .cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 0 32px; padding-block: 32px 48px; }
+  .list details { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .list summary { cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+  .list ul { display: grid; gap: 10px; margin-top: 12px; font-size: 14px; }
+  .list li p { color: var(--muted); font-size: 13px; margin-top: 2px; }
+</style>

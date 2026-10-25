@@ -2,9 +2,10 @@
 import Base from "../layouts/Base.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
-<Base title="Not found" description="This page does not exist.">
-  <section class="wrap" style="padding:64px 20px">
-    <h1>This page does not exist.</h1>
-    <p><a href={`${base}/`}>Go to the Datum home page</a>.</p>
-  </section>
+<Base title="Not found · Datum" description="This page does not exist.">
+  <section class="ruled"><div class="frame pad" style="padding-block:96px;display:grid;gap:20px;justify-items:start">
+    <p class="mono muted">404 / off the datum</p>
+    <h1 class="h2">This page does not exist.</h1>
+    <a class="btn btn-solid" href={`${base}/`}>Back to Datum</a>
+  </div></section>
 </Base>

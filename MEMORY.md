@@ -7,7 +7,8 @@
 | **What** | DATUM: the home of the Datum family. The shared design guide ([FAMILY.md](FAMILY.md)), this memory, the app registry ([apps.json](apps.json)), the brand ([brand/](brand)) and the website ([site/](site)). |
 | **Positioning** | Free, open-source desktop tools for engineers, scientists, researchers and analysts. Never name or compare with commercial products (FAMILY §13). |
 | **Repo** | `Edgar-Mendonca/Datum` · working branch `claude/datum-hub-site-uyjhxh` (the first branch pushed, so also the default branch) |
-| **Website** | https://edgar-mendonca.github.io/Datum/ (Astro 7, static, GitHub Pages via `.github/workflows/pages.yml`) |
+| **Website** | https://edgar-mendonca.github.io/Datum/ and /network (Astro 7, static, GitHub Pages via `.github/workflows/pages.yml`) |
+| **Brain** | [brain/graph.json](brain/graph.json): the whole family as one graph; read it before starting any new app ([BRAIN.md](brain/BRAIN.md)) |
 | **Brief** | [Datum-Plan/docs/briefs/DATUM-HUB.md](https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/briefs/DATUM-HUB.md) |
 
 ---
@@ -22,26 +23,31 @@
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
-## 2. The site
+## 2. The site and the brain
 
 ```
+brain/
+  brain.mjs               the brain generator (no dependencies): FAMILY, MEMORY, apps.json + each app's MEMORY, CHANGELOG, site.json → nodes and edges
+  graph.json              its output, committed (node brain/brain.mjs); schema in BRAIN.md
 site/
-  astro.config.mjs        site https://edgar-mendonca.github.io, base /Datum; a build:done hook writes screenshots into dist/apps/<id>/
-  src/lib/github.ts       build-time data: site.json, CHANGELOG.md, logo, releases; fallbacks; the product-name filter
-  src/styles/tokens.css   the family tokens + accent sets per app (data-app on <html>), light/dark
-  src/layouts/Base.astro  head, Google Fonts (display=swap), the theme script (Auto/Light/Dark, the only JS)
-  src/components/         Header, Footer, AppCard, ReleaseBadge, Roadmap, Feature, Shot
-  src/pages/              index, [app] (plan, plot, atlas), family (rendered from FAMILY.md), about, 404
+  astro.config.mjs        site https://edgar-mendonca.github.io, base /Datum; a build:done hook writes the screenshots into dist/apps/<id>/
+  src/lib/github.ts       app data: site.json, CHANGELOG.md, logo, releases, first screenshot (→ 1440 px WebP); fallbacks; the product-name filter (NAMES)
+  src/lib/brain.ts        the brain for the site: public scrub (NAMES), degrees, a d3-force layout computed at build time
+  src/styles/site.css     tokens (paper and ink, app accents, light/dark), type (Archivo wdth, IBM Plex, Instrument Serif), frame, bars, buttons, header, footer
+  src/layouts/Base.astro  head, the theme script (Auto/Light/Dark), header, footer
+  src/components/         Mark (the datum symbol, currentColor), Header, Footer
+  src/pages/index.astro   the one landing page: hero drawing + app plates, figures, 01 apps (download), 02 how they are built, 03 latest releases, 04 network teaser, get started
+  src/pages/network.astro the Datum network: canvas stage, search, filters, Network/Flow layouts, details panel, the graph as a list
+  src/scripts/network.ts  the network client (d3-force, canvas, pointer/pinch/wheel, pulses along links)
 ```
 
 Data flow, per app in `apps.json`:
-- `raw.githubusercontent.com/<repo>/HEAD/docs/site.json` → tagline, for, highlights, screenshots, roadmap. Missing → the `apps.json` fields, and "Coming soon" for the roadmap.
-- `CHANGELOG.md` → split on `## X.Y.Z — date`; the last 5 sections on the app page; the summary is the first plain paragraph, else the first bullet.
-- `api.github.com/repos/<repo>/releases` (with `GITHUB_TOKEN` in Actions) → latest version, date, installer URL and size; the home page's 6 newest releases. If the API fails, the newest CHANGELOG section is used and Download links to `releases/latest`.
-- Logo SVG from the repo (inlined as a data URI); fallback `brand/`.
-- Screenshots are downloaded at build and written into `dist/apps/<id>/` (no hotlinking); one that fails is left out.
+- `raw.githubusercontent.com/<repo>/HEAD/docs/site.json` → tagline, for, highlights, screenshots, roadmap. Missing → the `apps.json` fields (name, accent, tagline, for, shot).
+- `CHANGELOG.md` → versions and summaries; the figures and the latest-releases list.
+- `api.github.com/repos/<repo>/releases` (with `GITHUB_TOKEN` in Actions) → latest version, date, installer URL and size. If the API fails, the newest CHANGELOG section is used and Download links to `releases/latest`.
+- `docs/MEMORY.md` → the brain (Files, Decisions, Roadmap, Session log, How we work, the product table's Stack).
 
-Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, and `repository_dispatch` type `app-released`. Settings › Pages › Source must be **GitHub Actions**.
+Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, and `repository_dispatch` type `app-released`. **Settings › Pages › Source must be GitHub Actions**; with "Deploy from a branch" GitHub runs Jekyll on the raw repo and fails on the `.astro` files (`.nojekyll` at the root now stops that, but the site only deploys through Actions).
 
 ## 3. Decisions
 
@@ -56,6 +62,12 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 | 2026-10-25 | Pages workflow runs on every push but deploys only from the default branch (`if:` on the job) | The repo has no `main`; this keeps working if the default branch changes. |
 | 2026-10-25 | Text and filled buttons use an `--ink` token: the accent, or a darker shade where white on it is below 4.5:1 (Plot's teal → `#0B7468`) | WCAG AA contrast. |
 | 2026-10-25 | Family mark `brand/datum-icon.svg`: grey-tint tile, navy "D" with blue, teal and violet dots, amber diamond | The brief (§1). |
+| 2026-10-25 (s2) | The site is **one landing page** plus the **Datum network**; the app, family and about pages are gone | The user: the site is only for people to see the apps and download them; memory, roadmap and design stay in the repo. |
+| 2026-10-25 (s2) | Look taken from the user's zhuojia site (paper-and-ink grid, framed column, numbered bars, wide display type, serif italic accent, mono labels), but its own quiet header (mark, word, three links, theme) and a datum drawing instead of the orbit | The user asked for that layout and style, not a copy, and did not like the reference headers. Artcraft could not be opened from the build sandbox. |
+| 2026-10-25 (s2) | New family mark: the GD&T datum feature symbol (framed "D", leader, datum triangle) on a reference line of the three app accents, amber diamond beside the frame | The user was not satisfied with the "D with dots"; a datum symbol says what the name means. |
+| 2026-10-25 (s2) | **The brain**: `brain/brain.mjs` builds one graph (nodes: hub, apps, FAMILY sections, technologies, workflow, decisions, files, releases, plans, sessions) from the repos; `brain/graph.json` is committed; the site draws it | The user wants a complete, interactive map of the whole portfolio, and one file Claude reads in every new project so nothing is lost. |
+| 2026-10-25 (s2) | The public network removes sentences that name other products and leaves out nodes whose title does; graph.json keeps everything | FAMILY §13 for the site; the memory itself must stay complete. |
+| 2026-10-25 (s2) | Fonts self-hosted with @fontsource (Archivo with the width axis, IBM Plex Sans and Mono, Instrument Serif); screenshots converted to 1440 px WebP at build with sharp | No third-party requests; smaller pages. |
 | 2026-10-25 | Datum Plot's bundled Python is recorded in FAMILY §2 as the one exception to "no Python" | Plot's own decision (its MEMORY, session 1); the guide must not contradict a shipped app. |
 
 ## 4. Roadmap (hub)
@@ -65,13 +77,16 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 | Item | Status |
 | --- | --- |
 | README, FAMILY, MEMORY, apps.json, brand, LICENSE, CLAUDE.md | ✅ |
-| Astro site: home, app pages, family, about, 404; data layer with fallbacks; light/dark/auto | ✅ |
+| Astro site: home, app pages, family, about, 404; data layer with fallbacks; light/dark/auto | ✅ (session 1; replaced in session 2) |
+| One landing page + the Datum network; new logo; the brain (`brain/`) | ✅ (session 2) |
 | Pages workflow | ✅ (needs Settings › Pages › Source = GitHub Actions) |
 | Plot and Atlas publish `docs/site.json` | 🔜 (in their chats) |
 | App repos reword CHANGELOG lines that name other products; Plan restores its lost 0.3.3–0.3.7 headings | 🔜 (in their chats) |
 | App repos replace `docs/FAMILY.md` with a link to DATUM's FAMILY.md | 🔜 |
 | Each app's `release.yml` sends `repository_dispatch` (`app-released`) to DATUM (fine-grained token secret) so the site updates within minutes | ⬜ |
 | Lighthouse run on the live site (target 95+) | ⬜ |
+| Brain: regenerate `graph.json` in the daily build and commit it (needs `contents: write`), or have each app's release ping DATUM | ⬜ |
+| Brain: richer links (decisions ↔ FAMILY sections by topic, plans ↔ the decisions behind them) | ⬜ |
 
 ## 5. Session log
 
@@ -82,8 +97,15 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 - Found: Plan's CHANGELOG lost its `## 0.3.7` … `## 0.3.3` headings (they read ` 2026-10-24`), so the site jumps from 0.3.8 to 0.3.2. Plan's 0.3.6 and Plot's 0.1.0 sections name other products (left out by the filter).
 - Plot and Atlas have no `docs/site.json` yet: gave the user a snippet for each.
 
+### 2026-10-25: Session 2 (landing page, network, logo)
+- User: the Pages build failed with Jekyll YAML errors (the Pages source was "Deploy from a branch", so GitHub ran Jekyll over the `.astro` files; our own Actions build had passed but could not deploy because Pages was not set to GitHub Actions). Added `.nojekyll`; the fix is Settings › Pages › Source = GitHub Actions.
+- User: not happy with the design or the logo; wants the zhuojia look (not a copy, not its header), a one-page landing site with downloads, everything else kept in the repo as the brain, and an interactive "neural network" map of the whole portfolio that Claude can use in every project.
+- Built: `brain/brain.mjs` + `graph.json` + `BRAIN.md` (336 nodes, 575 edges); the landing page; the network page (Network and Flow layouts, search, filters, details, pulses); the datum-symbol logo (`brand/datum-icon.svg`, `brand/datum-mark.svg`). Removed the app, family and about pages.
+- Checked: build without a token; Playwright at 1280 and 375 px, light and dark, no overflow, no console errors; every image loads; network search (help.tsx), selection panel, Flow layout and mobile checked by screenshot.
+
 ## 6. Known limits
 
 - Without `GITHUB_TOKEN` (local builds) the release API may be rate-limited; versions then come from the CHANGELOG and Download goes to `releases/latest`.
 - The site updates once a day after an app release until the `repository_dispatch` step is added to the apps.
-- Fonts come from Google Fonts (display=swap), not self-hosted.
+- `brain/graph.json` in the repo is as fresh as the last `node brain/brain.mjs`; the website rebuilds the graph itself every day.
+- The network page carries the whole graph (about 300 kB of HTML before compression).
