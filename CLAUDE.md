@@ -11,7 +11,8 @@ What this repo is:
 
 Rules:
 - Public text never names or compares with commercial products, and never says an app copies or replaces one (FAMILY §13).
-- The site's look: paper-and-ink technical grid (framed column, numbered section bars, wide Archivo display type, Instrument Serif italic accents, IBM Plex text and mono labels), FAMILY §3 accents. No UI kit. Client JavaScript only for the theme toggle and the network page.
+- The site's look: simple, professional and technical, for engineers and scientists, never "artistic". Paper-and-ink grid (framed column, numbered section bars), IBM Plex Sans and Mono only (no display or serif faces, no giant words, no floating decorations), FAMILY §3 accents. The hero is two panels: the name and a changing write-up on the left, the animated instrument panel (one technical scene per app, in step with the text) on the right. No "free · open source · Windows" slogans; say it once in the lead. No UI kit. Client JavaScript only for the theme toggle and the network page.
+- The brand: the user's "Continuum" logo, `brand/BRAND.md`. Never recolour it in app accents; regenerate the files with `python3 brand/source/build-logo.py brand`.
 - The landing page stays one page: what Datum is, the apps with their download buttons, the latest releases. Memory, roadmaps and decisions live in the repo and the network, not as pages.
 - Never fail the build because of one app: show "Coming soon" instead.
 

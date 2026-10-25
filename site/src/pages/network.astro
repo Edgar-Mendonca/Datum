@@ -90,7 +90,7 @@ const byType = types.map(([t, name]) => ({ t, name, nodes: brain.nodes.filter(n 
   .panel { position: absolute; z-index: 2; background: rgb(9 15 24 / .82); border: 1px solid #1E2B3B; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   .left { top: 16px; left: 16px; width: 330px; max-height: calc(100% - 32px); overflow: auto; padding: 18px; display: grid; gap: 12px; }
   .kick { color: #8FA3B8; font-size: 10.5px; }
-  .ttl { font-family: var(--display); font-stretch: 115%; font-weight: 700; font-size: 26px; line-height: 1.05; }
+  .ttl { font: 600 26px/1.1 var(--display); letter-spacing: -.02em; }
   .ttl em { color: #F2B233; }
   .sub { color: #A9B6C6; font-size: 14px; }
   .search { display: flex; align-items: center; gap: 8px; border: 1px solid #2A3A4D; padding: 0 10px; background: #0B131E; }
@@ -115,7 +115,7 @@ const byType = types.map(([t, name]) => ({ t, name, nodes: brain.nodes.filter(n 
   .close { position: absolute; top: 8px; right: 10px; font-size: 22px; color: #8FA3B8; width: 32px; height: 32px; }
   .close:hover { color: #fff; }
   .kind { color: #8FA3B8; font-size: 10.5px; }
-  .right h2 { font-family: var(--display); font-stretch: 108%; font-size: 21px; line-height: 1.2; padding-right: 24px; }
+  .right h2 { font-family: var(--display); font-weight: 600; font-size: 20px; line-height: 1.2; padding-right: 24px; }
   .meta { color: #F2B233; font-size: 11px; }
   .txt { color: #C4CEDA; font-size: 14px; display: grid; gap: 6px; }
   .src { color: #E6EDF5; font-size: 11px; border-bottom: 1px solid #3A4B5F; justify-self: start; }

@@ -1,14 +1,11 @@
 ---
-import Mark from "./Mark.astro";
-import { loadAll } from "../lib/github";
-const count = (await loadAll()).length;
+import Logo from "./Logo.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const here = Astro.url.pathname.replace(/\/$/, "");
 ---
 <header class="site-head">
   <div class="frame">
-    <a class="brand" href={`${base}/`} aria-label="Datum home"><Mark /><span class="word">DATUM</span></a>
-    <span class="head-note mono">{count} apps · more to come</span>
+    <a class="brand" href={`${base}/`} aria-label="Datum home"><Logo /></a>
     <nav class="head-links mono" aria-label="Main">
       <a href={`${base}/#apps`}>Apps</a>
       <a href={`${base}/network`} aria-current={here === `${base}/network` ? "page" : undefined}>Network</a>

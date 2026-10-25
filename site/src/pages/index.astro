@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import HeroField from "../components/HeroField.astro";
+import HeroPanel from "../components/HeroPanel.astro";
 import { loadAll, latestReleases, fmtDate, fmtSize } from "../lib/github";
 import { loadBrain, radius, TYPE_COLOR } from "../lib/brain";
 
@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const letters = "ABCDEFGH";
 const releases = apps.reduce((n, a) => n + a.changelog.length, 0);
 const decisions = brain.nodes.filter(n => n.type === "decision").length;
-const stats: [string, string][] = [[String(apps.length).padStart(2, "0"), "Apps"], [String(releases), "Releases"], [String(decisions), "Decisions recorded"], ["0", "Accounts · telemetry"]];
+const stats: [string, string][] = [[String(apps.length), "Apps in the family"], [String(releases), "Releases so far"], [String(decisions), "Decisions recorded"], ["MIT", "Licence"]];
 
 // The network preview: the build-time layout, scaled into a fixed box.
 const xs = brain.nodes.map(n => n.x!), ys = brain.nodes.map(n => n.y!);
@@ -22,39 +22,20 @@ const fill = (n: (typeof brain.nodes)[number]) => n.type === "app" ? accent(n.ap
 const r1 = (v: number) => Math.round(v);
 ---
 <Base title="Datum: free, open-source desktop tools for technical work" description="Datum is a family of free, open-source desktop tools for engineers, scientists, researchers and analysts: Datum Plan, Datum Plot and Datum Atlas.">
-  <!-- Hero: the wordmark, a rotating line, and the field of tools around it. -->
+  <!-- Hero: the name and a changing write-up on the left, the instrument panel on the right. -->
   <section class="hero ruled" aria-labelledby="hero-title">
-    <div class="frame">
-      <HeroField apps={apps} />
-      <div class="hero-text">
-        <p class="mono kicker"><span class="live"></span>Free · open source · for Windows</p>
-        <h1 id="hero-title" class="display hero-word">Datum</h1>
-        <p class="hero-sub">Tools to <span class="rot"><em>plan projects.</em><em>analyse data.</em><em>choose materials.</em><em>measure, model, decide.</em></span></p>
-        <p class="lead">Small, fast desktop apps for engineers, scientists, researchers and analysts. Written from scratch, built the same way, with more on the way. No accounts, no subscriptions, no telemetry: your files stay on your computer.</p>
-        <div class="btns center">
-          <a class="btn btn-solid" href="#apps">Get the apps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v13M6 11l6 6 6-6M5 20h14" /></svg></a>
-          <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Statement and figures. -->
-  <section class="ruled" aria-label="Datum in figures">
-    <div class="frame intro">
-      <p class="statement h2">Small, fast apps for the work behind every project, every paper and every part. <span class="dim">Written from scratch, built the same way,</span> <em>free for everyone.</em></p>
-    </div>
-    <div class="frame stats">
-      {stats.map(([n, l]) => <div><span class="display stat-n">{n}</span><span class="mono muted">{l}</span></div>)}
+    <div class="frame pad"><HeroPanel apps={apps} /></div>
+    <div class="frame stats" aria-label="Datum in figures">
+      {stats.map(([n, l]) => <div><span class="stat-n">{n}</span><span class="mono muted">{l}</span></div>)}
     </div>
   </section>
 
   <!-- 01 The apps -->
   <section id="apps" class="ruled" aria-labelledby="apps-h">
     <div class="frame">
-      <div class="bar mono"><span><b>01</b> / The apps</span><span class="r">Windows 10 and 11 · installs in seconds · updates itself</span></div>
+      <div class="bar mono"><span><b>01</b> / The apps</span><span class="r">Windows 10 and 11 · updates itself</span></div>
       <div class="pad sec-intro">
-        <h2 id="apps-h" class="h2">{apps.length === 3 ? "Three" : apps.length} tools. <em>One way of working.</em></h2>
+        <h2 id="apps-h" class="h2">{apps.length === 3 ? "Three" : apps.length} tools, one way of working.</h2>
         <p class="lead">Each app does one kind of technical work well. They share one window, one ribbon, one help system and one updater, so learning one means knowing them all.</p>
       </div>
       {apps.map((a, i) => (
@@ -68,7 +49,7 @@ const r1 = (v: number) => Math.round(v);
             </figure>
             <div class="app-text">
               <img src={a.logo} width="56" height="56" alt="" />
-              <h3 id={`${a.id}-name`} class="display app-name">{a.name.replace(/^Datum /, "")}</h3>
+              <h3 id={`${a.id}-name`} class="app-name">{a.name}</h3>
               <p class="app-tag">{a.tagline}</p>
               <p class="app-for"><span class="mono">For</span> {a.for}</p>
               {a.highlights.length > 0 && <ul class="hl">{a.highlights.slice(0, 4).map(h => <li>{h}</li>)}</ul>}
@@ -91,7 +72,7 @@ const r1 = (v: number) => Math.round(v);
     <div class="frame">
       <div class="bar mono"><span><b>02</b> / Built the same way</span><span class="r">Engine · window · release · memory</span></div>
       <div class="pad sec-intro">
-        <h2 id="built-h" class="h2">One method, <em>every app.</em></h2>
+        <h2 id="built-h" class="h2">One method for every app.</h2>
       </div>
       <ol class="steps">
         <li><span class="mono">01 · Engine</span><h3 class="h3">Calculation first</h3><p class="muted">Every app has its own engine in a pure Rust crate, with unit tests. The window only shows what the engine computes.</p>
@@ -115,7 +96,7 @@ const r1 = (v: number) => Math.round(v);
         {recent.map(r => (
           <li style={`--c:var(--${r.app}, ${r.accent})`}>
             <span class="mono rel-app">{r.name}</span>
-            <a class="rel-v display" href={r.url}>{r.version}</a>
+            <a class="rel-v mono" href={r.url}>{r.version}</a>
             <time class="mono muted" datetime={r.date}>{fmtDate(r.date)}</time>
             <span class="rel-sum">{r.summary || "See the release notes."}</span>
           </li>
@@ -134,7 +115,7 @@ const r1 = (v: number) => Math.round(v);
           <g>{brain.nodes.map(n => <circle cx={r1(n.x!)} cy={r1(n.y!)} r={r1(radius(n) * 1.2)} fill={fill(n)} />)}</g>
         </svg>
         <div class="net-text">
-          <h2 id="net-h" class="h2">The brain of <em>the whole family.</em></h2>
+          <h2 id="net-h" class="h2">The memory of the whole family, as one map.</h2>
           <p>Every app, design rule, technology, source file, decision, release, plan and working session, linked in one living map. It rebuilds from the repositories every day, and every new app starts from it.</p>
           <span class="btn btn-solid inverse">Open the network</span>
         </div>
@@ -145,9 +126,9 @@ const r1 = (v: number) => Math.round(v);
   <!-- Get to work -->
   <section class="ruled" aria-labelledby="go-h">
     <div class="frame go">
-      <div class="bar mono"><span><b>05</b> / Get started</span><span class="r">Free · MIT licence</span></div>
-      <h2 id="go-h" class="display go-word">Get to work.</h2>
-      <p class="lead center">Download an app, run the installer, and start. No account to create, nothing to configure.</p>
+      <div class="bar mono"><span><b>05</b> / Get started</span><span class="r">Installs in seconds</span></div>
+      <h2 id="go-h" class="h2 go-h">Download an app and start working.</h2>
+      <p class="lead center">Run the installer and open a file. There is no account to create and nothing to configure.</p>
       <div class="btns center">
         {apps.map(a => a.latest
           ? <a class="btn btn-solid" style={`--c:var(--${a.id}, ${a.accent})`} href={`https://github.com/${a.repo}/releases/latest`}>{a.name}</a>
@@ -159,33 +140,11 @@ const r1 = (v: number) => Math.round(v);
 
 <style>
   /* Hero */
-  .hero .frame { min-height: max(900px, calc(100svh - var(--head))); display: grid; place-items: center; overflow: hidden; padding: 72px var(--pad) 64px;
-    background-image: radial-gradient(circle, var(--line-2) 1px, transparent 1.2px); background-size: 22px 22px; }
-  .hero-text { position: relative; z-index: 2; text-align: center; display: grid; justify-items: center; gap: 18px; max-width: 760px; }
-  .kicker { color: var(--muted); display: inline-flex; align-items: center; gap: 10px; }
-  .live { width: 8px; height: 8px; border-radius: 50%; background: #1F7A4D; box-shadow: 0 0 0 0 rgb(31 122 77 / .5); animation: ping 2.4s ease-out infinite; }
-  @keyframes ping { 70%, 100% { box-shadow: 0 0 0 8px rgb(31 122 77 / 0); } }
-  .hero-word { font-size: clamp(76px, 13.5vw, 184px); margin: 2px 0 0; }
-  .hero-sub { font-family: var(--display); font-stretch: 112%; font-weight: 650; font-size: clamp(24px, 3.4vw, 44px); letter-spacing: -.02em; line-height: 1.1; }
-  .rot { display: inline-grid; text-align: left; vertical-align: bottom; }
-  .rot em { grid-area: 1 / 1; opacity: 0; animation: words 12s infinite; }
-  .rot em:nth-child(2) { animation-delay: 3s; } .rot em:nth-child(3) { animation-delay: 6s; } .rot em:nth-child(4) { animation-delay: 9s; }
-  @keyframes words { 0% { opacity: 0; transform: translateY(.4em); } 4%, 23% { opacity: 1; transform: none; } 27%, 100% { opacity: 0; transform: translateY(-.4em); } }
-  @media (prefers-reduced-motion: reduce) { .rot em { opacity: 0; } .rot em:last-child { opacity: 1; } }
-  .hero-text .lead { margin-inline: auto; }
-  .center { justify-content: center; text-align: center; margin-inline: auto; }
-  @media (max-width: 1100px) {
-    .hero .frame { min-height: 0; place-items: start center; display: flex; flex-direction: column; align-items: center; padding-top: 56px; }
-    .rot { display: grid; justify-items: center; margin-top: 4px; }
-  }
-
-  /* Statement and figures */
-  .intro { padding: clamp(64px, 9vw, 128px) var(--pad); }
-  .statement { max-width: 22ch; font-size: clamp(30px, 4.6vw, 62px); }
+  .hero .frame.pad { padding-block: clamp(56px, 8vw, 104px); }
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-  .stats > div { display: grid; gap: 14px; padding: 36px var(--pad); border-right: 1px solid var(--line); }
+  .stats > div { display: grid; gap: 6px; padding: 22px var(--pad); border-right: 1px solid var(--line); }
   .stats > div:last-child { border-right: 0; }
-  .stat-n { font-size: clamp(48px, 6.4vw, 92px); }
+  .stat-n { font: 600 28px/1 var(--mono); letter-spacing: -.02em; }
   @media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; } .stats > div:nth-child(2) { border-right: 0; } .stats > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
 
   .sec-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end; padding-block: clamp(48px, 7vw, 96px); }
@@ -198,18 +157,16 @@ const r1 = (v: number) => Math.round(v);
     background-color: color-mix(in srgb, var(--c) 9%, var(--paper));
     background-image: linear-gradient(color-mix(in srgb, var(--c) 16%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--c) 16%, transparent) 1px, transparent 1px);
     background-size: 28px 28px; }
-  .app-shot img { width: 100%; border: 1px solid color-mix(in srgb, var(--c) 30%, var(--line)); box-shadow: 0 30px 60px -30px rgb(12 26 43 / .5); transform: perspective(1600px) rotateY(-4deg); transition: transform .6s var(--ease); }
-  .app.flip .app-shot img { transform: perspective(1600px) rotateY(4deg); }
-  .app:hover .app-shot img { transform: none; }
+  .app-shot img { width: 100%; border: 1px solid color-mix(in srgb, var(--c) 30%, var(--line)); box-shadow: 0 24px 48px -32px rgb(12 26 43 / .45); }
   .app-shot .app-logo-big { width: 200px; border: 0; box-shadow: none; transform: none; }
   .app-text { padding: clamp(28px, 4vw, 56px) var(--pad); display: grid; gap: 16px; align-content: center; justify-items: start; }
-  .app-name { font-size: clamp(54px, 7vw, 104px); color: var(--c); }
+  .app-name { font: 600 clamp(28px, 3vw, 38px)/1.1 var(--display); letter-spacing: -.02em; }
   .app-tag { font-size: clamp(18px, 1.6vw, 21px); font-weight: 600; max-width: 30ch; }
   .app-for { color: var(--muted); }
   .app-for .mono { color: var(--ink); margin-right: 8px; }
   .hl { display: grid; gap: 8px; font-size: 15px; color: var(--ink-2); }
   .hl li { padding-left: 22px; position: relative; }
-  .hl li::before { content: ""; position: absolute; left: 3px; top: .55em; width: 8px; height: 8px; background: var(--amber); transform: rotate(45deg); }
+  .hl li::before { content: ""; position: absolute; left: 3px; top: .55em; width: 7px; height: 7px; background: var(--amber); }
   .app .btn-solid:hover { background: var(--c); border-color: var(--c); }
   .app-links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11px; }
   .app-links a { color: var(--muted); border-bottom: 1px solid var(--line-2); }
@@ -236,7 +193,7 @@ const r1 = (v: number) => Math.round(v);
   .rel li { display: grid; grid-template-columns: 170px 120px 130px 1fr; gap: 16px; align-items: baseline; padding: 20px var(--pad); border-bottom: 1px solid var(--line); }
   .rel li:last-child { border-bottom: 0; }
   .rel-app { color: var(--c); }
-  .rel-v { font-size: 28px; }
+  .rel-v { font-size: 18px; font-weight: 600; letter-spacing: 0; }
   .rel-v:hover { color: var(--c); }
   .rel-sum { color: var(--ink-2); font-size: 15px; }
   @media (max-width: 760px) { .rel li { grid-template-columns: auto auto 1fr; } .rel-sum { grid-column: 1 / -1; } }
@@ -256,6 +213,6 @@ const r1 = (v: number) => Math.round(v);
   /* Get to work */
   .go { text-align: center; padding-bottom: clamp(56px, 8vw, 112px); display: grid; gap: 24px; }
   .go .bar { text-align: left; }
-  .go-word { font-size: clamp(56px, 12vw, 170px); padding: clamp(40px, 6vw, 80px) var(--pad) 0; }
+  .go-h { padding: clamp(40px, 6vw, 72px) var(--pad) 0; }
   .go .btns { padding: 0 var(--pad); }
 </style>

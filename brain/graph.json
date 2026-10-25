@@ -45,7 +45,7 @@
    "id": "guide-1",
    "type": "guide",
    "label": "§1 The apps",
-   "text": "| App | What it is for | Accent | Logo glyph | Files | Identifier | Repo |\n| --- | --- | --- | --- | --- | --- | --- |\n| Datum Plan | Plan, schedule, track and report projects | Blue #0B5CAD (glyph #2F6FCF) | Calendar with bars + amber diamond | .dplan | com.edgarmendonca.datumplan | Edgar-Mendonca/Datum-Plan |\n| Datum Plot | Analyse data and make publication-ready graphs | Teal #0E8C7F | Axes, points, fitted curve + amber diamond | .dplot | com.edgarmendonca.datumplot | Edgar-Mendonca/Datum-Plot |\n| Datum Atlas | Choose materials with property charts and selection indices | Violet #6C4AB6 | Log–log axes, family bubbles, index line + amber diamond | .datlas | com.edgarmendonca.datumatlas | Edgar-Mendonca/Datum-Atlas |\n| DATUM (hub) | The family site, memory and brain | Navy #0C1A2B | A \"D\" that is a protractor (ruler stem, graduated bowl, needle) + the amber diamond as the datum origin | — | — | Edgar-Mendonca/Datum |\n| Next apps | — | pick from §3 | — | .d<name> | com.edgarmendonca.datum<name> | Edgar-Mendonca/Datum-<Name> |\nThe registry the site builds from is apps.json.",
+   "text": "| App | What it is for | Accent | Logo glyph | Files | Identifier | Repo |\n| --- | --- | --- | --- | --- | --- | --- |\n| Datum Plan | Plan, schedule, track and report projects | Blue #0B5CAD (glyph #2F6FCF) | Calendar with bars + amber diamond | .dplan | com.edgarmendonca.datumplan | Edgar-Mendonca/Datum-Plan |\n| Datum Plot | Analyse data and make publication-ready graphs | Teal #0E8C7F | Axes, points, fitted curve + amber diamond | .dplot | com.edgarmendonca.datumplot | Edgar-Mendonca/Datum-Plot |\n| Datum Atlas | Choose materials with property charts and selection indices | Violet #6C4AB6 | Log–log axes, family bubbles, index line + amber diamond | .datlas | com.edgarmendonca.datumatlas | Edgar-Mendonca/Datum-Atlas |\n| DATUM (hub) | The family site, memory and brain | Navy #0C1A2B | \"Continuum\": two concentric D's drawn as one line, with the amber datum square where it starts (brand/BRAND.md) | — | — | Edgar-Mendonca/Datum |\n| Next apps | — | pick from §3 | — | .d<name> | com.edgarmendonca.datum<name> | Edgar-Mendonca/Datum-<Name> |\nThe registry the site builds from is apps.json.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -73,7 +73,7 @@
    "id": "guide-5",
    "type": "guide",
    "label": "§5 Logo and branding",
-   "text": "· Tile: 256×256 viewBox, a rounded square (x=8 y=8 w=240 h=240 rx=56), a white→accent-tint diagonal gradient, and a 4 px border in a light accent tint.\n· Glyph: drawn in the accent with 11 px strokes, round caps. It may use one light tint fill (the --sky colour). It always has one amber #F2B233 diamond (the family mark).\n· Files: ui/public/logo.svg (in the app) and docs/brand/datum-<app>-icon.svg (README). Windows icons are generated from it (npx tauri icon). Copies of every icon, and the family mark, are in this repo's brand/.\n· The family mark (brand/datum-icon.svg; without the tile brand/datum-mark.svg): a \"D\" that is also a protractor: the stem is a ruler, the bowl a graduated arc, a needle measures from the datum origin, which is the amber diamond. Navy #0C1A2B ink only (currentColor on the site), so it never depends on any app's colour and stays right however many apps the family has.\n· Name: \"Datum <App>\" in Plex Sans 600. Tagline in the README.\n· README: the logo, the name, a one-line tagline, shields.io badges (release, CI, downloads, license MIT, platform Windows 10/11, Rust, Tauri 2, SolidJS), then for-the-badge buttons (Download for Windows · What's new · Memory & roadmap), then a screenshot.",
+   "text": "· Tile: 256×256 viewBox, a rounded square (x=8 y=8 w=240 h=240 rx=56), a white→accent-tint diagonal gradient, and a 4 px border in a light accent tint.\n· Glyph: drawn in the accent with 11 px strokes, round caps. It may use one light tint fill (the --sky colour). It always has one amber #F2B233 diamond (the family mark).\n· Files: ui/public/logo.svg (in the app) and docs/brand/datum-<app>-icon.svg (README). Windows icons are generated from it (npx tauri icon). Copies of every icon, and the family mark, are in this repo's brand/.\n· The family mark (\"Continuum\", designed by the user): two concentric D's drawn as one continuous line, with the amber #F2B233 datum square where the line starts. Navy #0C1A2B (or light #E6EDF5) ink only, never an app colour, so it stays right however many apps the family has. Files, construction and rules: brand/BRAND.md (datum-logo.svg, datum-mark.svg, datum-icon.svg and light versions).\n· Name: \"Datum <App>\" in Plex Sans 600. Tagline in the README.\n· README: the logo, the name, a one-line tagline, shields.io badges (release, CI, downloads, license MIT, platform Windows 10/11, Rust, Tauri 2, SolidJS), then for-the-badge buttons (Download for Windows · What's new · Memory & roadmap), then a screenshot.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -349,13 +349,40 @@
    "id": "hub-decision-11",
    "type": "decision",
    "app": "hub",
-   "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
-   "text": "Family mark replaced by a \"D\" that is a protractor (ruler stem, graduated bowl, needle from the amber datum origin), navy ink only\n\nWhy: The user: no app colours in the logo (more apps will come); a generalized, unique, vector-style symbolic D.",
-   "date": "2026-10-25 (s3)",
+   "label": "The logo is the user's own design, \"Continuum\": two concentric…",
+   "text": "The logo is the user's own design, \"Continuum\": two concentric D's as one line, amber datum square where it starts, with a geometric DATUM wordmark. Refined only in geometry (one centre, true arcs, even 16 gap, optical letter spacing); guide in brand/BRAND.md, generator in brand/source/build-logo.py\n\nWhy: The user designed it and asked us to improve on it, not replace it; no app colours in the brand.",
+   "date": "2026-10-25 (s4)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
    "id": "hub-decision-12",
+   "type": "decision",
+   "app": "hub",
+   "label": "The site is simple and technical: IBM Plex Sans and Mono only…",
+   "text": "The site is simple and technical: IBM Plex Sans and Mono only (Archivo and Instrument Serif removed), no giant display words, no floating tiles or orbit rings, no repeated \"free · open source · Windows\" slogans\n\nWhy: The user: the site looked artistic and too close to the reference sites; it must look professional and attract engineers and scientists.",
+   "date": "2026-10-25 (s4)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-13",
+   "type": "decision",
+   "app": "hub",
+   "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
+   "text": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber square, one lead line, and a write-up that cycles Plan → Plot → Atlas → More to come, beside an instrument panel with one animated technical scene per item (schedule with critical path, fitted curve with band and readout, property chart with selection line, a drawing being drafted); one CSS clock keeps text and scene in step; hover pauses\n\nWhy: The user's layout: writing on the left, animated icons on the right, the text changing with what is shown.",
+   "date": "2026-10-25 (s4)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-14",
+   "type": "decision",
+   "app": "hub",
+   "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
+   "text": "Family mark replaced by a \"D\" that is a protractor (ruler stem, graduated bowl, needle from the amber datum origin), navy ink only\n\nWhy: The user: no app colours in the logo (more apps will come); a generalized, unique, vector-style symbolic D.",
+   "date": "2026-10-25 (s3, replaced in s4)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-15",
    "type": "decision",
    "app": "hub",
    "label": "The hero is a field of animated SVG tiles around the wordmark…",
@@ -364,7 +391,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-13",
+   "id": "hub-decision-16",
    "type": "decision",
    "app": "hub",
    "label": "New family mark: the GD&T datum feature symbol (framed \"D\"…",
@@ -373,7 +400,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-14",
+   "id": "hub-decision-17",
    "type": "decision",
    "app": "hub",
    "label": "The brain: brain/brain.mjs builds one graph (nodes: hub, apps…",
@@ -382,7 +409,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-15",
+   "id": "hub-decision-18",
    "type": "decision",
    "app": "hub",
    "label": "The public network removes sentences that name other products…",
@@ -391,7 +418,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-16",
+   "id": "hub-decision-19",
    "type": "decision",
    "app": "hub",
    "label": "Fonts self-hosted with @fontsource (Archivo with the width…",
@@ -400,7 +427,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-17",
+   "id": "hub-decision-20",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -433,6 +460,15 @@
    "label": "Session 3 (logo and hero)",
    "date": "2026-10-25",
    "text": "· User: the logo's three app colours do not scale to more apps; wants a generalized, unique, vector-style symbolic D, used everywhere. And a new page header: illustrations placed around it as on the reference site, some text, small animations, not the same as before.\n· Built: the protractor D (brand/datum-icon.svg, brand/datum-mark.svg, Mark.astro, favicon); site/src/components/HeroField.astro (10 tiles: Plan Gantt with growing bars, caliper with a sliding jaw, scrolling signal, Plot curve drawing itself, gears, Atlas bubbles with a marching selection line, flask with rising bubbles, turning molecule, two dashed \"more to come\"); rotating headline; the header strip now says \"3 apps · more to come\".\n· Checked: build; Playwright at 1280, 1440 (dark) and 375 px: no overflow, no console errors, tiles clear of the wordmark; the phone strip scrolls.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-3",
+   "type": "session",
+   "app": "hub",
+   "label": "Session 4 (the user's logo, a simple technical…",
+   "date": "2026-10-25",
+   "text": "· User: sent their own logo (\"Continuum\", brand/source/datum-continuum-original.svg) and asked to improve on it and use it everywhere; more branding guidance to follow. The hero must be simple: two panels, writing on the left (big \"Datum\", a write-up that changes with the animation), animated icons on the right; no \"free · open source · Windows\" line; professional and techy, not artistic, not like the reference sites. Reminded that this repo is the hub memory every new app plugs into.\n· Built: brand/ (logo, light logo, mark, light mark, icon, BRAND.md, generator); Mark.astro and Logo.astro; header and footer use the logo; HeroPanel.astro replaces HeroField.astro; site type is IBM Plex only; figures strip under the hero; app names, releases and the closing section in plain headings; screenshots flat.\n· Checked: build; Playwright at 1280 (light), 1440 (dark) and 375 px at several points of the cycle (Plan, Plot, Atlas, Next): no overflow, no console errors.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -3240,6 +3276,21 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-18",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
+   "target": "hub-decision-19",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
+   "target": "hub-decision-20",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -3251,6 +3302,11 @@
   {
    "source": "hub",
    "target": "hub-session-2",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-3",
    "kind": "session"
   },
   {

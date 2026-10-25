@@ -1,5 +1,5 @@
 ---
-import Mark from "./Mark.astro";
+import Logo from "./Logo.astro";
 import { loadAll } from "../lib/github";
 const apps = await loadAll();
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -9,7 +9,7 @@ const gh = "https://github.com/Edgar-Mendonca/Datum";
   <div class="frame">
     <div class="foot-grid">
       <div>
-        <a class="brand" href={`${base}/`} aria-label="Datum home"><Mark /><span class="word">DATUM</span></a>
+        <a class="brand" href={`${base}/`} aria-label="Datum home"><Logo /></a>
         <p class="muted" style="margin-top:18px;max-width:36ch">Free, open-source desktop tools for engineers, scientists, researchers and analysts. No accounts, no subscriptions, no telemetry.</p>
       </div>
       <div>
@@ -33,7 +33,6 @@ const gh = "https://github.com/Edgar-Mendonca/Datum";
         </ul>
       </div>
     </div>
-    <div class="foot-word display" aria-hidden="true">DATUM</div>
     <div class="foot-base mono"><span>MIT licence · © 2026 Edgar Mendonca</span><span>Built from the app repositories every day</span></div>
   </div>
 </footer>

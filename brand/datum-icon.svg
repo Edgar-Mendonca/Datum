@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
-  <!-- Datum: a D that is also a protractor. The stem is a ruler, the bowl a graduated arc,
-       the amber diamond the datum origin every measurement starts from. Navy ink and one amber mark only. -->
-  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2E6EC"/></linearGradient></defs>
-  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#C9D0DA" stroke-width="4"/>
-  <path d="M62 44H106a84 84 0 0 1 0 168H62z" fill="#FFFFFF"/>
-  <path d="M106.0 51.0L106.0 66.0 M119.4 52.2L118.0 60.0 M132.3 55.6L129.6 63.2 M144.5 61.3L137.0 74.3 M155.5 69.0L150.4 75.1 M165.0 78.5L158.9 83.6 M172.7 89.5L159.7 97.0 M178.4 101.7L170.8 104.4 M181.8 114.6L174.0 116.0 M183.0 128.0L168.0 128.0 M181.8 141.4L174.0 140.0 M178.4 154.3L170.8 151.6 M172.7 166.5L159.7 159.0 M165.0 177.5L158.9 172.4 M155.5 187.0L150.4 180.9 M144.5 194.7L137.0 181.7 M132.3 200.4L129.6 192.8 M119.4 203.8L118.0 196.0 M106.0 205.0L106.0 190.0 M69 58h6 M69 72h11 M69 86h6 M69 100h11 M69 114h6 M69 128h11 M69 142h6 M69 156h11 M69 170h6 M69 184h11 M69 198h6" stroke="#0C1A2B" stroke-width="4" stroke-linecap="round" opacity=".45"/>
-  <path d="M70 128H106" stroke="#0C1A2B" stroke-width="3" stroke-dasharray="6 5" opacity=".6"/>
-  <path d="M106 128L152.0 89.4" stroke="#0C1A2B" stroke-width="8" stroke-linecap="round"/>
-  <circle cx="152.0" cy="89.4" r="7" fill="#0C1A2B"/>
-  <path d="M62 44H106a84 84 0 0 1 0 168H62z" fill="none" stroke="#0C1A2B" stroke-width="13" stroke-linejoin="round"/>
-  <path d="M106 114l14 14-14 14-14-14z" fill="#F2B233"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img"><title>Datum</title><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2E6EC"/></linearGradient></defs><rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#C9D0DA" stroke-width="4"/><g transform="translate(58.5 48.2) scale(1.05)"><path fill="#0C1A2B" d="M0 0H64A76 76 0 0 1 64 152H0V128H64A52 52 0 0 0 64 24H0Z"/><path fill="#0C1A2B" d="M0 40H64A36 36 0 0 1 64 112H0V88H64A12 12 0 0 0 64 64H0Z"/><path fill="#F2B233" d="M0 88h24v24H0z"/></g></svg>
