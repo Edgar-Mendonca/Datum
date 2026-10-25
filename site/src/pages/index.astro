@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import HeroPanel from "../components/HeroPanel.astro";
+import HeroWorkbench from "../components/HeroWorkbench.astro";
 import { loadAll, latestReleases, fmtDate, fmtSize } from "../lib/github";
 import { loadBrain, radius, TYPE_COLOR } from "../lib/brain";
 
@@ -22,9 +22,9 @@ const fill = (n: (typeof brain.nodes)[number]) => n.type === "app" ? accent(n.ap
 const r1 = (v: number) => Math.round(v);
 ---
 <Base title="Datum: free, open-source desktop tools for technical work" description="Datum is a family of free, open-source desktop tools for engineers, scientists, researchers and analysts: Datum Plan, Datum Plot and Datum Atlas.">
-  <!-- Hero: the name and a changing write-up on the left, the instrument panel on the right. -->
+  <!-- Hero: the name and "Tools to …" on the left, the workbench of instruments on the right. -->
   <section class="hero ruled" aria-labelledby="hero-title">
-    <div class="frame pad"><HeroPanel apps={apps} /></div>
+    <div class="frame pad"><HeroWorkbench apps={apps} /></div>
     <div class="frame stats" aria-label="Datum in figures">
       {stats.map(([n, l]) => <div><span class="stat-n">{n}</span><span class="mono muted">{l}</span></div>)}
     </div>

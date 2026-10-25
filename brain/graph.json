@@ -367,13 +367,22 @@
    "id": "hub-decision-13",
    "type": "decision",
    "app": "hub",
-   "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
-   "text": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber square, one lead line, and a write-up that cycles Plan → Plot → Atlas → More to come, beside an instrument panel with one animated technical scene per item (schedule with critical path, fitted curve with band and readout, property chart with selection line, a drawing being drafted); one CSS clock keeps text and scene in step; hover pauses\n\nWhy: The user's layout: writing on the left, animated icons on the right, the text changing with what is shown.",
-   "date": "2026-10-25 (s4)",
+   "label": "The workbench hero (HeroWorkbench.astro, replaces…",
+   "text": "The workbench hero (HeroWorkbench.astro, replaces HeroPanel.astro): left \"Datum\" + \"Tools to <blue phrase>\"; right a 3×3 bench of small SVG instruments (Plan, Engineering, Plot, Analysis, Science, Atlas, Research, More to come) around the datum origin (amber square, dial, needle). The active tile animates, the needle turns to it and the phrase changes; hover/focus/tap takes over, app tiles open their app, idle it cycles every 3.2 s; a pointer-following inspection light; a small script (the rule now allows JS for the hero)\n\nWhy: The user: the instrument panel was slow, could not be clicked and looked empty mid-fade; they liked the rotating \"Tools to …\" line and the small animated icons of session 3, but not floating around the title as on the reference sites.",
+   "date": "2026-10-25 (s5)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
    "id": "hub-decision-14",
+   "type": "decision",
+   "app": "hub",
+   "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
+   "text": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber square, one lead line, and a write-up that cycles Plan → Plot → Atlas → More to come, beside an instrument panel with one animated technical scene per item (schedule with critical path, fitted curve with band and readout, property chart with selection line, a drawing being drafted); one CSS clock keeps text and scene in step; hover pauses\n\nWhy: The user's layout: writing on the left, animated icons on the right, the text changing with what is shown.",
+   "date": "2026-10-25 (s4, replaced in s5)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-15",
    "type": "decision",
    "app": "hub",
    "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
@@ -382,7 +391,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-15",
+   "id": "hub-decision-16",
    "type": "decision",
    "app": "hub",
    "label": "The hero is a field of animated SVG tiles around the wordmark…",
@@ -391,7 +400,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-16",
+   "id": "hub-decision-17",
    "type": "decision",
    "app": "hub",
    "label": "New family mark: the GD&T datum feature symbol (framed \"D\"…",
@@ -400,7 +409,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-17",
+   "id": "hub-decision-18",
    "type": "decision",
    "app": "hub",
    "label": "The brain: brain/brain.mjs builds one graph (nodes: hub, apps…",
@@ -409,7 +418,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-18",
+   "id": "hub-decision-19",
    "type": "decision",
    "app": "hub",
    "label": "The public network removes sentences that name other products…",
@@ -418,7 +427,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-19",
+   "id": "hub-decision-20",
    "type": "decision",
    "app": "hub",
    "label": "Fonts self-hosted with @fontsource (Archivo with the width…",
@@ -427,7 +436,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-20",
+   "id": "hub-decision-21",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -469,6 +478,15 @@
    "label": "Session 4 (the user's logo, a simple technical…",
    "date": "2026-10-25",
    "text": "· User: sent their own logo (\"Continuum\", brand/source/datum-continuum-original.svg) and asked to improve on it and use it everywhere; more branding guidance to follow. The hero must be simple: two panels, writing on the left (big \"Datum\", a write-up that changes with the animation), animated icons on the right; no \"free · open source · Windows\" line; professional and techy, not artistic, not like the reference sites. Reminded that this repo is the hub memory every new app plugs into.\n· Built: brand/ (logo, light logo, mark, light mark, icon, BRAND.md, generator); Mark.astro and Logo.astro; header and footer use the logo; HeroPanel.astro replaces HeroField.astro; site type is IBM Plex only; figures strip under the hero; app names, releases and the closing section in plain headings; screenshots flat.\n· Checked: build; Playwright at 1280 (light), 1440 (dark) and 375 px at several points of the cycle (Plan, Plot, Atlas, Next): no overflow, no console errors.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-4",
+   "type": "session",
+   "app": "hub",
+   "label": "Session 5 (the workbench hero)",
+   "date": "2026-10-25",
+   "text": "· User: the instrument panel loaded slowly, could not be clicked, and looked empty while fading; bring back the rotating blue \"Tools to …\" line and the small animated icons, but in the right pane, playable, not like the reference sites. Logo and the rest unchanged. Asked to look at other sites for ideas: a web search turned up hover-reactive grids, cursor spotlights and tiles linked to text (Framer / 21st.dev components), used as ideas only.\n· Built: HeroWorkbench.astro (tiles reuse the session 3 drawings; animations run only on the active tile; the origin dial's needle points at it; the phrase swaps with a short slide); HeroPanel.astro removed; CLAUDE.md hero rule updated.\n· Checked: build; Playwright: the bench cycles idle, hover on Science takes over (\"run experiments.\"), holds while hovered, resumes after; 1280, 1440 (dark), 375 px: no overflow, no console errors.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -3291,6 +3309,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-21",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -3307,6 +3330,11 @@
   {
    "source": "hub",
    "target": "hub-session-3",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-4",
    "kind": "session"
   },
   {
