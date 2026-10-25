@@ -11,7 +11,7 @@ This file is the single source for that. It lives in the DATUM repo (`Edgar-Mend
 | Datum Plan | Plan, schedule, track and report projects | Blue `#0B5CAD` (glyph `#2F6FCF`) | Calendar with bars + amber diamond | `.dplan` | `com.edgarmendonca.datumplan` | Edgar-Mendonca/Datum-Plan |
 | Datum Plot | Analyse data and make publication-ready graphs | Teal `#0E8C7F` | Axes, points, fitted curve + amber diamond | `.dplot` | `com.edgarmendonca.datumplot` | Edgar-Mendonca/Datum-Plot |
 | Datum Atlas | Choose materials with property charts and selection indices | Violet `#6C4AB6` | Log–log axes, family bubbles, index line + amber diamond | `.datlas` | `com.edgarmendonca.datumatlas` | Edgar-Mendonca/Datum-Atlas |
-| DATUM (hub) | The family site, memory and brain | Navy `#0C1A2B` | The datum feature symbol (a framed "D" on a datum triangle) standing on the three app accents + amber diamond | — | — | Edgar-Mendonca/Datum |
+| DATUM (hub) | The family site, memory and brain | Navy `#0C1A2B` | A "D" that is a protractor (ruler stem, graduated bowl, needle) + the amber diamond as the datum origin | — | — | Edgar-Mendonca/Datum |
 | Next apps | — | pick from §3 | — | `.d<name>` | `com.edgarmendonca.datum<name>` | Edgar-Mendonca/Datum-<Name> |
 
 The registry the site builds from is [`apps.json`](apps.json).
@@ -68,7 +68,7 @@ Teal text on the light background is below 4.5:1, so text and filled buttons on 
 - **Tile:** 256×256 viewBox, a rounded square (`x=8 y=8 w=240 h=240 rx=56`), a white→accent-tint diagonal gradient, and a 4 px border in a light accent tint.
 - **Glyph:** drawn in the accent with **11 px strokes**, round caps. It may use one light tint fill (the `--sky` colour). It always has **one amber `#F2B233` diamond** (the family mark).
 - Files: `ui/public/logo.svg` (in the app) and `docs/brand/datum-<app>-icon.svg` (README). Windows icons are generated from it (`npx tauri icon`). Copies of every icon, and the family mark, are in this repo's [`brand/`](brand).
-- **The family mark** (`brand/datum-icon.svg`; without the tile `brand/datum-mark.svg`): the engineering datum feature symbol: a navy `#0C1A2B` frame holding a "D", a leader, and a solid datum triangle standing on a reference line made of the three app accents (blue, teal, violet): every app stands on one datum. The amber diamond sits beside the frame.
+- **The family mark** (`brand/datum-icon.svg`; without the tile `brand/datum-mark.svg`): a "D" that is also a protractor: the stem is a ruler, the bowl a graduated arc, a needle measures from the datum origin, which is the amber diamond. Navy `#0C1A2B` ink only (`currentColor` on the site), so it never depends on any app's colour and stays right however many apps the family has.
 - **Name:** "Datum <App>" in Plex Sans 600. Tagline in the README.
 - **README:** the logo, the name, a one-line tagline, shields.io badges (release, CI, downloads, license MIT, platform Windows 10/11, Rust, Tauri 2, SolidJS), then for-the-badge buttons (Download for Windows · What's new · Memory & roadmap), then a screenshot.
 
