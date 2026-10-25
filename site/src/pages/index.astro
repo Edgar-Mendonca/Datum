@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import AppCard from "../components/AppCard.astro";
+import Feature from "../components/Feature.astro";
+import { loadAll, latestReleases, familyLogo, fmtDate } from "../lib/github";
+
+const apps = await loadAll();
+const recent = latestReleases(apps, 6);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<Base title="Datum" description="Free, open-source desktop tools for engineers, scientists, researchers and analysts. Small, fast apps for serious technical work.">
+  <section class="hero dots">
+    <div class="wrap">
+      <img class="logo" src={familyLogo} width="96" height="96" alt="The Datum logo" />
+      <h1>Free, open-source desktop tools for engineers, scientists, researchers and analysts.</h1>
+      <p class="lead">Small, fast apps that do serious technical work, written from scratch in Rust, with one look and one way of working. No accounts, no subscriptions, no telemetry: your files stay on your computer.</p>
+      <p class="tags cap"><span>Free</span><span>Open source (MIT)</span><span>Windows</span><span>Installs in seconds</span><span>Updates itself</span></p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="apps-h">
+    <div class="wrap">
+      <h2 id="apps-h" class="cap">The apps</h2>
+      <div class="grid">{apps.map(a => <AppCard app={a} />)}</div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="same-h">
+    <div class="wrap">
+      <h2 id="same-h" class="cap">Built the same way</h2>
+      <div class="grid four">
+        <Feature title="Small and fast">Quick to install, opens in a moment and stays smooth with large files.</Feature>
+        <Feature title="Private">Your files stay on your computer. The only network call is the update check.</Feature>
+        <Feature title="One design">The same window, ribbon, help and printing in every app. Learn one, know them all.</Feature>
+        <Feature title="Free forever">MIT licence. Built in the open, in small tested releases that install themselves.</Feature>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rel-h">
+    <div class="wrap">
+      <h2 id="rel-h" class="cap">Latest releases</h2>
+      {recent.length ? (
+        <ol class="rel">
+          {recent.map(r => (
+            <li style={`--a:${r.accent}`}>
+              <a class="app" href={`${base}/${r.app}`}>{r.name}</a>
+              <a class="ver" href={r.url}>{r.version}</a>
+              <time datetime={r.date}>{fmtDate(r.date)}</time>
+              <span class="sum">{r.summary || "See the release notes."}</span>
+            </li>
+          ))}
+        </ol>
+      ) : <p class="muted">Releases will appear here.</p>}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { border-bottom: 1px solid var(--line); padding: 56px 0 48px; }
+  .logo { display: block; margin-bottom: 20px; }
+  h1 { max-width: 20em; }
+  .lead { font-size: 18px; color: var(--text2); max-width: 40em; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px 0; margin: 20px 0 0; color: var(--text2); }
+  .tags span + span::before { content: "·"; margin: 0 10px; color: var(--amber); }
+  .four { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 24px; }
+  .rel { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: var(--r); background: var(--bg2); }
+  .rel li { display: grid; grid-template-columns: 120px 70px 110px 1fr; gap: 12px; align-items: baseline; padding: 12px 16px; border-left: 3px solid var(--a); }
+  .rel li + li { border-top: 1px solid var(--line2); }
+  .rel li:first-child { border-top-left-radius: var(--r); }
+  .rel li:last-child { border-bottom-left-radius: var(--r); }
+  .app { font-weight: 600; color: var(--text); text-decoration: none; }
+  .ver { font: 600 13px var(--mono); }
+  time { font: 12.5px var(--mono); color: var(--muted); }
+  .sum { font-size: 14px; color: var(--text2); }
+  @media (max-width: 720px) {
+    .hero { padding: 36px 0 32px; }
+    .lead { font-size: 16px; }
+    .rel li { grid-template-columns: auto auto 1fr; }
+    .sum { grid-column: 1 / -1; }
+  }
+</style>

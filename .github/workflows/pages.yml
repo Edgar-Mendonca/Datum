@@ -1,0 +1,51 @@
+# Builds the Datum family site (site/) and deploys it to GitHub Pages.
+# Settings › Pages › Source must be "GitHub Actions".
+name: Pages
+
+on:
+  push:
+  schedule:
+    - cron: "17 5 * * *"        # daily: picks up new app releases
+  workflow_dispatch:
+  repository_dispatch:
+    types: [app-released]       # an app's release.yml can trigger a rebuild
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # Pushes deploy only from the default branch; the other triggers always run on it.
+    if: github.event_name != 'push' || github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Build
+        working-directory: site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm ci && npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

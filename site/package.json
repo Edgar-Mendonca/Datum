@@ -1,0 +1,16 @@
+{
+  "name": "datum-site",
+  "private": true,
+  "type": "module",
+  "description": "The Datum family website (GitHub Pages). Reads each app's docs/site.json, CHANGELOG.md and latest release at build time.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "engines": { "node": ">=22.12" },
+  "dependencies": {
+    "astro": "7.3.8",
+    "marked": "18.1.1"
+  }
+}

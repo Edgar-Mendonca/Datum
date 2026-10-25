@@ -1,0 +1,32 @@
+{
+  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline and for fields here are only used until the app publishes docs/site.json.",
+  "apps": [
+    {
+      "id": "plan",
+      "repo": "Edgar-Mendonca/Datum-Plan",
+      "branch": "HEAD",
+      "name": "Datum Plan",
+      "accent": "#0B5CAD",
+      "tagline": "Plan, schedule, track and report projects.",
+      "for": "Project managers, planners, engineers and contractors."
+    },
+    {
+      "id": "plot",
+      "repo": "Edgar-Mendonca/Datum-Plot",
+      "branch": "HEAD",
+      "name": "Datum Plot",
+      "accent": "#0E8C7F",
+      "tagline": "Analyse data and make publication-ready graphs.",
+      "for": "Scientists, researchers, lab teams and students."
+    },
+    {
+      "id": "atlas",
+      "repo": "Edgar-Mendonca/Datum-Atlas",
+      "branch": "HEAD",
+      "name": "Datum Atlas",
+      "accent": "#6C4AB6",
+      "tagline": "Choose materials with property charts and selection indices.",
+      "for": "Design and materials engineers, and students."
+    }
+  ]
+}

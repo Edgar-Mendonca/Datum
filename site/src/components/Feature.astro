@@ -1,0 +1,17 @@
+---
+// One principle or highlight: a mono caption, a short title and one or two sentences.
+interface Props { title: string; cap?: string }
+const { title, cap } = Astro.props;
+---
+<div class="feature">
+  {cap && <span class="cap">{cap}</span>}
+  <h3>{title}</h3>
+  <p class="muted"><slot /></p>
+</div>
+
+<style>
+  .feature { border-left: 2px solid var(--blue); padding: 2px 0 2px 16px; }
+  .cap { display: block; margin-bottom: 4px; }
+  h3 { margin-bottom: 6px; }
+  p { margin: 0; font-size: 14.5px; }
+</style>

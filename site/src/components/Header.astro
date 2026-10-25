@@ -1,0 +1,40 @@
+---
+import { familyLogo, loadAll } from "../lib/github";
+const apps = await loadAll();
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const here = Astro.url.pathname.replace(/\/$/, "");
+const links = [...apps.map(a => ({ href: `${base}/${a.id}`, label: a.name.replace(/^Datum /, "") })), { href: `${base}/family`, label: "Family" }, { href: `${base}/about`, label: "About" }];
+---
+<header class="band">
+  <div class="wrap bar">
+    <a class="brand" href={`${base}/`} aria-label="Datum home">
+      <img src={familyLogo} width="30" height="30" alt="" />
+      <span>Datum</span>
+    </a>
+    <nav aria-label="Main">
+      {links.map(l => <a href={l.href} aria-current={here === l.href ? "page" : undefined}>{l.label}</a>)}
+    </nav>
+    <button class="theme" type="button" data-theme-toggle aria-label="Change theme (Auto, Light, Dark)">
+      <span class="t-auto">Auto</span><span class="t-light">Light</span><span class="t-dark">Dark</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .band { background: var(--band); color: var(--band-text); border-bottom: 3px solid var(--blue); }
+  .bar { display: flex; align-items: center; gap: 24px; min-height: 56px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; font-size: 17px; }
+  .brand:hover { color: #fff; }
+  nav { display: flex; gap: 4px; flex: 1; flex-wrap: wrap; }
+  nav a { color: #B8C4D2; text-decoration: none; font: 500 11.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 8px 10px; }
+  nav a:hover, nav a[aria-current] { color: #fff; }
+  nav a[aria-current] { box-shadow: inset 0 -2px 0 var(--diamond); }
+  .theme { font: 500 10.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #B8C4D2; background: none;
+    border: 1px solid #34465C; padding: 6px 10px; cursor: pointer; min-width: 64px; }
+  .theme:hover { color: #fff; border-color: #B8C4D2; }
+  @media (max-width: 640px) {
+    .bar { gap: 6px 12px; padding-top: 8px; padding-bottom: 4px; }
+    nav { order: 3; flex-basis: 100%; margin: 0 -10px; }
+    .theme { margin-left: auto; }
+  }
+</style>

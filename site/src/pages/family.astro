@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import { readFileSync } from "node:fs";
+import { marked } from "marked";
+import { loadAll } from "../lib/github";
+
+// Rendered from FAMILY.md (the source of truth) so this page never drifts from it.
+const md = readFileSync(new URL("../FAMILY.md", `file://${process.cwd()}/`), "utf8");
+const sections = Object.fromEntries(md.split(/^## /m).slice(1).map(s => [s.match(/^(\d+)\./)?.[1], s.slice(s.indexOf("\n") + 1)]));
+const repo = "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/";
+const html = (n: string) => {
+  const out = (marked.parse(sections[n] ?? "", { async: false }) as string)
+    .replace(/href="(?!https?:|#|mailto:)([^"]+)"/g, (_, p) => `href="${repo}${p}"`);
+  // A colour swatch before every hex colour, outside code blocks.
+  return out.split(/(<pre[\s\S]*?<\/pre>)/).map(part => part.startsWith("<pre") ? part
+    : part.replace(/(?<![\w"=&#])#([0-9A-Fa-f]{6})\b/g, (m) => `<span class="sw" style="background:${m}"></span>${m}`)).join("");
+};
+const apps = await loadAll();
+const parts: [string, string, string][] = [["13", "Principles and public words", "p"], ["1", "The apps", "a"], ["3", "Colour", "c"], ["4", "Type", "t"], ["5", "Logo and branding", "l"]];
+---
+<Base title="Family" description="How every Datum app is designed, built and released: principles, colour, type and logo rules.">
+  <section class="hero dots">
+    <div class="wrap">
+      <p class="cap">The Datum family</p>
+      <h1>One design and one way of working.</h1>
+      <p class="lead">Every Datum app looks, feels and ships the same way; only the accent colour and the logo glyph change. This page is rendered from <a href={`${repo}FAMILY.md`}>FAMILY.md</a>, the family design guide.</p>
+      <div class="icons">
+        {apps.map(a => <figure><img src={a.logo} width="72" height="72" alt="" /><figcaption class="cap">{a.name.replace("Datum ", "")}</figcaption></figure>)}
+      </div>
+    </div>
+  </section>
+  <div class="wrap body">
+    <nav class="toc" aria-label="On this page">
+      <span class="cap">On this page</span>
+      {parts.map(([, t, id]) => <a href={`#${id}`}>{t}</a>)}
+      <a href={`${repo}FAMILY.md`}>The whole guide</a>
+    </nav>
+    <div>
+      {parts.map(([n, t, id]) => (
+        <section id={id} class="part">
+          <h2>{t}</h2>
+          <div class="md" set:html={html(n)} />
+        </section>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .hero { border-bottom: 1px solid var(--line); padding: 48px 0 40px; }
+  .lead { font-size: 18px; color: var(--text2); max-width: 40em; }
+  .icons { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  figure { margin: 0; text-align: center; }
+  .body { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 40px; }
+  .toc { position: sticky; top: 16px; align-self: start; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+  .toc .cap { margin-bottom: 4px; }
+  .part { padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid var(--line); }
+  .part:last-child { border-bottom: 0; }
+  .part .md { font-size: 15px; }
+  @media (max-width: 800px) {
+    .body { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-top: 24px; }
+    .toc { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px 14px; }
+    .toc .cap { flex-basis: 100%; }
+  }
+</style>

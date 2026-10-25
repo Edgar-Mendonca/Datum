@@ -1,0 +1,49 @@
+---
+import "../styles/tokens.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { familyLogo } from "../lib/github";
+
+interface Props { title: string; description: string; app?: string; logo?: string }
+const { title, description, app, logo = familyLogo } = Astro.props;
+const full = title === "Datum" ? "Datum: free, open-source desktop tools for technical work" : `${title} · Datum`;
+---
+<!doctype html>
+<html lang="en" data-app={app}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{full}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={full} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <link rel="icon" href={logo} type="image/svg+xml" />
+  <meta name="theme-color" content="#0C1A2B" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap" />
+  <!-- Theme: Auto (follows the system), Light or Dark; the only script on the site. -->
+  <script is:inline>
+    (() => {
+      const r = document.documentElement, q = matchMedia("(prefers-color-scheme: dark)");
+      let mode = "auto"; try { mode = localStorage.getItem("datum-theme") || "auto"; } catch {}
+      const set = () => { r.dataset.mode = mode; r.dataset.theme = mode === "auto" ? (q.matches ? "dark" : "light") : mode; };
+      set(); q.addEventListener("change", set);
+      addEventListener("click", e => {
+        const b = e.target.closest && e.target.closest("[data-theme-toggle]"); if (!b) return;
+        mode = { auto: "light", light: "dark", dark: "auto" }[mode];
+        try { localStorage.setItem("datum-theme", mode); } catch {}
+        set();
+      });
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <Header />
+  <main id="main"><slot /></main>
+  <Footer />
+</body>
+</html>

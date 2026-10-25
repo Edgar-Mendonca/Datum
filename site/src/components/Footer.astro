@@ -1,0 +1,35 @@
+---
+import { loadAll } from "../lib/github";
+const apps = await loadAll();
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<footer>
+  <div class="wrap cols">
+    <div>
+      <p class="cap">Datum</p>
+      <p class="muted">Free, open-source desktop tools for engineers, scientists, researchers and analysts. MIT licence. No accounts, no subscriptions, no telemetry.</p>
+    </div>
+    <div>
+      <p class="cap">Apps</p>
+      <ul>{apps.map(a => <li><a href={`${base}/${a.id}`}>{a.name}</a></li>)}</ul>
+    </div>
+    <div>
+      <p class="cap">Project</p>
+      <ul>
+        <li><a href={`${base}/family`}>How the family is built</a></li>
+        <li><a href={`${base}/about`}>About and contributing</a></li>
+        <li><a href="https://github.com/Edgar-Mendonca/Datum">Datum on GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap fine muted">MIT © 2026 Edgar Mendonca. Built from each app's repository on every release.</div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--line); background: var(--panel); margin-top: 48px; padding: 32px 0 20px; font-size: 14px; }
+  .cols { display: grid; gap: 24px; grid-template-columns: 2fr 1fr 1fr; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { margin: 4px 0; }
+  .fine { margin-top: 24px; font-size: 13px; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr 1fr; } .cols > :first-child { grid-column: 1 / -1; } }
+</style>

@@ -1,0 +1,25 @@
+---
+// Stages with Next / Soon / Later / Goal pills, as File › Roadmap in the apps.
+import type { Stage } from "../lib/github";
+interface Props { stages: Stage[] }
+const { stages } = Astro.props;
+---
+<ol class="rm">
+  {stages.map(s => (
+    <li class:list={["stage", { next: s.when === "Next" }]}>
+      <header><span class="v">{s.v}</span><b>{s.title}</b><span class:list={["pill", s.when.toLowerCase()]}>{s.when}</span></header>
+      <ul>{s.items.map(i => <li>{i}</li>)}</ul>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .rm { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  .stage { background: var(--bg2); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
+  .stage.next { border-color: var(--blue); box-shadow: inset 3px 0 0 var(--blue); }
+  header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  header b { flex: 1; font-weight: 600; }
+  .v { font: 600 12px var(--mono); color: var(--ink); }
+  ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--text2); }
+  li li { margin: 3px 0; }
+</style>
