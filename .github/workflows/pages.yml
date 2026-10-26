@@ -11,6 +11,7 @@ on:
     types: [app-released]       # an app's release.yml can trigger a rebuild
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -47,5 +48,17 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # While Settings › Pages › Source is still "Deploy from a branch", GitHub also runs its own branch build,
+      # which publishes the raw repository (no index.html at the root: a 404). Wait for it, so this deploy lands last.
+      # Setting the source to "GitHub Actions" removes that build; then this step returns at once.
+      - name: Wait for the branch-based Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 60); do
+            n=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=${{ github.sha }}" --jq '[.workflow_runs[] | select(.name == "pages build and deployment" and .status != "completed")] | length')
+            [ "$n" = "0" ] && exit 0
+            sleep 5
+          done
       - id: deployment
         uses: actions/deploy-pages@v4

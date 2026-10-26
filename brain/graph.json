@@ -368,13 +368,22 @@
    "id": "hub-decision-13",
    "type": "decision",
    "app": "hub",
+   "label": "pages.yml waits for GitHub's branch-based Pages build of the…",
+   "text": "pages.yml waits for GitHub's branch-based Pages build of the same commit, then deploys\n\nWhy: While the Pages source is \"Deploy from a branch\", that build publishes the raw repo and caused a 404 whenever it finished last.",
+   "date": "2026-10-26 (s8)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-14",
+   "type": "decision",
+   "app": "hub",
    "label": "Bench tiles are real capabilities of the apps (Plan: schedule…",
    "text": "Bench tiles are real capabilities of the apps (Plan: schedule, progress; Plot: curve fit, statistics; Atlas: property chart, ranking; reports; more to come), not disciplines; the left side gets app chips from apps.json\n\nWhy: The user: the hero did not define our work; never say \"3 apps\".",
    "date": "2026-10-26 (s6)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-14",
+   "id": "hub-decision-15",
    "type": "decision",
    "app": "hub",
    "label": "The changing blue words use Instrument Serif italic (.it)…",
@@ -383,7 +392,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-15",
+   "id": "hub-decision-16",
    "type": "decision",
    "app": "hub",
    "label": "Artcraft-like scrolling: glass sticky section bars, an index…",
@@ -392,7 +401,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-16",
+   "id": "hub-decision-17",
    "type": "decision",
    "app": "hub",
    "label": "Theme: three visible buttons (Auto, Light, Dark) instead of a…",
@@ -401,7 +410,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-17",
+   "id": "hub-decision-18",
    "type": "decision",
    "app": "hub",
    "label": "Status badges (Stable / Beta / Alpha) from apps.json status or…",
@@ -410,7 +419,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-18",
+   "id": "hub-decision-19",
    "type": "decision",
    "app": "hub",
    "label": "The workbench hero (HeroWorkbench.astro, replaces…",
@@ -419,7 +428,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-19",
+   "id": "hub-decision-20",
    "type": "decision",
    "app": "hub",
    "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
@@ -428,7 +437,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-20",
+   "id": "hub-decision-21",
    "type": "decision",
    "app": "hub",
    "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
@@ -437,7 +446,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-21",
+   "id": "hub-decision-22",
    "type": "decision",
    "app": "hub",
    "label": "The hero is a field of animated SVG tiles around the wordmark…",
@@ -446,7 +455,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-22",
+   "id": "hub-decision-23",
    "type": "decision",
    "app": "hub",
    "label": "New family mark: the GD&T datum feature symbol (framed \"D\"…",
@@ -455,7 +464,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-23",
+   "id": "hub-decision-24",
    "type": "decision",
    "app": "hub",
    "label": "The brain: brain/brain.mjs builds one graph (nodes: hub, apps…",
@@ -464,7 +473,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-24",
+   "id": "hub-decision-25",
    "type": "decision",
    "app": "hub",
    "label": "The public network removes sentences that name other products…",
@@ -473,7 +482,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-25",
+   "id": "hub-decision-26",
    "type": "decision",
    "app": "hub",
    "label": "Fonts self-hosted with @fontsource (Archivo with the width…",
@@ -482,7 +491,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-26",
+   "id": "hub-decision-27",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -539,13 +548,22 @@
    "id": "hub-session-5",
    "type": "session",
    "app": "hub",
+   "label": "Session 8 (live site 404)",
+   "date": "2026-10-26",
+   "text": "· User: the live site showed a 404. Cause: Pages › Source is still \"Deploy from a branch\", so every push runs two deploys, ours (the built site) and GitHub's branch build (the raw repo, no index.html at the root). Since .nojekyll (session 2) the branch build succeeds, and whichever finishes last wins; on the merge push it finished 5 s after ours.\n· Fixed: re-ran our workflow by hand (restores the site), and pages.yml now waits for the branch build of the same commit before deploying (needs actions: read), as the user's zhuojia site does. The real fix is still Settings › Pages › Source = GitHub Actions.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-6",
+   "type": "session",
+   "app": "hub",
    "label": "Session 7 (bucket list)",
    "date": "2026-10-26",
    "text": "· Brainstorm of future free, open-source apps (§7). The user asked how Calc and Tolerance relate to a commercial maths worksheet and to Plot: Calc is that category (formulas and units → design values and a calc sheet), Plot analyses measured data, Tolerance is a separate small tool. Decided: Datum Calc is next. FEA: worth it as a long-term flagship grown in steps from Datum Frame, using open solvers for the heavy work; not next.\n· The brain now reads §7 as \"idea\" nodes.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-6",
+   "id": "hub-session-7",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -3529,6 +3547,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-27",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -3560,6 +3583,11 @@
   {
    "source": "hub",
    "target": "hub-session-6",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-7",
    "kind": "session"
   },
   {
