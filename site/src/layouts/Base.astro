@@ -21,16 +21,20 @@ const { title, description, footer = true } = Astro.props;
   <link rel="icon" href={familyLogo} type="image/svg+xml" />
   <meta name="theme-color" content="#F2F1EE" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0B1119" media="(prefers-color-scheme: dark)" />
-  <!-- Theme: Auto (follows the system), Light or Dark. -->
+  <!-- Theme: Auto (follows the system), Light or Dark; three buttons in the header show which is on. -->
   <script is:inline>
     (() => {
       const r = document.documentElement, q = matchMedia("(prefers-color-scheme: dark)");
       let mode = "auto"; try { mode = localStorage.getItem("datum-theme") || "auto"; } catch {}
-      const set = () => { r.dataset.mode = mode; r.dataset.theme = mode === "auto" ? (q.matches ? "dark" : "light") : mode; dispatchEvent(new Event("datum-theme")); };
-      set(); q.addEventListener("change", set);
+      if (!["auto", "light", "dark"].includes(mode)) mode = "auto";
+      const set = () => {
+        r.dataset.mode = mode; r.dataset.theme = mode === "auto" ? (q.matches ? "dark" : "light") : mode;
+        document.querySelectorAll("[data-theme-set]").forEach(b => b.setAttribute("aria-checked", String(b.dataset.themeSet === mode)));
+      };
+      set(); q.addEventListener("change", set); addEventListener("DOMContentLoaded", set);
       addEventListener("click", e => {
-        const b = e.target.closest && e.target.closest("[data-theme-toggle]"); if (!b) return;
-        mode = { auto: "light", light: "dark", dark: "auto" }[mode];
+        const b = e.target.closest && e.target.closest("[data-theme-set]"); if (!b) return;
+        mode = b.dataset.themeSet;
         try { localStorage.setItem("datum-theme", mode); } catch {}
         set();
       });

@@ -1,5 +1,5 @@
 {
-  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline, for and shot (one screenshot) fields here are only used until the app publishes docs/site.json.",
+  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline, for and shot (one screenshot) fields here are only used until the app publishes docs/site.json. An optional status field (Stable, Beta, Alpha) overrides the badge worked out from the version.",
   "apps": [
     {
       "id": "plan",

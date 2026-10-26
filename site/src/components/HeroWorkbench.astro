@@ -1,81 +1,83 @@
 ---
 // The hero: "Datum" and "Tools to <phrase>" on the left; on the right the workbench, a 3×3 bench of small
-// animated instruments around the datum origin. The active tile plays its animation, the needle at the origin
-// turns to it and the blue phrase on the left changes to match. Hover, focus or tap a tile to take over; app
-// tiles open their app. Idle, the bench steps through the tiles by itself. Without JavaScript the tiles still
-// animate on hover; under reduced motion nothing moves by itself.
+// instruments around the datum origin. Each tile is something a Datum app really does (coloured by that app),
+// plus "More to come". The active tile plays its animation, the needle at the origin turns to it and the italic
+// phrase on the left changes to match. Hover, focus or tap takes over; tiles open their app. Idle, the bench
+// steps through the tiles. Without JavaScript the tiles still animate on hover; under reduced motion nothing moves.
 import type { App } from "../lib/github";
 import Mark from "./Mark.astro";
 interface Props { apps: App[] }
 const { apps } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const v = (id: string) => { const a = apps.find(x => x.id === id); return a?.latest ? `v${a.latest.version}` : "soon"; };
-
-const sine = (amp: number, len: number, y: number, from = 0, to = 320) => {
-  let d = `M${from} ${y}`;
-  for (let x = from; x <= to; x += 4) d += `L${x} ${(y + Math.sin((x / len) * Math.PI * 2) * amp).toFixed(1)}`;
-  return d;
-};
+const name = (id: string) => apps.find(x => x.id === id)?.name.replace(/^Datum /, "") ?? id;
 
 // Tiles in bench order (row by row); the origin sits in the middle. dx/dy: where the tile is from the origin.
-type Tile = { id: string; cap: string; sub: string; say: string; href?: string; c: string; dx: number; dy: number; svg: string };
+type Tile = { id: string; cap: string; app: string; say: string; href: string; c: string; dx: number; dy: number; svg: string };
 const tiles: Tile[] = [
-  { id: "plan", cap: "Plan", sub: v("plan"), say: "plan projects.", href: "#app-plan", c: "var(--plan)", dx: -1, dy: -1, svg: `
-    <g class="ink" opacity=".22"><rect x="10" y="15" width="24" height="5"/><rect x="10" y="31" width="18" height="5"/><rect x="10" y="47" width="26" height="5"/><rect x="10" y="63" width="20" height="5"/><rect x="10" y="79" width="16" height="5"/></g>
+  { id: "schedule", cap: "Schedule", app: "plan", say: "plan projects.", href: "#app-plan", c: "var(--plan)", dx: -1, dy: -1, svg: `
+    <g class="ink" opacity=".22"><rect x="12" y="17" width="22" height="5"/><rect x="12" y="33" width="16" height="5"/><rect x="12" y="49" width="24" height="5"/><rect x="12" y="65" width="18" height="5"/><rect x="12" y="81" width="14" height="5"/></g>
     <path class="grid" d="M44 8V92M74 8V92M104 8V92M134 8V92" />
-    <g class="acc"><rect class="bar" style="--k:0" x="46" y="13" width="40" height="9" rx="2"/><rect class="bar" style="--k:1" x="68" y="29" width="46" height="9" rx="2"/><rect class="bar" style="--k:2" x="92" y="45" width="34" height="9" rx="2"/><rect class="bar" style="--k:3" x="104" y="61" width="36" height="9" rx="2" opacity=".5"/></g>
-    <path class="link" d="M86 17.5h4v16M114 33.5h4v16M126 49.5h4v16" />
-    <path class="amber ms" d="M146 74l7 7-7 7-7-7z" />
+    <g class="acc"><rect class="bar" style="--k:0" x="46" y="15" width="40" height="9" rx="2"/><rect class="bar" style="--k:1" x="68" y="31" width="46" height="9" rx="2"/><rect class="bar" style="--k:2" x="92" y="47" width="34" height="9" rx="2"/><rect class="bar soft" style="--k:3" x="104" y="63" width="34" height="9" rx="2"/></g>
+    <path class="link" d="M86 19.5h4v16M114 35.5h4v16M126 51.5h4v16" />
+    <path class="amber pop" style="--k:5" d="M146 76l7 7-7 7-7-7z" />
     <path class="today" d="M110 6V94" />` },
-  { id: "engineering", cap: "Engineering", sub: "measure", say: "measure and design.", href: "#apps", c: "var(--ink)", dx: 0, dy: -1, svg: `
-    <rect class="paper-f ink-s" x="12" y="36" width="138" height="16" rx="2"/>
-    <path class="ink-s thin" d="${Array.from({ length: 24 }, (_, i) => `M${22 + i * 5} 36v${i % 5 === 0 ? 8 : 4}`).join("")}"/>
-    <path class="ink-f" d="M12 36h14v50l-14-8z"/>
-    <g class="jaw"><path class="ink-f" d="M48 30h16v56l-16-8z"/><rect class="amber" x="50" y="56" width="20" height="10" rx="1"/></g>
-    <text class="mono-t" x="150" y="24" text-anchor="end">24.80 mm</text>` },
-  { id: "plot", cap: "Plot", sub: v("plot"), say: "analyse data.", href: "#app-plot", c: "var(--plot)", dx: 1, dy: -1, svg: `
+  { id: "progress", cap: "Progress", app: "plan", say: "track progress.", href: "#app-plan", c: "var(--plan)", dx: 0, dy: -1, svg: `
+    <path class="ink-s" d="M16 10V86H150" />
+    <path class="grid" d="M16 66H150M16 46H150M16 26H150" />
+    <path class="plan-l" d="M18 84C50 82 70 66 86 46S120 16 148 14" />
+    <path class="draw acc-s" pathLength="1" d="M18 84C46 83 64 72 80 56S98 40 104 38" />
+    <path class="today" d="M104 8V88" />
+    <circle class="amber pop" style="--k:6" cx="104" cy="38" r="4.5" />
+    <text class="mono-t" x="146" y="62" text-anchor="end">SPI 0.94</text>` },
+  { id: "fit", cap: "Curve fit", app: "plot", say: "fit curves to data.", href: "#app-plot", c: "var(--plot)", dx: 1, dy: -1, svg: `
     <path class="ink-s" d="M18 8V86H152" />
     <path class="grid" d="M18 66H152M18 46H152M18 26H152" />
-    <path class="curve acc-s" d="M22 82C52 80 66 76 80 56S104 20 148 16" pathLength="1" />
-    <g class="pts acc-f">${[[28, 80], [42, 78], [56, 74], [70, 64], [84, 48], [98, 34], [112, 24], [128, 19], [144, 17]].map(([x, y], i) => `<circle style="--k:${i}" cx="${x}" cy="${y + (i % 2 ? 3 : -3)}" r="3.4"/>`).join("")}</g>` },
-  { id: "analysis", cap: "Analysis", sub: "signals", say: "read signals.", href: "#app-plot", c: "var(--em)", dx: -1, dy: 0, svg: `
-    <path class="grid" d="M10 50H150M45 8V92M80 8V92M115 8V92" />
-    <g class="clip"><g class="wave"><path class="ink-s" d="${sine(22, 70, 50)}" /><path class="acc2" d="${sine(10, 35, 50)}" /></g></g>
-    <circle class="amber pulse" cx="80" cy="50" r="4" />` },
-  { id: "science", cap: "Science", sub: "experiment", say: "run experiments.", href: "#app-plot", c: "var(--em)", dx: 1, dy: 0, svg: `
-    <path class="paper-f ink-s" d="M66 10h28M70 10v26L46 84a6 6 0 0 0 5 8h58a6 6 0 0 0 5-8L90 36V10" />
-    <path class="liquid" d="M57 64h46l9 20a5 5 0 0 1-4 7H52a5 5 0 0 1-4-7z" />
-    <g class="bub"><circle style="--k:0" cx="72" cy="80" r="3"/><circle style="--k:1" cx="86" cy="84" r="2.4"/><circle style="--k:2" cx="80" cy="78" r="2"/></g>
-    <path class="grid" d="M120 30h20M120 44h14M120 58h20" />` },
-  { id: "atlas", cap: "Atlas", sub: v("atlas"), say: "choose materials.", href: "#app-atlas", c: "var(--atlas)", dx: -1, dy: 1, svg: `
+    <path class="draw acc-s" pathLength="1" d="M22 82C52 80 66 76 80 56S104 20 148 16" />
+    <g class="acc-f">${[[28, 80], [42, 78], [56, 74], [70, 64], [84, 48], [98, 34], [112, 24], [128, 19], [144, 17]].map(([x, y], i) => `<circle class="pop" style="--k:${i * .6}" cx="${x}" cy="${y + (i % 2 ? 3 : -3)}" r="3.4"/>`).join("")}</g>` },
+  { id: "reports", cap: "Reports", app: "", say: "print clear reports.", href: "#apps", c: "var(--ink)", dx: -1, dy: 0, svg: `
+    <g class="sheet"><rect class="paper-f ink-s" x="44" y="10" width="72" height="84" rx="2" />
+      <path class="ink-s thin" d="M54 22h34M54 30h22" />
+      <g class="acc2f"><rect class="col" style="--k:0" x="56" y="54" width="8" height="18"/><rect class="col" style="--k:1" x="68" y="46" width="8" height="26"/><rect class="col" style="--k:2" x="80" y="40" width="8" height="32"/><rect class="col" style="--k:3" x="92" y="50" width="8" height="22"/></g>
+      <path class="ink-s thin" d="M54 72h52M54 82h40M54 88h30" /></g>
+    <rect class="amber" x="98" y="14" width="22" height="11" rx="1.5" /><text class="mono-t tiny" x="109" y="22.5" text-anchor="middle">PDF</text>` },
+  { id: "stats", cap: "Statistics", app: "plot", say: "compare groups.", href: "#app-plot", c: "var(--plot)", dx: 1, dy: 0, svg: `
+    <path class="ink-s" d="M16 10V86H150" />
+    <path class="grid" d="M16 66H150M16 46H150M16 26H150" />
+    ${[[44, 62, 48, 72, 40, 80], [84, 46, 34, 56, 26, 66], [124, 34, 24, 44, 16, 54]].map(([x, m, q1, q3, lo, hi], k) =>
+      `<g class="box" style="--k:${k}"><path class="ink-s thin" d="M${x} ${lo}V${q1}M${x} ${q3}V${hi}M${x - 6} ${lo}h12M${x - 6} ${hi}h12"/><rect class="acc-f" x="${x - 11}" y="${q1}" width="22" height="${q3 - q1}" rx="1"/><path class="ink-s" d="M${x - 11} ${m}h22"/></g>`).join("")}
+    <path class="ink-s thin pop" style="--k:5" d="M44 12V8H124V12" /><text class="mono-t pop" style="--k:5" x="84" y="7" text-anchor="middle">**</text>` },
+  { id: "chart", cap: "Property chart", app: "atlas", say: "map material properties.", href: "#app-atlas", c: "var(--atlas)", dx: -1, dy: 1, svg: `
     <path class="ink-s" d="M18 8V86H152" />
     <path class="grid" d="M18 66H152M18 46H152M18 26H152M52 8V86M86 8V86M120 8V86" />
     <g class="acc-f">
-      <ellipse class="bl" style="--k:0" cx="46" cy="66" rx="16" ry="8" transform="rotate(-25 46 66)"/>
-      <ellipse class="bl" style="--k:1" cx="82" cy="50" rx="20" ry="9" transform="rotate(-35 82 50)"/>
-      <ellipse class="bl" style="--k:2" cx="122" cy="26" rx="18" ry="8" transform="rotate(-30 122 26)"/>
-      <ellipse class="bl" style="--k:3" cx="110" cy="66" rx="12" ry="6" transform="rotate(-10 110 66)"/>
+      <g transform="rotate(-25 46 66)"><ellipse class="pop" style="--k:0" cx="46" cy="66" rx="16" ry="7"/></g>
+      <g transform="rotate(-35 80 52)"><ellipse class="pop" style="--k:1" cx="80" cy="52" rx="19" ry="8"/></g>
+      <g transform="rotate(-30 120 26)"><ellipse class="pop" style="--k:2" cx="120" cy="26" rx="17" ry="7"/></g>
+      <g transform="rotate(-10 112 62)"><ellipse class="pop" style="--k:3" cx="112" cy="62" rx="12" ry="5.5"/></g>
     </g>
-    <path class="sel" d="M24 92L150 10" />` },
-  { id: "research", cap: "Research", sub: "structures", say: "model structures.", href: `${base}/network`, c: "var(--em)", dx: 0, dy: 1, svg: `
-    <g transform="translate(80 50)"><g class="mol">
-      <path class="ink-s" d="M0 -26L22.5 -13V13L0 26L-22.5 13V-13Z M0 -26V-40M22.5 13L35 20M-22.5 13L-35 20" />
-      <circle class="ink-f" cx="0" cy="-26" r="5"/><circle class="ink-f" cx="22.5" cy="13" r="5"/><circle class="ink-f" cx="-22.5" cy="13" r="5"/>
-      <circle class="paper-f ink-s" cx="22.5" cy="-13" r="5"/><circle class="paper-f ink-s" cx="0" cy="26" r="5"/><circle class="paper-f ink-s" cx="-22.5" cy="-13" r="5"/>
-      <circle class="amber" cx="0" cy="-40" r="5"/><circle class="acc2f" cx="35" cy="20" r="4.5"/><circle class="acc2f" cx="-35" cy="20" r="4.5"/>
-    </g></g>` },
-  { id: "next", cap: "More to come", sub: "next", say: "build what comes next.", href: "https://github.com/Edgar-Mendonca/Datum/issues/new", c: "var(--amber)", dx: 1, dy: 1, svg: `
+    <path class="sel" d="M26 84L148 12" />` },
+  { id: "rank", cap: "Ranking", app: "atlas", say: "rank the right materials.", href: "#app-atlas", c: "var(--atlas)", dx: 0, dy: 1, svg: `
+    <text class="mono-t" x="16" y="18">E½/ρ</text>
+    ${[118, 96, 80, 62, 44].map((w, k) => `<rect class="bar ${k ? "acc-f" : "acc"}" style="--k:${k}" x="16" y="${26 + k * 13}" width="${w}" height="8" rx="1.5"/>`).join("")}
+    <path class="amber pop" style="--k:4" d="M140 30l-6-6M140 30l-6 6" />
+    <path class="grid" d="M16 92H150" />` },
+  { id: "next", cap: "More to come", app: "", say: "build what comes next.", href: "https://github.com/Edgar-Mendonca/Datum/issues/new", c: "var(--amber)", dx: 1, dy: 1, svg: `
     <rect class="dash" x="10" y="10" width="140" height="80" rx="3" />
     <g transform="translate(80 50)"><g class="plus"><path class="ink-s thick" d="M0 -13V13M-13 0H13" /></g></g>` },
 ];
 const angle = (t: Tile) => Math.round((Math.atan2(t.dy, t.dx) * 180) / Math.PI);
 const bench = [...tiles.slice(0, 4), null, ...tiles.slice(4)];
+const label = (t: Tile) => t.app ? name(t.app) : t.id === "next" ? "next app" : "every app";
 ---
 <div class="hw">
   <div class="left">
     <h1 id="hero-title" class="title">Datum<span class="sq" aria-hidden="true"></span></h1>
-    <p class="tools">Tools to <span class="say" data-say>{tiles[0].say}</span></p>
-    <p class="lead">Desktop software for engineers, scientists, researchers and analysts. Small, fast and open source; your files stay on your computer.</p>
+    <p class="tools">Tools to <span class="say it" data-say>{tiles[0].say}</span></p>
+    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, and more on the way. Open source; your files stay on your computer.</p>
+    <ul class="family" aria-label="The apps">
+      {apps.map(a => <li><a href={`#app-${a.id}`} style={`--c:var(--${a.id}, ${a.accent})`}><img src={a.logo} width="22" height="22" alt="" />{a.name.replace(/^Datum /, "")}</a></li>)}
+      <li><a class="soon" href="https://github.com/Edgar-Mendonca/Datum/issues/new"><span aria-hidden="true">+</span>More to come</a></li>
+    </ul>
     <div class="btns">
       <a class="btn btn-solid" href="#apps">Get the apps</a>
       <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>
@@ -85,9 +87,9 @@ const bench = [...tiles.slice(0, 4), null, ...tiles.slice(4)];
   <div class="wb" data-bench style={`--a:${angle(tiles[0])}deg`}>
     {bench.map(t => t
       ? (
-        <a class:list={["tile", { on: t === tiles[0] }]} href={t.href} data-tile data-say={t.say} data-cap={t.cap} data-sub={t.sub} data-a={angle(t)} style={`--c:${t.c}`}>
+        <a class:list={["tile", { on: t === tiles[0] }]} href={t.href} data-tile data-say={t.say} data-cap={t.cap} data-sub={label(t)} data-a={angle(t)} style={`--c:${t.c}`}>
           <svg viewBox="0 0 160 100" aria-hidden="true" set:html={t.svg} />
-          <span class="cap mono"><b>{t.cap}</b><span>{t.sub}</span></span>
+          <span class="cap mono"><b>{t.cap}</b><span>{label(t)}</span></span>
         </a>
       )
       : (
@@ -98,7 +100,7 @@ const bench = [...tiles.slice(0, 4), null, ...tiles.slice(4)];
             <g class="needle"><path d="M80 46H110" /><circle cx="110" cy="46" r="3" /></g>
             <rect class="datum" x="75" y="41" width="10" height="10" />
           </svg>
-          <span class="cap mono"><Mark class="m" /><b data-readout>{tiles[0].cap}</b><span data-readout-sub>{tiles[0].sub}</span></span>
+          <span class="cap mono"><Mark class="m" /><b data-readout>{tiles[0].cap}</b></span>
         </div>
       ))}
   </div>
@@ -109,59 +111,60 @@ const bench = [...tiles.slice(0, 4), null, ...tiles.slice(4)];
   const bench = document.querySelector<HTMLElement>("[data-bench]");
   const tiles = [...document.querySelectorAll<HTMLElement>("[data-tile]")];
   const say = document.querySelector<HTMLElement>("[data-say]");
-  const readout = document.querySelector<HTMLElement>("[data-readout]"), readoutSub = document.querySelector<HTMLElement>("[data-readout-sub]");
+  const readout = document.querySelector<HTMLElement>("[data-readout]");
   if (bench && tiles.length && say) {
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let i = 0, held = false, timer = 0;
+    let i = 0, held = false;
     const show = (n: number) => {
       i = (n + tiles.length) % tiles.length;
       const t = tiles[i];
       tiles.forEach(x => x.classList.toggle("on", x === t));
       bench.style.setProperty("--a", `${t.dataset.a}deg`);
       if (say.textContent !== t.dataset.say) { say.textContent = t.dataset.say!; say.classList.remove("in"); void say.offsetWidth; say.classList.add("in"); }
-      say.style.setProperty("--c", t.style.getPropertyValue("--c"));
       if (readout) readout.textContent = t.dataset.cap!;
-      if (readoutSub) readoutSub.textContent = t.dataset.sub!;
     };
-    const tick = () => { if (!held && !document.hidden) show(i + 1); };
-    if (!still) timer = window.setInterval(tick, 3200);
+    if (!still) setInterval(() => { if (!held && !document.hidden) show(i + 1); }, 3000);
     tiles.forEach((t, n) => {
       t.addEventListener("pointerenter", () => { held = true; show(n); });
       t.addEventListener("focus", () => { held = true; show(n); });
     });
     bench.addEventListener("pointerleave", () => { held = false; });
     bench.addEventListener("focusout", e => { if (!bench.contains(e.relatedTarget as Node)) held = false; });
-    // The inspection light follows the pointer across the bench.
     bench.addEventListener("pointermove", e => { const r = bench.getBoundingClientRect(); bench.style.setProperty("--mx", `${e.clientX - r.left}px`); bench.style.setProperty("--my", `${e.clientY - r.top}px`); });
-    void timer;
   }
 </script>
 
 <style>
-  .hw { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .hw { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 
   /* Left */
   .left { display: grid; gap: 20px; justify-items: start; }
-  .title { font: 600 clamp(56px, 7.4vw, 96px)/.95 var(--display); letter-spacing: -.035em; display: flex; align-items: flex-end; gap: .08em; }
+  .title { font: 600 clamp(56px, 7vw, 92px)/.95 var(--display); letter-spacing: -.035em; display: flex; align-items: flex-end; gap: .08em; }
   .sq { width: .2em; height: .2em; background: var(--amber); margin-bottom: .1em; }
-  .tools { font: 600 clamp(24px, 2.8vw, 36px)/1.2 var(--display); letter-spacing: -.02em; min-height: 1.25em; }
-  .say { --c: var(--em); color: var(--em); display: inline-block; border-bottom: 2px solid color-mix(in srgb, var(--em) 35%, transparent); }
+  .tools { font: 600 clamp(26px, 3vw, 38px)/1.15 var(--display); letter-spacing: -.02em; min-height: 1.2em; }
+  .say { font-size: 1.12em; display: inline-block; }
   .say.in { animation: swap .45s var(--ease); }
-  @keyframes swap { from { opacity: 0; transform: translateY(.35em); } }
-  .lead { max-width: 46ch; }
+  @keyframes swap { from { opacity: 0; transform: translateY(.3em); filter: blur(3px); } }
+  .lead { max-width: 48ch; }
+  .family { display: flex; flex-wrap: wrap; gap: 8px; }
+  .family a { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 6px; border: 1px solid var(--line-2); background: var(--card);
+    font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); transition: border-color .2s, color .2s; }
+  .family a:hover { border-color: var(--c); color: var(--c); }
+  .family .soon { border-style: dashed; background: none; color: var(--muted); padding-left: 10px; }
+  .family .soon span { color: var(--amber); font-weight: 700; }
 
   /* Right: the bench */
-  .wb { --mx: 50%; --my: 50%; position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 10px;
+  .wb { --mx: 50%; --my: 50%; justify-self: end; width: min(100%, 520px); position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 8px;
     border: 1px solid var(--line-2); background-color: var(--bg-2);
-    background-image: radial-gradient(260px circle at var(--mx) var(--my), color-mix(in srgb, var(--em) 10%, transparent), transparent 70%); }
-  .tile, .origin { display: grid; background: var(--card); border: 1px solid var(--line); position: relative; }
+    background-image: radial-gradient(240px circle at var(--mx) var(--my), color-mix(in srgb, var(--em) 10%, transparent), transparent 70%); }
+  .tile, .origin { display: grid; background: var(--card); border: 1px solid var(--line); position: relative; overflow: hidden; }
   .tile { cursor: pointer; transition: border-color .25s, box-shadow .25s, transform .25s var(--ease); }
-  .tile svg, .origin svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; background-color: var(--paper);
+  .tile svg, .origin svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; overflow: hidden; background-color: var(--paper);
     background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 10px 10px; }
-  .cap { display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 6px 8px; border-top: 1px solid var(--line); font-size: 10px; letter-spacing: .1em; color: var(--muted); white-space: nowrap; overflow: hidden; }
+  .cap { display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 5px 7px; border-top: 1px solid var(--line); font-size: 9.5px; letter-spacing: .08em; color: var(--muted); white-space: nowrap; overflow: hidden; }
   .cap b { color: var(--ink); font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
-  .tile.on { border-color: var(--c); box-shadow: 0 14px 30px -22px rgb(12 26 43 / .55), inset 0 3px 0 var(--c); transform: translateY(-2px); }
-  .tile.on .cap b { color: var(--c); }
+  .cap span { color: var(--c); }
+  .tile.on { border-color: var(--c); box-shadow: 0 12px 26px -20px rgb(12 26 43 / .55), inset 0 2px 0 var(--c); transform: translateY(-2px); }
   .tile:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
 
   /* The origin: the datum square, a dial with a tick per tile, and the needle pointing at the active one */
@@ -174,57 +177,49 @@ const bench = [...tiles.slice(0, 4), null, ...tiles.slice(4)];
   .needle circle { fill: var(--ink); }
   .datum { fill: var(--amber); }
   .origin .cap { justify-content: flex-start; }
-  .origin .cap :global(.m) { width: 12px; height: 13px; color: var(--ink); flex: none; }
-  .origin .cap span { margin-left: auto; }
+  .origin .cap :global(.m) { width: 11px; height: 12px; color: var(--ink); flex: none; }
 
   /* Tile drawings */
-  .tile :global(.ink), .tile :global(.ink-f) { fill: var(--ink); }
-  .tile :global(.ink-s) { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .tile :global(.ink) { fill: var(--ink); }
+  .tile :global(.ink-s) { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
   .tile :global(.ink-s.thin) { stroke-width: 1.2; }
   .tile :global(.ink-s.thick) { stroke-width: 4; }
   .tile :global(.paper-f) { fill: var(--card); }
   .tile :global(.grid) { fill: none; stroke: var(--line-2); stroke-width: 1; stroke-dasharray: 2 3; }
   .tile :global(.acc) { fill: var(--c); }
-  .tile :global(.acc-f) { fill: color-mix(in srgb, var(--c) 65%, transparent); }
+  .tile :global(.soft) { opacity: .5; }
+  .tile :global(.acc-f) { fill: color-mix(in srgb, var(--c) 60%, transparent); }
   .tile :global(.acc-s) { fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; }
-  .tile :global(.acc2) { fill: none; stroke: var(--em); stroke-width: 2; opacity: .7; }
+  .tile :global(.plan-l) { fill: none; stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 4 3; }
   .tile :global(.acc2f) { fill: var(--em); }
   .tile :global(.amber) { fill: var(--amber); }
+  .tile :global(path.amber.pop[d*="l-6"]) { fill: none; stroke: var(--amber); stroke-width: 2.4; stroke-linecap: round; }
   .tile :global(.link) { fill: none; stroke: var(--ink); stroke-width: 1.2; opacity: .6; }
   .tile :global(.today) { stroke: #C0392B; stroke-width: 1.4; stroke-dasharray: 3 3; }
-  .tile :global(.mono-t) { font: 600 11px var(--mono); fill: var(--ink); }
-  .tile :global(.liquid) { fill: color-mix(in srgb, var(--em) 35%, transparent); }
-  .tile :global(.bub circle) { fill: var(--em); opacity: 0; }
-  .tile :global(.sel) { stroke: var(--amber); stroke-width: 2.5; stroke-dasharray: 6 5; }
+  .tile :global(.mono-t) { font: 600 10.5px var(--mono); fill: var(--ink); }
+  .tile :global(.mono-t.tiny) { font-size: 7.5px; fill: #0C1A2B; }
+  .tile :global(.sel) { stroke: var(--amber); stroke-width: 2.4; stroke-dasharray: 6 5; }
   .tile :global(.dash) { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 6 5; }
-  .tile :global(.clip) { clip-path: inset(8px 10px 8px 10px); }
 
-  /* Animations run only on the active (or hovered) tile; at rest every drawing is complete. */
-  .tile:is(.on, :hover) :global(.bar) { transform-box: fill-box; transform-origin: left center; animation: grow 1.1s var(--ease) both; animation-delay: calc(var(--k) * .14s); }
+  /* Animations run only on the active (or hovered) tile, once and short; at rest every drawing is complete. */
+  .tile:is(.on, :hover) :global(.bar) { transform-box: fill-box; transform-origin: left center; animation: grow .9s var(--ease) both; animation-delay: calc(var(--k) * .12s); }
   @keyframes grow { from { transform: scaleX(0); } }
-  .tile:is(.on, :hover) :global(.ms) { transform-box: fill-box; transform-origin: center; animation: pop .5s .7s var(--ease) both; }
-  @keyframes pop { from { transform: scale(0); } }
-  .tile:is(.on, :hover) :global(.jaw) { animation: slide 2.6s ease-in-out infinite; }
-  @keyframes slide { 50% { transform: translateX(46px); } }
-  .tile :global(.curve) { stroke-dasharray: 1; }
-  .tile:is(.on, :hover) :global(.curve) { animation: draw 1.4s ease-out both; }
+  .tile:is(.on, :hover) :global(.col) { transform-box: fill-box; transform-origin: bottom; animation: up .7s var(--ease) both; animation-delay: calc(var(--k) * .1s + .2s); }
+  @keyframes up { from { transform: scaleY(0); } }
+  .tile:is(.on, :hover) :global(.box) { transform-box: fill-box; transform-origin: center; animation: up .6s var(--ease) both; animation-delay: calc(var(--k) * .15s); }
+  .tile:is(.on, :hover) :global(.pop) { transform-box: fill-box; transform-origin: center; animation: pop .4s var(--ease) both; animation-delay: calc(var(--k) * .1s + .15s); }
+  @keyframes pop { from { transform: scale(0); opacity: 0; } }
+  .tile :global(.draw) { stroke-dasharray: 1; }
+  .tile:is(.on, :hover) :global(.draw) { animation: draw 1.2s ease-out both; }
   @keyframes draw { from { stroke-dashoffset: 1; } }
-  .tile:is(.on, :hover) :global(.pts circle) { transform-box: fill-box; transform-origin: center; animation: pop .35s var(--ease) both; animation-delay: calc(var(--k) * .08s); }
-  .tile:is(.on, :hover) :global(.wave) { animation: scroll 2.4s linear infinite; }
-  @keyframes scroll { to { transform: translateX(-140px); } }
-  .tile:is(.on, :hover) :global(.pulse) { transform-box: fill-box; transform-origin: center; animation: beat 1.2s ease-in-out infinite; }
-  @keyframes beat { 50% { transform: scale(1.6); opacity: .6; } }
-  .tile:is(.on, :hover) :global(.mol) { animation: spin 9s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .tile:is(.on, :hover) :global(.bl) { transform-box: fill-box; transform-origin: center; animation: pop .45s var(--ease) both; animation-delay: calc(var(--k) * .12s); }
+  .tile:is(.on, :hover) :global(.sheet) { animation: rise .6s var(--ease) both; }
+  @keyframes rise { from { transform: translateY(10px); opacity: 0; } }
   .tile:is(.on, :hover) :global(.sel) { animation: march 1.2s linear infinite; }
   @keyframes march { to { stroke-dashoffset: -22; } }
-  .tile:is(.on, :hover) :global(.bub circle) { animation: rise 2.2s ease-in infinite; animation-delay: calc(var(--k) * -.7s); }
-  @keyframes rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(-34px); opacity: 0; } }
   .tile:is(.on, :hover) :global(.dash) { animation: march 1.6s linear infinite; }
-  .tile:is(.on, :hover) :global(.plus) { animation: turn 1.2s var(--ease) both; }
+  .tile:is(.on, :hover) :global(.plus) { animation: turn .9s var(--ease) both; }
   @keyframes turn { from { transform: rotate(-90deg) scale(.6); } }
 
-  @media (max-width: 960px) { .hw { grid-template-columns: 1fr; } .tools { min-height: 0; } }
-  @media (max-width: 520px) { .wb { gap: 6px; padding: 6px; } .cap { font-size: 8.5px; padding: 5px 6px; letter-spacing: .06em; } .cap span { display: none; } }
+  @media (max-width: 960px) { .hw { grid-template-columns: 1fr; } .wb { justify-self: stretch; width: 100%; } }
+  @media (max-width: 520px) { .wb { gap: 5px; padding: 5px; } .cap { font-size: 8px; padding: 4px 5px; letter-spacing: .04em; } .cap span { display: none; } }
 </style>

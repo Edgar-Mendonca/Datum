@@ -14,7 +14,7 @@ export type Latest = { version: string; date: string; url: string; download: str
 export type App = {
   id: string; repo: string; branch: string; name: string; accent: string; tagline: string; for: string;
   logo: string; highlights: string[]; shots: Shot[]; roadmap: Stage[]; changelog: Section[];
-  latest?: Latest; releases: Release[]; hasSite: boolean;
+  latest?: Latest; releases: Release[]; hasSite: boolean; statusSet?: string;
 };
 
 // The repo root (the build runs in site/; import.meta.url moves when Astro bundles this file).
@@ -75,7 +75,7 @@ async function loadApp(e: any): Promise<App> {
   const logo = svgUri(svg?.trimStart().startsWith("<svg") ? svg : localSvg(`datum-${e.id}-icon.svg`) ?? read("brand/datum-icon.svg"));
   const changelog = md ? parseChangelog(md, `${e.id} CHANGELOG`) : [];
   const app: App = {
-    id: e.id, repo: e.repo, branch: e.branch ?? "HEAD", hasSite: !!site,
+    id: e.id, repo: e.repo, branch: e.branch ?? "HEAD", hasSite: !!site, statusSet: s.status ?? e.status,
     name: s.name ?? e.name, accent: s.accent ?? e.accent, tagline: s.tagline ?? e.tagline, for: s.for ?? e.for,
     logo, highlights: (s.highlights ?? []).filter((h: string) => plain(h, `${e.id} site.json`)),
     roadmap: (s.roadmap ?? []).map((r: Stage) => ({ ...r, items: r.items.filter(i => plain(i, `${e.id} roadmap ${r.v}`)) })), changelog, releases: [],
@@ -124,6 +124,17 @@ export function loadAll(): Promise<App[]> {
 }
 
 /** The newest releases across the family, newest first. */
+/** Stable, Beta or Alpha: from site.json or apps.json ("status"), else from the version (1.x stable, 0.2+ beta). */
+export const statusOf = (a: App) => {
+  if (a.statusSet) return a.statusSet;
+  const v = a.latest?.version; if (!v) return "Coming soon";
+  const [maj, min] = v.split(".").map(Number);
+  return maj >= 1 ? "Stable" : min >= 2 ? "Beta" : "Alpha";
+};
+
+/** The newest release of each app, newest first. */
+export const latestPerApp = (apps: App[]) => apps.map(a => a.releases[0]).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
+
 export const latestReleases = (apps: App[], n = 6) =>
   apps.flatMap(a => a.releases).sort((a, b) => b.date.localeCompare(a.date) || cmpVer(b.version, a.version)).slice(0, n);
 const cmpVer = (a: string, b: string) => { const x = a.split(".").map(Number), y = b.split(".").map(Number); for (let i = 0; i < 3; i++) if (x[i] !== y[i]) return (x[i] ?? 0) - (y[i] ?? 0); return 0; };
