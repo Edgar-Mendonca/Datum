@@ -16,6 +16,7 @@ export const TYPES = {
   file: "Source file",
   release: "Release",
   roadmap: "Planned",
+  idea: "Future app (bucket list)",
   session: "Session",
 };
 
@@ -75,6 +76,14 @@ export async function buildBrain({ root = new URL("../", import.meta.url), get =
     const head = s.slice(0, s.indexOf("\n"));
     node({ id: `hub-session-${i}`, type: "session", app: "hub", label: short(head.replace(/^[\d-/]+:\s*/, ""), 48), date: head.match(/^[\d-/]+/)?.[0], text: lines(s.slice(head.length)), url: `${HUB}MEMORY.md` });
     edge("hub", `hub-session-${i}`, "session");
+  });
+
+  // The bucket list: future apps (MEMORY §7), linked to the apps and technologies they reuse.
+  const ideas = table(section(hubMemory, "Bucket list"));
+  ideas.forEach(r => {
+    const id = `idea-${slug(r[0])}`;
+    node({ id, type: "idea", app: "hub", label: plain(r[0]), when: plain(r[5]), text: `${plain(r[1])}\n\nFor: ${plain(r[2])}\nReuses: ${plain(r[3])}\nSize: ${plain(r[4])}\nStatus: ${plain(r[5])}`, url: `${HUB}MEMORY.md` });
+    edge("hub", id, "idea");
   });
 
   // Every app.
@@ -154,6 +163,11 @@ export async function buildBrain({ root = new URL("../", import.meta.url), get =
     });
   }
 
+  for (const r of ideas) {
+    const id = `idea-${slug(r[0])}`, text = `${r[1]} ${r[3]}`;
+    for (const a of registry) if (new RegExp(`\\b${a.name.replace("Datum ", "")}\\b`).test(text)) edge(id, `app-${a.id}`, "reuses");
+    for (const t of TECH) if (new RegExp(`\\b${t.replace(/[.+]/g, "\\$&")}\\b`, "i").test(text)) edge(id, `tech-${slug(t)}`, "uses");
+  }
   for (const t of TECH) if (!edges.some(e => e.target === `tech-${slug(t)}` || e.source === `tech-${slug(t)}`)) nodes.delete(`tech-${slug(t)}`);
   edge("guide-2", "tech-rust", "names"); edge("guide-2", "tech-tauri-2", "names"); edge("guide-2", "tech-solidjs", "names"); edge("guide-4", "tech-ibm-plex", "names");
   edge("guide-11", "workflow-1", "describes");

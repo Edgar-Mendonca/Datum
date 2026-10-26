@@ -9,9 +9,9 @@ type Data = { types: Record<string, string>; colors: Record<string, string>; anc
 
 const APP_COLOR: Record<string, string> = { plan: "#4C9BEA", plot: "#3FC2B2", atlas: "#A58BEA", hub: "#F2B233" };
 // Columns of the Flow layout, left to right, and the band of each app.
-const FLOW: Record<string, number> = { guide: 0, workflow: 0, hub: 1, tech: 2, app: 3, decision: 4, file: 5, session: 6, release: 7, roadmap: 8 };
+const FLOW: Record<string, number> = { guide: 0, workflow: 0, hub: 1, tech: 2, app: 3, decision: 4, file: 5, session: 6, release: 7, roadmap: 8, idea: 8 };
 const LANE = ["plan", "plot", "atlas", "hub"];
-const COLS = ["Design guide · how we work", "Hub", "Technology", "Apps", "Decisions", "Source files", "Sessions", "Releases", "Planned"];
+const COLS = ["Design guide · how we work", "Hub", "Technology", "Apps", "Decisions", "Source files", "Sessions", "Releases", "Planned · ideas"];
 
 export function start() {
   const data: Data = JSON.parse(document.getElementById("brain")!.textContent!);

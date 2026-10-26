@@ -57,5 +57,5 @@ export const radius = (n: BNode) => n.type === "hub" ? 26 : n.type === "app" ? 2
 
 export const TYPE_COLOR: Record<string, string> = {
   hub: "#F2B233", app: "#FFFFFF", guide: "#56B4E9", tech: "#E69F00", workflow: "#F0E442",
-  decision: "#CC79A7", file: "#8FA3B8", release: "#009E73", roadmap: "#F2B233", session: "#D55E00",
+  decision: "#CC79A7", file: "#8FA3B8", release: "#009E73", roadmap: "#F2B233", session: "#D55E00", idea: "#E6EDF5",
 };

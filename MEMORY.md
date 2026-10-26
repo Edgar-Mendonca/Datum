@@ -131,6 +131,10 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 - Built: `HeroWorkbench.astro` (tiles reuse the session 3 drawings; animations run only on the active tile; the origin dial's needle points at it; the phrase swaps with a short slide); `HeroPanel.astro` removed; CLAUDE.md hero rule updated.
 - Checked: build; Playwright: the bench cycles idle, hover on Science takes over ("run experiments."), holds while hovered, resumes after; 1280, 1440 (dark), 375 px: no overflow, no console errors.
 
+### 2026-10-26: Session 7 (bucket list)
+- Brainstorm of future free, open-source apps (§7). The user asked how Calc and Tolerance relate to a commercial maths worksheet and to Plot: Calc is that category (formulas and units → design values and a calc sheet), Plot analyses measured data, Tolerance is a separate small tool. Decided: **Datum Calc is next**. FEA: worth it as a long-term flagship grown in steps from Datum Frame, using open solvers for the heavy work; not next.
+- The brain now reads §7 as "idea" nodes.
+
 ### 2026-10-26: Session 6 (capability bench, scroll features, theme)
 - User (screenshots of the live site): the Analysis wave and the Atlas bubbles misbehaved; the hero did not define our work; no app counts; changing text in the session 3 italic; light/dark not working; smaller app cards with light animations and changing text; remove "Download an app…", the network teaser and the network page title; only the latest release per app; look at Artcraft. Asked to brainstorm first; agreed: capability tiles, all three theme options, no figures strip, status badges, Artcraft-style scroll and glass.
 - Causes: the wave's CSS clip used the wrong box; the bubbles' pop animation replaced their SVG rotation. The theme script worked, but the cycling button looked dead.
@@ -143,3 +147,26 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 - The site updates once a day after an app release until the `repository_dispatch` step is added to the apps.
 - `brain/graph.json` in the repo is as fresh as the last `node brain/brain.mjs`; the website rebuilds the graph itself every day.
 - The network page carries the whole graph (about 300 kB of HTML before compression).
+
+## 7. Bucket list (future apps)
+
+Brainstormed with the user on 2026-10-26 (session 7). Ideas only until the user starts one; a new app follows FAMILY §12. Each must reuse the family (Rust engine, grid, formulas, units, print, updater) and connect to the other apps.
+
+| Name | What it does | For | Reuses / connects | Size | Status |
+| --- | --- | --- | --- | --- | --- |
+| Datum Calc | Engineering calculation sheets with real units, shown as readable maths, with references, pass/fail checks and a printable calc sheet. Plot analyses measured data; Calc designs what you build | Every engineer | GridCraft formulas, units (Atlas), print, Plot for charts | Medium (the hard part is natural equation editing; 0.1 = units-aware lines, variables, checks, PDF) | **Next** (the user's choice) |
+| Datum Tolerance | Tolerance stack-ups: worst case, RSS, Monte Carlo, datum chain, contributor ranking, GD&T helpers | Design and manufacturing engineers | Monte Carlo (Plan 0.4), charts, print; maybe a module of Calc | Small | Later |
+| Datum Hub (app) | One launcher that installs and updates every Datum app, recent files across apps, "open with" | Everyone with more than one app | update.rs, apps.json, the brain | Small | Later (when there are more apps) |
+| Datum Lab | Local lab notebook: test plans, specimens, instrument data import, send results to Plot | R&D labs, materials testing | Plot, Atlas, grid | Medium | Later |
+| Datum Inspect | Quality: inspection and test plans, measurement reports, non-conformances, control charts, Cp/Cpk, certificates as PDF | QA/QC, suppliers, manufacturing | Plot statistics, print | Medium | Later |
+| Datum Frame | 2D beam, frame and truss analysis: loads, supports, shear/moment, deflection, section properties, materials from Atlas | Structural and mechanical engineers, students | Own Rust FEM solver, Atlas | Medium | Later (first step of Datum Sim) |
+| Datum Flow | Pipe pressure drop, pump and compressor sizing, performance curves, open fluid property data | Process and mechanical engineers | Units, charts | Medium | Later |
+| Datum Estimate | Cost estimating: quantities, rates, contingency, cost curves, feeding costs into Plan | Estimators, contractors, PMs | Grid, formulas, Plan | Medium | Later |
+| Datum Sim (FEA) | Simulation grown in steps: 1 Frame (beams, own solver) → 2 2D plane stress/axisymmetric/heat (own solver) → 3 3D linear static and modal with STEP import (OpenCascade, Gmsh, own solver or CalculiX) → 4 nonlinear, contact, coupled physics (Code_Aster/Elmer as external solvers). Datum builds set-up, results and reports; mature open solvers do the heavy solving as separate processes (clean licensing). A built-in verification report (benchmarks passed) is a headline feature | Mechanical, structural and thermal engineers | Atlas materials, Plot results, print | Very large (steps 1–2 fit our way of building; 3–4 are a multi-year journey) | Long-term flagship |
+| Datum Draft | 2D technical drawings: parametric sketches, dimensions, title blocks, DXF | Engineers, drafters | Print | Large | Long-term |
+| Datum Phase | Phase diagrams, kinetics, heat-treatment curves | Materials scientists | Plot (Arrhenius), Atlas | Large | Long-term |
+| Datum Signal | Vibration and sound: FFT, filters, spectrograms, order analysis (may graduate out of Plot) | Test engineers | Plot | Medium | Long-term |
+| Datum Report | Technical reports: numbered equations, live figures from Plot/Atlas/Calc, references, PDF | Engineers, researchers | Calc, Plot, print | Medium | Long-term |
+| Datum Risk | Risk registers, FMEA, bow-ties, shared Monte Carlo | PMs, safety and reliability engineers | Plan, Tolerance | Medium | Long-term |
+
+Family-level ideas: shared crates (`datum-units`, `datum-print`, `datum-grid`, `datum-montecarlo`) so a new app gets them with one line; cross-app files (an Atlas material into Frame, Lab data into Plot, an Estimate into Plan); worked-example packs for students and lecturers.

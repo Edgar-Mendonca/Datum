@@ -11,6 +11,7 @@
   "file": "Source file",
   "release": "Release",
   "roadmap": "Planned",
+  "idea": "Future app (bucket list)",
   "session": "Session"
  },
  "apps": [
@@ -538,9 +539,144 @@
    "id": "hub-session-5",
    "type": "session",
    "app": "hub",
+   "label": "Session 7 (bucket list)",
+   "date": "2026-10-26",
+   "text": "· Brainstorm of future free, open-source apps (§7). The user asked how Calc and Tolerance relate to a commercial maths worksheet and to Plot: Calc is that category (formulas and units → design values and a calc sheet), Plot analyses measured data, Tolerance is a separate small tool. Decided: Datum Calc is next. FEA: worth it as a long-term flagship grown in steps from Datum Frame, using open solvers for the heavy work; not next.\n· The brain now reads §7 as \"idea\" nodes.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-6",
+   "type": "session",
+   "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
    "date": "2026-10-26",
    "text": "· User (screenshots of the live site): the Analysis wave and the Atlas bubbles misbehaved; the hero did not define our work; no app counts; changing text in the session 3 italic; light/dark not working; smaller app cards with light animations and changing text; remove \"Download an app…\", the network teaser and the network page title; only the latest release per app; look at Artcraft. Asked to brainstorm first; agreed: capability tiles, all three theme options, no figures strip, status badges, Artcraft-style scroll and glass.\n· Causes: the wave's CSS clip used the wrong box; the bubbles' pop animation replaced their SVG rotation. The theme script worked, but the cycling button looked dead.\n· Built: new tiles and fixes in HeroWorkbench.astro; three-button theme control (Header, Base script); .it, glass bars, .reveal, .words, rail and scroll marker (site.css, index.astro); compact app cards with status badges; statusOf, latestPerApp (github.ts).\n· Checked: build; Playwright: theme auto/dark/light/auto, hover Statistics → \"compare groups.\", rail and scroll % follow the sections; 1280/375 light and dark, home and network: no overflow, no errors.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-calc",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Calc",
+   "when": "Next (the user's choice)",
+   "text": "Engineering calculation sheets with real units, shown as readable maths, with references, pass/fail checks and a printable calc sheet. Plot analyses measured data; Calc designs what you build\n\nFor: Every engineer\nReuses: GridCraft formulas, units (Atlas), print, Plot for charts\nSize: Medium (the hard part is natural equation editing; 0.1 = units-aware lines, variables, checks, PDF)\nStatus: Next (the user's choice)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-tolerance",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Tolerance",
+   "when": "Later",
+   "text": "Tolerance stack-ups: worst case, RSS, Monte Carlo, datum chain, contributor ranking, GD&T helpers\n\nFor: Design and manufacturing engineers\nReuses: Monte Carlo (Plan 0.4), charts, print; maybe a module of Calc\nSize: Small\nStatus: Later",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-hub-app",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Hub (app)",
+   "when": "Later (when there are more apps)",
+   "text": "One launcher that installs and updates every Datum app, recent files across apps, \"open with\"\n\nFor: Everyone with more than one app\nReuses: update.rs, apps.json, the brain\nSize: Small\nStatus: Later (when there are more apps)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-lab",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Lab",
+   "when": "Later",
+   "text": "Local lab notebook: test plans, specimens, instrument data import, send results to Plot\n\nFor: R&D labs, materials testing\nReuses: Plot, Atlas, grid\nSize: Medium\nStatus: Later",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-inspect",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Inspect",
+   "when": "Later",
+   "text": "Quality: inspection and test plans, measurement reports, non-conformances, control charts, Cp/Cpk, certificates as PDF\n\nFor: QA/QC, suppliers, manufacturing\nReuses: Plot statistics, print\nSize: Medium\nStatus: Later",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-frame",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Frame",
+   "when": "Later (first step of Datum Sim)",
+   "text": "2D beam, frame and truss analysis: loads, supports, shear/moment, deflection, section properties, materials from Atlas\n\nFor: Structural and mechanical engineers, students\nReuses: Own Rust FEM solver, Atlas\nSize: Medium\nStatus: Later (first step of Datum Sim)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-flow",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Flow",
+   "when": "Later",
+   "text": "Pipe pressure drop, pump and compressor sizing, performance curves, open fluid property data\n\nFor: Process and mechanical engineers\nReuses: Units, charts\nSize: Medium\nStatus: Later",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-estimate",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Estimate",
+   "when": "Later",
+   "text": "Cost estimating: quantities, rates, contingency, cost curves, feeding costs into Plan\n\nFor: Estimators, contractors, PMs\nReuses: Grid, formulas, Plan\nSize: Medium\nStatus: Later",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-sim-fea",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Sim (FEA)",
+   "when": "Long-term flagship",
+   "text": "Simulation grown in steps: 1 Frame (beams, own solver) → 2 2D plane stress/axisymmetric/heat (own solver) → 3 3D linear static and modal with STEP import (OpenCascade, Gmsh, own solver or CalculiX) → 4 nonlinear, contact, coupled physics (Code_Aster/Elmer as external solvers). Datum builds set-up, results and reports; mature open solvers do the heavy solving as separate processes (clean licensing). A built-in verification report (benchmarks passed) is a headline feature\n\nFor: Mechanical, structural and thermal engineers\nReuses: Atlas materials, Plot results, print\nSize: Very large (steps 1–2 fit our way of building; 3–4 are a multi-year journey)\nStatus: Long-term flagship",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-draft",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Draft",
+   "when": "Long-term",
+   "text": "2D technical drawings: parametric sketches, dimensions, title blocks, DXF\n\nFor: Engineers, drafters\nReuses: Print\nSize: Large\nStatus: Long-term",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-phase",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Phase",
+   "when": "Long-term",
+   "text": "Phase diagrams, kinetics, heat-treatment curves\n\nFor: Materials scientists\nReuses: Plot (Arrhenius), Atlas\nSize: Large\nStatus: Long-term",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-signal",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Signal",
+   "when": "Long-term",
+   "text": "Vibration and sound: FFT, filters, spectrograms, order analysis (may graduate out of Plot)\n\nFor: Test engineers\nReuses: Plot\nSize: Medium\nStatus: Long-term",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-report",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Report",
+   "when": "Long-term",
+   "text": "Technical reports: numbered equations, live figures from Plot/Atlas/Calc, references, PDF\n\nFor: Engineers, researchers\nReuses: Calc, Plot, print\nSize: Medium\nStatus: Long-term",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-risk",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Risk",
+   "when": "Long-term",
+   "text": "Risk registers, FMEA, bow-ties, shared Monte Carlo\n\nFor: PMs, safety and reliability engineers\nReuses: Plan, Tolerance\nSize: Medium\nStatus: Long-term",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -3423,6 +3559,81 @@
   },
   {
    "source": "hub",
+   "target": "hub-session-6",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-calc",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-tolerance",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-hub-app",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-lab",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-inspect",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-frame",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-flow",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-estimate",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-sim-fea",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-draft",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-phase",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-signal",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-report",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-risk",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
    "target": "app-plan",
    "kind": "app"
   },
@@ -6150,6 +6361,96 @@
    "source": "atlas-session-3",
    "target": "atlas-v0.1.1",
    "kind": "shipped"
+  },
+  {
+   "source": "idea-datum-calc",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-calc",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-calc",
+   "target": "tech-gridcraft",
+   "kind": "uses"
+  },
+  {
+   "source": "idea-datum-tolerance",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-lab",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-lab",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-inspect",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-frame",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-frame",
+   "target": "tech-rust",
+   "kind": "uses"
+  },
+  {
+   "source": "idea-datum-estimate",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-sim-fea",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-sim-fea",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-phase",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-phase",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-signal",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-report",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-report",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-risk",
+   "target": "app-plan",
+   "kind": "reuses"
   },
   {
    "source": "guide-2",
