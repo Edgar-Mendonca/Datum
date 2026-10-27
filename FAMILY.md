@@ -175,9 +175,17 @@ Chart.js:
 4. Engine first (with a test), then the UI.
 5. Check every change in the real app (Xvfb screenshots).
 6. Add a UI test for every bug.
-7. Run all checks.
+7. Run all checks: clippy `-D warnings`, `cargo test` (with the hardening tests below), the UI type-check and UI tests, `cargo deny check`.
 8. Release.
 9. Report in plain language: what changed, what was checked, what is not done.
+
+**Hardening standard (every app, from Datum Plan 0.3.11).** Each app's engine has a `hardening` test module that proves:
+- a failed edit leaves the document exactly as it was;
+- random documents (a small built-in generator, no extra crate) never panic and keep their invariants;
+- damaged files for every reader (cut short, garbled bytes, loops) never panic: they open or give a clear error;
+- a speed gate on a large document (a looser limit in debug builds).
+
+Plus: `deny.toml` + `cargo deny check` (advisories, licences, sources) and `license = "MIT"` in every crate; CI runs `cargo test` on Windows and macOS as well as Linux; the shell's state lock recovers from a poisoned mutex; `SECURITY.md` and `CONTRIBUTING.md` in the repo. rustfmt is not enforced (the code keeps its compact hand style).
 
 ## 12. Starting a new Datum app (checklist)
 
@@ -190,7 +198,8 @@ Chart.js:
 4. Apply the accent set from §3 and draw the logo per §5; copy the icon into DATUM `brand/`.
 5. Write `docs/MEMORY.md` and `docs/PLAN-0.1.md` (brainstorm and questions) before building features.
 6. Release 0.1.0 (shell, updater, Home, one working view) so the updater works from day one.
-7. Publish `docs/site.json` (§10) and add one line to DATUM's `apps.json`; the site picks the app up on its next build.
+7. Add the hardening standard (§11): the `hardening` tests, `deny.toml`, the Windows/macOS CI jobs, SECURITY.md and CONTRIBUTING.md.
+8. Publish `docs/site.json` (§10) and add one line to DATUM's `apps.json`; the site picks the app up on its next build.
 
 ## 13. Principles and public words
 
