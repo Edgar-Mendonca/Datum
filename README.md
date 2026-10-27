@@ -50,6 +50,7 @@ Every app is free and open source (MIT), Windows first, installs in seconds for 
 - [**MEMORY.md**](MEMORY.md): the family memory: decisions that apply to every app, the apps list, the session log.
 - [**apps.json**](apps.json): the registry the website builds from. Adding an app is one line.
 - [**brand/**](brand): the Datum logo ("Continuum") and its guide [BRAND.md](brand/BRAND.md), and every app icon.
+- [**briefs/**](briefs): the briefs new apps start from ([Datum Sim](briefs/DATUM-SIM.md) is next; [Datum Field](briefs/DATUM-FIELD.md) is parked for later).
 - [**brain/**](brain): the Datum brain: `graph.json`, one graph of every app, design rule, technology, source file, decision, release, plan and session, generated from the repositories ([BRAIN.md](brain/BRAIN.md)). Read it before starting anything new.
 - [**site/**](site): the website (Astro): one landing page and the interactive [Datum network](https://edgar-mendonca.github.io/Datum/network). It reads each app's `docs/site.json`, `CHANGELOG.md`, latest release and the brain when it builds, every day and on every push.
 

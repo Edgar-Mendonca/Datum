@@ -368,13 +368,31 @@
    "id": "hub-decision-13",
    "type": "decision",
    "app": "hub",
+   "label": "Datum Sim is the next app (system simulation and control…",
+   "text": "Datum Sim is the next app (system simulation and control design), ahead of Datum Calc; Datum Field is the name for the future FEA/CFD/multiphysics app, parked\n\nWhy: The user: two big apps in the long run; Sim first. \"Sim\" now means system simulation; FEA is Field.",
+   "date": "2026-10-27 (s9)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-14",
+   "type": "decision",
+   "app": "hub",
+   "label": "Briefs for new apps live in the hub's briefs/ (DATUM-SIM.md…",
+   "text": "Briefs for new apps live in the hub's briefs/ (DATUM-SIM.md, DATUM-FIELD.md) and are pasted into the new app's chat\n\nWhy: The hub is the memory every new app starts from.",
+   "date": "2026-10-27 (s9)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-15",
+   "type": "decision",
+   "app": "hub",
    "label": "pages.yml waits for GitHub's branch-based Pages build of the…",
    "text": "pages.yml waits for GitHub's branch-based Pages build of the same commit, then deploys\n\nWhy: While the Pages source is \"Deploy from a branch\", that build publishes the raw repo and caused a 404 whenever it finished last.",
    "date": "2026-10-26 (s8)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-14",
+   "id": "hub-decision-16",
    "type": "decision",
    "app": "hub",
    "label": "Bench tiles are real capabilities of the apps (Plan: schedule…",
@@ -383,7 +401,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-15",
+   "id": "hub-decision-17",
    "type": "decision",
    "app": "hub",
    "label": "The changing blue words use Instrument Serif italic (.it)…",
@@ -392,7 +410,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-16",
+   "id": "hub-decision-18",
    "type": "decision",
    "app": "hub",
    "label": "Artcraft-like scrolling: glass sticky section bars, an index…",
@@ -401,7 +419,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-17",
+   "id": "hub-decision-19",
    "type": "decision",
    "app": "hub",
    "label": "Theme: three visible buttons (Auto, Light, Dark) instead of a…",
@@ -410,7 +428,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-18",
+   "id": "hub-decision-20",
    "type": "decision",
    "app": "hub",
    "label": "Status badges (Stable / Beta / Alpha) from apps.json status or…",
@@ -419,7 +437,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-19",
+   "id": "hub-decision-21",
    "type": "decision",
    "app": "hub",
    "label": "The workbench hero (HeroWorkbench.astro, replaces…",
@@ -428,7 +446,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-20",
+   "id": "hub-decision-22",
    "type": "decision",
    "app": "hub",
    "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
@@ -437,7 +455,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-21",
+   "id": "hub-decision-23",
    "type": "decision",
    "app": "hub",
    "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
@@ -446,7 +464,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-22",
+   "id": "hub-decision-24",
    "type": "decision",
    "app": "hub",
    "label": "The hero is a field of animated SVG tiles around the wordmark…",
@@ -455,7 +473,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-23",
+   "id": "hub-decision-25",
    "type": "decision",
    "app": "hub",
    "label": "New family mark: the GD&T datum feature symbol (framed \"D\"…",
@@ -464,7 +482,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-24",
+   "id": "hub-decision-26",
    "type": "decision",
    "app": "hub",
    "label": "The brain: brain/brain.mjs builds one graph (nodes: hub, apps…",
@@ -473,7 +491,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-25",
+   "id": "hub-decision-27",
    "type": "decision",
    "app": "hub",
    "label": "The public network removes sentences that name other products…",
@@ -482,7 +500,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-26",
+   "id": "hub-decision-28",
    "type": "decision",
    "app": "hub",
    "label": "Fonts self-hosted with @fontsource (Archivo with the width…",
@@ -491,7 +509,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-27",
+   "id": "hub-decision-29",
    "type": "decision",
    "app": "hub",
    "label": "Hardening standard for every app (FAMILY §11): hardening tests…",
@@ -500,7 +518,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-28",
+   "id": "hub-decision-30",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -566,13 +584,22 @@
    "id": "hub-session-6",
    "type": "session",
    "app": "hub",
+   "label": "Session 9 (Datum Sim and Datum Field)",
+   "date": "2026-10-27",
+   "text": "· User: two big apps for the long run: one for all kinds of finite-element analysis, simulation and CFD, and one for system simulation and control design. Names agreed: Datum Sim (systems in time: block diagrams, control, physical components) and Datum Field (physics on a mesh: FEA, heat, CFD, multiphysics). Sim is built now; Field is parked with its future stack recorded.\n· Wrote briefs/DATUM-SIM.md (the complete brief for the new chat: read the hub, Plan and Plot; architecture; Rust and Python libraries with licences; release plan 0.1–1.0; quality bar; docs; questions) and briefs/DATUM-FIELD.md (scope, steps, open-source stack, risks). Bucket list updated: Sim started, Calc after Sim, Field parked.\n· Next: the user creates Edgar-Mendonca/Datum-Sim, opens a new chat and pastes briefs/DATUM-SIM.md; after Sim's first release, add it to apps.json here.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-7",
+   "type": "session",
+   "app": "hub",
    "label": "Session 8 (live site 404)",
    "date": "2026-10-26",
    "text": "· User: the live site showed a 404. Cause: Pages › Source is still \"Deploy from a branch\", so every push runs two deploys, ours (the built site) and GitHub's branch build (the raw repo, no index.html at the root). Since .nojekyll (session 2) the branch build succeeds, and whichever finishes last wins; on the merge push it finished 5 s after ours.\n· Fixed: re-ran our workflow by hand (restores the site), and pages.yml now waits for the branch build of the same commit before deploying (needs actions: read), as the user's zhuojia site does. The real fix is still Settings › Pages › Source = GitHub Actions.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-7",
+   "id": "hub-session-8",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -581,7 +608,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -594,8 +621,8 @@
    "type": "idea",
    "app": "hub",
    "label": "Datum Calc",
-   "when": "Next (the user's choice)",
-   "text": "Engineering calculation sheets with real units, shown as readable maths, with references, pass/fail checks and a printable calc sheet. Plot analyses measured data; Calc designs what you build\n\nFor: Every engineer\nReuses: GridCraft formulas, units (Atlas), print, Plot for charts\nSize: Medium (the hard part is natural equation editing; 0.1 = units-aware lines, variables, checks, PDF)\nStatus: Next (the user's choice)",
+   "when": "Later (after Datum Sim; the user picked it first in session 7)",
+   "text": "Engineering calculation sheets with real units, shown as readable maths, with references, pass/fail checks and a printable calc sheet. Plot analyses measured data; Calc designs what you build\n\nFor: Every engineer\nReuses: GridCraft formulas, units (Atlas), print, Plot for charts\nSize: Medium (the hard part is natural equation editing; 0.1 = units-aware lines, variables, checks, PDF)\nStatus: Later (after Datum Sim; the user picked it first in session 7)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -639,8 +666,8 @@
    "type": "idea",
    "app": "hub",
    "label": "Datum Frame",
-   "when": "Later (first step of Datum Sim)",
-   "text": "2D beam, frame and truss analysis: loads, supports, shear/moment, deflection, section properties, materials from Atlas\n\nFor: Structural and mechanical engineers, students\nReuses: Own Rust FEM solver, Atlas\nSize: Medium\nStatus: Later (first step of Datum Sim)",
+   "when": "Later (first step of Datum Field)",
+   "text": "(Step 1 of Datum Field) 2D beam, frame and truss analysis: loads, supports, shear/moment, deflection, section properties, materials from Atlas\n\nFor: Structural and mechanical engineers, students\nReuses: Own Rust FEM solver, Atlas\nSize: Medium\nStatus: Later (first step of Datum Field)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -662,12 +689,21 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "idea-datum-sim-fea",
+   "id": "idea-datum-sim",
    "type": "idea",
    "app": "hub",
-   "label": "Datum Sim (FEA)",
-   "when": "Long-term flagship",
-   "text": "Simulation grown in steps: 1 Frame (beams, own solver) → 2 2D plane stress/axisymmetric/heat (own solver) → 3 3D linear static and modal with STEP import (OpenCascade, Gmsh, own solver or CalculiX) → 4 nonlinear, contact, coupled physics (Code_Aster/Elmer as external solvers). Datum builds set-up, results and reports; mature open solvers do the heavy solving as separate processes (clean licensing). A built-in verification report (benchmarks passed) is a headline feature\n\nFor: Mechanical, structural and thermal engineers\nReuses: Atlas materials, Plot results, print\nSize: Very large (steps 1–2 fit our way of building; 3–4 are a multi-year journey)\nStatus: Long-term flagship",
+   "label": "Datum Sim",
+   "when": "Started (session 9: the user creates Edgar-Mendonca/Datum-Sim and a new chat)",
+   "text": "Model and simulate dynamic systems: block diagrams (signals), control design (linearise, Bode, root locus, PID tuning), physical components (mechanical, electrical, hydraulic, thermal), sweeps, Monte Carlo, fitting to measured data, FMU exchange. Rust engine and solvers; bundled Python (python-control, sympy, CasADi, FMPy, …) for analysis. Brief: briefs/DATUM-SIM.md\n\nFor: Control, mechanical, electrical, process and mechatronics engineers, researchers, students\nReuses: Plan's network canvas, Plot's Python runtime and graphs, Atlas materials, units, print\nSize: Large (0.1 within weeks)\nStatus: Started (session 9: the user creates Edgar-Mendonca/Datum-Sim and a new chat)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-field",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Field",
+   "when": "Parked (named in session 9; not being built)",
+   "text": "FEA, heat transfer, CFD and coupled multiphysics on a mesh, grown in steps: Frame (beams, own solver) → 2D (own solver) → 3D linear with STEP import → nonlinear and contact → CFD → multiphysics. Datum builds set-up, results and reports; mature open solvers (CalculiX, Code_Aster, OpenFOAM, SU2, Elmer, FEniCSx) run as separate processes; OpenCascade for CAD, Gmsh for meshing, VTK for results. A built-in verification report is a headline feature. Brief: briefs/DATUM-FIELD.md\n\nFor: Mechanical, structural, thermal, process and aerospace engineers\nReuses: Atlas materials, Plot results, Datum Sim (part models as FMUs/blocks), print\nSize: Very large, multi-year\nStatus: Parked (named in session 9; not being built)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -3818,6 +3854,16 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-29",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
+   "target": "hub-decision-30",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -3863,6 +3909,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-session-9",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
    "target": "idea-datum-calc",
    "kind": "idea"
   },
@@ -3903,7 +3954,12 @@
   },
   {
    "source": "hub",
-   "target": "idea-datum-sim-fea",
+   "target": "idea-datum-sim",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-field",
    "kind": "idea"
   },
   {
@@ -6882,12 +6938,37 @@
    "kind": "reuses"
   },
   {
-   "source": "idea-datum-sim-fea",
+   "source": "idea-datum-sim",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-sim",
    "target": "app-plot",
    "kind": "reuses"
   },
   {
-   "source": "idea-datum-sim-fea",
+   "source": "idea-datum-sim",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-sim",
+   "target": "tech-rust",
+   "kind": "uses"
+  },
+  {
+   "source": "idea-datum-sim",
+   "target": "tech-python",
+   "kind": "uses"
+  },
+  {
+   "source": "idea-datum-field",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-field",
    "target": "app-atlas",
    "kind": "reuses"
   },
