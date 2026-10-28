@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-28) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.4.1 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.4.2 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.14 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.1.1 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
@@ -92,6 +92,8 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | 2026-10-25 (s2) | **The brain**: `brain/brain.mjs` builds one graph (nodes: hub, apps, FAMILY sections, technologies, workflow, decisions, files, releases, plans, sessions) from the repos; `brain/graph.json` is committed; the site draws it | The user wants a complete, interactive map of the whole portfolio, and one file Claude reads in every new project so nothing is lost. |
 | 2026-10-25 (s2) | The public network removes sentences that name other products and leaves out nodes whose title does; graph.json keeps everything | FAMILY §13 for the site; the memory itself must stay complete. |
 | 2026-10-25 (s2) | Fonts self-hosted with @fontsource (Archivo with the width axis, IBM Plex Sans and Mono, Instrument Serif); screenshots converted to 1440 px WebP at build with sharp | No third-party requests; smaller pages. |
+| 2026-10-29 (s17) | **Safety rules for every app's shell** and **hostile values** join the hardening standard (FAMILY §11): unwind + guard + crash.log, atomic saves and read limits, an updater that requires checksums, the CSP baseline, CSV formula guard, npm audit; a battery that runs every engine function on impossible values | Datum Plan 0.4.2's audit found real faults with these: release builds aborted on any panic, the updater installed unverified when a release had no checksum file, calendar arithmetic panicked on huge spans, century-long plans froze the S-curve, and the CSP silently blocked progress-report photos. |
+| 2026-10-29 (s17) | Apps may ship a command line and an MCP server for AI assistants, changing documents only through the engine's named operations and saving only when asked (Datum Plan's `datum-cli`) | One way to change a document; safe for scripts and assistants. |
 | 2026-10-28 (s15) | In SolidJS, a `<select>` whose options load later marks `<option selected>` rather than setting `value` on the select (it showed the first option) | Found in Datum Plan 0.4.1; applies to every app's window (FAMILY §7). |
 | 2026-10-28 (s14) | **Every import is a parity check**: an app that opens files carrying their own results (dates, values) recomputes them and lists the differences in an import report, alongside what it changed or left out | Datum Plan 0.4.0; it reuses the parity-test code, so users see the same check the tests run. |
 | 2026-10-28 (s13) | **Trust in the results** joins the hardening standard (FAMILY §11): hand-worked cases for the engine's core rules (expected values worked out before running), parity files that carry their own results (drop in real exports from other tools), and random-input checks of the rules themselves, not only "no panic" | Datum Plan 0.3.12: the hand-worked cases and the random link check found two real scheduling mistakes (ALAP used total float; late dates of work under way used the whole duration). |
@@ -117,7 +119,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | Plot and Atlas publish `docs/site.json` | 🔜 (in their chats) |
 | App repos reword CHANGELOG lines that name other products; Plan restores its lost 0.3.3–0.3.7 headings | 🔜 (in their chats) |
 | App repos replace `docs/FAMILY.md` with a link to DATUM's FAMILY.md | 🔜 |
-| Hardening standard (FAMILY §11) in every app: Plan ✅ 0.3.11 + 0.3.12 (worked cases, parity files); Plot and Atlas 🔜 (in their chats) | 🔜 |
+| Hardening standard (FAMILY §11) in every app: Plan ✅ 0.3.11 + 0.3.12 + 0.4.2 (worked cases, parity files, hostile values, shell safety rules); the other apps 🔜 (in their chats) | 🔜 |
 | Plan's next steps (its MEMORY §5 "Hardening plan"): 0.3.12 trust in the dates (more tests, parity sample plans, hostile-file tests), 0.4.2 command line + named commands + MCP | ⬜ (in Plan's chat) |
 | Each app's `release.yml` sends `repository_dispatch` (`app-released`) to DATUM (fine-grained token secret) so the site updates within minutes | ⬜ |
 | Lighthouse run on the live site (target 95+) | ⬜ |
@@ -153,6 +155,10 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - User: the instrument panel loaded slowly, could not be clicked, and looked empty while fading; bring back the rotating blue "Tools to …" line and the small animated icons, but in the right pane, playable, not like the reference sites. Logo and the rest unchanged. Asked to look at other sites for ideas: a web search turned up hover-reactive grids, cursor spotlights and tiles linked to text (Framer / 21st.dev components), used as ideas only.
 - Built: `HeroWorkbench.astro` (tiles reuse the session 3 drawings; animations run only on the active tile; the origin dial's needle points at it; the phrase swaps with a short slide); `HeroPanel.astro` removed; CLAUDE.md hero rule updated.
 - Checked: build; Playwright: the bench cycles idle, hover on Science takes over ("run experiments."), holds while hovered, resumes after; 1280, 1440 (dark), 375 px: no overflow, no console errors.
+
+### 2026-10-29: Session 17 (from Datum Plan's chat: 0.4.2, hardening, command line, print)
+- Plan 0.4.2: a full security and robustness pass (see decisions), `datum-cli` with an MCP server and a catalogue of named operations, costs exact to the cent, and Schedule Risk / Look-ahead / Manpower printing as themselves (they printed the Dashboard). Its roadmap's next stage is 0.5 (schedule quality and scenarios).
+- Recorded here: FAMILY §11 (hostile values, safety rules for every shell), two decisions, Plan at 0.4.2. Other apps should adopt the new safety rules in their own chats. Brain regenerated.
 
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).

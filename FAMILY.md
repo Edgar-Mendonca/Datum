@@ -197,6 +197,17 @@ Chart.js:
 - a speed gate on a large document (a looser limit in debug builds).
 - **trust in the results** (from Datum Plan 0.3.12): hand-worked cases for each core rule, with the expected values worked out before running (`cases.rs`); parity files that carry their own results, checked value by value (`tests/parity`, where real exports from other tools can be dropped in); random-input checks of the rules themselves (for Plan: every link holds, no task starts later than its links need, row order does not matter), and random sequences of edits.
 
+- **hostile values** (from Datum Plan 0.4.2): a battery that runs every engine function the window or a script can reach (`exercise`) on documents with deliberately impossible values (huge or negative spans, zero-length units, year 1 and year 9999, non-finite numbers, IDs at their maximum) and on extreme edits. Loading clamps such values (`normalize`), and date and time arithmetic saturates at a horizon instead of unwrapping past the end of the date range.
+
+**Safety rules for every app's shell** (from Datum Plan 0.4.2):
+- release builds `panic = "unwind"`; edits, opening, importing and long analyses run inside a `guard()` that turns a panic into an error message, and a panic hook appends to `crash.log` in the app data folder;
+- every save (documents, autosave, recovery, settings, exports) is atomic: write a temporary file next to the target, `sync_all`, then rename; every file read has a size limit;
+- the updater installs nothing without `SHA256SUMS.txt`, matches the installer's line exactly, accepts only `*-setup.exe` names of safe characters, downloads into a new private folder and caps the size;
+- the window's CSP: `default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; frame-ancestors 'none'`, images `'self' data: blob:` (blob: is needed to resize pictures in the window); only Tauri's core permissions;
+- links open only to the app's own GitHub pages (an exact prefix plus plain URL characters);
+- CSV exports prefix `'` to text starting with `=`, `+`, `-` or `@` (unless a plain number);
+- CI also runs `npm audit --omit=dev --audit-level=high`.
+
 Plus: `deny.toml` + `cargo deny check` (advisories, licences, sources) and `license = "MIT"` in every crate; CI runs `cargo test` on Windows and macOS as well as Linux; the shell's state lock recovers from a poisoned mutex; `SECURITY.md` and `CONTRIBUTING.md` in the repo. rustfmt is not enforced (the code keeps its compact hand style).
 
 ## 12. Starting a new Datum app (checklist)
