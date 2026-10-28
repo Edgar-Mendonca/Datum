@@ -24,9 +24,13 @@
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
+**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. 0.1.0 written in session 12, not released yet (tag `home-v0.1.0` releases it).
+
 ## 2. The site and the brain
 
 ```
+home/                     Datum Home (README.md there): crates/core (rules, tested), src-tauri (main.rs commands and downloads, sys.rs registry/processes), ui (SolidJS)
+  release: tags home-vX.Y.Z → .github/workflows/home-release.yml (installer + SHA256SUMS.txt, then rebuilds the site); home-ci.yml checks it
 brain/
   brain.mjs               the brain generator (no dependencies): FAMILY, MEMORY, apps.json + each app's MEMORY, CHANGELOG, site.json → nodes and edges
   graph.json              its output, committed (node brain/brain.mjs); schema in BRAIN.md
@@ -38,6 +42,7 @@ site/
   src/layouts/Base.astro  head, the theme script (Auto/Light/Dark), header, footer
   src/components/         Mark, Logo, Header, Footer, Hero (four app tiles + the changing phrase), AppGlyph (one animated drawing per app), Rail (index by the ruler + scroll marker)
   src/pages/index.astro   the landing page: hero, 01 apps (cards → app pages), 02 the method, 03 the newest release of each app
+  dist/home.json          written after the build (copyShots): every app with name, repo, accent, tagline, logo and newest release; Datum Home reads it
   src/pages/apps/[id].astro  one page per app: hero with its drawing and download, Overview (about + 3 steps), What it does, Screens, Roadmap, Releases, Get it, previous/next
   src/pages/network.astro the Datum network: canvas stage, search, filters, Network/Flow layouts, details panel, the graph as a list
   src/scripts/network.ts  the network client (d3-force, canvas, pointer/pinch/wheel, pulses along links)
@@ -88,6 +93,7 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 | 2026-10-27 (s9) | **Hardening standard for every app** (FAMILY §11): hardening tests (failed edits change nothing, random documents, damaged files, speed gate), `cargo deny`, CI on Windows + macOS, poisoned-lock recovery, SECURITY.md and CONTRIBUTING.md. First shipped in Datum Plan 0.3.11; rustfmt is not enforced | A quick look at another open-source scheduler showed our apps lead on features but trail on rigour (tests, CI gates). In Plan the new tests found two real crashes on damaged P6 files on their first run. |
 | 2026-10-25 | Datum Plot's bundled Python is recorded in FAMILY §2 as the one exception to "no Python" | Plot's own decision (its MEMORY, session 1); the guide must not contradict a shipped app. |
 | 2026-10-28 (s11) | **Hero = four app tiles** (`Hero.astro` + `AppGlyph.astro`: Gantt, curve fit, property chart, control loop, looping gently) around the amber datum square, replacing the 3×3 workbench; the italic phrase cycles by itself (two phrases per app), hover holds, leaving resumes. **One page per app** (`/apps/<id>`); `about` and `steps` added to the site.json spec (FAMILY §10), with fallbacks in apps.json | The user: the bench was too much; four animated icons for the current apps are enough; each app needs a page that explains the software. |
+| 2026-10-28 (s12) | **Datum Home**, a desktop app in this repo (`home/`) that installs, updates, opens and removes every Datum app; checks only when opened; the site offers it and each app on its own. List from the site's `home.json`, versions from each app's GitHub releases, installed apps from HKCU Uninstall; installs only installers from the app's own releases that match `SHA256SUMS.txt`; uninstall keeps the user's files; updates itself from `home-v*` releases | The user: one place to install and update all the apps, without forcing it on people who want one app. Kept in the hub so the family's own tools live together; the release shape it relies on is in FAMILY §9. |
 
 ## 4. Roadmap (hub)
 
@@ -144,6 +150,14 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 ### 2026-10-27: Session 9 (from Datum Plan's chat: the hardening standard)
 - In Plan's chat the user asked for a quick comparison with another open-source scheduler, then for the quick wins and for everything to be recorded here too. Plan 0.3.11 shipped the Dashboard and date-picker fixes and the hardening quick wins; its new tests found two crashes on damaged XER files (cut-off calendar text, a WBS that loops) on their first run.
 - Recorded here: the hardening standard (FAMILY §11 and the new-app checklist step 7), the decision (§3), roadmap rows (§4), Plan at 0.3.11 (§1). Regenerated the brain.
+
+### 2026-10-28: Session 12 (Datum Home)
+- User: a launcher to install, update and uninstall all the apps; is it possible? Brainstormed first (how it works, trust, SmartScreen, size). Answers: name **Datum Home**; build it **in this repo**, foldered properly; **check when opened** (no tray); the site offers **both** Datum Home and the single apps.
+- Built `home/` (0.1.0): `datum-home-core` (catalog, versions incl. `home-v` tags, releases, `download_ok`, `checksum_for`, DisplayIcon/UninstallString parsing, the card's action; 9 tests), `src-tauri` (catalog from home.json or built-in; per-app newest release; install = download to temp + SHA-256 + `/S`, refused while the app runs; uninstall = the app's uninstaller `/S`, then wait until the registry entry is gone; open; open_url limited to Datum pages; self-update like Plan's updater), `ui` (cards in each app's accent, Update all, confirm before uninstall, notes, light/dark from the system). Icons from `brand/datum-icon.svg`.
+- Site: `home.json` written after the build; `loadHome()` reads this repo's `home-v*` releases; a Datum Home band above the app cards (Get Datum Home, or "Coming soon" until released). Workflows `home-ci.yml` (ubuntu + windows) and `home-release.yml` (tag `home-v*`; rebuilds the site after).
+- Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).
+- Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.
+- Next: the user releases Datum Home (Actions › "Datum Home release" › Run, or tag `home-v0.1.0`) after the windows CI job is green; then try install/update/uninstall on a real PC. Make sure every app's release has `SHA256SUMS.txt` (they copied Plan's release.yml).
 
 ### 2026-10-28: Session 11 (app pages, simpler hero, README)
 - User (screenshot of the hero): the README is out of date; one page per app explaining the software; the hero should be just four animated vector icons for the current apps; the changing text keeps changing by itself; everything in the Datum style.

@@ -2,10 +2,11 @@
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Rail from "../components/Rail.astro";
-import { loadAll, latestPerApp, statusOf, fmtDate, fmtSize } from "../lib/github";
+import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo } from "../lib/github";
 
 const apps = await loadAll();
 const recent = latestPerApp(apps);
+const home = await loadHome();
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const letters = "ABCDEFGHIJ";
 // Section headings come into focus word by word as they scroll in.
@@ -25,6 +26,20 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
       <div class="pad sec-intro">
         <h2 id="apps-h" class="h2"><span class="words">{words("Tools that work the same way, for every").map(w => <span>{w}</span>)}</span><span class="rot it" aria-hidden="true"><span>project.</span><span>dataset.</span><span>material.</span><span>next idea.</span></span><span class="sr">project.</span></h2>
         <p class="lead">Each app does one kind of technical work well. They share one window, one ribbon, one help system and one updater, so learning one means knowing them all.</p>
+      </div>
+      <!-- Datum Home: every app from one window; or each app on its own (the cards below). -->
+      <div class="home-band reveal">
+        <img src={familyLogo} width="48" height="48" alt="" />
+        <div class="home-text">
+          <h3 class="h3">Datum Home {home && <span class="mono muted">v{home.version}</span>}</h3>
+          <p class="muted">One small window to install, update, open and remove every Datum app. It checks for new versions when you open it. Prefer just one app? Download it on its own below.</p>
+        </div>
+        <div class="btns">
+          {home
+            ? <a class="btn btn-solid" href={home.download}>Get Datum Home{home.size ? <span class="dim">{fmtSize(home.size)}</span> : null}</a>
+            : <span class="btn btn-line" aria-disabled="true">Coming soon</span>}
+          <a class="btn btn-line" href="https://github.com/Edgar-Mendonca/Datum/tree/HEAD/home">Source</a>
+        </div>
       </div>
       <div class="apps">
         {apps.map((a, i) => (
@@ -113,6 +128,14 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
   .rot span:nth-child(2) { animation-delay: 3s; } .rot span:nth-child(3) { animation-delay: 6s; } .rot span:nth-child(4) { animation-delay: 9s; }
   @keyframes words { 0% { opacity: 0; transform: translateY(.3em); filter: blur(3px); } 4%, 23% { opacity: 1; transform: none; filter: none; } 27%, 100% { opacity: 0; transform: translateY(-.3em); filter: blur(3px); } }
   @media (prefers-reduced-motion: reduce) { .rot span:first-child { opacity: 1; } }
+
+  /* Datum Home: one band above the app cards */
+  .home-band { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 22px var(--pad); border-top: 1px solid var(--line);
+    background: color-mix(in srgb, var(--amber) 9%, var(--paper)); }
+  .home-band .h3 { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .home-band .mono { font-size: 10.5px; }
+  .home-band p { font-size: 15px; max-width: 64ch; margin-top: 4px; }
+  @media (max-width: 860px) { .home-band { grid-template-columns: 48px minmax(0, 1fr); } .home-band .btns { grid-column: 1 / -1; } }
 
   /* Apps: compact cards with a label bar, the screenshot on a tinted grid, the text beside it */
   .app { border-top: 1px solid var(--line); position: relative; }

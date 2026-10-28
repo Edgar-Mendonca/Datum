@@ -1,0 +1,10 @@
+[package]
+name = "datum-home-core"
+version = "0.1.0"
+edition = "2021"
+description = "Datum Home: which Datum apps exist, which are installed, and what to do about each. Pure Rust, no I/O."
+license = "MIT"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true

@@ -1,0 +1,66 @@
+name: Datum Home release
+# Builds the Datum Home installer and publishes a GitHub Release in this repository, which Datum Home's
+# own updater and the Datum site pick up. Bump the version in home/src-tauri/Cargo.toml, add a section to
+# home/CHANGELOG.md, then push a tag (git tag home-v0.1.1 && git push origin home-v0.1.1) or run this workflow by hand.
+on:
+  push:
+    tags: ["home-v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write    # to rebuild the site after the release
+
+defaults:
+  run:
+    working-directory: home
+    shell: bash
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: home
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: home/package-lock.json
+      - run: npm ci
+      - name: Read the version
+        run: |
+          V=$(grep -m1 '^version' src-tauri/Cargo.toml | cut -d'"' -f2)
+          if [[ "$GITHUB_REF" == refs/tags/* && "home-v$V" != "$GITHUB_REF_NAME" ]]; then
+            echo "Tag $GITHUB_REF_NAME does not match version $V in home/src-tauri/Cargo.toml"; exit 1
+          fi
+          echo "V=$V" >> "$GITHUB_ENV"
+      - run: cargo test --workspace
+      - run: npx tauri build --bundles nsis
+      - name: Installer and checksum
+        run: |
+          mkdir out
+          cp target/release/bundle/nsis/*-setup.exe "out/DatumHome-$V-setup.exe"
+          cd out && sha256sum "DatumHome-$V-setup.exe" > SHA256SUMS.txt && cat SHA256SUMS.txt
+      - name: Release notes from CHANGELOG.md
+        run: |
+          awk -v v="$V" 'index($0, "## " v " ") == 1 || $0 == "## " v {f=1; next} /^## / {f=0} f' CHANGELOG.md > notes.md
+          cat notes.md
+          test -s notes.md || { echo "home/CHANGELOG.md has no section for $V"; exit 1; }
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: home-v${{ env.V }}
+          target_commitish: ${{ github.sha }}
+          name: Datum Home ${{ env.V }}
+          body_path: home/notes.md
+          make_latest: true
+          files: |
+            home/out/DatumHome-${{ env.V }}-setup.exe
+            home/out/SHA256SUMS.txt
+      - name: Rebuild the Datum site (its Datum Home download and home.json)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --repo "${{ github.repository }}" --ref "${{ github.event.repository.default_branch }}"

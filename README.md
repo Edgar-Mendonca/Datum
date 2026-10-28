@@ -30,6 +30,8 @@ No accounts, no subscriptions, no telemetry: your files stay on your computer.
 
 Each app has its own page on the [website](https://edgar-mendonca.github.io/Datum/) (click its name): what it does, how it is used, screens, roadmap and releases.
 
+**[Datum Home](home)** installs, updates, opens and removes all of them from one small window, checking for new versions when you open it. Prefer a single app? Download it on its own from the table above.
+
 Every app is free and open source (MIT), Windows first, installs in seconds for your user account (no administrator rights) and updates itself.
 
 ## Why Datum
@@ -55,6 +57,7 @@ Every app is free and open source (MIT), Windows first, installs in seconds for 
 - [**brand/**](brand): the Datum logo ("Continuum") and its guide [BRAND.md](brand/BRAND.md), and every app icon.
 - [**briefs/**](briefs): the briefs new apps start from ([Datum Sim](briefs/DATUM-SIM.md), now released; [Datum Field](briefs/DATUM-FIELD.md) is parked for later).
 - [**brain/**](brain): the Datum brain: `graph.json`, one graph of every app, design rule, technology, source file, decision, release, plan and session, generated from the repositories ([BRAIN.md](brain/BRAIN.md)). Read it before starting anything new.
+- [**home/**](home): **Datum Home**, the desktop app that installs and updates the others (Tauri, a tested Rust core, a SolidJS window); released from this repository with tags `home-vX.Y.Z`.
 - [**site/**](site): the website (Astro): the landing page, one page per app (`/apps/<id>`) and the interactive [Datum network](https://edgar-mendonca.github.io/Datum/network). It reads each app's `docs/site.json`, `CHANGELOG.md`, latest release and the brain when it builds, every day and on every push.
 
 ### Starting a new app

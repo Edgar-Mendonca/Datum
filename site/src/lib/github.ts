@@ -11,7 +11,7 @@ export type Stage = { v: string; title: string; when: string; items: string[] };
 export type Shot = { path: string; raw: string; file: string; alt: string; bytes?: Uint8Array };
 export type Section = { version: string; date: string; summary: string; html: string };
 export type Release = { app: string; name: string; accent: string; version: string; date: string; url: string; summary: string };
-export type Latest = { version: string; date: string; url: string; download: string; size?: number; fromChangelog?: boolean };
+export type Latest = { version: string; date: string; url: string; download: string; size?: number; sums?: string; fromChangelog?: boolean };
 export type App = {
   id: string; repo: string; branch: string; name: string; accent: string; tagline: string; for: string;
   logo: string; about: string[]; steps: Step[]; highlights: string[]; shots: Shot[]; roadmap: Stage[]; changelog: Section[];
@@ -97,7 +97,8 @@ async function loadApp(e: any): Promise<App> {
   if (list.length) {
     const r = list[0], v = String(r.tag_name).replace(/^v/, "");
     const exe = (r.assets ?? []).find((a: any) => /setup\.exe$/i.test(a.name));
-    app.latest = { version: v, date: String(r.published_at).slice(0, 10), url: r.html_url, download: exe?.browser_download_url ?? `${gh}/releases/latest`, size: exe?.size };
+    const sums = (r.assets ?? []).find((a: any) => /sha256sums\.txt$/i.test(a.name));
+    app.latest = { version: v, date: String(r.published_at).slice(0, 10), url: r.html_url, download: exe?.browser_download_url ?? `${gh}/releases/latest`, size: exe?.size, sums: sums?.browser_download_url };
     app.releases = list.map((r: any) => {
       const v = String(r.tag_name).replace(/^v/, "");
       return { app: app.id, name: app.name, accent: app.accent, version: v, date: String(r.published_at).slice(0, 10), url: r.html_url, summary: summary(v) };
@@ -141,13 +142,34 @@ export const latestReleases = (apps: App[], n = 6) =>
   apps.flatMap(a => a.releases).sort((a, b) => b.date.localeCompare(a.date) || cmpVer(b.version, a.version)).slice(0, n);
 const cmpVer = (a: string, b: string) => { const x = a.split(".").map(Number), y = b.split(".").map(Number); for (let i = 0; i < 3; i++) if (x[i] !== y[i]) return (x[i] ?? 0) - (y[i] ?? 0); return 0; };
 
-/** Writes the downloaded screenshots into the built site (called after the build), so pages never hotlink. */
+/** Writes the downloaded screenshots into the built site (called after the build), so pages never hotlink,
+ *  and home.json: the list of apps Datum Home reads when it opens (with each app's newest release, for when GitHub is busy). */
 export async function copyShots(dist: URL) {
-  for (const a of await loadAll()) for (const s of a.shots) {
+  const apps = await loadAll();
+  for (const a of apps) for (const s of a.shots) {
     const to = new URL(s.file, dist);
     mkdirSync(new URL(".", to), { recursive: true });
     writeFileSync(to, s.bytes!);
   }
+  const latest = (a: App) => a.latest && !a.latest.fromChangelog && /setup\.exe$/i.test(a.latest.download)
+    ? { version: a.latest.version, date: a.latest.date, notes: "", setup: a.latest.download, sums: a.latest.sums ?? null, size: a.latest.size ?? 0, page: a.latest.url } : null;
+  const home = { $schema: "Datum Home's list of apps, written by the Datum site at every build (site/src/lib/github.ts).", updated: new Date().toISOString(),
+    apps: apps.map(a => ({ id: a.id, name: a.name, repo: a.repo, accent: a.accent, tagline: a.tagline, logo: a.logo, latest: latest(a) })) };
+  writeFileSync(new URL("home.json", dist), JSON.stringify(home, null, 1));
+}
+
+/** Datum Home, the app that installs and updates the others: its newest release in this repository (tags home-vX.Y.Z). */
+export type HomeApp = { version: string; date: string; url: string; download: string; size?: number };
+export function loadHome(): Promise<HomeApp | null> {
+  const g = globalThis as any;
+  return g.__datumHome ??= (async () => {
+    const rels = await get("https://api.github.com/repos/Edgar-Mendonca/Datum/releases?per_page=20", "json");
+    const r = (Array.isArray(rels) ? rels : []).find((r: any) => !r.draft && !r.prerelease && /^home-v\d/.test(r.tag_name));
+    if (!r) return null;
+    const exe = (r.assets ?? []).find((a: any) => /setup\.exe$/i.test(a.name));
+    return { version: String(r.tag_name).replace(/^home-v/, ""), date: String(r.published_at).slice(0, 10), url: r.html_url,
+      download: exe?.browser_download_url ?? r.html_url, size: exe?.size };
+  })();
 }
 
 /** The accent, darkened until white text on it passes WCAG AA (4.5:1); for filled buttons. */

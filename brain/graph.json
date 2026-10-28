@@ -108,7 +108,7 @@
    "id": "guide-9",
    "type": "guide",
    "label": "§9 Updates and releases",
-   "text": "· Updater: src-tauri/src/update.rs.\n· Set REPO to the app's repo. It checks GitHub releases at start, and beta versions when turned on.\n· It downloads the installer, checks SHA256SUMS and installs.\n· The CHANGELOG section becomes the in-app \"What's new\".\n· Versions: small numbered releases (0.1.0, 0.1.1, …), always three numbers (the updater compares three), consecutive with no jumped numbers.\n· Release workflow (.github/workflows/release.yml, windows-latest):\n· builds the UI and the app and creates the tag;\n· publishes Datum<App>-x.y.z-setup.exe + SHA256SUMS.txt.\n· Run it with workflow_dispatch when tag pushes are blocked.\n· CI (ci.yml, ubuntu): clippy -D warnings, cargo test --workspace, npm run check:ui, the Playwright UI tests.\n· Options and recovery files in the app's data folder (com.edgarmendonca.datum<app>).\n· The family site rebuilds every day and on every push to DATUM, so a release appears there within a day (or at once, see MEMORY.md \"Next\").",
+   "text": "· Updater: src-tauri/src/update.rs.\n· Set REPO to the app's repo. It checks GitHub releases at start, and beta versions when turned on.\n· It downloads the installer, checks SHA256SUMS and installs.\n· The CHANGELOG section becomes the in-app \"What's new\".\n· Versions: small numbered releases (0.1.0, 0.1.1, …), always three numbers (the updater compares three), consecutive with no jumped numbers.\n· Release workflow (.github/workflows/release.yml, windows-latest):\n· builds the UI and the app and creates the tag;\n· publishes Datum<App>-x.y.z-setup.exe + SHA256SUMS.txt.\n· Run it with workflow_dispatch when tag pushes are blocked.\n· CI (ci.yml, ubuntu): clippy -D warnings, cargo test --workspace, npm run check:ui, the Playwright UI tests.\n· Options and recovery files in the app's data folder (com.edgarmendonca.datum<app>).\n· Datum Home (home/ in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named Datum<App>-x.y.z-setup.exe that accepts /S, a SHA256SUMS.txt beside it, the Windows display name equal to the app's name in apps.json (\"Datum Plan\") and the publisher \"Edgar Mendonca\". A release without SHA256SUMS.txt is never installed by Datum Home.\n· The family site rebuilds every day and on every push to DATUM, so a release appears there within a day (or at once, see MEMORY.md \"Next\").",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -557,6 +557,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-33",
+   "type": "decision",
+   "app": "hub",
+   "label": "Datum Home, a desktop app in this repo (home/) that installs…",
+   "text": "Datum Home, a desktop app in this repo (home/) that installs, updates, opens and removes every Datum app; checks only when opened; the site offers it and each app on its own. List from the site's home.json, versions from each app's GitHub releases, installed apps from HKCU Uninstall; installs only installers from the app's own releases that match SHA256SUMS.txt; uninstall keeps the user's files; updates itself from home-v* releases\n\nWhy: The user: one place to install and update all the apps, without forcing it on people who want one app. Kept in the hub so the family's own tools live together; the release shape it relies on is in FAMILY §9.",
+   "date": "2026-10-28 (s12)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -614,13 +623,22 @@
    "id": "hub-session-6",
    "type": "session",
    "app": "hub",
+   "label": "Session 12 (Datum Home)",
+   "date": "2026-10-28",
+   "text": "· User: a launcher to install, update and uninstall all the apps; is it possible? Brainstormed first (how it works, trust, SmartScreen, size). Answers: name Datum Home; build it in this repo, foldered properly; check when opened (no tray); the site offers both Datum Home and the single apps.\n· Built home/ (0.1.0): datum-home-core (catalog, versions incl. home-v tags, releases, download_ok, checksum_for, DisplayIcon/UninstallString parsing, the card's action; 9 tests), src-tauri (catalog from home.json or built-in; per-app newest release; install = download to temp + SHA-256 + /S, refused while the app runs; uninstall = the app's uninstaller /S, then wait until the registry entry is gone; open; open_url limited to Datum pages; self-update like Plan's updater), ui (cards in each app's accent, Update all, confirm before uninstall, notes, light/dark from the system). Icons from brand/datum-icon.svg.\n· Site: home.json written after the build; loadHome() reads this repo's home-v* releases; a Datum Home band above the app cards (Get Datum Home, or \"Coming soon\" until released). Workflows home-ci.yml (ubuntu + windows) and home-release.yml (tag home-v*; rebuilds the site after).\n· Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).\n· Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.\n· Next: the user releases Datum Home (Actions › \"Datum Home release\" › Run, or tag home-v0.1.0) after the windows CI job is green; then try install/update/uninstall on a real PC. Make sure every app's release has SHA256SUMS.txt (they copied Plan's release.yml).",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-7",
+   "type": "session",
+   "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
    "date": "2026-10-28",
    "text": "· User (screenshot of the hero): the README is out of date; one page per app explaining the software; the hero should be just four animated vector icons for the current apps; the changing text keeps changing by itself; everything in the Datum style.\n· Built: Hero.astro (four tiles, one per app, linking to its page; the amber datum square where they meet; the phrase cycles every 2.6 s through two phrases per app and lights its tile) and AppGlyph.astro (the four drawings, 6 s loops, complete at rest); HeroWorkbench.astro removed. pages/apps/[id].astro (sections numbered by what the app has). Rail.astro shared by both pages. github.ts reads about, steps and up to four screenshots; apps.json has fallback about and steps for every app. Home cards link to the app pages (\"About Plan →\"); the footer's Apps column links them; the header's Apps is current on app pages. The scroll marker no longer shows below 1440 px.\n· README: Datum Sim row, names link to the app pages, the dead /about badge link fixed, Sim issues link. FAMILY §10: about and steps. CLAUDE.md: the new hero and app pages.\n· Plot and Atlas have published docs/site.json (their chats did it after session 10's paste-in text).\n· Checked: build; Playwright 1280 and 375, light and dark, home, every app page and the network: no horizontal overflow.\n· Next: give each app chat the paste-in text to add about and steps to docs/site.json and to link its README to its page on the site.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-7",
+   "id": "hub-session-8",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -629,7 +647,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -638,7 +656,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -647,7 +665,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -656,7 +674,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -1685,13 +1703,22 @@
    "id": "plan-decision-38",
    "type": "decision",
    "app": "plan",
+   "label": "docs/site.json carries about (two paragraphs) and steps…",
+   "date": "0.3.11",
+   "text": "docs/site.json carries about (two paragraphs) and steps (three) for the family site's app page; keep them true to the app and update them with every release; never name commercial products\n\nWhy: The user, for the hub's /apps/plan page (FAMILY §10, §13).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-39",
+   "type": "decision",
+   "app": "plan",
    "label": "rustfmt is not enforced; the code stays in its compact hand…",
    "date": "0.3.11",
    "text": "rustfmt is not enforced; the code stays in its compact hand style\n\nWhy: cargo fmt would add about 3,000 lines to ~7,400 and undo the compact style the user asked for. Clippy -D warnings stays the gate.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-39",
+   "id": "plan-decision-40",
    "type": "decision",
    "app": "plan",
    "label": "Hardening gates in CI: cargo deny, Windows + macOS cargo test…",
@@ -1700,7 +1727,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-40",
+   "id": "plan-decision-41",
    "type": "decision",
    "app": "plan",
    "label": "Without a status date, progress reports (Dashboard, period…",
@@ -1709,7 +1736,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-41",
+   "id": "plan-decision-42",
    "type": "decision",
    "app": "plan",
    "label": "The window's state lock recovers from a poisoned mutex…",
@@ -1718,7 +1745,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-42",
+   "id": "plan-decision-43",
    "type": "decision",
    "app": "plan",
    "label": "The Datum apps share one design and workflow in FAMILY.md…",
@@ -1727,7 +1754,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-43",
+   "id": "plan-decision-44",
    "type": "decision",
    "app": "plan",
    "label": "Templates carry people/assign/costs; Work is titled \"Man-hours\"",
@@ -1736,7 +1763,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-44",
+   "id": "plan-decision-45",
    "type": "decision",
    "app": "plan",
    "label": "One grid *engine* (selection, clipboard, fill, formatting…",
@@ -1745,7 +1772,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-45",
+   "id": "plan-decision-46",
    "type": "decision",
    "app": "plan",
    "label": "Network: layout_with(rows, sums, wbs); bands returned with the…",
@@ -1754,7 +1781,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-46",
+   "id": "plan-decision-47",
    "type": "decision",
    "app": "plan",
    "label": "Other views print through one Frame; reports print as flowing…",
@@ -1763,7 +1790,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-47",
+   "id": "plan-decision-48",
    "type": "decision",
    "app": "plan",
    "label": "Fill series follow Excel (numbers, text+number, dates by step…",
@@ -1772,7 +1799,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-48",
+   "id": "plan-decision-49",
    "type": "decision",
    "app": "plan",
    "label": "open_url only opens github.com/Edgar-Mendonca/Datum-Plan links",
@@ -1781,7 +1808,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-49",
+   "id": "plan-decision-50",
    "type": "decision",
    "app": "plan",
    "label": "Ribbon tabs: Task, Schedule, Progress (user rejected \"Home\")…",
@@ -1790,7 +1817,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-50",
+   "id": "plan-decision-51",
    "type": "decision",
    "app": "plan",
    "label": "Hidden columns stay in the table with a negative width…",
@@ -1799,7 +1826,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-51",
+   "id": "plan-decision-52",
    "type": "decision",
    "app": "plan",
    "label": "Print lays the table and chart out as one strip; pages are…",
@@ -1808,7 +1835,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-52",
+   "id": "plan-decision-53",
    "type": "decision",
    "app": "plan",
    "label": "Printing lays out pages in the UI (SVG) and uses the WebView…",
@@ -1817,7 +1844,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-53",
+   "id": "plan-decision-54",
    "type": "decision",
    "app": "plan",
    "label": "Cell formatting reuses the task's existing style JSON field…",
@@ -1826,7 +1853,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-54",
+   "id": "plan-decision-55",
    "type": "decision",
    "app": "plan",
    "label": "Every user-reported bug gets a UI test that fails on the…",
@@ -1835,7 +1862,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-55",
+   "id": "plan-decision-56",
    "type": "decision",
    "app": "plan",
    "label": "No Python; a separate future app \"Datum Plot\"…",
@@ -2111,6 +2138,15 @@
    "label": "Session 9 (0.3.11, hardening quick wins)",
    "date": "2026-10-27",
    "text": "· User: build 0.3.11 with the two bugs and the hardening quick wins; record everything here, in the CHANGELOG and in the DATUM hub memory.\n· Built crates/core/src/hardening.rs (4 tests). On first run it found real faults: a damaged XER calendar sliced past the end (pnode, now clamped and depth-limited) and a WBS that loops back on itself recursed for ever (stack overflow; walk now visits each WBS node once). A random-plan \"late before early\" report turned out to be 17:00 vs 08:00 next morning (same working moment); the test compares in working time.\n· Fixed the Dashboard 0 % (Calc::progress_date, Summary.measured_at, label and report header say the date used) and the date picker (input blurs after the pick; UI test). St::lock() recovers a poisoned mutex. deny.toml + license = \"MIT\" in both crates; CI jobs deny and platforms (Windows, macOS). SECURITY.md, CONTRIBUTING.md. Decided not to enforce rustfmt (compact style).\n· Roadmap renumbered: 0.3.12 Trust in the dates, 0.4.0 Risk & resources, 0.4.1 Progress history, 0.4.2 Command line & automation (also in docs/site.json). Stale \"templates have no resources\" limit removed.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-session-23",
+   "type": "session",
+   "app": "plan",
+   "label": "Session 10 (site.json about and steps)",
+   "date": "2026-10-28",
+   "text": "· User (from the hub): add about and steps to docs/site.json and link the family page from the README. Checked each sentence against the code: MPX is export-only, so \"open from XML, XER, MPX\" became \"open from XML and XER or from Excel and CSV; export to Excel with formulas, XML, XER and MPX\". README links https://edgar-mendonca.github.io/Datum/apps/plan.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3038,9 +3074,9 @@
    "id": "plot-decision-35",
    "type": "decision",
    "app": "plot",
-   "label": "docs/site.json (FAMILY §10) is updated in every release…",
+   "label": "docs/site.json (FAMILY §10) (with about and steps for the…",
    "date": "Session 8",
-   "text": "docs/site.json (FAMILY §10) is updated in every release together with the roadmap above; public text (CHANGELOG, README, site.json, the in-app roadmap) never names, compares with or claims to copy a commercial product (FAMILY §13): file formats are named by extension (.xlsx, .pzfx, .pptx)\n\nWhy: The Datum family site and network read site.json and leave out lines that name other products.",
+   "text": "docs/site.json (FAMILY §10) (with about and steps for the family site's Overview) is updated in every release together with the roadmap above; public text (CHANGELOG, README, site.json, the in-app roadmap) never names, compares with or claims to copy a commercial product (FAMILY §13): file formats are named by extension (.xlsx, .pzfx, .pptx)\n\nWhy: The Datum family site and network read site.json and leave out lines that name other products.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3526,7 +3562,7 @@
    "app": "atlas",
    "label": "site.json",
    "path": "docs/site.json",
-   "text": "The public summary (FAMILY §10): tagline, audience, highlights, screenshots, roadmap (Next/Soon/Later/Goal). Read by the family site, the Datum network and Help › Roadmap. site_json_is_current checks its fields, files and that its roadmap starts after the current version.",
+   "text": "The public summary (FAMILY §10): tagline, audience, about (Overview paragraphs), three steps, highlights, screenshots, roadmap (Next/Soon/Later/Goal). Read by the family site, the Datum network and Help › Roadmap. site_json_is_current checks its fields, about and steps, files and that its roadmap starts after the current version.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/site.json"
   },
   {
@@ -3731,9 +3767,9 @@
    "id": "atlas-decision-21",
    "type": "decision",
    "app": "atlas",
-   "label": "docs/site.json is updated in every release, together with the…",
+   "label": "docs/site.json (about, steps, highlights, roadmap) is updated…",
    "date": "0.1.1",
-   "text": "docs/site.json is updated in every release, together with the roadmap here; public text never names or compares with a commercial product (hub FAMILY §13)\n\nWhy: The user, 2026-10-28: the family site and the Datum network build from it.",
+   "text": "docs/site.json (about, steps, highlights, roadmap) is updated in every release, together with the roadmap here; public text never names or compares with a commercial product (hub FAMILY §13)\n\nWhy: The user, 2026-10-28: the family site and the Datum network build from it.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3805,7 +3841,16 @@
    "app": "atlas",
    "label": "Session 6 (wording, plan for 0.1.2)",
    "date": "2026-10-28",
-   "text": "· Reworded \"Excel\" to \"spreadsheet\" in the README, CHANGELOG 0.1.0 and the app (Material Library tile, Browse copy toast, ? help, shortcuts, ribbon Import, Data page, roadmap features), and removed other product names from app text (Copy Picture and SVG tiles, the copy toast, the ribbon tooltip), per hub FAMILY §13. Code comments are unchanged.\n· Wrote PLAN-0.1.2.md:\n· where we are;\n· proposal: 0.1.2 lines and results, 0.1.3 charts side by side, 0.2.0/0.2.1/0.2.2 indices;\n· size;\n· 7 questions.\n· Diagnosis: several lines on one chart share its axes, so \"stiff and strong\" needs a second chart. Proposed goals that add it.\n· No feature code changed. Waiting for the answers.\n---",
+   "text": "· Reworded \"Excel\" to \"spreadsheet\" in the README, CHANGELOG 0.1.0 and the app (Material Library tile, Browse copy toast, ? help, shortcuts, ribbon Import, Data page, roadmap features), and removed other product names from app text (Copy Picture and SVG tiles, the copy toast, the ribbon tooltip), per hub FAMILY §13. Code comments are unchanged.\n· Wrote PLAN-0.1.2.md:\n· where we are;\n· proposal: 0.1.2 lines and results, 0.1.3 charts side by side, 0.2.0/0.2.1/0.2.2 indices;\n· size;\n· 7 questions.\n· Diagnosis: several lines on one chart share its axes, so \"stiff and strong\" needs a second chart. Proposed goals that add it.\n· No feature code changed. Waiting for the answers.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-6",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 7 (site Overview)",
+   "date": "2026-10-28",
+   "text": "· Added about and steps to docs/site.json (hub FAMILY §10: the Overview of /apps/atlas) from the user's draft, checked against the app. Corrected:\n· not every value cites a public source, so it now says every value \"names its source\";\n· leaving whole families out added to the ways of narrowing the field;\n· Compare is not built yet (0.3.0), so step 3 says \"see the materials that pass, ranked\";\n· results print but do not export, so it says print the chart, datasheets and results, or export the chart.\n· README links to the family page. The test checks about (1–2 paragraphs) and steps (3).\n· Noticed: hub FAMILY §11 now asks every app for a hardening standard (hardening tests, deny.toml with cargo deny, Windows/macOS CI, SECURITY.md, CONTRIBUTING.md). Atlas has none of it yet; to plan with 0.1.2.\n---",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -4487,6 +4532,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
+   "id": "sim-decision-22",
+   "type": "decision",
+   "app": "sim",
+   "label": "site.json has about and steps for the family site's app page…",
+   "date": "0.1.1",
+   "text": "site.json has about and steps for the family site's app page (/apps/sim), kept true with every release (CLAUDE.md release step 6); README links to that page\n\nWhy: The user's request; FAMILY §10. Checking found three overclaims, corrected: sweeps run in Rust (not Python), only the variable-step solvers locate switching exactly, and not every block has its own test yet",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
    "id": "sim-session-0",
    "type": "session",
    "app": "sim",
@@ -4765,6 +4819,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-33",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -4821,6 +4880,11 @@
   {
    "source": "hub",
    "target": "hub-session-11",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-12",
    "kind": "session"
   },
   {
@@ -5729,6 +5793,11 @@
    "kind": "in"
   },
   {
+   "source": "plan-decision-38",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-39",
    "kind": "decided"
@@ -5765,18 +5834,23 @@
   },
   {
    "source": "plan-decision-42",
-   "target": "plan-v0.3.8",
+   "target": "plan-v0.3.11",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-42",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
    "target": "plan-decision-43",
    "kind": "decided"
+  },
+  {
+   "source": "plan-decision-43",
+   "target": "plan-v0.3.8",
+   "kind": "in"
+  },
+  {
+   "source": "plan-decision-43",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -5824,14 +5898,14 @@
    "kind": "decided"
   },
   {
-   "source": "plan-decision-52",
-   "target": "tech-rust",
-   "kind": "about"
-  },
-  {
    "source": "app-plan",
    "target": "plan-decision-53",
    "kind": "decided"
+  },
+  {
+   "source": "plan-decision-53",
+   "target": "tech-rust",
+   "kind": "about"
   },
   {
    "source": "app-plan",
@@ -5844,12 +5918,17 @@
    "kind": "decided"
   },
   {
-   "source": "plan-decision-55",
+   "source": "app-plan",
+   "target": "plan-decision-56",
+   "kind": "decided"
+  },
+  {
+   "source": "plan-decision-56",
    "target": "plan-v0.3.1",
    "kind": "in"
   },
   {
-   "source": "plan-decision-55",
+   "source": "plan-decision-56",
    "target": "tech-python",
    "kind": "about"
   },
@@ -6107,6 +6186,11 @@
    "source": "plan-session-22",
    "target": "plan-v0.3.11",
    "kind": "shipped"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-session-23",
+   "kind": "session"
   },
   {
    "source": "hub",
@@ -7919,6 +8003,11 @@
    "kind": "session"
   },
   {
+   "source": "app-atlas",
+   "target": "atlas-session-6",
+   "kind": "session"
+  },
+  {
    "source": "hub",
    "target": "app-sim",
    "kind": "app"
@@ -8577,6 +8666,31 @@
    "source": "sim-decision-21",
    "target": "sim-v0.1.1",
    "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-22",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-22",
+   "target": "sim-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "sim-decision-22",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
+   "source": "sim-decision-22",
+   "target": "tech-python",
+   "kind": "about"
+  },
+  {
+   "source": "sim-decision-22",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-sim",
