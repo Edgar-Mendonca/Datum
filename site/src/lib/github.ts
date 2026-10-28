@@ -121,6 +121,8 @@ export function loadAll(): Promise<App[]> {
       console.warn(`[datum] ${e.id}: ${err.message}`);
       return { ...e, branch: e.branch ?? "HEAD", logo: familyLogo, about: [e.about ?? []].flat(), steps: e.steps ?? [], highlights: [], shots: [], roadmap: [], changelog: [], releases: [], hasSite: false } as App;
     })));
+    // One line per app in the build log: the version the site shows, where it came from, and the CHANGELOG's newest.
+    for (const a of apps) console.log(`[datum] ${a.id}: ${a.latest ? `v${a.latest.version} (${a.latest.fromChangelog ? "from CHANGELOG, no release API" : "GitHub release"})` : "no release"}; CHANGELOG ${a.changelog[0]?.version ?? "none"}`);
     if (flagged.length) console.warn(`[datum] ${flagged.length} lines name another product and are left out:\n  ${flagged.join("\n  ")}`);
     return apps;
   })();
