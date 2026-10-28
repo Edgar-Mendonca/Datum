@@ -38,7 +38,7 @@ jobs:
             echo "Tag $GITHUB_REF_NAME does not match version $V in home/src-tauri/Cargo.toml"; exit 1
           fi
           echo "V=$V" >> "$GITHUB_ENV"
-      - run: cargo test --workspace
+      - run: cargo test -p datum-home-core     # the engine; the window is built (and checked) by tauri build below
       - run: npx tauri build --bundles nsis
       - name: Installer and checksum
         run: |
