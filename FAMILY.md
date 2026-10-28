@@ -121,7 +121,9 @@ Chart.js:
 - white plot area, thin axes, no heavy gridlines;
 - Okabe-Ito colour-blind-safe series colours (`#0072B2 #E69F00 #009E73 #D55E00 #CC79A7 #56B4E9 #F0E442 #000000`);
 - a crosshair tooltip;
-- a PNG button on every chart; charts printable.
+- a PNG button on every chart; charts printable;
+- horizontal bar charts name every bar (`autoSkip: false`);
+- hand-drawn SVG charts over plain numbers use SolidJS `<Index>`, not `<For>` (`<For>` reuses nodes by value, so equal values keep stale positions; found in Datum Plan 0.4.0).
 
 ## 8. Printing
 

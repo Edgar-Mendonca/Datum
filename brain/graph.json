@@ -94,7 +94,7 @@
    "id": "guide-7",
    "type": "guide",
    "label": "§7 Components",
-   "text": "· Controls: square corners, 1 px lines, no heavy shadows. Buttons are Plex Mono uppercase (.btn, .btn.pri filled accent, .btn.sm).\n· Menus: icons in the tick column, keyboard hints on the right, submenus to any depth, close on an outside click.\n· Dialogs: a title bar with ×; OK/Cancel at the bottom right; Enter = OK, Esc = Cancel.\n· Grids (spreadsheet-like):\n· one scroller with a sticky header and frozen key columns;\n· range selection (drag, Shift, Ctrl, whole rows and columns, Ctrl+A);\n· Sum/Average/Count in the formula bar;\n· TSV clipboard that pastes into any spreadsheet;\n· a fill handle with series (Ctrl copies);\n· Paste Special (Ctrl+Alt+V);\n· Font/Alignment formatting (Ctrl+B/I/U);\n· a date picker on date cells.\nReuse Plan's selection.ts, cells.ts and fmt.ts.\n· Toasts: bottom left; green for success.\n· Empty states: say what the view is for and offer the first action.\n### Icons\n24×24 viewBox, in one SVG sprite in ui/index.html (<use href=\"#i-name\">).\n· Line style: stroke=\"currentColor\", stroke-width 1.6–1.8, round caps and joins.\n· At most one light accent fill (#9CC2F7 in Plan; use the app's --sky).\n· Red #C0392B only for delete or critical; green #2E9D57 for done or ok; amber for highlight.\n· One icon per meaning (no duplicates).\n### Charts (the family chart style)\nChart.js:\n· white plot area, thin axes, no heavy gridlines;\n· Okabe-Ito colour-blind-safe series colours (#0072B2 #E69F00 #009E73 #D55E00 #CC79A7 #56B4E9 #F0E442 #000000);\n· a crosshair tooltip;\n· a PNG button on every chart; charts printable.",
+   "text": "· Controls: square corners, 1 px lines, no heavy shadows. Buttons are Plex Mono uppercase (.btn, .btn.pri filled accent, .btn.sm).\n· Menus: icons in the tick column, keyboard hints on the right, submenus to any depth, close on an outside click.\n· Dialogs: a title bar with ×; OK/Cancel at the bottom right; Enter = OK, Esc = Cancel.\n· Grids (spreadsheet-like):\n· one scroller with a sticky header and frozen key columns;\n· range selection (drag, Shift, Ctrl, whole rows and columns, Ctrl+A);\n· Sum/Average/Count in the formula bar;\n· TSV clipboard that pastes into any spreadsheet;\n· a fill handle with series (Ctrl copies);\n· Paste Special (Ctrl+Alt+V);\n· Font/Alignment formatting (Ctrl+B/I/U);\n· a date picker on date cells.\nReuse Plan's selection.ts, cells.ts and fmt.ts.\n· Toasts: bottom left; green for success.\n· Empty states: say what the view is for and offer the first action.\n### Icons\n24×24 viewBox, in one SVG sprite in ui/index.html (<use href=\"#i-name\">).\n· Line style: stroke=\"currentColor\", stroke-width 1.6–1.8, round caps and joins.\n· At most one light accent fill (#9CC2F7 in Plan; use the app's --sky).\n· Red #C0392B only for delete or critical; green #2E9D57 for done or ok; amber for highlight.\n· One icon per meaning (no duplicates).\n### Charts (the family chart style)\nChart.js:\n· white plot area, thin axes, no heavy gridlines;\n· Okabe-Ito colour-blind-safe series colours (#0072B2 #E69F00 #009E73 #D55E00 #CC79A7 #56B4E9 #F0E442 #000000);\n· a crosshair tooltip;\n· a PNG button on every chart; charts printable;\n· horizontal bar charts name every bar (autoSkip: false);\n· ha",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -533,13 +533,22 @@
    "id": "hub-decision-30",
    "type": "decision",
    "app": "hub",
+   "label": "Every import is a parity check: an app that opens files…",
+   "text": "Every import is a parity check: an app that opens files carrying their own results (dates, values) recomputes them and lists the differences in an import report, alongside what it changed or left out\n\nWhy: Datum Plan 0.4.0; it reuses the parity-test code, so users see the same check the tests run.",
+   "date": "2026-10-28 (s14)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-31",
+   "type": "decision",
+   "app": "hub",
    "label": "Trust in the results joins the hardening standard (FAMILY…",
    "text": "Trust in the results joins the hardening standard (FAMILY §11): hand-worked cases for the engine's core rules (expected values worked out before running), parity files that carry their own results (drop in real exports from other tools), and random-input checks of the rules themselves, not only \"no panic\"\n\nWhy: Datum Plan 0.3.12: the hand-worked cases and the random link check found two real scheduling mistakes (ALAP used total float; late dates of work under way used the whole duration).",
    "date": "2026-10-28 (s13)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-31",
+   "id": "hub-decision-32",
    "type": "decision",
    "app": "hub",
    "label": "Hardening standard for every app (FAMILY §11): hardening tests…",
@@ -548,7 +557,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-32",
+   "id": "hub-decision-33",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -557,7 +566,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-33",
+   "id": "hub-decision-34",
    "type": "decision",
    "app": "hub",
    "label": "Hero = four app tiles (Hero.astro + AppGlyph.astro: Gantt…",
@@ -566,7 +575,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-34",
+   "id": "hub-decision-35",
    "type": "decision",
    "app": "hub",
    "label": "Datum Home, a desktop app in this repo (home/) that installs…",
@@ -623,13 +632,22 @@
    "id": "hub-session-5",
    "type": "session",
    "app": "hub",
+   "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
+   "date": "2026-10-28",
+   "text": "· Plan 0.4.0 shipped Schedule Risk (Monte Carlo: P50/P80/P90 finish and cost, criticality, drivers, risk-register delays, optimistic/pessimistic durations), workload by trade (resource Group) in hours or people, a levelling preview, and an import report that compares every task's dates with the file. Its docs/site.json now has a Schedule Risk screenshot third, so the app page shows it.\n· Recorded here: decision (§3), FAMILY §7 chart rules (autoSkip: false on horizontal bars; <Index> for numbers), Plan at 0.4.0. Brain regenerated.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-6",
+   "type": "session",
+   "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
    "date": "2026-10-28",
    "text": "· Plan 0.3.12 shipped hand-worked scheduling cases (47), parity files with their own dates (crates/core/tests/parity, hand-made XML and XER; real exports can be dropped in), random plans with constraints and calendars (links hold, tight forward pass, row order), random edit sequences and damaged CSV/Excel. They found and fixed two scheduling mistakes (ALAP; late dates of work under way).\n· Recorded here: FAMILY §11 gains \"trust in the results\", decision (§3), roadmap row, Plan at 0.3.12. Brain regenerated.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-6",
+   "id": "hub-session-7",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -638,7 +656,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-7",
+   "id": "hub-session-8",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -647,7 +665,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -656,7 +674,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -665,7 +683,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -674,7 +692,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -683,7 +701,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -692,7 +710,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -845,6 +863,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan"
   },
   {
+   "id": "plan-v0.4.0",
+   "type": "release",
+   "app": "plan",
+   "label": "Plan 0.4.0",
+   "version": "0.4.0",
+   "date": "2026-10-28",
+   "text": "Risk and resources: see how likely your finish date is, see the workload of each trade, preview levelling, and get a report on every import.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.4.0"
+  },
+  {
    "id": "plan-v0.3.12",
    "type": "release",
    "app": "plan",
@@ -955,23 +983,13 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.1.0"
   },
   {
-   "id": "plan-plan-0-4-0",
-   "type": "roadmap",
-   "app": "plan",
-   "label": "0.4.0 Risk and resources",
-   "version": "0.4.0",
-   "when": "Next",
-   "text": "Schedule risk analysis (Monte Carlo): P50 and P80 finish dates and costs, tornado chart, criticality.\nRoles and skills, with histograms by trade; manpower curves planned against actual.\nOne resource pool shared by several plans.\nA preview before levelling, showing what moves.\nAn import report that lists anything changed or left out when a file is opened.",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
-  },
-  {
    "id": "plan-plan-0-4-1",
    "type": "roadmap",
    "app": "plan",
    "label": "0.4.1 Progress history",
    "version": "0.4.1",
-   "when": "Soon",
-   "text": "Actual S-curve built from the saved period snapshots.\nEarned schedule, so schedule performance stays meaningful near the end.\nProgress from installed quantities (rules of credit).\nA 3-week look-ahead with a constraint log.",
+   "when": "Next",
+   "text": "Actual S-curve built from the saved period snapshots.\nManpower curves: people planned against people who actually worked, by trade.\nEarned schedule, so schedule performance stays meaningful near the end.\nProgress from installed quantities (rules of credit).\nA 3-week look-ahead with a constraint log.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -1001,7 +1019,7 @@
    "label": "0.6 Portfolio and hardening",
    "version": "0.6",
    "when": "Later",
-   "text": "Master plans with subprojects, links between projects, a portfolio dashboard.\nSmooth with 100,000 tasks; a signed installer (no Windows warning); crash reports.\nExchange files checked against real files from other tools; custom fields and codes in exported files.",
+   "text": "Master plans with subprojects, one resource pool shared by several plans, links between projects, a portfolio dashboard.\nSmooth with 100,000 tasks; a signed installer (no Windows warning); crash reports.\nExchange files checked against real files from other tools; custom fields and codes in exported files.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -1176,6 +1194,24 @@
    "path": "crates/core/src/tests.rs",
    "text": "Engine tests (26).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/crates/core/src/tests.rs"
+  },
+  {
+   "id": "plan-file-crates-core-src-risk-rs",
+   "type": "file",
+   "app": "plan",
+   "label": "risk.rs",
+   "path": "crates/core/src/risk.rs",
+   "text": "Schedule risk (Monte Carlo): SimOpts (iterations, default range −low/+high %, seed), simulate → P10/50/80/90, chance of the planned finish, finish-day histogram, cost P50/P80, criticality, drivers (correlation), risk hit rates. Triangular draws; every run is a full schedule().",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/crates/core/src/risk.rs"
+  },
+  {
+   "id": "plan-file-ui-src-risk-tsx",
+   "type": "file",
+   "app": "plan",
+   "label": "risk.tsx",
+   "path": "ui/src/risk.tsx",
+   "text": "The Schedule Risk view (simrisk).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/ui/src/risk.tsx"
   },
   {
    "id": "plan-file-crates-core-src-cases-rs",
@@ -1739,13 +1775,58 @@
    "id": "plan-decision-38",
    "type": "decision",
    "app": "plan",
+   "label": "Monte Carlo uses triangular draws (min, planned, max) and the…",
+   "date": "0.4.0",
+   "text": "Monte Carlo uses triangular draws (min, planned, max) and the full scheduler per run; a fixed seed (same plan + settings = same answer); risks 1–5 → 10/30/50/70/90 %; Risk.days = working days added to each linked task (opportunities subtract); cost scales with duration except fixed cost\n\nWhy: Simple, explainable, and exact to the engine's own rules (calendars, constraints, progress).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-39",
+   "type": "decision",
+   "app": "plan",
+   "label": "Trades are the resources' Group; usage(\"group\") sums work…",
+   "date": "0.4.0",
+   "text": "Trades are the resources' Group; usage(\"group\") sums work resources per group with capacity; rows carry cap, Usage.person = one person's hours per bucket (hours → people)\n\nWhy: No new model field; the window shows the engine's capacity instead of computing it.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-40",
+   "type": "decision",
+   "app": "plan",
+   "label": "Levelling always previews (level::preview levels a clone and…",
+   "date": "0.4.0",
+   "text": "Levelling always previews (level::preview levels a clone and diffs the dates)\n\nWhy: See what moves before changing the plan.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-41",
+   "type": "decision",
+   "app": "plan",
+   "label": "Imports return notes (Imported::Plan(p, notes)): reader notes…",
+   "date": "0.4.0",
+   "text": "Imports return notes (Imported::Plan(p, notes)): reader notes plus a date comparison with the file (io::stated_dates, shared with the parity test)\n\nWhy: The import report the user asked for in 0.3.12; the comparison makes every import a parity check.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-42",
+   "type": "decision",
+   "app": "plan",
+   "label": "Charts over plain numbers use <Index>, not <For>",
+   "date": "0.4.0",
+   "text": "Charts over plain numbers use <Index>, not <For>\n\nWhy: <For> reuses nodes by value, so bars with equal values kept stale positions.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-43",
+   "type": "decision",
+   "app": "plan",
    "label": "ALAP uses free float only: the largest shift (≤ free float)…",
    "date": "0.3.12",
    "text": "ALAP uses free float only: the largest shift (≤ free float) that every successor link still allows, found by bisection with the forward pass's own rule\n\nWhy: Standard rule; using total float pushed ALAP tasks past their successors (found by the random-plan link check).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-39",
+   "id": "plan-decision-44",
    "type": "decision",
    "app": "plan",
    "label": "A started task's late start is that of its remaining work…",
@@ -1754,7 +1835,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-40",
+   "id": "plan-decision-45",
    "type": "decision",
    "app": "plan",
    "label": "Parity files are hand-made until real exports are added; the…",
@@ -1763,7 +1844,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-41",
+   "id": "plan-decision-46",
    "type": "decision",
    "app": "plan",
    "label": "docs/site.json carries about (two paragraphs) and steps…",
@@ -1772,7 +1853,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-42",
+   "id": "plan-decision-47",
    "type": "decision",
    "app": "plan",
    "label": "rustfmt is not enforced; the code stays in its compact hand…",
@@ -1781,7 +1862,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-43",
+   "id": "plan-decision-48",
    "type": "decision",
    "app": "plan",
    "label": "Hardening gates in CI: cargo deny, Windows + macOS cargo test…",
@@ -1790,7 +1871,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-44",
+   "id": "plan-decision-49",
    "type": "decision",
    "app": "plan",
    "label": "Without a status date, progress reports (Dashboard, period…",
@@ -1799,7 +1880,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-45",
+   "id": "plan-decision-50",
    "type": "decision",
    "app": "plan",
    "label": "The window's state lock recovers from a poisoned mutex…",
@@ -1808,7 +1889,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-46",
+   "id": "plan-decision-51",
    "type": "decision",
    "app": "plan",
    "label": "The Datum apps share one design and workflow in FAMILY.md…",
@@ -1817,7 +1898,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-47",
+   "id": "plan-decision-52",
    "type": "decision",
    "app": "plan",
    "label": "Templates carry people/assign/costs; Work is titled \"Man-hours\"",
@@ -1826,7 +1907,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-48",
+   "id": "plan-decision-53",
    "type": "decision",
    "app": "plan",
    "label": "One grid *engine* (selection, clipboard, fill, formatting…",
@@ -1835,7 +1916,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-49",
+   "id": "plan-decision-54",
    "type": "decision",
    "app": "plan",
    "label": "Network: layout_with(rows, sums, wbs); bands returned with the…",
@@ -1844,7 +1925,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-50",
+   "id": "plan-decision-55",
    "type": "decision",
    "app": "plan",
    "label": "Other views print through one Frame; reports print as flowing…",
@@ -1853,7 +1934,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-51",
+   "id": "plan-decision-56",
    "type": "decision",
    "app": "plan",
    "label": "Fill series follow Excel (numbers, text+number, dates by step…",
@@ -1862,7 +1943,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-52",
+   "id": "plan-decision-57",
    "type": "decision",
    "app": "plan",
    "label": "open_url only opens github.com/Edgar-Mendonca/Datum-Plan links",
@@ -1871,7 +1952,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-53",
+   "id": "plan-decision-58",
    "type": "decision",
    "app": "plan",
    "label": "Ribbon tabs: Task, Schedule, Progress (user rejected \"Home\")…",
@@ -1880,7 +1961,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-54",
+   "id": "plan-decision-59",
    "type": "decision",
    "app": "plan",
    "label": "Hidden columns stay in the table with a negative width…",
@@ -1889,7 +1970,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-55",
+   "id": "plan-decision-60",
    "type": "decision",
    "app": "plan",
    "label": "Print lays the table and chart out as one strip; pages are…",
@@ -1898,7 +1979,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-56",
+   "id": "plan-decision-61",
    "type": "decision",
    "app": "plan",
    "label": "Printing lays out pages in the UI (SVG) and uses the WebView…",
@@ -1907,7 +1988,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-57",
+   "id": "plan-decision-62",
    "type": "decision",
    "app": "plan",
    "label": "Cell formatting reuses the task's existing style JSON field…",
@@ -1916,7 +1997,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-58",
+   "id": "plan-decision-63",
    "type": "decision",
    "app": "plan",
    "label": "Every user-reported bug gets a UI test that fails on the…",
@@ -1925,7 +2006,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-59",
+   "id": "plan-decision-64",
    "type": "decision",
    "app": "plan",
    "label": "No Python; a separate future app \"Datum Plot\"…",
@@ -2222,6 +2303,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
+   "id": "plan-session-25",
+   "type": "session",
+   "app": "plan",
+   "label": "Session 12 (0.4.0, risk and resources)",
+   "date": "2026-10-28",
+   "text": "· User: build 0.4.0. Built risk.rs (+ dmin/dmax task fields, Risk.days), usage by group with capacity and person, level::preview, import notes in both readers + compare_dates, XER activity types; window: Schedule Risk view and sidebar item, Delay (days) column, Resource Graph People/Trades and Hours/People, levelling preview dialog, import report dialog, help cards. 6 engine tests and 8 UI checks added.\n· Checked in the real app (Engineering template): Schedule Risk (1 % chance of the planned 15 Feb; P50 19 Feb, P80 23 Feb; parts lead time drives the finish), levelling preview (5 tasks move, finish 15 → 19 Feb, overallocated days 4 → 0), trades in people. Found and fixed there: stale bars and labels in Resource Graph (<For> over numbers → <Index>), and the drivers chart skipping every other task name (autoSkip: false on horizontal bars).\n· Not built from the old 0.4 list: manpower planned vs actual (needs actuals history, moved to 0.4.1) and the shared resource pool (moved to 0.6 with the portfolio). Schedule Risk is not on the Print page yet.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
    "id": "app-plot",
    "type": "app",
    "app": "plot",
@@ -2229,6 +2319,16 @@
    "accent": "#0E8C7F",
    "text": "Analyse data and make publication-ready graphs: statistics, regression, curve fitting and page layouts, in one app for Windows.\n\nFor: Scientists, researchers, lab teams and students.\n\nStack: Rust shell (src-tauri) + Rust project engine (crates/core), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript, plain CSS tokens, IBM Plex. Python worker (py/) with numpy, SciPy and matplotlib for every calculation and every graph; the installer bundles embeddable CPython 3.13.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot"
+  },
+  {
+   "id": "plot-v0.2.17",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.17",
+   "version": "0.2.17",
+   "date": "2026-10-28",
+   "text": "Nested data: subgroups within groups, the nested t-test and the nested one-way ANOVA.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.17"
   },
   {
    "id": "plot-v0.2.16",
@@ -2421,23 +2521,23 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.1.0"
   },
   {
-   "id": "plot-plan-0-2-17",
+   "id": "plot-plan-0-2-18",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.2.17 Nested data",
-   "version": "0.2.17",
+   "label": "0.2.18 Signals",
+   "version": "0.2.18",
    "when": "Next",
-   "text": "A nested table (replicates within sub-groups)\nNested t-test and one-way ANOVA",
+   "text": "Peak finding and fitting\nSignal processing: baseline, filters, Fourier transform",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-plan-0-2-18-0-2-19",
+   "id": "plot-plan-0-2-19",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.2.18 – 0.2.19 Signals and materials",
-   "version": "0.2.18 – 0.2.19",
+   "label": "0.2.19 Thermal and fatigue",
+   "version": "0.2.19",
    "when": "Soon",
-   "text": "Peaks and signal processing\nDSC/TGA thermal analysis and S–N fatigue curves",
+   "text": "DSC/TGA thermal analysis\nS–N fatigue curves",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -2567,6 +2667,15 @@
    "path": "py/datum/groups.py",
    "text": "Compare groups (B4–B8, B16, B23): column (values by row, for pairing), summary (values, or entered mean/SD/N), pairs_of; ttest (unpaired Welch/Student from stats, paired, ratio, one-sample; effect sizes; Shapiro and Brown-Forsythe checks), nonparam (Mann-Whitney + Hodges-Lehmann, Wilcoxon (approximate with ties, as R), KS, Kruskal-Wallis + Dunn (Bonferroni), Friedman), anova (ordinary, Welch/Brown-Forsythe via statsmodels anova_oneway, repeated measures with Geisser-Greenhouse; posthoc Tukey (scipy.stats.tukey_hsd), Dunnett (scipy.stats.dunnett), Holm-Šidák, Šidák, Bonferroni, LSD; trend; η², ω²), correlation (Pearson + Fisher-z CI, Spearman, Kendall, matrix), power (statsmodels power solvers, curve). Results carry brackets [set, set, P].",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/groups.py"
+  },
+  {
+   "id": "plot-file-py-datum-nested-py",
+   "type": "file",
+   "app": "plot",
+   "label": "nested.py",
+   "path": "py/datum/nested.py",
+   "text": "Nested (A8, B20): subgroups (each sub-column of a group), nested (hierarchical ANOVA: groups tested against subgroups within groups; t from F for two groups; variance components from MixedLM REML with group dummies, ANOVA estimators as the fallback; ICC). graph.nested_figure draws subgroup dot columns with means, the group mean and error across subgroup means.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/nested.py"
   },
   {
    "id": "plot-file-py-datum-survival-py",
@@ -3220,13 +3329,22 @@
    "id": "plot-decision-40",
    "type": "decision",
    "app": "plot",
+   "label": "Nested table = kind \"nested\" (Table::nested): a column-style…",
+   "date": "Session 8",
+   "text": "Nested table = kind \"nested\" (Table::nested): a column-style table whose sub-columns are subgroups (reps = subgroups per group); the nested test is the classic hierarchical F (groups / subgroups-within-groups MS), equal to ANOVA on subgroup means when balanced, with REML variance components\n\nWhy: Exact for balanced designs, simple to explain; the mixed model supplies the variance split.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-41",
+   "type": "decision",
+   "app": "plot",
    "label": "Column table = Table.kind = \"column\", same model (X column…",
    "date": "Session 7",
    "text": "Column table = Table.kind = \"column\", same model (X column kept, hidden in the UI, unused by Python); each group a data set with reps 1 (or mean/SD/N)\n\nWhy: No new table code in Rust; every op (paste, sort, exclude, sets) works unchanged.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-41",
+   "id": "plot-decision-42",
    "type": "decision",
    "app": "plot",
    "label": "Significance brackets are analysis overlays: t-test…",
@@ -3235,7 +3353,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-42",
+   "id": "plot-decision-43",
    "type": "decision",
    "app": "plot",
    "label": "Transforms, histograms and smoothing are analyses whose result…",
@@ -3244,7 +3362,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-43",
+   "id": "plot-decision-44",
    "type": "decision",
    "app": "plot",
    "label": "Second Python worker (Calc) for results and Excel; graphs keep…",
@@ -3253,7 +3371,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-44",
+   "id": "plot-decision-45",
    "type": "decision",
    "app": "plot",
    "label": "Samples and wording lean to materials science and engineering…",
@@ -5029,6 +5147,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-35",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -5095,6 +5218,11 @@
   {
    "source": "hub",
    "target": "hub-session-13",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-14",
    "kind": "session"
   },
   {
@@ -5328,17 +5456,17 @@
    "kind": "then"
   },
   {
+   "source": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
+   "kind": "then"
+  },
+  {
    "source": "app-plan",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "released"
   },
   {
-   "source": "plan-v0.3.12",
-   "target": "plan-plan-0-4-0",
-   "kind": "next"
-  },
-  {
-   "source": "plan-plan-0-4-0",
+   "source": "plan-v0.4.0",
    "target": "plan-plan-0-4-1",
    "kind": "next"
   },
@@ -5455,6 +5583,16 @@
   {
    "source": "app-plan",
    "target": "plan-file-crates-core-src-tests-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-file-crates-core-src-risk-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-file-ui-src-risk-tsx",
    "kind": "contains"
   },
   {
@@ -6014,7 +6152,7 @@
   },
   {
    "source": "plan-decision-38",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -6024,7 +6162,7 @@
   },
   {
    "source": "plan-decision-39",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -6034,13 +6172,8 @@
   },
   {
    "source": "plan-decision-40",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-40",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -6049,13 +6182,8 @@
   },
   {
    "source": "plan-decision-41",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.4.0",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-41",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -6064,7 +6192,7 @@
   },
   {
    "source": "plan-decision-42",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -6074,7 +6202,7 @@
   },
   {
    "source": "plan-decision-43",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
   },
   {
@@ -6084,7 +6212,7 @@
   },
   {
    "source": "plan-decision-44",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
   },
   {
@@ -6094,8 +6222,13 @@
   },
   {
    "source": "plan-decision-45",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-45",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -6104,7 +6237,7 @@
   },
   {
    "source": "plan-decision-46",
-   "target": "plan-v0.3.8",
+   "target": "plan-v0.3.11",
    "kind": "in"
   },
   {
@@ -6118,9 +6251,19 @@
    "kind": "decided"
   },
   {
+   "source": "plan-decision-47",
+   "target": "plan-v0.3.11",
+   "kind": "in"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-48",
    "kind": "decided"
+  },
+  {
+   "source": "plan-decision-48",
+   "target": "plan-v0.3.11",
+   "kind": "in"
   },
   {
    "source": "app-plan",
@@ -6128,14 +6271,34 @@
    "kind": "decided"
   },
   {
+   "source": "plan-decision-49",
+   "target": "plan-v0.3.11",
+   "kind": "in"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-50",
    "kind": "decided"
   },
   {
+   "source": "plan-decision-50",
+   "target": "plan-v0.3.11",
+   "kind": "in"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-51",
    "kind": "decided"
+  },
+  {
+   "source": "plan-decision-51",
+   "target": "plan-v0.3.8",
+   "kind": "in"
+  },
+  {
+   "source": "plan-decision-51",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -6163,11 +6326,6 @@
    "kind": "decided"
   },
   {
-   "source": "plan-decision-56",
-   "target": "tech-rust",
-   "kind": "about"
-  },
-  {
    "source": "app-plan",
    "target": "plan-decision-57",
    "kind": "decided"
@@ -6183,12 +6341,42 @@
    "kind": "decided"
   },
   {
-   "source": "plan-decision-59",
+   "source": "app-plan",
+   "target": "plan-decision-60",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-61",
+   "kind": "decided"
+  },
+  {
+   "source": "plan-decision-61",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-62",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-63",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-64",
+   "kind": "decided"
+  },
+  {
+   "source": "plan-decision-64",
    "target": "plan-v0.3.1",
    "kind": "in"
   },
   {
-   "source": "plan-decision-59",
+   "source": "plan-decision-64",
    "target": "tech-python",
    "kind": "about"
   },
@@ -6463,6 +6651,16 @@
    "kind": "shipped"
   },
   {
+   "source": "app-plan",
+   "target": "plan-session-25",
+   "kind": "session"
+  },
+  {
+   "source": "plan-session-25",
+   "target": "plan-v0.4.0",
+   "kind": "shipped"
+  },
+  {
    "source": "hub",
    "target": "app-plot",
    "kind": "app"
@@ -6678,22 +6876,27 @@
    "kind": "then"
   },
   {
+   "source": "plot-v0.2.16",
+   "target": "plot-v0.2.17",
+   "kind": "then"
+  },
+  {
    "source": "app-plot",
-   "target": "plot-v0.2.16",
+   "target": "plot-v0.2.17",
    "kind": "released"
   },
   {
-   "source": "plot-v0.2.16",
-   "target": "plot-plan-0-2-17",
+   "source": "plot-v0.2.17",
+   "target": "plot-plan-0-2-18",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-2-17",
-   "target": "plot-plan-0-2-18-0-2-19",
+   "source": "plot-plan-0-2-18",
+   "target": "plot-plan-0-2-19",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-2-18-0-2-19",
+   "source": "plot-plan-0-2-19",
    "target": "plot-plan-0-2-20-0-2-26",
    "kind": "next"
   },
@@ -6796,6 +6999,11 @@
    "source": "plot-file-py-datum-groups-py",
    "target": "tech-statsmodels",
    "kind": "uses"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-nested-py",
+   "kind": "contains"
   },
   {
    "source": "app-plot",
@@ -7443,19 +7651,19 @@
    "kind": "decided"
   },
   {
-   "source": "plot-decision-40",
+   "source": "app-plot",
+   "target": "plot-decision-41",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-41",
    "target": "tech-rust",
    "kind": "about"
   },
   {
-   "source": "plot-decision-40",
+   "source": "plot-decision-41",
    "target": "tech-python",
    "kind": "about"
-  },
-  {
-   "source": "app-plot",
-   "target": "plot-decision-41",
-   "kind": "decided"
   },
   {
    "source": "app-plot",
@@ -7468,13 +7676,18 @@
    "kind": "decided"
   },
   {
-   "source": "plot-decision-43",
+   "source": "app-plot",
+   "target": "plot-decision-44",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-44",
    "target": "tech-python",
    "kind": "about"
   },
   {
    "source": "app-plot",
-   "target": "plot-decision-44",
+   "target": "plot-decision-45",
    "kind": "decided"
   },
   {
