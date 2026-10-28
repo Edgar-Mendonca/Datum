@@ -189,6 +189,7 @@ Chart.js:
 - random documents (a small built-in generator, no extra crate) never panic and keep their invariants;
 - damaged files for every reader (cut short, garbled bytes, loops) never panic: they open or give a clear error;
 - a speed gate on a large document (a looser limit in debug builds).
+- **trust in the results** (from Datum Plan 0.3.12): hand-worked cases for each core rule, with the expected values worked out before running (`cases.rs`); parity files that carry their own results, checked value by value (`tests/parity`, where real exports from other tools can be dropped in); random-input checks of the rules themselves (for Plan: every link holds, no task starts later than its links need, row order does not matter), and random sequences of edits.
 
 Plus: `deny.toml` + `cargo deny check` (advisories, licences, sources) and `license = "MIT"` in every crate; CI runs `cargo test` on Windows and macOS as well as Linux; the shell's state lock recovers from a poisoned mutex; `SECURITY.md` and `CONTRIBUTING.md` in the repo. rustfmt is not enforced (the code keeps its compact hand style).
 

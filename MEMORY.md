@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-28) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.3.11 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.3.12 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.14 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.1.1 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.1 | ✅ |
@@ -90,6 +90,7 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 | 2026-10-25 (s2) | **The brain**: `brain/brain.mjs` builds one graph (nodes: hub, apps, FAMILY sections, technologies, workflow, decisions, files, releases, plans, sessions) from the repos; `brain/graph.json` is committed; the site draws it | The user wants a complete, interactive map of the whole portfolio, and one file Claude reads in every new project so nothing is lost. |
 | 2026-10-25 (s2) | The public network removes sentences that name other products and leaves out nodes whose title does; graph.json keeps everything | FAMILY §13 for the site; the memory itself must stay complete. |
 | 2026-10-25 (s2) | Fonts self-hosted with @fontsource (Archivo with the width axis, IBM Plex Sans and Mono, Instrument Serif); screenshots converted to 1440 px WebP at build with sharp | No third-party requests; smaller pages. |
+| 2026-10-28 (s13) | **Trust in the results** joins the hardening standard (FAMILY §11): hand-worked cases for the engine's core rules (expected values worked out before running), parity files that carry their own results (drop in real exports from other tools), and random-input checks of the rules themselves, not only "no panic" | Datum Plan 0.3.12: the hand-worked cases and the random link check found two real scheduling mistakes (ALAP used total float; late dates of work under way used the whole duration). |
 | 2026-10-27 (s9) | **Hardening standard for every app** (FAMILY §11): hardening tests (failed edits change nothing, random documents, damaged files, speed gate), `cargo deny`, CI on Windows + macOS, poisoned-lock recovery, SECURITY.md and CONTRIBUTING.md. First shipped in Datum Plan 0.3.11; rustfmt is not enforced | A quick look at another open-source scheduler showed our apps lead on features but trail on rigour (tests, CI gates). In Plan the new tests found two real crashes on damaged P6 files on their first run. |
 | 2026-10-25 | Datum Plot's bundled Python is recorded in FAMILY §2 as the one exception to "no Python" | Plot's own decision (its MEMORY, session 1); the guide must not contradict a shipped app. |
 | 2026-10-28 (s11) | **Hero = four app tiles** (`Hero.astro` + `AppGlyph.astro`: Gantt, curve fit, property chart, control loop, looping gently) around the amber datum square, replacing the 3×3 workbench; the italic phrase cycles by itself (two phrases per app), hover holds, leaving resumes. **One page per app** (`/apps/<id>`); `about` and `steps` added to the site.json spec (FAMILY §10), with fallbacks in apps.json | The user: the bench was too much; four animated icons for the current apps are enough; each app needs a page that explains the software. |
@@ -110,7 +111,7 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 | Plot and Atlas publish `docs/site.json` | 🔜 (in their chats) |
 | App repos reword CHANGELOG lines that name other products; Plan restores its lost 0.3.3–0.3.7 headings | 🔜 (in their chats) |
 | App repos replace `docs/FAMILY.md` with a link to DATUM's FAMILY.md | 🔜 |
-| Hardening standard (FAMILY §11) in every app: Plan ✅ 0.3.11; Plot and Atlas 🔜 (in their chats) | 🔜 |
+| Hardening standard (FAMILY §11) in every app: Plan ✅ 0.3.11 + 0.3.12 (worked cases, parity files); Plot and Atlas 🔜 (in their chats) | 🔜 |
 | Plan's next steps (its MEMORY §5 "Hardening plan"): 0.3.12 trust in the dates (more tests, parity sample plans, hostile-file tests), 0.4.2 command line + named commands + MCP | ⬜ (in Plan's chat) |
 | Each app's `release.yml` sends `repository_dispatch` (`app-released`) to DATUM (fine-grained token secret) so the site updates within minutes | ⬜ |
 | Lighthouse run on the live site (target 95+) | ⬜ |
@@ -146,6 +147,10 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 - User: the instrument panel loaded slowly, could not be clicked, and looked empty while fading; bring back the rotating blue "Tools to …" line and the small animated icons, but in the right pane, playable, not like the reference sites. Logo and the rest unchanged. Asked to look at other sites for ideas: a web search turned up hover-reactive grids, cursor spotlights and tiles linked to text (Framer / 21st.dev components), used as ideas only.
 - Built: `HeroWorkbench.astro` (tiles reuse the session 3 drawings; animations run only on the active tile; the origin dial's needle points at it; the phrase swaps with a short slide); `HeroPanel.astro` removed; CLAUDE.md hero rule updated.
 - Checked: build; Playwright: the bench cycles idle, hover on Science takes over ("run experiments."), holds while hovered, resumes after; 1280, 1440 (dark), 375 px: no overflow, no console errors.
+
+### 2026-10-28: Session 13 (from Datum Plan's chat: 0.3.12, trust in the dates)
+- Plan 0.3.12 shipped hand-worked scheduling cases (47), parity files with their own dates (`crates/core/tests/parity`, hand-made XML and XER; real exports can be dropped in), random plans with constraints and calendars (links hold, tight forward pass, row order), random edit sequences and damaged CSV/Excel. They found and fixed two scheduling mistakes (ALAP; late dates of work under way).
+- Recorded here: FAMILY §11 gains "trust in the results", decision (§3), roadmap row, Plan at 0.3.12. Brain regenerated.
 
 ### 2026-10-27: Session 9 (from Datum Plan's chat: the hardening standard)
 - In Plan's chat the user asked for a quick comparison with another open-source scheduler, then for the quick wins and for everything to be recorded here too. Plan 0.3.11 shipped the Dashboard and date-picker fixes and the hardening quick wins; its new tests found two crashes on damaged XER files (cut-off calendar text, a WBS that loops) on their first run.
