@@ -54,7 +54,7 @@ Data flow, per app in `apps.json`:
 - `api.github.com/repos/<repo>/releases` (with `GITHUB_TOKEN` in Actions) → latest version, date, installer URL and size. If the API fails, the newest CHANGELOG section is used and Download links to `releases/latest`.
 - `docs/MEMORY.md` → the brain (Files, Decisions, Roadmap, Session log, How we work, the product table's Stack).
 
-Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, and `repository_dispatch` type `app-released`. **Settings › Pages › Source must be GitHub Actions**; with "Deploy from a branch" GitHub runs Jekyll on the raw repo and fails on the `.astro` files (`.nojekyll` at the root now stops that, but the site only deploys through Actions).
+Deploy: on push to the default branch, hourly at :17 (was daily until session 12), `workflow_dispatch`, and `repository_dispatch` type `app-released`. **Settings › Pages › Source must be GitHub Actions**; with "Deploy from a branch" GitHub runs Jekyll on the raw repo and fails on the `.astro` files (`.nojekyll` at the root now stops that, but the site only deploys through Actions).
 
 ## 3. Decisions
 
@@ -163,7 +163,8 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 - Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).
 - Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.
 - Released: the first run of home-release.yml failed (`cargo test --workspace` compiled the Tauri shell before `ui/dist` existed); it now tests only `datum-home-core` before `tauri build`. Run 2 published `home-v0.1.0` and rebuilt the site. To release later: Actions › "Datum Home release" › Run workflow (or push a `home-v…` tag).
-- Next: try install/update/uninstall on a real PC. Make sure every app's release has `SHA256SUMS.txt` (they copied Plan's release.yml).
+- Next: try install/update/uninstall on a real PC.
+- Later (same day): the user saw old versions in "Latest releases". Not a bug: the apps had released after the last site build, and the site only rebuilt daily or on a hub push. The build log now prints, per app, the version shown, its source (GitHub release or CHANGELOG) and the newest CHANGELOG entry; the Pages schedule is now **hourly** (`17 * * * *`). Make sure every app's release has `SHA256SUMS.txt` (they copied Plan's release.yml).
 
 ### 2026-10-28: Session 11 (app pages, simpler hero, README)
 - User (screenshot of the hero): the README is out of date; one page per app explaining the software; the hero should be just four animated vector icons for the current apps; the changing text keeps changing by itself; everything in the Datum style.
@@ -201,7 +202,7 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 
 - Without `GITHUB_TOKEN` (local builds) the release API may be rate-limited; versions then come from the CHANGELOG and Download goes to `releases/latest`.
 - The site updates once a day after an app release until the `repository_dispatch` step is added to the apps.
-- `brain/graph.json` in the repo is as fresh as the last `node brain/brain.mjs`; the website rebuilds the graph itself every day.
+- `brain/graph.json` in the repo is as fresh as the last `node brain/brain.mjs`; the website rebuilds the graph itself every hour.
 - The network page carries the whole graph (about 300 kB of HTML before compression).
 
 ## 7. Bucket list (future apps)

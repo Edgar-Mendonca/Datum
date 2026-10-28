@@ -5,7 +5,7 @@ name: Pages
 on:
   push:
   schedule:
-    - cron: "17 5 * * *"        # daily: picks up new app releases
+    - cron: "17 * * * *"        # hourly: picks up new app releases within the hour
   workflow_dispatch:
   repository_dispatch:
     types: [app-released]       # an app's release.yml can trigger a rebuild

@@ -108,7 +108,7 @@
    "id": "guide-9",
    "type": "guide",
    "label": "§9 Updates and releases",
-   "text": "· Updater: src-tauri/src/update.rs.\n· Set REPO to the app's repo. It checks GitHub releases at start, and beta versions when turned on.\n· It downloads the installer, checks SHA256SUMS and installs.\n· The CHANGELOG section becomes the in-app \"What's new\".\n· Versions: small numbered releases (0.1.0, 0.1.1, …), always three numbers (the updater compares three), consecutive with no jumped numbers.\n· Release workflow (.github/workflows/release.yml, windows-latest):\n· builds the UI and the app and creates the tag;\n· publishes Datum<App>-x.y.z-setup.exe + SHA256SUMS.txt.\n· Run it with workflow_dispatch when tag pushes are blocked.\n· CI (ci.yml, ubuntu): clippy -D warnings, cargo test --workspace, npm run check:ui, the Playwright UI tests.\n· Options and recovery files in the app's data folder (com.edgarmendonca.datum<app>).\n· Datum Home (home/ in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named Datum<App>-x.y.z-setup.exe that accepts /S, a SHA256SUMS.txt beside it, the Windows display name equal to the app's name in apps.json (\"Datum Plan\") and the publisher \"Edgar Mendonca\". A release without SHA256SUMS.txt is never installed by Datum Home.\n· The family site rebuilds every day and on every push to DATUM, so a release appears there within a day (or at once, see MEMORY.md \"Next\").",
+   "text": "· Updater: src-tauri/src/update.rs.\n· Set REPO to the app's repo. It checks GitHub releases at start, and beta versions when turned on.\n· It downloads the installer, checks SHA256SUMS and installs.\n· The CHANGELOG section becomes the in-app \"What's new\".\n· Versions: small numbered releases (0.1.0, 0.1.1, …), always three numbers (the updater compares three), consecutive with no jumped numbers.\n· Release workflow (.github/workflows/release.yml, windows-latest):\n· builds the UI and the app and creates the tag;\n· publishes Datum<App>-x.y.z-setup.exe + SHA256SUMS.txt.\n· Run it with workflow_dispatch when tag pushes are blocked.\n· CI (ci.yml, ubuntu): clippy -D warnings, cargo test --workspace, npm run check:ui, the Playwright UI tests.\n· Options and recovery files in the app's data folder (com.edgarmendonca.datum<app>).\n· Datum Home (home/ in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named Datum<App>-x.y.z-setup.exe that accepts /S, a SHA256SUMS.txt beside it, the Windows display name equal to the app's name in apps.json (\"Datum Plan\") and the publisher \"Edgar Mendonca\". A release without SHA256SUMS.txt is never installed by Datum Home.\n· The family site rebuilds every hour and on every push to DATUM, so a release appears there within the hour (or at once: run the \"Pages\" workflow in DATUM).",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -643,7 +643,7 @@
    "app": "hub",
    "label": "Session 12 (Datum Home)",
    "date": "2026-10-28",
-   "text": "· User: a launcher to install, update and uninstall all the apps; is it possible? Brainstormed first (how it works, trust, SmartScreen, size). Answers: name Datum Home; build it in this repo, foldered properly; check when opened (no tray); the site offers both Datum Home and the single apps.\n· Built home/ (0.1.0): datum-home-core (catalog, versions incl. home-v tags, releases, download_ok, checksum_for, DisplayIcon/UninstallString parsing, the card's action; 9 tests), src-tauri (catalog from home.json or built-in; per-app newest release; install = download to temp + SHA-256 + /S, refused while the app runs; uninstall = the app's uninstaller /S, then wait until the registry entry is gone; open; open_url limited to Datum pages; self-update like Plan's updater), ui (cards in each app's accent, Update all, confirm before uninstall, notes, light/dark from the system). Icons from brand/datum-icon.svg.\n· Site: home.json written after the build; loadHome() reads this repo's home-v* releases; a Datum Home band above the app cards (Get Datum Home, or \"Coming soon\" until released). Workflows home-ci.yml (ubuntu + windows) and home-release.yml (tag home-v*; rebuilds the site after).\n· Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).\n· Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.\n· Released: the first run of home-release.yml failed (cargo test --workspace compiled the Tauri shell before ui/dist existed); it now tests only datum-home-core before tauri build. Run 2 published home-v0.1.0 and rebuilt the site. To release later: Actions › \"Datum Home release\" › Run workflow (or push a home-v… tag).\n· Next: try install/update/uninstall on a real PC. Make sure every app's release has SHA256SUMS.txt (they copied Plan's release.yml).",
+   "text": "· User: a launcher to install, update and uninstall all the apps; is it possible? Brainstormed first (how it works, trust, SmartScreen, size). Answers: name Datum Home; build it in this repo, foldered properly; check when opened (no tray); the site offers both Datum Home and the single apps.\n· Built home/ (0.1.0): datum-home-core (catalog, versions incl. home-v tags, releases, download_ok, checksum_for, DisplayIcon/UninstallString parsing, the card's action; 9 tests), src-tauri (catalog from home.json or built-in; per-app newest release; install = download to temp + SHA-256 + /S, refused while the app runs; uninstall = the app's uninstaller /S, then wait until the registry entry is gone; open; open_url limited to Datum pages; self-update like Plan's updater), ui (cards in each app's accent, Update all, confirm before uninstall, notes, light/dark from the system). Icons from brand/datum-icon.svg.\n· Site: home.json written after the build; loadHome() reads this repo's home-v* releases; a Datum Home band above the app cards (Get Datum Home, or \"Coming soon\" until released). Workflows home-ci.yml (ubuntu + windows) and home-release.yml (tag home-v*; rebuilds the site after).\n· Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).\n· Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.\n· Released: the first run of home-release.yml failed (cargo test --workspace compiled the Tauri shell before ui/dist existed); it now tests only datum-home-core before tauri build. Run 2 published home-v0.1.0 and rebuilt the site. To release later: Actions › \"Datum Home release\" › Run workflow (or push a home-v… tag).\n· Next: try install/update/uninstall on a real PC.\n· Later (same day): the user saw old versions in \"Latest releases\". Not a bug: the apps had released after the last site build, and the site only rebuilt daily or on a hub push. The build log now prints, per app, the version shown, its source (GitHub release or CHANGELOG) and the newest CHANGELOG entry; the Pages schedule is now hourly (17 * * * *). Make sure every app's release has SHA256SUMS.txt (they copied Plan's release.yml).",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -3895,13 +3895,22 @@
    "id": "atlas-decision-22",
    "type": "decision",
    "app": "atlas",
+   "label": "Hardening (FAMILY §11) ships inside 0.1.2 with the new…",
+   "date": "0.1.2",
+   "text": "Hardening (FAMILY §11) ships inside 0.1.2 with the new features, built first\n\nWhy: The user's answer to PLAN-0.1.2 Q8.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-decision-23",
+   "type": "decision",
+   "app": "atlas",
    "label": "Derived properties are computed by the engine at load, not…",
    "date": "0.1.1",
    "text": "Derived properties are computed by the engine at load, not stored\n\nWhy: One source of truth; they follow corrections automatically.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "atlas-decision-23",
+   "id": "atlas-decision-24",
    "type": "decision",
    "app": "atlas",
    "label": "Logo: violet log–log axes, a dotted selection line between two…",
@@ -3978,7 +3987,16 @@
    "app": "atlas",
    "label": "Session 8 (hardening in the plan)",
    "date": "2026-10-28",
-   "text": "· Added hardening (hub FAMILY §11) to PLAN-0.1.2.md:\n· what Atlas has and lacks;\n· the work (§3 item 8, done first);\n· its size (~1,200 lines in all);\n· Q8: in 0.1.2 or alone first.\n· Found: a damaged My materials.datdb is read as empty with .ok(), and the next Add Material writes over it, so the user's materials are lost. The fix is the first hardening item.\n· Found: every shell command uses lock().unwrap(), so one panic makes every later command fail.\n· site.json roadmap: 0.1.2 lists the hardening.\n---",
+   "text": "· Added hardening (hub FAMILY §11) to PLAN-0.1.2.md:\n· what Atlas has and lacks;\n· the work (§3 item 8, done first);\n· its size (~1,200 lines in all);\n· Q8: in 0.1.2 or alone first.\n· Found: a damaged My materials.datdb is read as empty with .ok(), and the next Add Material writes over it, so the user's materials are lost. The fix is the first hardening item.\n· Found: every shell command uses lock().unwrap(), so one panic makes every later command fail.\n· site.json roadmap: 0.1.2 lists the hardening.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-8",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 9 (answer Q8)",
+   "date": "2026-10-28",
+   "text": "· The user: hardening goes into 0.1.2 together with the new features (PLAN-0.1.2 §7). Questions 1–7 are still open.\n---",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3989,6 +4007,16 @@
    "accent": "#C2410C",
    "text": "Model and simulate dynamic systems: block diagrams, control and motors.\n\nFor: Control, mechanical, electrical, process and mechatronics engineers, researchers and students.\n\nStack: Rust engine (crates/core), Tauri 2, SolidJS + strict TypeScript, uPlot for scopes; bundled CPython 3.13 with numpy, SciPy and python-control for analysis",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim"
+  },
+  {
+   "id": "sim-v0.1.2",
+   "type": "release",
+   "app": "sim",
+   "label": "Sim 0.1.2",
+   "version": "0.1.2",
+   "date": "2026-10-28",
+   "text": "The motor library: DC, induction and synchronous motors, BLDC and stepper motors, and the pieces of a drive.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/releases/tag/v0.1.2"
   },
   {
    "id": "sim-v0.1.1",
@@ -4011,22 +4039,12 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/releases/tag/v0.1.0"
   },
   {
-   "id": "sim-plan-0-1-2",
-   "type": "roadmap",
-   "app": "sim",
-   "label": "0.1.2 Motor library",
-   "version": "0.1.2",
-   "when": "Next",
-   "text": "DC motors: separately excited, shunt, series, compound\nInduction motors: squirrel-cage, double-cage, wound-rotor\nSynchronous motors: interior PMSM, wound-field salient-pole with dampers, reluctance\nBLDC and stepper motors\nClarke and Park transforms, inverter, PWM, encoder\nRatings presets for low, medium and high voltage machines, and new motor examples",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
-  },
-  {
    "id": "sim-plan-0-1-3",
    "type": "roadmap",
    "app": "sim",
    "label": "0.1.3 Discrete control",
    "version": "0.1.3",
-   "when": "Soon",
+   "when": "Next",
    "text": "Discrete transfer function, integrator and PID\nRate transition and sample-time colours\nIntegrator reset\nGoto / From",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
@@ -4143,7 +4161,7 @@
    "app": "sim",
    "label": "blocks.rs",
    "path": "crates/core/src/blocks.rs",
-   "text": "The block library: names, categories, parameters with units and hints, help text, sizes, ports, port positions, labels; planned blocks",
+   "text": "The block library: names, categories, parameters with units and hints, help text, sizes, ports, port names and positions, labels, typical ratings (from motors.rs); planned blocks",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/crates/core/src/blocks.rs"
   },
   {
@@ -4152,8 +4170,17 @@
    "app": "sim",
    "label": "rt.rs",
    "path": "crates/core/src/rt.rs",
-   "text": "How each block runs (about 45 kinds, including the DC motor and the PMSM), transfer function → state space, roots → polynomials",
+   "text": "How each block runs (about 45 kinds, including the DC motor and the d–q PMSM), transfer function → state space, roots → polynomials; hands motor and drive kinds to motors.rs",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/crates/core/src/rt.rs"
+  },
+  {
+   "id": "sim-file-crates-core-src-motors-rs",
+   "type": "file",
+   "app": "sim",
+   "label": "motors.rs",
+   "path": "crates/core/src/motors.rs",
+   "text": "The motor library (0.1.2): DC (sep. excited, shunt, series, compound), induction (cage, double cage, wound rotor; αβ frame, flux states), PMSM3, SynRM, wound-field synchronous with dampers, BLDC, stepper; Clarke/Park, three-phase source, inverter, PWM, encoder; typical-ratings presets from per-unit values",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/crates/core/src/motors.rs"
   },
   {
    "id": "sim-file-crates-core-src-compile-rs",
@@ -4431,7 +4458,7 @@
    "app": "sim",
    "label": "run.cjs",
    "path": "tests_ui/run.cjs",
-   "text": "22 UI checks of the built window with a mocked bridge",
+   "text": "30 UI checks of the built window with a mocked bridge (the fixture also holds the induction motor start's diagram)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/tests_ui/run.cjs"
   },
   {
@@ -4449,7 +4476,7 @@
    "app": "sim",
    "label": "2026-10-27.md",
    "path": "docs/verification/2026-10-27.md",
-   "text": "The first verification record: what was checked, numbers, what was not",
+   "text": "Verification records: 0.1.0 (solvers, blocks) and 0.1.2 (motors and drives): what was checked, numbers, what was not",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/verification/2026-10-27.md"
   },
   {
@@ -4663,6 +4690,42 @@
    "id": "sim-decision-22",
    "type": "decision",
    "app": "sim",
+   "label": "Machines in their natural frames: induction in the stationary…",
+   "date": "0.1.2",
+   "text": "Machines in their natural frames: induction in the stationary αβ frame with flux linkages as states (no speed-dependent frame, wound-rotor voltages turned by p·θ); synchronous machines in the rotor dq frame with Park inside; three-phase signals are width-3 vectors; transforms amplitude-invariant\n\nWhy: Exact steady states against the equivalent circuit; one signal type; inductance matrices inverted once at build",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-decision-23",
+   "type": "decision",
+   "app": "sim",
+   "label": "Typical ratings live in the engine (motors::presets, served…",
+   "date": "0.1.2",
+   "text": "Typical ratings live in the engine (motors::presets, served with the library) and the Inspector applies one as a single Batch of SetParam\n\nWhy: One owner for the numbers, testable, one undo step; values come from per-unit typical data (Zb = V²/S, J = 2H·S/ω²), stated as typical, never as a real machine",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-decision-24",
+   "type": "decision",
+   "app": "sim",
+   "label": "A new library group Drives (source, inverter, PWM, transforms…",
+   "date": "0.1.2",
+   "text": "A new library group Drives (source, inverter, PWM, transforms, encoder); motors stay in Motors\n\nWhy: The user's \"all motor types\" brings drive pieces that are not motors",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-decision-25",
+   "type": "decision",
+   "app": "sim",
+   "label": "Zero-crossing functions keep their last non-zero sign in the…",
+   "date": "0.1.2",
+   "text": "Zero-crossing functions keep their last non-zero sign in the solver\n\nWhy: A crossing landing exactly on 0 was lost (switched inverter test)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-decision-26",
+   "type": "decision",
+   "app": "sim",
    "label": "site.json has about and steps for the family site's app page…",
    "date": "0.1.1",
    "text": "site.json has about and steps for the family site's app page (/apps/sim), kept true with every release (CLAUDE.md release step 6); README links to that page\n\nWhy: The user's request; FAMILY §10. Checking found three overclaims, corrected: sweeps run in Rust (not Python), only the variable-step solvers locate switching exactly, and not every block has its own test yet",
@@ -4711,6 +4774,15 @@
    "label": "Session 4 (0.1.1)",
    "date": "2026-10-28",
    "text": "· The user tested 0.1.0 on Windows: it works; drag-and-drop from the library did not. Answers: order as I choose; all motor types (LV, MV, HV, synchronous, asynchronous, AC, DC); live tuning later; copied libraries; discrete blocks needed.\n· Fixed the drag (mouse-event drag with a ghost; dragDropEnabled off), added live parameter checks, re-fit when the dock opens, and branch dots. 27 UI checks (5 new), checked in the real app under Xvfb. tests_ui/realapp.sh now waits 12 s (a fresh WebView profile is slow to start).\n· Planned the motor library (PLAN-0.1.x §6) and reordered the 0.1.x steps.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-session-5",
+   "type": "session",
+   "app": "sim",
+   "label": "Session 5 (0.1.2, the motor library)",
+   "date": "2026-10-28",
+   "text": "· The user: \"start the motor library 0.1.2\".\n· Built motors.rs (14 motor kinds, 8 drive pieces, presets for LV/MV/HV ratings), a Drives group, the Inspector's Typical ratings, motor glyphs and port names, seven motor examples with tile pictures.\n· Checked: 49 Rust tests (12 new: induction torque against the equivalent circuit for cage, double cage and wound rotor at three slips; DC, synchronous, PMSM3, BLDC, stepper, inverter, encoder, presets), 30 UI checks (3 new), clippy, cargo deny, Python tests; the real app under Xvfb (DOL start, FOC, Inspector ratings). Record: docs/verification/2026-10-28.md.\n· Bugs found by the checks and fixed: the preset formatter cut zeros off whole numbers (Nr 50 → 5); a zero-crossing landing exactly on zero was lost by the solver.\n· Released 0.1.2 (see the release flow); site.json about, steps, highlights and roadmap updated.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   }
  ],
@@ -8117,8 +8189,8 @@
   },
   {
    "source": "atlas-decision-22",
-   "target": "atlas-v0.1.1",
-   "kind": "in"
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-atlas",
@@ -8127,11 +8199,21 @@
   },
   {
    "source": "atlas-decision-23",
+   "target": "atlas-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-decision-24",
+   "kind": "decided"
+  },
+  {
+   "source": "atlas-decision-24",
    "target": "atlas-v0.1.0",
    "kind": "in"
   },
   {
-   "source": "atlas-decision-23",
+   "source": "atlas-decision-24",
    "target": "hub",
    "kind": "family-wide"
   },
@@ -8241,6 +8323,11 @@
    "kind": "session"
   },
   {
+   "source": "app-atlas",
+   "target": "atlas-session-8",
+   "kind": "session"
+  },
+  {
    "source": "hub",
    "target": "app-sim",
    "kind": "app"
@@ -8341,17 +8428,17 @@
    "kind": "then"
   },
   {
+   "source": "sim-v0.1.1",
+   "target": "sim-v0.1.2",
+   "kind": "then"
+  },
+  {
    "source": "app-sim",
-   "target": "sim-v0.1.1",
+   "target": "sim-v0.1.2",
    "kind": "released"
   },
   {
-   "source": "sim-v0.1.1",
-   "target": "sim-plan-0-1-2",
-   "kind": "next"
-  },
-  {
-   "source": "sim-plan-0-1-2",
+   "source": "sim-v0.1.2",
    "target": "sim-plan-0-1-3",
    "kind": "next"
   },
@@ -8418,6 +8505,11 @@
   {
    "source": "app-sim",
    "target": "sim-file-crates-core-src-rt-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-file-crates-core-src-motors-rs",
    "kind": "contains"
   },
   {
@@ -8907,21 +8999,61 @@
   },
   {
    "source": "sim-decision-22",
+   "target": "sim-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-23",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-23",
+   "target": "sim-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-24",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-24",
+   "target": "sim-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-25",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-25",
+   "target": "sim-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-26",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-26",
    "target": "sim-v0.1.1",
    "kind": "in"
   },
   {
-   "source": "sim-decision-22",
+   "source": "sim-decision-26",
    "target": "tech-rust",
    "kind": "about"
   },
   {
-   "source": "sim-decision-22",
+   "source": "sim-decision-26",
    "target": "tech-python",
    "kind": "about"
   },
   {
-   "source": "sim-decision-22",
+   "source": "sim-decision-26",
    "target": "hub",
    "kind": "family-wide"
   },
@@ -9008,6 +9140,16 @@
   {
    "source": "sim-session-4",
    "target": "sim-v0.1.1",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-session-5",
+   "kind": "session"
+  },
+  {
+   "source": "sim-session-5",
+   "target": "sim-v0.1.2",
    "kind": "shipped"
   },
   {
