@@ -24,7 +24,7 @@
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
-**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. 0.1.0 written in session 12, not released yet (tag `home-v0.1.0` releases it).
+**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt).
 
 ## 2. The site and the brain
 
@@ -157,7 +157,8 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 - Site: `home.json` written after the build; `loadHome()` reads this repo's `home-v*` releases; a Datum Home band above the app cards (Get Datum Home, or "Coming soon" until released). Workflows `home-ci.yml` (ubuntu + windows) and `home-release.yml` (tag `home-v*`; rebuilds the site after).
 - Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).
 - Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.
-- Next: the user releases Datum Home (Actions › "Datum Home release" › Run, or tag `home-v0.1.0`) after the windows CI job is green; then try install/update/uninstall on a real PC. Make sure every app's release has `SHA256SUMS.txt` (they copied Plan's release.yml).
+- Released: the first run of home-release.yml failed (`cargo test --workspace` compiled the Tauri shell before `ui/dist` existed); it now tests only `datum-home-core` before `tauri build`. Run 2 published `home-v0.1.0` and rebuilt the site. To release later: Actions › "Datum Home release" › Run workflow (or push a `home-v…` tag).
+- Next: try install/update/uninstall on a real PC. Make sure every app's release has `SHA256SUMS.txt` (they copied Plan's release.yml).
 
 ### 2026-10-28: Session 11 (app pages, simpler hero, README)
 - User (screenshot of the hero): the README is out of date; one page per app explaining the software; the hero should be just four animated vector icons for the current apps; the changing text keeps changing by itself; everything in the Datum style.
