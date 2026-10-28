@@ -78,7 +78,7 @@
    "id": "guide-3",
    "type": "guide",
    "label": "§3 Colour",
-   "text": "### Base tokens (all apps, from ui/src/styles.css)\nLight:\n--bg #F2F3EF --bg2 #FFFFFF --panel #F8F8F5 --panel2 #ECEDE8 --side #F3F4F0\n--line #D3D7D6 --line2 #E6E8E5 --line3 #B9BFC2\n--text #0C1A2B --text2 #3B4859 --muted #5B6878 --navy #0C1A2B\n--amber #B7791F --crit #C0392B --green #1F7A4D\n--ok-bg #DDF2E5 --ok-fg #1F7A4D --warn-bg #FBEFD5 --warn-fg #8A5A00 --err-bg #FBE3E0 --err-fg #9B2C2C\nDark (:root[data-theme=\"dark\"]): --bg #0B1119 --bg2 #101823 --panel #0D141E --panel2 #16212E --line #223041 --text #E6EDF5 --muted #8D9AAB (copy the full block from Plan).\n### The accent set (the only tokens that change per app)\n--blue (accent), --blue2 (hover/dark), --bar, --sky (light tint), --pale (very light), --sel, --sel2 (selection), and the File sidebar colour.\n| Accent | --blue | --blue2 | --sky | --pale | --sel | --sel2 | dark --blue | File sidebar (dark) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Plan · Blue | #0B5CAD | #0A4F96 | #9CC2F7 | #E8F0FA | #DCE8F7 | #B9D2F0 | #4C9BEA | #0A3D73 |\n| Plot · Teal | #0E8C7F | #0B7468 | #8FD3C9 | #E3F5F2 | #D3EFEA | #A9DDD4 | #3FC2B2 | #0A4A44 |\n| Atlas · Violet | #6C4AB6 | #5A3C9C | #C9B8EE | #F0EBFA | #E5DCF6 | #CDBDEE | #A58BEA | #3A2766 |\n| Sim · Orange | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |\n| Calc · Amber (Datum Calc, from session 13) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |\n| Mesh · Crimson (Datum Mesh, from session 13) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |\nKeep --crit red, --green and --amber ",
+   "text": "### Base tokens (all apps, from ui/src/styles.css)\nLight:\n--bg #F2F3EF --bg2 #FFFFFF --panel #F8F8F5 --panel2 #ECEDE8 --side #F3F4F0\n--line #D3D7D6 --line2 #E6E8E5 --line3 #B9BFC2\n--text #0C1A2B --text2 #3B4859 --muted #5B6878 --navy #0C1A2B\n--amber #B7791F --crit #C0392B --green #1F7A4D\n--ok-bg #DDF2E5 --ok-fg #1F7A4D --warn-bg #FBEFD5 --warn-fg #8A5A00 --err-bg #FBE3E0 --err-fg #9B2C2C\nDark (:root[data-theme=\"dark\"]): --bg #0B1119 --bg2 #101823 --panel #0D141E --panel2 #16212E --line #223041 --text #E6EDF5 --muted #8D9AAB (copy the full block from Plan).\n### The accent set (the only tokens that change per app)\n--blue (accent), --blue2 (hover/dark), --bar, --sky (light tint), --pale (very light), --sel, --sel2 (selection), and the File sidebar colour.\n| Accent | --blue | --blue2 | --sky | --pale | --sel | --sel2 | dark --blue | File sidebar (dark) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Plan · Blue | #0B5CAD | #0A4F96 | #9CC2F7 | #E8F0FA | #DCE8F7 | #B9D2F0 | #4C9BEA | #0A3D73 |\n| Plot · Teal | #0E8C7F | #0B7468 | #8FD3C9 | #E3F5F2 | #D3EFEA | #A9DDD4 | #3FC2B2 | #0A4A44 |\n| Atlas · Violet | #6C4AB6 | #5A3C9C | #C9B8EE | #F0EBFA | #E5DCF6 | #CDBDEE | #A58BEA | #3A2766 |\n| Sim · Orange | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |\n| Calc · Amber (Datum Calc, from session 13) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |\n| Mesh · Crimson (Datum Mesh, from session 13) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |\n| Pipe · Moss (Datum Pipe, from sessi",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -614,6 +614,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-38",
+   "type": "decision",
+   "app": "hub",
+   "label": "Datum Pipe (pipe stress analysis) is the next app, built in…",
+   "text": "Datum Pipe (pipe stress analysis) is the next app, built in one overnight run from briefs/DATUM-PIPE.md; accent Moss #4D7C0F (new, FAMILY §3). Codes: implement published equations only, allowables are user inputs pre-filled with typical values; never claim certification. Commercial piping software is never named anywhere (repo, briefs, memory, site), at the user's explicit request\n\nWhy: Session 15 research found no open-source pipe stress tool; the user has used the commercial ones for years and finds them expensive and hard to use.",
+   "date": "2026-10-28 (s16)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -671,13 +680,22 @@
    "id": "hub-session-6",
    "type": "session",
    "app": "hub",
+   "label": "Session 16 (Datum Pipe brief)",
+   "date": "2026-10-28",
+   "text": "· Session 15 (brainstorm, no files): researched where engineers, students and researchers lack free tools. Already covered by open source: process simulation, statistics and SPC, chromatography, load flow. Real gaps: pipe stress analysis (none), reliability GUI (Weibull, RBD, FMEA, RCM), P&ID with data, shell-and-tube thermal design, vibration/condition monitoring, DOE with a window, control valve sizing, pressure vessels (copyrighted codes), rotor dynamics GUI. Recommended Pipe, Reliability, Flowsheet, and more Calc packs; maturity (1.0s) before quantity.\n· Session 16: the user chose Datum Pipe and asked for a brief for an overnight run: a 0.1 with many features that \"looks like an app\". Wrote briefs/DATUM-PIPE.md (no commercial names): element table + 3D view, pipe library, bends/tees/reducers/rigids, linear supports, three operating cases, automatic SUS/OPE/EXP/HYD cases, the process piping code equations, results on the model, support and nozzle loads, automatic isometric drawing, stress report, six examples, eight benchmarks; releases 0.1.0 → 0.1.4 in seven steps; cut order; roadmap 0.2–1.0. FAMILY §3: Moss accent for Pipe. Bucket list: Pipe, Reliability, Flowsheet.\n· Hub tasks when Pipe releases (as for Calc and Mesh): apps.json (pipe #4D7C0F; site.css --pipe #4D7C0F / dark #A3D65C), icon to brand/, an AppGlyph drawing (a pipe run with an expansion loop growing, coloured by stress), phrases (\"analyse piping.\", \"check pipe stresses.\"); the hero then has seven tiles: decide the layout (four columns, or 3×3 with a \"more to come\" tile and the datum square in the centre); FAMILY §1, README, Datum Home built-in list (next Home release), brain.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-7",
+   "type": "session",
+   "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
    "date": "2026-10-28",
    "text": "· Plan 0.4.0 shipped Schedule Risk (Monte Carlo: P50/P80/P90 finish and cost, criticality, drivers, risk-register delays, optimistic/pessimistic durations), workload by trade (resource Group) in hours or people, a levelling preview, and an import report that compares every task's dates with the file. Its docs/site.json now has a Schedule Risk screenshot third, so the app page shows it.\n· Recorded here: decision (§3), FAMILY §7 chart rules (autoSkip: false on horizontal bars; <Index> for numbers), Plan at 0.4.0. Brain regenerated.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-7",
+   "id": "hub-session-8",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -686,7 +704,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -695,7 +713,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -704,7 +722,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -713,7 +731,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -722,7 +740,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -731,7 +749,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -740,7 +758,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -749,7 +767,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -758,7 +776,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -767,7 +785,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -782,6 +800,33 @@
    "label": "Datum Calc",
    "when": "Being built (session 13): 0.1.x this week, amber accent",
    "text": "(Released, in apps.json since session 14.) Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: briefs/DATUM-CALC.md\n\nFor: Every engineer\nReuses: Plan's formula engine, units, print, Chart.js; Atlas materials (0.2)\nSize: Medium\nStatus: Being built (session 13): 0.1.x this week, amber accent",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-pipe",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Pipe",
+   "when": "Being built (session 16), moss accent",
+   "text": "Pipe stress analysis: 3D routing (element table + 3D view), pipe library, supports, operating cases, automatic load cases, the process piping code equations (hoop, minimum wall, sustained, expansion range), support and nozzle loads, an automatic isometric drawing, a stress report and a verification report. Own 3D pipe-beam solver (from Mesh). Brief: briefs/DATUM-PIPE.md\n\nFor: Piping, stress, mechanical, process and plant engineers, consultants, students\nReuses: Mesh solver, Calc units, Atlas materials, Plan shell\nSize: Large overall; 0.1 = one overnight run\nStatus: Being built (session 16), moss accent",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-reliability",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Reliability",
+   "when": "Idea (session 15)",
+   "text": "Weibull and life data, reliability block diagrams, FMEA, RCM (session 15 research: no free GUI tool exists)\n\nFor: Reliability, maintenance and quality engineers\nReuses: Plot statistics, Plan Monte Carlo\nSize: Medium\nStatus: Idea (session 15)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-flowsheet",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Flowsheet",
+   "when": "Idea (session 15)",
+   "text": "P&ID drawing with symbols and data: line, equipment and instrument lists from the drawing (session 15: no open-source P&ID tool with proper symbols)\n\nFor: Process, chemical and mechanical engineers, students\nReuses: Plan's canvas, print\nSize: Medium\nStatus: Idea (session 15)",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -2450,6 +2495,46 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot"
   },
   {
+   "id": "plot-v0.2.22",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.22",
+   "version": "0.2.22",
+   "date": "2026-10-28",
+   "text": "Large data, region statistics, importing projects, plates and many runs, and slides, reports and posters.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.22"
+  },
+  {
+   "id": "plot-v0.2.21",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.21",
+   "version": "0.2.21",
+   "date": "2026-10-28",
+   "text": "Testers' requests (axis breaks on column graphs, wider columns, empty columns left alone), and matrices with contour maps, 3D surfaces, polar graphs and surface fits.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.21"
+  },
+  {
+   "id": "plot-v0.2.20",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.20",
+   "version": "0.2.20",
+   "date": "2026-10-28",
+   "text": "Worksheets with free columns, and column formulas.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.20"
+  },
+  {
+   "id": "plot-v0.2.19",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.19",
+   "version": "0.2.19",
+   "date": "2026-10-28",
+   "text": "Thermal analysis (DSC and TGA) and fatigue S–N curves.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.19"
+  },
+  {
    "id": "plot-v0.2.18",
    "type": "release",
    "app": "plot",
@@ -2660,33 +2745,13 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.1.0"
   },
   {
-   "id": "plot-plan-0-2-19",
+   "id": "plot-plan-0-2-23",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.2.19 Thermal and fatigue",
-   "version": "0.2.19",
+   "label": "0.2.23 Python and automation",
+   "version": "0.2.23",
    "when": "Next",
-   "text": "DSC/TGA thermal analysis: onset, peak temperature, enthalpy, mass loss\nS–N fatigue curves",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "plot-plan-0-2-20-0-2-22",
-   "type": "roadmap",
-   "app": "plot",
-   "label": "0.2.20 – 0.2.22 Worksheets and 3D",
-   "version": "0.2.20 – 0.2.22",
-   "when": "Soon",
-   "text": "Worksheets with formulas\nMatrices, 3D graphs and surface fits\nLarge data sets and regions",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "plot-plan-0-2-23-0-2-26",
-   "type": "roadmap",
-   "app": "plot",
-   "label": "0.2.23 – 0.2.26 Import, reports and Python",
-   "version": "0.2.23 – 0.2.26",
-   "when": "Later",
-   "text": "Project and instrument file import\nSlides, reports and posters\nA Python console and your own analyses\nTemplates, batch processing and notebooks",
+   "text": "A Python console and your own analyses\nAnalysis templates and batch processing\nNotebook export",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -2806,6 +2871,60 @@
    "path": "py/datum/groups.py",
    "text": "Compare groups (B4–B8, B16, B23): column (values by row, for pairing), summary (values, or entered mean/SD/N), pairs_of; ttest (unpaired Welch/Student from stats, paired, ratio, one-sample; effect sizes; Shapiro and Brown-Forsythe checks), nonparam (Mann-Whitney + Hodges-Lehmann, Wilcoxon (approximate with ties, as R), KS, Kruskal-Wallis + Dunn (Bonferroni), Friedman), anova (ordinary, Welch/Brown-Forsythe via statsmodels anova_oneway, repeated measures with Geisser-Greenhouse; posthoc Tukey (scipy.stats.tukey_hsd), Dunnett (scipy.stats.dunnett), Holm-Šidák, Šidák, Bonferroni, LSD; trend; η², ω²), correlation (Pearson + Fisher-z CI, Spearman, Kendall, matrix), power (statsmodels power solvers, curve). Results carry brackets [set, set, P].",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/groups.py"
+  },
+  {
+   "id": "plot-file-py-datum-imports-py",
+   "type": "file",
+   "app": "plot",
+   "label": "imports.py",
+   "path": "py/datum/imports.py",
+   "text": "Import (A13, A14): read_pzfx (namespace-free ElementTree: Table/HugeTable, TableType → kind, YFormat → entry, X/Y columns and subcolumns, Excluded=\"1\", row titles), plates (96/384 blocks → grouped tables), numeric_table, read_many (one set per file, joined when X matches). io.read_file returns tables for .pzfx and plates for sheets.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/imports.py"
+  },
+  {
+   "id": "plot-file-py-datum-region-py",
+   "type": "file",
+   "app": "plot",
+   "label": "region.py",
+   "path": "py/datum/region.py",
+   "text": "Region tool (E5): region(table, x0, x1, y0, y1) per curve: points, mean, SD, range, area, slope, highest (worker region, shell region).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/region.py"
+  },
+  {
+   "id": "plot-file-py-datum-report-py",
+   "type": "file",
+   "app": "plot",
+   "label": "report.py",
+   "path": "py/datum/report.py",
+   "text": "Slides and reports (G5): parts (each graph as 300 dpi PNG with its overlays), results, slides (python-pptx, 16:9) and word (python-docx: figures with captions, results with tables, methods). Worker report, shell export_report.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/report.py"
+  },
+  {
+   "id": "plot-file-py-datum-surface-py",
+   "type": "file",
+   "app": "plot",
+   "label": "surface.py",
+   "path": "py/datum/surface.py",
+   "text": "Surface fits (B26): points3 (a matrix grid, or X, Y, Z from three data sets), design/TERMS (plane, quad, cubic by statsmodels OLS; the quadratic's stationary point and its kind from the Hessian), gauss2d (curve_fit), surface (tables, residual plots; surface key with a 40 × 40 grid for the graph). graph.py gained with_break (Y breaks for column/grouped/nested graphs by drawing twice), polar_figure, matrix_grid and matrix_figure (contour/heatmap/surface/wireframe, colour bar, fit overlay).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/surface.py"
+  },
+  {
+   "id": "plot-file-py-datum-sheet-py",
+   "type": "file",
+   "app": "plot",
+   "label": "sheet.py",
+   "path": "py/datum/sheet.py",
+   "text": "Worksheets and formulas (A9, A11): evaluate (AST-checked formula: names A, B… (row means), X, i, col(\"title\"), numbers made float, text only inside col(); FUNCS whitelist; results rounded to 15 significant digits), recalc (formula columns left to right, each seeing the ones before; worker cmd formula), sheet_view (worksheet → XY table: first X column, Y + following Y-error column → mean ± SD entry, other columns hidden but kept in place).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/sheet.py"
+  },
+  {
+   "id": "plot-file-py-datum-thermal-py",
+   "type": "file",
+   "app": "plot",
+   "label": "thermal.py",
+   "path": "py/datum/thermal.py",
+   "text": "Materials curves (B30, B31): dsc (peaks above a line/poly baseline found on a smoothed copy; onset/endset from the steepest tangents meeting the baseline; area; ΔH = area ÷ (rate/60)), tga (DTG peaks; onset/end from the tangent at the fastest loss meeting the plateaus; mass lost; residue; T at 5 % loss), thermal, life_text, sn (Basquin on log S vs log N or 2N, run-outs left out and marked →, fatigue strength at chosen lives). Curve marks take a 4th element: below the point (dips).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/thermal.py"
   },
   {
    "id": "plot-file-py-datum-signal-py",
@@ -3495,13 +3614,49 @@
    "id": "plot-decision-42",
    "type": "decision",
    "app": "plot",
+   "label": "DSC/TGA and S–N are XY analyses (no new table kinds): DSC…",
+   "date": "Session 8",
+   "text": "DSC/TGA and S–N are XY analyses (no new table kinds): DSC endotherms down by default, onsets by the steepest tangent (exactly centre − 2σ for a Gaussian), ΔH needs the heating rate (default 10 K/min); S–N run-outs come from a cycle limit, not a separate column\n\nWhy: Users already keep these curves in XY tables; simple to enter.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-43",
+   "type": "decision",
+   "app": "plot",
+   "label": "Worksheet = kind \"sheet\" (Table::sheet): every data set one…",
+   "date": "Session 8",
+   "text": "Worksheet = kind \"sheet\" (Table::sheet): every data set one column, DataSet.role (x, \"\", yerr, skip), units, comment; graphs/XY analyses via sheet.sheet_view (hidden sets keep their index so styles stay put). Formulas live in DataSet.formula, values in the column; Python works them out (shell formula command, Op::Formula); after any op on a table with formulas the UI calls formula with merge, which uses Doc::merge so the edit and its recalculation are one undo step\n\nWhy: Keeps the model plain (values stored, nothing recomputed on open); formulas in Python as the user wants; one undo step feels right.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-44",
+   "type": "decision",
+   "app": "plot",
+   "label": "Second round of users' requests in the same release as planned…",
+   "date": "Session 8",
+   "text": "Second round of users' requests in the same release as planned work (0.2.21 = requests + 3D): the user asked for fewer, bigger releases to finish this week. Column widths live in the project's ui[\"colw.<table>\"] (display column → px) via Op::Ui; the heading × went (delete stays in the right-click menu and Remove Data Set); empty data sets are unticked by default in analysis dialogs. Matrix = kind \"matrix\" (Table::matrix): X column = X, data set titles = Y values, cells = Z, yTitle/yUnits = Z; GraphSettings.polar/levels/elev/azim\n\nWhy: Friendlier and reliable (a project reopens as it was left); reuses the X column and data sets, no new storage.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-45",
+   "type": "decision",
+   "app": "plot",
+   "label": "Bigger releases to finish this week: 0.2.22 = data in and out…",
+   "date": "Session 8",
+   "text": "Bigger releases to finish this week: 0.2.22 = data in and out (D17, E5, A13, A14, G5, F3), 0.2.23 = Python and automation (H1–H5), then 1.0. Large data: stats.summarize_fast above 2000 rows, graph.thin (min/max per stretch) and rasterized markers above 5000 points, hover sample ≤ ~2000, small plots rasterize big lines. Imported tables go through shell import_tables (one undo step, each with graph_for(kind)). Layout panels use max(graph font, layout font) so posters read from afar. python-pptx 1.0.2 and python-docx 1.2.0 join the Python pack (runtime 3)\n\nWhy: The user's deadline; reuse of existing paths; journal layouts unchanged (8 pt < 10 pt).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-46",
+   "type": "decision",
+   "app": "plot",
    "label": "Column table = Table.kind = \"column\", same model (X column…",
    "date": "Session 7",
    "text": "Column table = Table.kind = \"column\", same model (X column kept, hidden in the UI, unused by Python); each group a data set with reps 1 (or mean/SD/N)\n\nWhy: No new table code in Rust; every op (paste, sort, exclude, sets) works unchanged.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-43",
+   "id": "plot-decision-47",
    "type": "decision",
    "app": "plot",
    "label": "Significance brackets are analysis overlays: t-test…",
@@ -3510,7 +3665,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-44",
+   "id": "plot-decision-48",
    "type": "decision",
    "app": "plot",
    "label": "Transforms, histograms and smoothing are analyses whose result…",
@@ -3519,7 +3674,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-45",
+   "id": "plot-decision-49",
    "type": "decision",
    "app": "plot",
    "label": "Second Python worker (Calc) for results and Excel; graphs keep…",
@@ -3528,7 +3683,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-46",
+   "id": "plot-decision-50",
    "type": "decision",
    "app": "plot",
    "label": "Samples and wording lean to materials science and engineering…",
@@ -3627,6 +3782,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas"
   },
   {
+   "id": "atlas-v0.2.0",
+   "type": "release",
+   "app": "atlas",
+   "label": "Atlas 0.2.0",
+   "version": "0.2.0",
+   "date": "2026-10-28",
+   "text": "The big update: sturdier files, several selections and weighted ranking, a library of performance indices and your own formulas, compare and a selection report, about 250 materials, and your own databases with spreadsheet import.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/releases/tag/v0.2.0"
+  },
+  {
    "id": "atlas-v0.1.1",
    "type": "release",
    "app": "atlas",
@@ -3647,63 +3812,13 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/releases/tag/v0.1.0"
   },
   {
-   "id": "atlas-plan-0-1-2",
-   "type": "roadmap",
-   "app": "atlas",
-   "label": "0.1.2 Lines and charts",
-   "version": "0.1.2",
-   "when": "Next",
-   "text": "Several selection lines per chart.\nResults to a spreadsheet; keyboard control.\nMore values checked against published datasheets (the rest of the metals, then polymers).\nSturdier: damaged or unusual files never crash the app or lose your materials; tests on Windows and macOS.",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "atlas-plan-0-2-0",
-   "type": "roadmap",
-   "app": "atlas",
-   "label": "0.2.0 Indices",
-   "version": "0.2.0",
-   "when": "Soon",
-   "text": "An index builder with about 40 indices.\nExpression axes and formula properties.",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
-  },
-  {
    "id": "atlas-plan-0-3-0",
    "type": "roadmap",
    "app": "atlas",
-   "label": "0.3.0 Compare and report",
+   "label": "0.3.0 Eco and process",
    "version": "0.3.0",
-   "when": "Soon",
-   "text": "Compare materials with radar charts.\nA selection report.\nAbout 250 materials, more values checked.",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "atlas-plan-0-3-1",
-   "type": "roadmap",
-   "app": "atlas",
-   "label": "0.3.1 Your own data",
-   "version": "0.3.1",
-   "when": "Later",
-   "text": "Several databases; CSV and spreadsheet import with column mapping.\nLabel placement, style presets, polygon selection.",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "atlas-plan-0-4-0",
-   "type": "roadmap",
-   "app": "atlas",
-   "label": "0.4.0 Eco audit",
-   "version": "0.4.0",
-   "when": "Later",
-   "text": "Energy and CO₂ across a product's life.",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "atlas-plan-0-5-0",
-   "type": "roadmap",
-   "app": "atlas",
-   "label": "0.5.0 Process selection",
-   "version": "0.5.0",
-   "when": "Later",
-   "text": "Choose manufacturing processes alongside materials.",
+   "when": "Next",
+   "text": "Energy and CO₂ across a product's life, and greener substitutes.\nChoose manufacturing processes alongside materials.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3749,7 +3864,7 @@
    "app": "atlas",
    "label": "goals.rs",
    "path": "crates/core/src/goals.rs",
-   "text": "Goal (group, name, index, axes, slope, above, function, constraint, objective, free variable, why, limits), GOALS (22), get, apply.",
+   "text": "Goal (group, name, index, axes, slope, above, function, constraint, objective, free variable, why, limits, also for a second chart), GOALS (25), get, place, apply.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/goals.rs"
   },
   {
@@ -3798,6 +3913,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/templates.rs"
   },
   {
+   "id": "atlas-file-crates-core-src-hardening-rs",
+   "type": "file",
+   "app": "atlas",
+   "label": "hardening.rs",
+   "path": "crates/core/src/hardening.rs",
+   "text": "FAMILY §11 tests: failed edits change nothing (incl. a failing Batch and goal), random projects and random edits never panic and keep their invariants (finite geometry, counts add up, every failure has a reason), random user databases, damaged .datlas/.datdb files (cut, garbled, deep nesting), a damaged .datdb is an error never empty, atomic save, speed gate (1,000 materials × 20 charts: ~200 ms release, ~1.2 s debug).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/hardening.rs"
+  },
+  {
    "id": "atlas-file-crates-core-src-tests-rs",
    "type": "file",
    "app": "atlas",
@@ -3821,7 +3945,7 @@
    "app": "atlas",
    "label": "*.json",
    "path": "data/*.json",
-   "text": "The built-in database (100 materials, 25 sources: 9 general + 16 datasheets), status: draft; 15 metals have checked lists (51 values).",
+   "text": "The built-in database (252 materials, 36 sources), status: draft; 20 materials have checked lists (73 values); durability ratings on every material.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/data/*.json"
   },
   {
@@ -3906,12 +4030,75 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/material.tsx"
   },
   {
+   "id": "atlas-file-crates-core-src-formula-rs",
+   "type": "file",
+   "app": "atlas",
+   "label": "formula.rs",
+   "path": "crates/core/src/formula.rs",
+   "text": "Formulas of properties on ranges: parse (with names resolved), key_of, refs, eval (interval arithmetic), show.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/formula.rs"
+  },
+  {
+   "id": "atlas-file-ui-src-formula-tsx",
+   "type": "file",
+   "app": "atlas",
+   "label": "formula.tsx",
+   "path": "ui/src/formula.tsx",
+   "text": "The formula-properties window (editFormulas(axis?)).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/formula.tsx"
+  },
+  {
+   "id": "atlas-file-crates-core-src-export-rs",
+   "type": "file",
+   "app": "atlas",
+   "label": "export.rs",
+   "path": "crates/core/src/export.rs",
+   "text": "Results as a table: results, csv, xlsx.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/export.rs"
+  },
+  {
+   "id": "atlas-file-crates-core-src-compare-rs",
+   "type": "file",
+   "app": "atlas",
+   "label": "compare.rs",
+   "path": "crates/core/src/compare.rs",
+   "text": "Compare and radar: build, RADAR, MAX.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/compare.rs"
+  },
+  {
+   "id": "atlas-file-ui-src-compare-tsx",
+   "type": "file",
+   "app": "atlas",
+   "label": "compare.tsx",
+   "path": "ui/src/compare.tsx",
+   "text": "The Compare page with the radar, and the selection report (screen and print).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/compare.tsx"
+  },
+  {
+   "id": "atlas-file-crates-core-src-sheet-rs",
+   "type": "file",
+   "app": "atlas",
+   "label": "sheet.rs",
+   "path": "crates/core/src/sheet.rs",
+   "text": "Spreadsheets in and out of a database: read, from_text, guess, range, to_database, of_database, bytes.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/crates/core/src/sheet.rs"
+  },
+  {
+   "id": "atlas-file-ui-src-importer-tsx",
+   "type": "file",
+   "app": "atlas",
+   "label": "importer.tsx",
+   "path": "ui/src/importer.tsx",
+   "text": "The import window (importMaterials) and the Databases section.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/importer.tsx"
+  },
+  {
    "id": "atlas-file-ui-src-help-tsx",
    "type": "file",
    "app": "atlas",
    "label": "help.tsx",
    "path": "ui/src/help.tsx",
-   "text": "HELP (18 topics), the ? button, helpCard. Help › What Is This Tool? lists every topic.",
+   "text": "HELP (26 topics), the ? button, helpCard. Help › What Is This Tool? lists every topic.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/help.tsx"
   },
   {
@@ -3938,7 +4125,7 @@
    "app": "atlas",
    "label": "features.ts",
    "path": "ui/src/features.ts",
-   "text": "The feature catalogue (A data, B charts, C selection, D compare/report, E eco, F process, G help) and soon(id) cards, Roadmap page.",
+   "text": "The feature catalogue (A data, B charts, C selection, D compare/report, E eco, F process, G help) and soon(id) cards, Roadmap page; past releases plus RELEASES/PLANS read from docs/site.json.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/features.ts"
   },
   {
@@ -3965,7 +4152,7 @@
    "app": "atlas",
    "label": "run.cjs",
    "path": "tests_ui/run.cjs",
-   "text": "Playwright against ui/dist with the real engine (bridge): 41 checks (goals, units, bars, Tell Me materials, sources, ? help, Home tiles, checked ✓, chart, hulls, hover, click on the line, datasheet, drag changes the pass count, limits and results, browse and TSV, Add Material, ribbon fit at 1280/1600, planned cards, print of every view, glossary, Options, no script errors). SHOTS=dir saves screenshots.",
+   "text": "Playwright against ui/dist with the real engine (bridge): 72 checks (goals, units, bars, Tell Me materials, sources, ? help, Home tiles, checked ✓, chart, hulls, hover, click on the line, datasheet, drag changes the pass count, limits and results, browse and TSV, Add Material, ribbon fit at 1280/1600, planned cards, print of every view, glossary, Options, no script errors). SHOTS=dir saves screenshots.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/tests_ui/run.cjs"
   },
   {
@@ -4170,13 +4357,31 @@
    "id": "atlas-decision-22",
    "type": "decision",
    "app": "atlas",
-   "label": "Hardening (FAMILY §11) ships inside 0.1.2 with the new…",
-   "date": "0.1.2",
-   "text": "Hardening (FAMILY §11) ships inside 0.1.2 with the new features, built first\n\nWhy: The user's answer to PLAN-0.1.2 Q8.",
+   "label": "Data for the 250 materials: open, public and free sources only…",
+   "date": "0.2.0",
+   "text": "Data for the 250 materials: open, public and free sources only (government, open datasets, producers' free datasheets cited value by value, our labelled compilation). Never a proprietary or licensed database or aggregator, not even to check a value. Enforced by the source kinds in db::check.\n\nWhy: The user, 2026-10-28, before the big update.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
    "id": "atlas-decision-23",
+   "type": "decision",
+   "app": "atlas",
+   "label": "One big update instead of small splits: 0.1.2 and the old…",
+   "date": "0.2.0",
+   "text": "One big update instead of small splits: 0.1.2 and the old 0.2/0.3/0.3.1 become one release, 0.2.0 (PLAN-0.2.0.md); eco audit and process selection become 0.3.0. Hardening is still built first. Fixes between big updates still go out as small releases.\n\nWhy: The user, 2026-10-28: Atlas is far behind the other Datum apps; \"we are capable of doing a big build\".",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-decision-24",
+   "type": "decision",
+   "app": "atlas",
+   "label": "Hardening (FAMILY §11) ships with the new features, built first",
+   "date": "0.1.2",
+   "text": "Hardening (FAMILY §11) ships with the new features, built first\n\nWhy: The user's answer to PLAN-0.1.2 Q8.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-decision-25",
    "type": "decision",
    "app": "atlas",
    "label": "Derived properties are computed by the engine at load, not…",
@@ -4185,7 +4390,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "atlas-decision-24",
+   "id": "atlas-decision-26",
    "type": "decision",
    "app": "atlas",
    "label": "Logo: violet log–log axes, a dotted selection line between two…",
@@ -4271,7 +4476,88 @@
    "app": "atlas",
    "label": "Session 9 (answer Q8)",
    "date": "2026-10-28",
-   "text": "· The user: hardening goes into 0.1.2 together with the new features (PLAN-0.1.2 §7). Questions 1–7 are still open.\n---",
+   "text": "· The user: hardening goes into 0.1.2 together with the new features (PLAN-0.1.2 §7). Questions 1–7 are still open.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-9",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 10 (the big update)",
+   "date": "2026-10-28",
+   "text": "· The user asked for one big update instead of small splits, because Atlas is behind the other apps (Plan 0.4.1, Plot 0.2.20).\n· Wrote PLAN-0.2.0.md:\n· 28 items in 7 groups (sturdy, selection, indices and formulas, charts, compare and report, data, the app);\n· the order of work;\n· size: ~6–7k lines plus 150 materials, over several sessions;\n· 4 questions.\n· Checked what can be copied from Datum Plan: formula.rs, hardening.rs, calamine and rust_xlsxwriter, deny.toml, SECURITY.md and CONTRIBUTING.md.\n· PLAN-0.1.2 is marked as replaced. The roadmap is now 0.2.0 (big), 0.3.0 (eco and process), 1.0.0. site.json waits for the go.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-10",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11 (0.2.0 stage A: hardening)",
+   "date": "2026-10-28",
+   "text": "· Engine:\n· db::read_user: a damaged file is an error, never empty; unusable values are dropped and listed.\n· doc::write_atomic: saves go through a temporary file and a rename.\n· hardening.rs: 8 tests.\n· db::check refuses any built-in source whose kind is not open, public or free (OPEN_KINDS), or that names a proprietary database or aggregator (BARRED).\n· Unknown goal ids are now an error (before: silently treated as Explore).\n· Shell:\n· poisoned-lock recovery (St::lock);\n· a damaged My materials.datdb is renamed My materials (damaged <date>).datdb and the window shows a dialog;\n· a file that cannot be read locks your own materials against writing;\n· every file write is atomic.\n· Checked in the real app under Xvfb with a damaged file.\n· Repo:\n· deny.toml (BSL-1.0 allowed for the clipboard crates), checked locally: advisories, bans, licences and sources ok;\n· CI jobs deny and platforms (Windows, macOS);\n· SECURITY.md, CONTRIBUTING.md (with the open-sources-only data rule).\n· All checks pass (25 engine tests, UI tests).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-11",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage B: selection)",
+   "date": "2026-10-28",
+   "text": "· Engine:\n· Chart.sels is a list of selections (Line, Box, new Poly); a material passes a chart when it passes all of them, so facing lines make a band. Old files' select moves into sels and is never written.\n· Stages.rank_line, ranking (\"line\" or \"weighted\") and weights (property, weight, higher better). Weighted scores scale each property so the best passing material scores 1 (a ratio for log properties, min–max for linear ones), then average by weight.\n· Op::Select { sels }, Op::PassThrough (line through a typed index value, via select::y_for), geometry::in_polygon.\n· Three two-constraint goals (25 in all): stiff and strong beam, stiff and strong panel, stiff and damage-tolerant tie. Each adds its second chart, marked <id>/2; a new goal removes the old second chart.\n· Window:\n· every selection drawn, with its own handle and index label;\n· Shape tool (click corners; Enter or double-click closes; Esc cancels);\n· + Line, Pass through…, and selection chips (edit, remove, \"rank by it\", \"ranks\");\n· arrow keys and Delete on the focused chart;\n· a Ranking section in Stages (line or weighted);\n· ? help topics sels and ranking;\n· the second chart in the goal's Why card; printed captions for every line.\n· 28 engine tests; 9 new UI checks, all passing.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-12",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage C: indices…",
+   "date": "2026-10-28",
+   "text": "· Engine:\n· formula.rs: a parser on Datum Plan's pattern (+ − * / ^, brackets, sqrt ln log10 exp abs min max, properties in brackets by key, name or symbol), interval evaluation (a missing input, a division by a range holding zero or a root of a negative gives a gap), show.\n· Project.formulas (Formula { name, expr, unit, log }, key f:<name>); Op::SetFormulas checks names and syntax in order; normalize drops formulas that do not parse.\n· Db::with_formulas works them into every material (the shell and bridge do it before laying out charts and results); Db::info and pname give names and units of built-in and formula keys.\n· Limits, weights and index names work on formulas.\n· Index library: 22 more entries in the goal table (library: true, 47 in all), some with the formula properties they need (formulas), added on apply.\n· Waiting for data: fatigue-light (fatigue strength) and conductor-light (resistivity); the goal test lists them.\n· Window:\n· formula.tsx (the formula window; also Chart › Expression Axis and Data › Formula Property);\n· the Index page (builder: function → constraint → objective; library with search; Plot on a new chart / Use the open chart);\n· formula properties in every property list (chartProps, formulaProps, propOf);\n· selected on options so a list shows a value whose option arrives late;\n· help topics formula and index.\n· 30 engine tests and the new UI checks pass.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-13",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage D+E…",
+   "date": "2026-10-28",
+   "text": "· Engine:\n· export.rs turns the results into a table (rank, index, × best, passes, the typical value of each property the selection uses, the reasons) and writes CSV (with a byte-order mark, quoted) or .xlsx (rust_xlsxwriter 0.101, as in Datum Plan).\n· compare.rs: up to 6 materials (Project.compare, Op::Compare); per property the highest and lowest, and the spread; radar positions 0–1 between the database's lowest and highest (log scale for log properties). Out.compare.\n· Chart.best, style (classic, publication, mono) and moved (label offsets).\n· Shell command export_results(fmt).\n· Window:\n· compare.tsx (table and Radar);\n· report.tsx (the selection report on screen and as a printed flowing document; parts in ui.report);\n· Best 5 labels with ranks, label placement around bubbles with leader lines and dragging (double-click resets);\n· styles;\n· charts side by side (1, 2 or 4, a stable page holding the open chart; hover highlights on all; fit and zoom act on the open chart);\n· \"+ compare\" in Results, Compare on the card beside the chart;\n· To a spreadsheet and CSV buttons; ribbon Compare, Radar and Report are live.\n· 32 engine tests; UI checks for each of these pass.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-14",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage F, data)",
+   "date": "2026-10-28",
+   "text": "· 252 materials (+152): 105 metals, 53 polymers, 16 elastomers, 30 ceramics and glasses, 15 composites, 12 foams, 21 natural materials.\n· New metal classes: tool steels, precious and refractory metals.\n· New polymer classes: filled and bio-based.\n· Also thermoplastic elastomers, carbon, wood products, and other composites.\n· Sources (open rule):\n· MIL-HDBK-5 for aerospace alloys, MIL-HDBK-17 for laminates, the Wood Handbook for woods, NIST for some ceramics, NPL tables for pure metals, USGS for pure-metal prices, ICE for CO₂ and energy;\n· otherwise our labelled compilation of typical ranges. All draft.\n· Fatigue strength and electrical resistivity added to the metals: the \"Light part under cyclic load\" and \"Light electrical conductor\" indices now have data (waiting list empty).\n· Durability ratings for every material: fresh water, weak acids, weak alkalis, UV, and fire resistance (renamed from flammability, so Excellent means it does not burn). Our compilation; class defaults with per-material overrides.\n· Expansion left out (a gap, value in the notes) where it is near zero or negative and cannot sit on a log axis: glass-ceramic, high-modulus CFRP, carbon-carbon, CF/PEEK.\n· The data was appended by a one-off script (scratchpad), so the 0.1.1 datasheet checks stay.\n· Fixed: after saving your own material the datasheet opened only if the database reloaded within 150 ms; it now waits for the reload.\n· The speed test builds exactly 1,000 materials (~200 ms release).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-15",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage F…",
+   "date": "2026-10-28",
+   "text": "· Engine:\n· sheet.rs:\n· reads CSV (the separator is guessed; quotes) and the first sheet of a workbook (calamine 0.37, as in Plan);\n· guesses each column from its heading (key, name or symbol; an imperial unit in brackets is converted);\n· reads one value or a range per cell, with blanks as gaps;\n· to_database (needs a name column and a source; cleaned like a .datdb);\n· of_database writes a database out so it reads back.\n· Db::with_others: other databases with prefixed ids and sources, and Material.origin.\n· Tests: import, round trip, other databases; damaged CSV and .xlsx never panic.\n· Shell:\n· databases, open_database, close_database (the list is kept in Options databases, preserved when the window saves Options; an unreadable one is closed and reported at start);\n· export_database (.datdb, .xlsx, .csv);\n· import_preview, import_materials (fresh u- ids and sources).\n· Window:\n· importer.tsx: the import window with a property per column and imperial choices, and the Databases section on the Data page;\n· the datasheet says which database a material comes from;\n· help topics import and databases.\n· The bridge serves the same commands with fixtures tests_ui/import.csv and team.datdb.\n· 35 engine tests and all UI checks pass; cargo deny ok.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-16",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage F: more…",
+   "date": "2026-10-28",
+   "text": "· 22 more values checked (73 in all) against producers' and suppliers' own datasheets and NIST:\n· 316 (Rolled Alloys); 430 (Combined Metals, ATI);\n· aluminium 1100 (NIST \"Properties of Wrought Aluminum Alloys\", Alloys International);\n· zinc die-casting alloy 3 (Xometry);\n· alloy 625 (ATI, voestalpine);\n· PC and PA66 density (Ensinger); PEEK density (Sterling Plastics).\n· The script asserts each datasheet figure lies in our range before marking it.\n· Widened: 1100 λ to 231 (NIST), 1100 tensile to 89, 625 tensile to 827.\n· Still draft (no primary source found by search): 1020, 1080, 304, grey iron, AZ91, CoCr F75 (only additive-manufacturing data found), lead, tin, tungsten; most polymers.\n· Source titles made generic where they carried brand names (\"Nickel alloy 718\", \"Steel 1.6582\", \"Zinc die-casting alloy 3\"); the links stay as published.\n· The checked-value test accepts datasheet, government and handbook sources with a link (≥ 70 values).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-17",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 11, continued (0.2.0 stage G and…",
+   "date": "2026-10-28",
+   "text": "· Help › Roadmap and the in-app release list read docs/site.json (features.ts imports it), so the site and the app say the same.\n· Ribbon and File stubs wired: Best 5 Labels, Style, Import, Save My Materials, Open Database.\n· Getting Started and the Glossary cover bands, shapes, weighted ranking, the index library, formula properties, radar, databases and durability ratings.\n· site.json: about, steps and highlights rewritten for 0.2.0 and checked against the app; roadmap now starts at 0.3.0 (Next).\n· README features 0.2.0 and Coming next; CHANGELOG 0.2.0; versions 0.2.0.\n· Checks: clippy, cargo test, check:ui, test:ui (72 checks), cargo deny, the real app under Xvfb.\n· Released 0.2.0 through release.yml.\n---",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -5070,6 +5356,26 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Calc"
   },
   {
+   "id": "calc-v0.1.6",
+   "type": "release",
+   "app": "calc",
+   "label": "Calc 0.1.6",
+   "version": "0.1.6",
+   "date": "2026-10-28",
+   "text": "Safer saving, three more calc packs, a summary of checks on the printed sheet, figures per sheet, Duplicate and Insert Above.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.6"
+  },
+  {
+   "id": "calc-v0.1.5",
+   "type": "release",
+   "app": "calc",
+   "label": "Calc 0.1.5",
+   "version": "0.1.5",
+   "date": "2026-10-28",
+   "text": "A bigger release: equations shown with their numbers, three more calc packs, a list of every check, and a round of hardening that found and fixed four ways the engine could fail.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.5"
+  },
+  {
    "id": "calc-v0.1.4",
    "type": "release",
    "app": "calc",
@@ -5120,11 +5426,11 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.0"
   },
   {
-   "id": "calc-plan-0-1-5",
+   "id": "calc-plan-0-1-7",
    "type": "roadmap",
    "app": "calc",
-   "label": "0.1.5 Fixes from the convention",
-   "version": "0.1.5",
+   "label": "0.1.7 Fixes from the convention",
+   "version": "0.1.7",
    "when": "Next",
    "text": "Fixes from trying every pack on a clean Windows PC\nWhat visitors ask for at the convention",
    "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
@@ -5135,8 +5441,8 @@
    "app": "calc",
    "label": "0.2 Materials and more packs",
    "version": "0.2",
-   "when": "Later",
-   "text": "Material properties from Datum Atlas\nMore calc packs\nEquations shown with their numbers substituted\nSymbolic simplify",
+   "when": "Soon",
+   "text": "Material properties from Datum Atlas\nMore calc packs\nSymbolic simplify",
    "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -5416,6 +5722,96 @@
    "id": "calc-decision-27",
    "type": "decision",
    "app": "calc",
+   "label": "Doc::save writes name.dcalc.saving and renames it over the…",
+   "date": "0.1.6",
+   "text": "Doc::save writes name.dcalc.saving and renames it over the sheet; Doc::open refuses files over 64 MB and reads bytes lossily; normalize cuts regions (5,000), text (20,000), pictures (8 MB), table rows (2,000) and columns (50); edits beyond them fail\n\nWhy: A crash mid-save must never damage a sheet; a hostile file must not exhaust memory",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-28",
+   "type": "decision",
+   "app": "calc",
+   "label": "ErrorBoundary around each region, the sheet view, the…",
+   "date": "0.1.6",
+   "text": "ErrorBoundary around each region, the sheet view, the Variables panel and each printed region; utilisation formatted by ratio() that accepts anything\n\nWhy: A UI test with malformed engine output showed the panel's toFixed could blank the whole window",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-29",
+   "type": "decision",
+   "app": "calc",
+   "label": "A check's left side reads in the unit its name is shown in…",
+   "date": "0.1.6",
+   "text": "A check's left side reads in the unit its name is shown in (Env::shown)\n\nWhy: 0.0095 ≤ 0.03 for a percentage check",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-30",
+   "type": "decision",
+   "app": "calc",
+   "label": "An input keeps its typed unit when the other system has no…",
+   "date": "0.1.6",
+   "text": "An input keeps its typed unit when the other system has no ladder for it; electrical units and cP/cSt are neutral; US head is BTU/lb\n\nWhy: ohm/km became SI base units on a US sheet; cP became Pa·s",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-31",
+   "type": "decision",
+   "app": "calc",
+   "label": "The print summary of checks is a pseudo-region (id −1)…",
+   "date": "0.1.6",
+   "text": "The print summary of checks is a pseudo-region (id −1) measured and packed like the others, saved in sheet.ui.print.summary\n\nWhy: Reuses the page packing; a long summary moves the sheet down instead of overlapping",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-32",
+   "type": "decision",
+   "app": "calc",
+   "label": "Lines are limited to 60 nested levels and 1,000 symbols, trees…",
+   "date": "0.1.5",
+   "text": "Lines are limited to 60 nested levels and 1,000 symbols, trees deeper than 400 are refused, and the sheet is worked out on its own 64 MB-stack thread\n\nWhy: Thousands of brackets overflowed the stack (an abort on any build); the release build aborts on any panic, so limits come first and the thread is a second guard",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-33",
+   "type": "decision",
+   "app": "calc",
+   "label": "Results must be finite and unit powers within ±60; unit powers…",
+   "date": "0.1.5",
+   "text": "Results must be finite and unit powers within ±60; unit powers in a unit expression above 60 are not read as units\n\nWhy: 1e308×10 showed nothing; m^999 was silently m^127; i8 saturation made −128 whose abs() panicked (found by the new fuzz test)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-34",
+   "type": "decision",
+   "app": "calc",
+   "label": "The angle tag is dropped by roots and fractional powers when…",
+   "date": "0.1.5",
+   "text": "The angle tag is dropped by roots and fractional powers when it does not divide evenly\n\nWhy: ∛ of a torque from P/n (rad⁻¹) failed in the shaft pack",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-35",
+   "type": "decision",
+   "app": "calc",
+   "label": "Substituted values use the unit each name is shown in on its…",
+   "date": "0.1.5",
+   "text": "Substituted values use the unit each name is shown in on its own line (Env::shown)\n\nWhy: Base units (m²·kg/s²) for a torque read badly next to its N·m line",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-36",
+   "type": "decision",
+   "app": "calc",
+   "label": "The fuzz test builds random sheets from the grammar (numbers…",
+   "date": "0.1.5",
+   "text": "The fuzz test builds random sheets from the grammar (numbers with units, names, operators, functions, checks, solve, plot, ranges, tables), 600 sheets per run in CI; 6,000 × 3 seeds and a release run before this release\n\nWhy: Random characters rarely reach the evaluator; grammar-shaped input found two real panics at once",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-37",
+   "type": "decision",
+   "app": "calc",
    "label": "release.yml ran once on a push trigger to register it (tag…",
    "date": "0.1.1",
    "text": "release.yml ran once on a push trigger to register it (tag pushes are blocked from the session); later releases use workflow_dispatch\n\nWhy: A workflow needs one run before GitHub lists it",
@@ -5467,6 +5863,24 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
   },
   {
+   "id": "calc-session-5",
+   "type": "session",
+   "app": "calc",
+   "label": "Session 1, continued (0.1.5, a bigger release)",
+   "date": "2026-10-28",
+   "text": "· The user was unwell and asked for a self-checked, hardened, larger release (three or four versions in one).\n· Hardening: a probe of extreme lines found a stack overflow (deep brackets), a range-count overflow, unit powers silently capped at 127 and inf results shown as blank; the new grammar fuzz test found an i8 negate overflow. All fixed with limits and tests; 108,000 random sheets in debug and a full release-build run passed.\n· Features: View › Numbers (substituted equations, saved and printed), the checks list in the side panel, packs 11–13 (shaft, tank, thermal expansion) with hand values first. The shaft pack found the angle-tag root bug.\n· Self-check: all 14 sheets rendered in the built window in SI with Numbers and in US units (no errors, warnings, KaTeX failures or overflowing lines), a look by eye at the new ones; the real app under Xvfb for Numbers on screen and in print, a damaged and a non-sheet file, and the dark theme.\n· Checks: clippy clean, 44 engine tests, 71 UI tests, cargo deny.\n· Released 0.1.5. Still not tested: a clean Windows PC, the real Save as PDF dialog, an update from one release to the next on Windows.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-session-6",
+   "type": "session",
+   "app": "calc",
+   "label": "Session 1, continued (0.1.6)",
+   "date": "2026-10-28",
+   "text": "· The user asked to keep going the same way: self-checked, hardened, several features in one release.\n· Hardening: atomic save (temporary file and rename) with a test that a failed save leaves the sheet untouched; file size and content limits; lossy reading of damaged bytes; every pack saved, reopened and damaged 300 times; ErrorBoundary guards (a UI test with malformed engine output showed the Variables panel could blank the window; ratio() and the guards fixed it); 72,000 more random sheets and a release-build run.\n· Features: packs 14–16 (pipe wall thickness, Euler column, cable voltage drop) with hand values first; print summary of checks; View › Figures; Duplicate (Ctrl+D) and Insert Above (Ctrl+Shift+M).\n· Self-check: the packs in SI and US (--example packs) found a percentage check reading 0.0095 ≤ 0.03, ohm/km turning into base units and cP into Pa·s on a US sheet, US head in ft²/s² and a pinned kN on the Euler load; all fixed. All 17 sheets rendered in the built window in SI with Numbers and in US units without errors or overflow; the real app checked for the pack list, the print summary with a FAIL and the page count.\n· Checks: clippy clean, 49 engine tests, 77 UI tests, cargo deny.\n· Released 0.1.6. Still not tested: a clean Windows PC, the real Save as PDF dialog, an update from one release to the next on Windows.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
    "id": "app-mesh",
    "type": "app",
    "app": "mesh",
@@ -5474,6 +5888,16 @@
    "accent": "#B83250",
    "text": "Finite-element analysis on the desktop: stresses, deflections and temperatures in parts and frames.\n\nFor: Mechanical, structural, process and aerospace engineers, students and lecturers.\n\nStack: Rust engine (crates/core, own solver), Tauri 2, SolidJS + strict TypeScript; no Python, no external solvers in 0.1",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh"
+  },
+  {
+   "id": "mesh-v0.1.3",
+   "type": "release",
+   "app": "mesh",
+   "label": "Mesh 0.1.3",
+   "version": "0.1.3",
+   "date": "2026-10-28",
+   "text": "Parts are meshed and solved: plane stress, plane strain and steady heat conduction, with stress and temperature contours, a probe, the deformed shape, a materials library and a printed results report. Help › Verification now covers every benchmark in the plan.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.3"
   },
   {
    "id": "mesh-v0.1.2",
@@ -5506,33 +5930,13 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.0"
   },
   {
-   "id": "mesh-plan-0-1-3",
-   "type": "roadmap",
-   "app": "mesh",
-   "label": "0.1.3 Parts meshed and solved",
-   "version": "0.1.3",
-   "when": "Next",
-   "text": "Automatic triangle meshing with quality refinement and local sizes\n6-node triangles (3-node as an option), plane stress and plane strain\nStress and displacement contours, deformed shape, probe, min and max\nVerified: plate with a hole, thick cylinder, NAFEMS LE1, patch tests",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
-  },
-  {
    "id": "mesh-plan-0-1-4",
    "type": "roadmap",
    "app": "mesh",
-   "label": "0.1.4 Heat, materials and reports",
+   "label": "0.1.4 Polish",
    "version": "0.1.4",
-   "when": "Soon",
-   "text": "Steady heat conduction with convection\nMaterials library from Datum Atlas, with sources\nPrinted results report\nHelp › Verification: every benchmark with Datum Mesh's answer, the reference and the error",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "mesh-plan-0-1-5",
-   "type": "roadmap",
-   "app": "mesh",
-   "label": "0.1.5 Polish",
-   "version": "0.1.5",
-   "when": "Soon",
-   "text": "Speed on large meshes\nFixes from first use",
+   "when": "Next",
+   "text": "Fixes from first use on a clean Windows PC\nSpeed and smaller result transfers on very large meshes\nScreenshots and a fuller README",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -5620,6 +6024,60 @@
    "path": "crates/core/src/sparse.rs",
    "text": "The shared linear solver: triplets, supports by elimination, prescribed values, faer sparse Cholesky, a probe solve that catches mechanisms, residual",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/sparse.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-mesh-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "mesh.rs",
+   "path": "crates/core/src/mesh.rs",
+   "text": "Meshing parts: outlines (arcs split by the local size) into a spade constrained Delaunay triangulation inside a frame round the part, refined for angle and size; local sizes from refined edges and points grow into the global size (a size field: too-large triangles get a point at their centre, then refinement again); triangles kept where there is material (centroid test); 6-node triangles with midside nodes on true arcs; boundary edges tagged with their shape edge; quality",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/mesh.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-plane-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "plane.rs",
+   "path": "crates/core/src/plane.rs",
+   "text": "Plane stress and plane strain: T3/T6 elements, edge pressure (× thickness) and edge forces (whole force or per length, for the whole thickness), gravity, point loads, fixed/pinned/roller/symmetry supports (rollers on sloping or curved edges by a stiff spring along the normal), reactions, the equilibrium check (forces, and moments against forces × reach), stresses recovered and averaged at nodes, per-element values, von Mises, principals, safety factor",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/plane.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-heat-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "heat.rs",
+   "path": "crates/core/src/heat.rs",
+   "text": "Steady heat conduction: T3/T6, fixed temperatures, flux, convection, generation; heat flux recovered at nodes and per element; heat flows at every support and load and the heat balance",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/heat.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-materials-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "materials.rs",
+   "path": "crates/core/src/materials.rs",
+   "text": "The materials library: 54 metals and plastics from Datum Atlas with sources (E, ρ, k, α the middle of the range, yield the low end, ν typical for the family); the script rebuilds the JSON from an Atlas checkout",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/materials.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-lib-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "lib.rs",
+   "path": "crates/core/src/lib.rs",
+   "text": "Results (frame, plane or heat, tagged by kind) and solve() for any analysis; tests that every example solves, balances and agrees with hand checks",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/lib.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-examples-bigpart-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "bigpart.rs",
+   "path": "crates/core/examples/bigpart.rs",
+   "text": "A 25 000-element bracket's results as JSON, for timing the window by hand (not a test)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/examples/bigpart.rs"
   },
   {
    "id": "mesh-file-crates-core-src-frame-rs",
@@ -5793,6 +6251,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/backstage.tsx"
   },
   {
+   "id": "mesh-file-ui-src-parts-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "parts.tsx",
+   "path": "ui/src/parts.tsx",
+   "text": "Part results: fields and colour scales (12 bands, rainbow or viridis, safety factor reversed), band paths built once in model coordinates (isobands by clipping) and painted on a canvas under the drawing with one transform, the deformed shape, mesh lines, min/max markers, the probe (grid of drawing triangles), the legend, the Mesh view bar (quality colours), the part Results page, contour images for print",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/parts.tsx"
+  },
+  {
    "id": "mesh-file-ui-src-results-tsx",
    "type": "file",
    "app": "mesh",
@@ -5843,7 +6310,7 @@
    "app": "mesh",
    "label": "run.cjs",
    "path": "tests_ui/run.cjs",
-   "text": "65 UI checks of the built window with a mocked bridge",
+   "text": "86 UI checks of the built window with a mocked bridge",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/tests_ui/run.cjs"
   },
   {
@@ -6084,6 +6551,96 @@
    "id": "mesh-decision-24",
    "type": "decision",
    "app": "mesh",
+   "label": "The user asked for 0.1.4's work (heat, materials library…",
+   "date": "0.1.3",
+   "text": "The user asked for 0.1.4's work (heat, materials library, report) inside 0.1.3: one release with meshing, plane stress and strain, heat, the library and the report; polish becomes 0.1.4\n\nWhy: The user: \"carry on with 0.1.3 and add 0.1.4 part too in 0.1.3\"",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-25",
+   "type": "decision",
+   "app": "mesh",
+   "label": "A frame of four points round the part before triangulating…",
+   "date": "0.1.3",
+   "text": "A frame of four points round the part before triangulating; minimum area for refinement from the finest local size\n\nWhy: Near-collinear points on a sloping edge made hull slivers spade could never refine; a minimum area from the global size skipped the small triangles near a refined hole",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-26",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Local sizes are a size field (local size + 0.2 × distance…",
+   "date": "0.1.3",
+   "text": "Local sizes are a size field (local size + 0.2 × distance, capped by the global size), applied by inserting centroids of too-large triangles and refining again\n\nWhy: Refining only the points on an edge let the mesh coarsen within one element of a hole; the plate-with-a-hole error jumped about (1 %, 0.1 %, 0.4 %) instead of falling. Now 1.1 % → 0.5 % → 0.1 % → 0.04 %",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-27",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Benchmark 4 is a quarter plate 200 hole diameters wide with…",
+   "date": "0.1.3",
+   "text": "Benchmark 4 is a quarter plate 200 hole diameters wide with the hole's edge refined, against Kirsch's 3.0\n\nWhy: A plate 20 diameters wide converged to 3.018 (its own finite-size answer), not 3.0",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-28",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Pressure acts per area (× thickness); an edge force is per…",
+   "date": "0.1.3",
+   "text": "Pressure acts per area (× thickness); an edge force is per length of edge for the whole thickness, or the whole force\n\nWhy: Found in the app: the L-bracket's 1.5 kN edge force was multiplied by the 10 mm thickness, giving 2.9 MPa instead of 287 MPa; now a test, and a hand check of the bracket",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-29",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Stresses: nodal averages (smoothed) and each element's own…",
+   "date": "0.1.3",
+   "text": "Stresses: nodal averages (smoothed) and each element's own average (per element), both sent to the window\n\nWhy: Comparing the two shows where the mesh is too coarse, without a separate error estimate",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-30",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Contours as 12 band paths (Path2D) in model coordinates on a…",
+   "date": "0.1.3",
+   "text": "Contours as 12 band paths (Path2D) in model coordinates on a canvas under the SVG; polygons closed with lineTo, never closePath\n\nWhy: closePath on 100 000 sub-paths took 10 s in Chromium; now 0.2 s to switch result, 0.8 s to draw 25 000 elements",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-31",
+   "type": "decision",
+   "app": "mesh",
+   "label": "The safety factor's colours run red (low) to blue, capped at…",
+   "date": "0.1.3",
+   "text": "The safety factor's colours run red (low) to blue, capped at 10; nodes with no yield strength are grey\n\nWhy: A factor of 10⁶ in a lightly loaded corner would otherwise squash the scale",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-32",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Moments in the equilibrium check of parts are judged against…",
+   "date": "0.1.3",
+   "text": "Moments in the equilibrium check of parts are judged against forces × the model's reach (as frames)\n\nWhy: A bore pressure centred on the origin has no moment of its own: the flange showed a 110 % \"imbalance\" of rounding noise",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-33",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Model::check looks members' nodes up in a map",
+   "date": "0.1.3",
+   "text": "Model::check looks members' nodes up in a map\n\nWhy: Each edit of a 10 000-member frame took 52 ms (a linear search per member); now 14 ms",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-34",
+   "type": "decision",
+   "app": "mesh",
    "label": "Help › Verification runs bench::run() in the app, so the…",
    "date": "0.1.1",
    "text": "Help › Verification runs bench::run() in the app, so the report is always true for the version running; the same rows are tests and the dated record\n\nWhy: The brief's headline feature, earlier than planned because it was cheap",
@@ -6114,6 +6671,15 @@
    "label": "Session 1, continued (review and the 0.1.2…",
    "date": "2026-10-28",
    "text": "· Released 0.1.1. The user asked to stop and analyse the app. Two passes: an independent code review by a separate agent (it confirmed the solver maths numerically and found 15 issues in the checks, editing and window layers) and my own use of the real app under Xvfb (found the misplaced diagram after a refit, the \"× 2e+299\" no-load scale, rounding noise, the metric grid in US units, the broken empty card).\n· The user chose a fixes release for findings 1–13. Engine: joining and merging on every edit, corner ops, equilibrium scale and moment check, loose-node and no-load warnings, mechanism limit and iterative refinement (27 tests). Window: reactive results drawing, save prompt, no-load legend, parseNum, clean, niceGrid, the empty card (65 UI checks, 13 new). Rechecked in the real app.\n· The unreleased 0.1.3 meshing work (mesh.rs with spade, plane.rs with T3/T6) is parked in git stash (\"WIP 0.1.2: mesh.rs, plane.rs\"); its plane tests passed except a roller-on-a-slope case that hit the refinement vertex limit.\n· Not fixed (low, from the review): save is not atomic (temp file + rename), undo to the saved state still marks the model changed, the autosave interval needs a restart, load arrows do not follow a drag, drag snaps the offset not the position, the print title block says mm for frames and its equilibrium table has no moment row, a few damaged scalars (negative next, unknown analysis) still refuse the whole file.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-session-3",
+   "type": "session",
+   "app": "mesh",
+   "label": "Session 1, continued (0.1.3: parts, heat…",
+   "date": "2026-10-28",
+   "text": "· The user asked for 0.1.3 with 0.1.4's work in it. Restored the stashed mesh.rs and plane.rs; fixed the sloping-roller case (a frame round the part); found and fixed a slow check that made edits of large frames take 52 ms each.\n· Engine: benchmarks 4–8 (Kirsch, Lamé, NAFEMS LE1 with convergence series; wall and fin; patch tests), heat.rs, materials.rs (54 materials from Atlas), one solve() for every analysis. Building benchmark 4 found that local refinement did not grade (now a size field) and that the minimum refinement area hid small triangles. Random parts and a 50 000-node speed gate in the hardening tests (42 engine tests).\n· Window: parts.tsx (contours, markers, probe, legend, Mesh view, results page), ribbon Mesh and Results tabs live, Refine Near tool, mesh settings in the Inspector and tree, the library dialog, convergence tables in Help › Verification, the Report view and the part report with contour pictures.\n· Found in the real app: the edge-force thickness bug (2.9 MPa instead of 287 MPa in the L-bracket) and 25 s to draw a 25 000-element result (Path2D.closePath); both fixed, the first with an engine test and a hand check.\n· Checked: clippy, 42 engine tests, 86 UI checks, cargo deny, real app (bracket, heat sink, mesh view, results, report, a 25 000-element bracket: 103 000 equations in 1.5 s in a debug build).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   }
  ],
@@ -6375,6 +6941,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-38",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -6465,7 +7036,27 @@
   },
   {
    "source": "hub",
+   "target": "hub-session-18",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
    "target": "idea-datum-calc",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-pipe",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-reliability",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-flowsheet",
    "kind": "idea"
   },
   {
@@ -8199,27 +8790,37 @@
    "kind": "then"
   },
   {
+   "source": "plot-v0.2.18",
+   "target": "plot-v0.2.19",
+   "kind": "then"
+  },
+  {
+   "source": "plot-v0.2.19",
+   "target": "plot-v0.2.20",
+   "kind": "then"
+  },
+  {
+   "source": "plot-v0.2.20",
+   "target": "plot-v0.2.21",
+   "kind": "then"
+  },
+  {
+   "source": "plot-v0.2.21",
+   "target": "plot-v0.2.22",
+   "kind": "then"
+  },
+  {
    "source": "app-plot",
-   "target": "plot-v0.2.18",
+   "target": "plot-v0.2.22",
    "kind": "released"
   },
   {
-   "source": "plot-v0.2.18",
-   "target": "plot-plan-0-2-19",
+   "source": "plot-v0.2.22",
+   "target": "plot-plan-0-2-23",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-2-19",
-   "target": "plot-plan-0-2-20-0-2-22",
-   "kind": "next"
-  },
-  {
-   "source": "plot-plan-0-2-20-0-2-22",
-   "target": "plot-plan-0-2-23-0-2-26",
-   "kind": "next"
-  },
-  {
-   "source": "plot-plan-0-2-23-0-2-26",
+   "source": "plot-plan-0-2-23",
    "target": "plot-plan-1-0-0",
    "kind": "next"
   },
@@ -8317,6 +8918,46 @@
    "source": "plot-file-py-datum-groups-py",
    "target": "tech-statsmodels",
    "kind": "uses"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-imports-py",
+   "kind": "contains"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-region-py",
+   "kind": "contains"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-report-py",
+   "kind": "contains"
+  },
+  {
+   "source": "plot-file-py-datum-report-py",
+   "target": "tech-python",
+   "kind": "uses"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-surface-py",
+   "kind": "contains"
+  },
+  {
+   "source": "plot-file-py-datum-surface-py",
+   "target": "tech-statsmodels",
+   "kind": "uses"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-sheet-py",
+   "kind": "contains"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-thermal-py",
+   "kind": "contains"
   },
   {
    "source": "app-plot",
@@ -8994,19 +9635,14 @@
    "kind": "decided"
   },
   {
-   "source": "plot-decision-42",
-   "target": "tech-rust",
-   "kind": "about"
-  },
-  {
-   "source": "plot-decision-42",
-   "target": "tech-python",
-   "kind": "about"
-  },
-  {
    "source": "app-plot",
    "target": "plot-decision-43",
    "kind": "decided"
+  },
+  {
+   "source": "plot-decision-43",
+   "target": "tech-python",
+   "kind": "about"
   },
   {
    "source": "app-plot",
@@ -9026,6 +9662,41 @@
   {
    "source": "app-plot",
    "target": "plot-decision-46",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-46",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
+   "source": "plot-decision-46",
+   "target": "tech-python",
+   "kind": "about"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-47",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-48",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-49",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-49",
+   "target": "tech-python",
+   "kind": "about"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-50",
    "kind": "decided"
   },
   {
@@ -9279,42 +9950,22 @@
    "kind": "then"
   },
   {
+   "source": "atlas-v0.1.1",
+   "target": "atlas-v0.2.0",
+   "kind": "then"
+  },
+  {
    "source": "app-atlas",
-   "target": "atlas-v0.1.1",
+   "target": "atlas-v0.2.0",
    "kind": "released"
   },
   {
-   "source": "atlas-v0.1.1",
-   "target": "atlas-plan-0-1-2",
-   "kind": "next"
-  },
-  {
-   "source": "atlas-plan-0-1-2",
-   "target": "atlas-plan-0-2-0",
-   "kind": "next"
-  },
-  {
-   "source": "atlas-plan-0-2-0",
+   "source": "atlas-v0.2.0",
    "target": "atlas-plan-0-3-0",
    "kind": "next"
   },
   {
    "source": "atlas-plan-0-3-0",
-   "target": "atlas-plan-0-3-1",
-   "kind": "next"
-  },
-  {
-   "source": "atlas-plan-0-3-1",
-   "target": "atlas-plan-0-4-0",
-   "kind": "next"
-  },
-  {
-   "source": "atlas-plan-0-4-0",
-   "target": "atlas-plan-0-5-0",
-   "kind": "next"
-  },
-  {
-   "source": "atlas-plan-0-5-0",
    "target": "atlas-plan-1-0-0",
    "kind": "next"
   },
@@ -9361,6 +10012,11 @@
   {
    "source": "app-atlas",
    "target": "atlas-file-crates-core-src-templates-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-crates-core-src-hardening-rs",
    "kind": "contains"
   },
   {
@@ -9426,6 +10082,41 @@
   {
    "source": "app-atlas",
    "target": "atlas-file-ui-src-material-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-crates-core-src-formula-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-ui-src-formula-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-crates-core-src-export-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-crates-core-src-compare-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-ui-src-compare-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-crates-core-src-sheet-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-ui-src-importer-tsx",
    "kind": "contains"
   },
   {
@@ -9740,8 +10431,8 @@
   },
   {
    "source": "atlas-decision-22",
-   "target": "hub",
-   "kind": "family-wide"
+   "target": "atlas-v0.2.0",
+   "kind": "in"
   },
   {
    "source": "app-atlas",
@@ -9750,7 +10441,7 @@
   },
   {
    "source": "atlas-decision-23",
-   "target": "atlas-v0.1.1",
+   "target": "atlas-v0.2.0",
    "kind": "in"
   },
   {
@@ -9760,11 +10451,31 @@
   },
   {
    "source": "atlas-decision-24",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-decision-25",
+   "kind": "decided"
+  },
+  {
+   "source": "atlas-decision-25",
+   "target": "atlas-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-decision-26",
+   "kind": "decided"
+  },
+  {
+   "source": "atlas-decision-26",
    "target": "atlas-v0.1.0",
    "kind": "in"
   },
   {
-   "source": "atlas-decision-24",
+   "source": "atlas-decision-26",
    "target": "hub",
    "kind": "family-wide"
   },
@@ -9877,6 +10588,91 @@
    "source": "app-atlas",
    "target": "atlas-session-8",
    "kind": "session"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-9",
+   "kind": "session"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-10",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-10",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-11",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-11",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-12",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-12",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-13",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-13",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-14",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-14",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-15",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-15",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-16",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-16",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-17",
+   "kind": "session"
+  },
+  {
+   "source": "atlas-session-17",
+   "target": "atlas-v0.2.0",
+   "kind": "shipped"
   },
   {
    "source": "hub",
@@ -10829,17 +11625,27 @@
    "kind": "then"
   },
   {
+   "source": "calc-v0.1.4",
+   "target": "calc-v0.1.5",
+   "kind": "then"
+  },
+  {
+   "source": "calc-v0.1.5",
+   "target": "calc-v0.1.6",
+   "kind": "then"
+  },
+  {
    "source": "app-calc",
-   "target": "calc-v0.1.4",
+   "target": "calc-v0.1.6",
    "kind": "released"
   },
   {
-   "source": "calc-v0.1.4",
-   "target": "calc-plan-0-1-5",
+   "source": "calc-v0.1.6",
+   "target": "calc-plan-0-1-7",
    "kind": "next"
   },
   {
-   "source": "calc-plan-0-1-5",
+   "source": "calc-plan-0-1-7",
    "target": "calc-plan-0-2",
    "kind": "next"
   },
@@ -11170,6 +11976,106 @@
   },
   {
    "source": "calc-decision-27",
+   "target": "calc-v0.1.6",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-28",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-28",
+   "target": "calc-v0.1.6",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-29",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-29",
+   "target": "calc-v0.1.6",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-30",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-30",
+   "target": "calc-v0.1.6",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-31",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-31",
+   "target": "calc-v0.1.6",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-32",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-32",
+   "target": "calc-v0.1.5",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-33",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-33",
+   "target": "calc-v0.1.5",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-34",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-34",
+   "target": "calc-v0.1.5",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-35",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-35",
+   "target": "calc-v0.1.5",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-36",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-36",
+   "target": "calc-v0.1.5",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-37",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-37",
    "target": "calc-v0.1.1",
    "kind": "in"
   },
@@ -11269,6 +12175,26 @@
    "kind": "shipped"
   },
   {
+   "source": "app-calc",
+   "target": "calc-session-5",
+   "kind": "session"
+  },
+  {
+   "source": "calc-session-5",
+   "target": "calc-v0.1.5",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-session-6",
+   "kind": "session"
+  },
+  {
+   "source": "calc-session-6",
+   "target": "calc-v0.1.6",
+   "kind": "shipped"
+  },
+  {
    "source": "hub",
    "target": "app-mesh",
    "kind": "app"
@@ -11359,27 +12285,22 @@
    "kind": "then"
   },
   {
+   "source": "mesh-v0.1.2",
+   "target": "mesh-v0.1.3",
+   "kind": "then"
+  },
+  {
    "source": "app-mesh",
-   "target": "mesh-v0.1.2",
+   "target": "mesh-v0.1.3",
    "kind": "released"
   },
   {
-   "source": "mesh-v0.1.2",
-   "target": "mesh-plan-0-1-3",
-   "kind": "next"
-  },
-  {
-   "source": "mesh-plan-0-1-3",
+   "source": "mesh-v0.1.3",
    "target": "mesh-plan-0-1-4",
    "kind": "next"
   },
   {
    "source": "mesh-plan-0-1-4",
-   "target": "mesh-plan-0-1-5",
-   "kind": "next"
-  },
-  {
-   "source": "mesh-plan-0-1-5",
    "target": "mesh-plan-0-2",
    "kind": "next"
   },
@@ -11421,6 +12342,36 @@
   {
    "source": "app-mesh",
    "target": "mesh-file-crates-core-src-sparse-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-mesh-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-plane-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-heat-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-materials-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-lib-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-examples-bigpart-rs",
    "kind": "contains"
   },
   {
@@ -11521,6 +12472,11 @@
   {
    "source": "app-mesh",
    "target": "mesh-file-ui-src-backstage-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-parts-tsx",
    "kind": "contains"
   },
   {
@@ -11835,6 +12791,106 @@
   },
   {
    "source": "mesh-decision-24",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-25",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-25",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-26",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-26",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-27",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-27",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-28",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-28",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-29",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-29",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-30",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-30",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-31",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-31",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-32",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-32",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-33",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-33",
+   "target": "mesh-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-34",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-34",
    "target": "mesh-v0.1.1",
    "kind": "in"
   },
@@ -11914,6 +12970,16 @@
    "kind": "shipped"
   },
   {
+   "source": "app-mesh",
+   "target": "mesh-session-3",
+   "kind": "session"
+  },
+  {
+   "source": "mesh-session-3",
+   "target": "mesh-v0.1.3",
+   "kind": "shipped"
+  },
+  {
    "source": "idea-datum-calc",
    "target": "app-plan",
    "kind": "reuses"
@@ -11937,6 +13003,41 @@
    "source": "idea-datum-calc",
    "target": "tech-chart-js",
    "kind": "uses"
+  },
+  {
+   "source": "idea-datum-pipe",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-pipe",
+   "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-pipe",
+   "target": "app-calc",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-pipe",
+   "target": "app-mesh",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-reliability",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-reliability",
+   "target": "app-plot",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-flowsheet",
+   "target": "app-plan",
+   "kind": "reuses"
   },
   {
    "source": "idea-datum-tolerance",

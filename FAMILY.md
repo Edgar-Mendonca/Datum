@@ -55,6 +55,7 @@ Dark (`:root[data-theme="dark"]`): `--bg #0B1119 --bg2 #101823 --panel #0D141E -
 | **Sim · Orange** | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |
 | **Calc · Amber** (Datum Calc, from session 13) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |
 | **Mesh · Crimson** (Datum Mesh, from session 13) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |
+| **Pipe · Moss** (Datum Pipe, from session 16) | #4D7C0F | #3F6212 | #BEDC8F | #F1F7E6 | #E4F0CF | #CBE2A4 | #A3D65C | #2A420A |
 
 Keep `--crit` red, `--green` and `--amber` for meaning (critical/error, done/ok, warning/highlight) in every app, whatever the accent.
 
