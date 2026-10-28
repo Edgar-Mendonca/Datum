@@ -34,12 +34,14 @@ const tiles: Tile[] = [
     <path class="grid" d="M18 66H152M18 46H152M18 26H152" />
     <path class="draw acc-s" pathLength="1" d="M22 82C52 80 66 76 80 56S104 20 148 16" />
     <g class="acc-f">${[[28, 80], [42, 78], [56, 74], [70, 64], [84, 48], [98, 34], [112, 24], [128, 19], [144, 17]].map(([x, y], i) => `<circle class="pop" style="--k:${i * .6}" cx="${x}" cy="${y + (i % 2 ? 3 : -3)}" r="3.4"/>`).join("")}</g>` },
-  { id: "reports", cap: "Reports", app: "", say: "print clear reports.", href: "#apps", c: "var(--ink)", dx: -1, dy: 0, svg: `
-    <g class="sheet"><rect class="paper-f ink-s" x="44" y="10" width="72" height="84" rx="2" />
-      <path class="ink-s thin" d="M54 22h34M54 30h22" />
-      <g class="acc2f"><rect class="col" style="--k:0" x="56" y="54" width="8" height="18"/><rect class="col" style="--k:1" x="68" y="46" width="8" height="26"/><rect class="col" style="--k:2" x="80" y="40" width="8" height="32"/><rect class="col" style="--k:3" x="92" y="50" width="8" height="22"/></g>
-      <path class="ink-s thin" d="M54 72h52M54 82h40M54 88h30" /></g>
-    <rect class="amber" x="98" y="14" width="22" height="11" rx="1.5" /><text class="mono-t tiny" x="109" y="22.5" text-anchor="middle">PDF</text>` },
+  { id: "loop", cap: "Control loop", app: "sim", say: "simulate control loops.", href: "#app-sim", c: "var(--sim)", dx: -1, dy: 0, svg: `
+    <path class="ink-s" d="M16 10V86H150" />
+    <path class="grid" d="M16 66H150M16 46H150M16 26H150" />
+    <path class="setp" d="M18 36H148" />
+    <path class="draw acc-s" pathLength="1" d="M18 84C30 84 34 30 46 24S60 44 70 40S84 34 92 37S110 36 148 36" />
+    <path class="band" d="M100 31H148M100 41H148" />
+    <circle class="amber pop" style="--k:6" cx="100" cy="36" r="4" />
+    <text class="mono-t" x="146" y="60" text-anchor="end">PID</text>` },
   { id: "stats", cap: "Statistics", app: "plot", say: "compare groups.", href: "#app-plot", c: "var(--plot)", dx: 1, dy: 0, svg: `
     <path class="ink-s" d="M16 10V86H150" />
     <path class="grid" d="M16 66H150M16 46H150M16 26H150" />
@@ -73,7 +75,7 @@ const label = (t: Tile) => t.app ? name(t.app) : t.id === "next" ? "next app" : 
   <div class="left">
     <h1 id="hero-title" class="title">Datum<span class="sq" aria-hidden="true"></span></h1>
     <p class="tools">Tools to <span class="say it" data-say>{tiles[0].say}</span></p>
-    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, and more on the way. Open source; your files stay on your computer.</p>
+    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, and more on the way. Open source; your files stay on your computer.</p>
     <ul class="family" aria-label="The apps">
       {apps.map(a => <li><a href={`#app-${a.id}`} style={`--c:var(--${a.id}, ${a.accent})`}><img src={a.logo} width="22" height="22" alt="" />{a.name.replace(/^Datum /, "")}</a></li>)}
       <li><a class="soon" href="https://github.com/Edgar-Mendonca/Datum/issues/new"><span aria-hidden="true">+</span>More to come</a></li>
@@ -190,6 +192,8 @@ const label = (t: Tile) => t.app ? name(t.app) : t.id === "next" ? "next app" : 
   .tile :global(.soft) { opacity: .5; }
   .tile :global(.acc-f) { fill: color-mix(in srgb, var(--c) 60%, transparent); }
   .tile :global(.acc-s) { fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; }
+  .tile :global(.setp) { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .tile :global(.band) { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 2 2; opacity: .6; }
   .tile :global(.plan-l) { fill: none; stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 4 3; }
   .tile :global(.acc2f) { fill: var(--em); }
   .tile :global(.amber) { fill: var(--amber); }

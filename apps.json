@@ -30,6 +30,16 @@
       "tagline": "Choose materials with property charts and selection indices.",
       "for": "Design and materials engineers, and students.",
       "shot": "docs/images/chart.png"
+    },
+    {
+      "id": "sim",
+      "repo": "Edgar-Mendonca/Datum-Sim",
+      "branch": "HEAD",
+      "name": "Datum Sim",
+      "accent": "#C2410C",
+      "tagline": "Model and simulate dynamic systems: block diagrams, control and motors.",
+      "for": "Control, mechanical, electrical, process and mechatronics engineers, researchers and students.",
+      "shot": "docs/images/diagram.png"
     }
   ]
 }

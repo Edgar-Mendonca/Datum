@@ -13,13 +13,18 @@ export type Brain = { generated: string; types: Record<string, string>; apps: { 
 
 const scrub = (t = "") => t.split("\n").map(l => l.split(/(?<=[.!?])\s+/).filter(s => !NAMES.test(s)).join(" ").trim()).filter(Boolean).join("\n");
 
-/** Where each cluster settles: the hub in the middle, the apps on a triangle around it. */
-export const ANCHOR: Record<string, [number, number]> = { hub: [0, 0], plan: [-430, 250], plot: [430, 250], atlas: [0, -480] };
+/** Where each cluster settles: the hub in the middle, the apps evenly round it (any number of apps). */
+export let ANCHOR: Record<string, [number, number]> = { hub: [0, 0] };
+const anchorsFor = (ids: string[]) => Object.fromEntries([["hub", [0, 0]], ...ids.map((id, i) => {
+  const a = Math.PI * (0.75 + (2 * i) / ids.length);
+  return [id, [Math.round(Math.cos(a) * 500), Math.round(Math.sin(a) * 460)]];
+})]) as Record<string, [number, number]>;
 
 export function loadBrain(): Promise<Brain> {
   const g = globalThis as any;
   return g.__datumBrain ??= (async () => {
     const raw = await buildBrain({ root: new URL("../", pathToFileURL(`${process.cwd()}/`)) });
+    ANCHOR = anchorsFor(raw.apps.map((a: { id: string }) => a.id));
     let hidden = 0;
     const nodes: BNode[] = [];
     for (const n of raw.nodes as BNode[]) {

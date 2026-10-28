@@ -1,6 +1,6 @@
 # The Datum family: one design and one way of working
 
-The Datum apps are free, open-source desktop tools for engineers, scientists, researchers and analysts: small, fast Windows apps that do serious technical work. **Datum Plan** (project scheduling) is the first, **Datum Plot** (data analysis and graphs) the second, and **Datum Atlas** (materials selection and property charts) the third. Every app looks, feels and ships the same way; only the accent colour and the logo glyph change.
+The Datum apps are free, open-source desktop tools for engineers, scientists, researchers and analysts: small, fast Windows apps that do serious technical work. **Datum Plan** (project scheduling) is the first, **Datum Plot** (data analysis and graphs) the second, **Datum Atlas** (materials selection and property charts) the third, and **Datum Sim** (system simulation and control design) the fourth. Every app looks, feels and ships the same way; only the accent colour and the logo glyph change.
 
 This file is the single source for that. It lives in the DATUM repo (`Edgar-Mendonca/Datum`); each app keeps a short `docs/FAMILY.md` that links here. Datum Plan's code is the reference implementation: copy from it rather than reinventing anything. Section numbers are stable, so "FAMILY §3" means the same thing everywhere.
 
@@ -11,6 +11,7 @@ This file is the single source for that. It lives in the DATUM repo (`Edgar-Mend
 | Datum Plan | Plan, schedule, track and report projects | Blue `#0B5CAD` (glyph `#2F6FCF`) | Calendar with bars + amber diamond | `.dplan` | `com.edgarmendonca.datumplan` | Edgar-Mendonca/Datum-Plan |
 | Datum Plot | Analyse data and make publication-ready graphs | Teal `#0E8C7F` | Axes, points, fitted curve + amber diamond | `.dplot` | `com.edgarmendonca.datumplot` | Edgar-Mendonca/Datum-Plot |
 | Datum Atlas | Choose materials with property charts and selection indices | Violet `#6C4AB6` | Log–log axes, family bubbles, index line + amber diamond | `.datlas` | `com.edgarmendonca.datumatlas` | Edgar-Mendonca/Datum-Atlas |
+| Datum Sim | Model and simulate dynamic systems: block diagrams, control and motors | Orange `#C2410C` | A feedback loop: summing node, tinted block with a settling step response, feedback path + amber diamond | `.dsim` | `com.edgarmendonca.datumsim` | Edgar-Mendonca/Datum-Sim |
 | DATUM (hub) | The family site, memory and brain | Navy `#0C1A2B` | "Continuum": two concentric D's drawn as one line, with the amber datum square where it starts ([brand/BRAND.md](brand/BRAND.md)) | — | — | Edgar-Mendonca/Datum |
 | Next apps | — | pick from §3 | — | `.d<name>` | `com.edgarmendonca.datum<name>` | Edgar-Mendonca/Datum-<Name> |
 
@@ -49,6 +50,7 @@ Dark (`:root[data-theme="dark"]`): `--bg #0B1119 --bg2 #101823 --panel #0D141E -
 | **Plan · Blue** | #0B5CAD | #0A4F96 | #9CC2F7 | #E8F0FA | #DCE8F7 | #B9D2F0 | #4C9BEA | #0A3D73 |
 | **Plot · Teal** | #0E8C7F | #0B7468 | #8FD3C9 | #E3F5F2 | #D3EFEA | #A9DDD4 | #3FC2B2 | #0A4A44 |
 | **Atlas · Violet** | #6C4AB6 | #5A3C9C | #C9B8EE | #F0EBFA | #E5DCF6 | #CDBDEE | #A58BEA | #3A2766 |
+| **Sim · Orange** | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |
 | Amber (spare) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |
 | Crimson (spare) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |
 

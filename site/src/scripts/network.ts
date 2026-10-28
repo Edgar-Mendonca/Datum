@@ -7,10 +7,11 @@ type N = SimulationNodeDatum & { id: string; type: string; label: string; text?:
 type E = { source: N; target: N; kind: string };
 type Data = { types: Record<string, string>; colors: Record<string, string>; anchors: Record<string, [number, number]>; apps: { id: string; accent: string; name: string }[]; nodes: any[]; edges: any[] };
 
-const APP_COLOR: Record<string, string> = { plan: "#4C9BEA", plot: "#3FC2B2", atlas: "#A58BEA", hub: "#F2B233" };
+// Dark-theme accents of the apps (FAMILY §3); a new app falls back to its own accent until it is added here.
+const APP_COLOR: Record<string, string> = { plan: "#4C9BEA", plot: "#3FC2B2", atlas: "#A58BEA", sim: "#F08A5D", hub: "#F2B233" };
 // Columns of the Flow layout, left to right, and the band of each app.
 const FLOW: Record<string, number> = { guide: 0, workflow: 0, hub: 1, tech: 2, app: 3, decision: 4, file: 5, session: 6, release: 7, roadmap: 8, idea: 8 };
-const LANE = ["plan", "plot", "atlas", "hub"];
+let LANE: string[] = ["hub"];
 const COLS = ["Design guide · how we work", "Hub", "Technology", "Apps", "Decisions", "Source files", "Sessions", "Releases", "Planned · ideas"];
 
 export function start() {
@@ -20,6 +21,8 @@ export function start() {
   const $ = (id: string) => document.getElementById(id)!;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  LANE = [...data.apps.map(a => a.id), "hub"];
+  for (const a of data.apps) APP_COLOR[a.id] ??= a.accent;
   const nodes: N[] = data.nodes.map(n => ({ ...n, r: size(n), color: n.type === "app" ? APP_COLOR[n.app] ?? n.accent : data.colors[n.type], nb: new Set(), links: [] }));
   const byId = new Map(nodes.map(n => [n.id, n]));
   const edges: E[] = data.edges.map(e => ({ source: byId.get(e.source)!, target: byId.get(e.target)!, kind: e.kind })).filter(e => e.source && e.target);
