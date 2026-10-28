@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import HeroWorkbench from "../components/HeroWorkbench.astro";
+import Hero from "../components/Hero.astro";
+import Rail from "../components/Rail.astro";
 import { loadAll, latestPerApp, statusOf, fmtDate, fmtSize } from "../lib/github";
 
 const apps = await loadAll();
@@ -12,9 +13,9 @@ const words = (t: string) => t.split(" ");
 const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method", "Method"], ["releases", "Releases"]];
 ---
 <Base title="Datum: free, open-source desktop tools for technical work" description="Datum is a family of free, open-source desktop tools for engineers, scientists, researchers and analysts.">
-  <!-- Hero: "Datum" and "Tools to …" on the left, the workbench on the right. -->
+  <!-- Hero: "Datum" and "Tools to …" on the left, one animated tile per app on the right. -->
   <section id="top" class="hero ruled" aria-labelledby="hero-title" data-rail>
-    <div class="frame pad"><HeroWorkbench apps={apps} /></div>
+    <div class="frame pad"><Hero apps={apps} /></div>
   </section>
 
   <!-- 01 The apps -->
@@ -38,7 +39,7 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
               <div class="app-text">
                 <div class="app-head">
                   <img src={a.logo} width="40" height="40" alt="" />
-                  <h3 id={`${a.id}-name`} class="app-name">{a.name}</h3>
+                  <h3 id={`${a.id}-name`} class="app-name"><a href={`${base}/apps/${a.id}`}>{a.name}</a></h3>
                   <span class:list={["badge", "mono", statusOf(a).toLowerCase().replace(/\s+/g, "-")]}>{statusOf(a)}</span>
                 </div>
                 <p class="app-tag">{a.tagline}</p>
@@ -48,9 +49,9 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
                   {a.latest
                     ? <a class="btn btn-solid" href={a.latest.download}>Download{a.latest.size ? <span class="dim">{fmtSize(a.latest.size)}</span> : null}</a>
                     : <span class="btn btn-line" aria-disabled="true">Coming soon</span>}
-                  <a class="btn btn-line" href={`https://github.com/${a.repo}`}>Source</a>
+                  <a class="btn btn-line" href={`${base}/apps/${a.id}`}>About {a.name.replace(/^Datum /, "")}<span aria-hidden="true">→</span></a>
                 </div>
-                <p class="mono app-links"><a href={`https://github.com/${a.repo}/blob/HEAD/CHANGELOG.md`}>What's new</a><a href={`https://github.com/${a.repo}/releases`}>All releases</a><a href={`https://github.com/${a.repo}/issues/new`}>Report an issue</a></p>
+                <p class="mono app-links"><a href={`https://github.com/${a.repo}`}>Source</a><a href={`https://github.com/${a.repo}/blob/HEAD/CHANGELOG.md`}>What's new</a><a href={`https://github.com/${a.repo}/releases`}>All releases</a><a href={`https://github.com/${a.repo}/issues/new`}>Report an issue</a></p>
               </div>
             </div>
           </article>
@@ -97,29 +98,9 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
     </div>
   </section>
 
-  <!-- The index by the ruler and the scroll marker (wide screens). -->
-  <nav class="rail" aria-label="On this page">{rail.map(([id, t]) => <a href={`#${id}`} data-to={id}>{t}</a>)}</nav>
-  <div class="mark" aria-hidden="true"><span data-pct>000%</span></div>
+  <Rail items={rail} />
 </Base>
 
-<script>
-  // The index by the ruler: which section is in view, and how far down the page is.
-  const links = [...document.querySelectorAll<HTMLAnchorElement>(".rail a")];
-  const pct = document.querySelector<HTMLElement>("[data-pct]");
-  const sections = [...document.querySelectorAll<HTMLElement>("[data-rail]")];
-  const update = () => {
-    const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
-    document.documentElement.style.setProperty("--p", p.toFixed(4));
-    if (pct) pct.textContent = `${String(Math.round(p * 100)).padStart(3, "0")}%`;
-    let cur = sections[0]?.id;
-    for (const s of sections) if (s.getBoundingClientRect().top < innerHeight * .4) cur = s.id;
-    links.forEach(a => a.setAttribute("aria-current", String(a.dataset.to === cur)));
-  };
-  let raf = 0;
-  addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, { passive: true });
-  addEventListener("resize", update);
-  update();
-</script>
 
 <style>
   .hero .frame.pad { padding-block: clamp(48px, 7vw, 96px); }
@@ -152,6 +133,7 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
   .app-shot .app-logo-big { width: 140px; border: 0; box-shadow: none; }
   .app-text { padding: clamp(22px, 3vw, 36px) var(--pad); display: grid; gap: 12px; align-content: center; justify-items: start; }
   .app-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .app-name a:hover { color: var(--c); }
   .app-name { font: 600 clamp(24px, 2.4vw, 30px)/1.1 var(--display); letter-spacing: -.02em; }
   .badge { font-size: 10px; padding: 3px 8px; border: 1px solid currentColor; letter-spacing: .12em; }
   .badge.stable { color: #1F7A4D; } .badge.beta { color: var(--c); } .badge.alpha { color: #8A5A00; } .badge.coming-soon { color: var(--muted); }

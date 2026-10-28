@@ -1,0 +1,100 @@
+---
+// The hero: "Datum" and "Tools to <phrase>" on the left; on the right one animated drawing per app, around the datum
+// (the amber square where the tiles meet). The italic phrase changes by itself every few seconds and the tile of its
+// app lights up; hovering or focusing a tile shows that app's phrase until the pointer leaves, then the cycle goes on.
+import type { App } from "../lib/github";
+import AppGlyph from "./AppGlyph.astro";
+interface Props { apps: App[] }
+const { apps } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const short = (a: App) => a.name.replace(/^Datum /, "");
+
+// What each app does, in the words of the changing phrase, and the tile's caption. Apps not listed get their tagline.
+const say: Record<string, { cap: string; phrases: string[] }> = {
+  plan: { cap: "Schedule and track", phrases: ["plan projects.", "track progress."] },
+  plot: { cap: "Analyse and graph", phrases: ["analyse data.", "fit curves."] },
+  atlas: { cap: "Select materials", phrases: ["choose materials.", "map properties."] },
+  sim: { cap: "Model and simulate", phrases: ["simulate systems.", "tune control loops."] },
+};
+const tiles = apps.slice(0, 4).map(a => ({ a, cap: say[a.id]?.cap ?? a.tagline, phrases: say[a.id]?.phrases ?? [`${a.tagline.split(":")[0].replace(/\.$/, "").toLowerCase()}.`] }));
+// The phrase cycle takes the first phrase of every app, then the second, so the tiles take turns.
+const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, text: t.phrases[k] }] : []));
+---
+<div class="hero-in">
+  <div class="left">
+    <h1 id="hero-title" class="title">Datum<span class="sq" aria-hidden="true"></span></h1>
+    <p class="tools">Tools to <span class="say it" data-say aria-live="off">{cycle[0].text}</span></p>
+    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, and more on the way. Open source; your files stay on your computer.</p>
+    <div class="btns">
+      <a class="btn btn-solid" href="#apps">Get the apps</a>
+      <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>
+    </div>
+  </div>
+
+  <div class="quad" data-quad data-cycle={JSON.stringify(cycle)}>
+    {tiles.map(({ a, cap }, i) => (
+      <a class:list={["q", { on: i === 0 }]} href={`${base}/apps/${a.id}`} data-q={i} style={`--c:var(--${a.id}, ${a.accent})`} aria-label={`${a.name}: ${cap}`}>
+        <span class="q-top mono"><img src={a.logo} width="18" height="18" alt="" /><b>{short(a)}</b><span class="arrow" aria-hidden="true">→</span></span>
+        <AppGlyph id={a.id} logo={a.logo} />
+        <span class="q-cap mono">{cap}</span>
+      </a>
+    ))}
+    <span class="origin" aria-hidden="true"></span>
+  </div>
+</div>
+
+<script>
+  const quad = document.querySelector<HTMLElement>("[data-quad]");
+  const say = document.querySelector<HTMLElement>("[data-say]");
+  if (quad && say) {
+    const cycle: { i: number; text: string }[] = JSON.parse(quad.dataset.cycle || "[]");
+    const tiles = [...quad.querySelectorAll<HTMLElement>("[data-q]")];
+    let n = 0, held = false;
+    const show = (i: number, text: string) => {
+      tiles.forEach((t, k) => t.classList.toggle("on", k === i));
+      if (say.textContent === text) return;
+      say.textContent = text;
+      say.classList.remove("in"); void say.offsetWidth; say.classList.add("in");
+    };
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches && cycle.length > 1)
+      setInterval(() => { if (held || document.hidden) return; n = (n + 1) % cycle.length; show(cycle[n].i, cycle[n].text); }, 2600);
+    tiles.forEach((t, i) => {
+      const take = () => { held = true; const k = cycle.findIndex(c => c.i === i); if (k >= 0) { n = k; show(i, cycle[k].text); } };
+      t.addEventListener("pointerenter", take);
+      t.addEventListener("focus", take);
+    });
+    quad.addEventListener("pointerleave", () => { held = false; });
+    quad.addEventListener("focusout", e => { if (!quad.contains(e.relatedTarget as Node)) held = false; });
+  }
+</script>
+
+<style>
+  .hero-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+
+  .left { display: grid; gap: 22px; justify-items: start; }
+  .title { font: 600 clamp(56px, 7vw, 92px)/.95 var(--display); letter-spacing: -.035em; display: flex; align-items: flex-end; gap: .08em; }
+  .sq { width: .2em; height: .2em; background: var(--amber); margin-bottom: .1em; }
+  .tools { font: 600 clamp(26px, 3vw, 38px)/1.15 var(--display); letter-spacing: -.02em; min-height: 1.2em; }
+  .say { font-size: 1.12em; display: inline-block; }
+  .say.in { animation: swap .5s var(--ease); }
+  @keyframes swap { from { opacity: 0; transform: translateY(.3em); filter: blur(3px); } }
+  .lead { max-width: 48ch; }
+
+  /* Four tiles in a square; the datum square sits where they meet. */
+  .quad { justify-self: end; width: min(100%, 540px); position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 10px;
+    border: 1px solid var(--line-2); background: var(--bg-2); }
+  .q { display: grid; background: var(--card); border: 1px solid var(--line); transition: border-color .25s, box-shadow .25s, transform .25s var(--ease); }
+  .q :global(.glyph) { background: var(--paper); border-block: 1px solid var(--line); }
+  .q-top, .q-cap { display: flex; align-items: center; gap: 8px; padding: 8px 10px; font-size: 10.5px; letter-spacing: .1em; white-space: nowrap; overflow: hidden; }
+  .q-top b { color: var(--ink); font-weight: 600; }
+  .q-top .arrow { margin-left: auto; color: var(--c); opacity: 0; transform: translateX(-4px); transition: opacity .25s, transform .25s var(--ease); }
+  .q-cap { color: var(--muted); font-size: 9.5px; }
+  .q.on, .q:hover { border-color: var(--c); box-shadow: 0 14px 30px -22px rgb(12 26 43 / .55), inset 0 2px 0 var(--c); transform: translateY(-2px); }
+  .q.on .q-cap, .q:hover .q-cap { color: var(--c); }
+  .q.on .arrow, .q:hover .arrow { opacity: 1; transform: none; }
+  .q:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+  .origin { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: var(--amber); outline: 4px solid var(--bg-2); pointer-events: none; }
+
+  @media (max-width: 960px) { .hero-in { grid-template-columns: 1fr; } .quad { justify-self: stretch; width: 100%; } }
+  @media (max-width: 420px) { .quad { gap: 6px; padding: 6px; } .q-top, .q-cap { padding: 6px 7px; letter-spacing: .05em; } .q-cap { font-size: 8.5px; } }
+</style>

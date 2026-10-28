@@ -1,0 +1,108 @@
+---
+// One animated drawing per app: what the app does, in a few lines on a grid. Used in the hero (four tiles) and at
+// the top of each app page. The drawings loop gently; at rest (reduced motion, no animation) every drawing is complete.
+interface Props { id: string; logo?: string; class?: string }
+const { id, logo, class: cls } = Astro.props;
+const known = ["plan", "plot", "atlas", "sim"].includes(id);
+---
+{known ? (
+  <svg class:list={["glyph", `g-${id}`, cls]} viewBox="0 0 200 140" aria-hidden="true">
+    <path class="g-grid" d="M0 20H200M0 40H200M0 60H200M0 80H200M0 100H200M0 120H200M20 0V140M40 0V140M60 0V140M80 0V140M100 0V140M120 0V140M140 0V140M160 0V140M180 0V140" />
+    {id === "plan" && (
+      <Fragment>
+        <g class="g-ink" opacity=".22"><rect x="14" y="22" width="26" height="6"/><rect x="14" y="44" width="20" height="6"/><rect x="14" y="66" width="30" height="6"/><rect x="14" y="88" width="22" height="6"/><rect x="14" y="110" width="16" height="6"/></g>
+        <g class="g-acc">
+          <rect class="g-bar" style="--k:0" x="56" y="20" width="44" height="10" rx="2"/>
+          <rect class="g-bar" style="--k:1" x="88" y="42" width="52" height="10" rx="2"/>
+          <rect class="g-bar" style="--k:2" x="128" y="64" width="38" height="10" rx="2"/>
+          <rect class="g-bar g-soft" style="--k:3" x="104" y="86" width="40" height="10" rx="2"/>
+        </g>
+        <path class="g-link" d="M100 25h4v17M140 47h4v17M128 69h-4v17" />
+        <path class="g-amber g-pop" style="--k:5" d="M176 105l8 8-8 8-8-8z" />
+        <path class="g-today" d="M120 8V132" />
+      </Fragment>
+    )}
+    {id === "plot" && (
+      <Fragment>
+        <path class="g-axis" d="M22 12V124H188" />
+        <path class="g-draw g-curve" pathLength="1" d="M26 118C64 116 80 110 96 84S124 34 182 26" />
+        <g class="g-acc-f">
+          {[[32, 114], [48, 117], [64, 110], [80, 104], [96, 82], [112, 62], [128, 44], [146, 36], [164, 29], [180, 28]].map(([x, y], k) => <circle class="g-pop" style={`--k:${k * .35}`} cx={x} cy={y + (k % 2 ? 4 : -4)} r="4" />)}
+        </g>
+        <text class="g-text g-fade" x="184" y="72" text-anchor="end">R² 0.998</text>
+      </Fragment>
+    )}
+    {id === "atlas" && (
+      <Fragment>
+        <path class="g-axis" d="M22 12V124H188" />
+        <g class="g-acc-f">
+          <ellipse class="g-pop" style="--k:0" cx="50" cy="104" rx="20" ry="9" transform="rotate(-25 50 104)" />
+          <ellipse class="g-pop" style="--k:1" cx="86" cy="84" rx="24" ry="10" transform="rotate(-35 86 84)" />
+          <ellipse class="g-pop" style="--k:2" cx="150" cy="40" rx="22" ry="9" transform="rotate(-30 150 40)" />
+          <ellipse class="g-pop" style="--k:3" cx="140" cy="94" rx="15" ry="7" transform="rotate(-10 140 94)" />
+          <ellipse class="g-pop" style="--k:4" cx="104" cy="44" rx="12" ry="6" transform="rotate(-20 104 44)" />
+        </g>
+        <path class="g-sel" d="M30 128L190 18" />
+        <circle class="g-ring" cx="150" cy="40" r="26" />
+        <text class="g-text g-fade" x="30" y="26">E½/ρ</text>
+      </Fragment>
+    )}
+    {id === "sim" && (
+      <Fragment>
+        <g class="g-blocks">
+          <circle cx="28" cy="34" r="9" /><rect x="52" y="22" width="40" height="24" rx="2" /><rect x="112" y="22" width="44" height="24" rx="2" />
+        </g>
+        <text class="g-text g-small" x="28" y="38" text-anchor="middle">Σ</text>
+        <text class="g-text g-small" x="72" y="38" text-anchor="middle">PID</text>
+        <text class="g-text g-small" x="134" y="38" text-anchor="middle">G(s)</text>
+        <path class="g-wire" d="M37 34H52M92 34H112M156 34H184V60H28V43" />
+        <circle class="g-dot" r="3.5" />
+        <path class="g-axis" d="M22 72V128H188" />
+        <path class="g-setp" d="M24 88H186" />
+        <path class="g-draw g-curve" pathLength="1" d="M24 126C38 126 42 80 56 76S72 94 84 90S100 85 110 88S134 88 186 88" />
+      </Fragment>
+    )}
+  </svg>
+) : <img class:list={["glyph-logo", cls]} src={logo} width="96" height="96" alt="" />}
+
+<style>
+  .glyph { display: block; width: 100%; height: auto; overflow: hidden; }
+  .glyph-logo { margin: auto; width: 30%; }
+  .g-grid { fill: none; stroke: var(--line); stroke-width: 1; }
+  .g-ink { fill: var(--ink); }
+  .g-axis { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .g-acc { fill: var(--c); }
+  .g-soft { opacity: .5; }
+  .g-acc-f { fill: color-mix(in srgb, var(--c) 62%, transparent); }
+  .g-curve { fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; }
+  .g-link { fill: none; stroke: var(--ink); stroke-width: 1.3; opacity: .6; }
+  .g-amber { fill: var(--amber); }
+  .g-today { stroke: #C0392B; stroke-width: 1.4; stroke-dasharray: 3 3; }
+  .g-text { font: 600 12px var(--mono); fill: var(--ink); }
+  .g-small { font-size: 10.5px; }
+  .g-sel { fill: none; stroke: var(--amber); stroke-width: 2.6; stroke-dasharray: 7 5; }
+  .g-ring { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 3 3; }
+  .g-blocks { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
+  .g-wire { fill: none; stroke: var(--ink); stroke-width: 1.4; opacity: .7; }
+  .g-dot { fill: var(--c); offset-path: path("M37 34H52M92 34H112M156 34H184V60H28V43"); offset-distance: 30%; }
+  .g-setp { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .g-draw { stroke-dasharray: 1; }
+
+  /* The loops: 6 s, everything builds up, holds, then clears; staggered by --k. */
+  .g-bar { transform-box: fill-box; transform-origin: left center; animation: g-grow 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .3s); }
+  @keyframes g-grow { 0% { transform: scaleX(0); } 18%, 86% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
+  .g-pop { transform-box: fill-box; transform-origin: center; animation: g-pop 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .2s); }
+  @keyframes g-pop { 0% { transform: scale(0); opacity: 0; } 8%, 86% { transform: none; opacity: 1; } 96%, 100% { transform: scale(0); opacity: 0; } }
+  .g-draw { animation: g-draw 6s ease-out infinite both; animation-delay: .6s; }
+  @keyframes g-draw { 0% { stroke-dashoffset: 1; } 30%, 84% { stroke-dashoffset: 0; opacity: 1; } 94%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+  .g-fade { animation: g-fade 6s ease infinite both; animation-delay: 1.2s; }
+  @keyframes g-fade { 0%, 20% { opacity: 0; } 30%, 80% { opacity: 1; } 90%, 100% { opacity: 0; } }
+  .g-today { animation: g-sweep 6s linear infinite; }
+  @keyframes g-sweep { from { transform: translateX(-60px); } to { transform: translateX(50px); } }
+  .g-sel { animation: g-march 1.4s linear infinite; }
+  @keyframes g-march { to { stroke-dashoffset: -24; } }
+  .g-ring { transform-box: fill-box; transform-origin: center; animation: g-ring 6s var(--ease) infinite both; animation-delay: 1.4s; }
+  @keyframes g-ring { 0%, 15% { opacity: 0; transform: scale(1.6); } 25%, 80% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; } }
+  .g-dot { animation: g-run 2.4s linear infinite; }
+  @keyframes g-run { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+</style>

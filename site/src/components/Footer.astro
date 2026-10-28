@@ -13,8 +13,8 @@ const gh = "https://github.com/Edgar-Mendonca/Datum";
         <p class="muted" style="margin-top:18px;max-width:36ch">Free, open-source desktop tools for engineers, scientists, researchers and analysts. No accounts, no subscriptions, no telemetry.</p>
       </div>
       <div>
-        <h2 class="mono">Download</h2>
-        <ul>{apps.map(a => <li><a href={`https://github.com/${a.repo}/releases/latest`}>{a.name}</a></li>)}</ul>
+        <h2 class="mono">Apps</h2>
+        <ul>{apps.map(a => <li><a href={`${base}/apps/${a.id}`}>{a.name}</a></li>)}</ul>
       </div>
       <div>
         <h2 class="mono">Project</h2>

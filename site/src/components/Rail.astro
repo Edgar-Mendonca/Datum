@@ -1,0 +1,25 @@
+---
+// The index by the ruler and the scroll marker (wide screens): which section is in view, and how far down the page is.
+interface Props { items: [string, string][] }
+const { items } = Astro.props;
+---
+<nav class="rail" aria-label="On this page">{items.map(([id, t]) => <a href={`#${id}`} data-to={id}>{t}</a>)}</nav>
+<div class="mark" aria-hidden="true"><span data-pct>000%</span></div>
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>(".rail a")];
+  const pct = document.querySelector<HTMLElement>("[data-pct]");
+  const sections = [...document.querySelectorAll<HTMLElement>("[data-rail]")];
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
+    document.documentElement.style.setProperty("--p", p.toFixed(4));
+    if (pct) pct.textContent = `${String(Math.round(p * 100)).padStart(3, "0")}%`;
+    let cur = sections[0]?.id;
+    for (const s of sections) if (s.getBoundingClientRect().top < innerHeight * .4) cur = s.id;
+    links.forEach(a => a.setAttribute("aria-current", String(a.dataset.to === cur)));
+  };
+  let raf = 0;
+  addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, { passive: true });
+  addEventListener("resize", update);
+  update();
+</script>

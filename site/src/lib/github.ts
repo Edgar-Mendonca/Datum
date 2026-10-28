@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import sharp from "sharp";
 import { marked } from "marked";
 
+export type Step = { title: string; text: string };
 export type Stage = { v: string; title: string; when: string; items: string[] };
 export type Shot = { path: string; raw: string; file: string; alt: string; bytes?: Uint8Array };
 export type Section = { version: string; date: string; summary: string; html: string };
@@ -13,7 +14,7 @@ export type Release = { app: string; name: string; accent: string; version: stri
 export type Latest = { version: string; date: string; url: string; download: string; size?: number; fromChangelog?: boolean };
 export type App = {
   id: string; repo: string; branch: string; name: string; accent: string; tagline: string; for: string;
-  logo: string; highlights: string[]; shots: Shot[]; roadmap: Stage[]; changelog: Section[];
+  logo: string; about: string[]; steps: Step[]; highlights: string[]; shots: Shot[]; roadmap: Stage[]; changelog: Section[];
   latest?: Latest; releases: Release[]; hasSite: boolean; statusSet?: string;
 };
 
@@ -77,12 +78,13 @@ async function loadApp(e: any): Promise<App> {
   const app: App = {
     id: e.id, repo: e.repo, branch: e.branch ?? "HEAD", hasSite: !!site, statusSet: s.status ?? e.status,
     name: s.name ?? e.name, accent: s.accent ?? e.accent, tagline: s.tagline ?? e.tagline, for: s.for ?? e.for,
-    logo, highlights: (s.highlights ?? []).filter((h: string) => plain(h, `${e.id} site.json`)),
+    logo, about: [s.about ?? e.about ?? []].flat().filter((p: string) => plain(p, `${e.id} about`)), steps: s.steps ?? e.steps ?? [],
+    highlights: (s.highlights ?? []).filter((h: string) => plain(h, `${e.id} site.json`)),
     roadmap: (s.roadmap ?? []).map((r: Stage) => ({ ...r, items: r.items.filter(i => plain(i, `${e.id} roadmap ${r.v}`)) })), changelog, releases: [],
     shots: [],
   };
-  // The first screenshot is downloaded now and written into dist after the build; one that fails is left out.
-  const shots = await Promise.all((s.screenshots ?? (e.shot ? [e.shot] : [])).slice(0, 1).map(async (p: string): Promise<Shot> => {
+  // The screenshots (up to four) are downloaded now and written into dist after the build; one that fails is left out.
+  const shots = await Promise.all((s.screenshots ?? (e.shot ? [e.shot] : [])).slice(0, 4).map(async (p: string): Promise<Shot> => {
     const base = p.split("/").pop()!.replace(/\.\w+$/, "");
     const png = await get(raw(p), "bytes");
     const bytes = png ? new Uint8Array(await sharp(png).resize({ width: 1440, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer().catch(() => png)) : null;
@@ -116,7 +118,7 @@ export function loadAll(): Promise<App[]> {
     const entries = JSON.parse(read("apps.json")).apps;
     const apps = await Promise.all(entries.map((e: any) => loadApp(e).catch(err => {
       console.warn(`[datum] ${e.id}: ${err.message}`);
-      return { ...e, branch: e.branch ?? "HEAD", logo: familyLogo, highlights: [], shots: [], roadmap: [], changelog: [], releases: [], hasSite: false } as App;
+      return { ...e, branch: e.branch ?? "HEAD", logo: familyLogo, about: [e.about ?? []].flat(), steps: e.steps ?? [], highlights: [], shots: [], roadmap: [], changelog: [], releases: [], hasSite: false } as App;
     })));
     if (flagged.length) console.warn(`[datum] ${flagged.length} lines name another product and are left out:\n  ${flagged.join("\n  ")}`);
     return apps;

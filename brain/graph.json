@@ -115,7 +115,7 @@
    "id": "guide-10",
    "type": "guide",
    "label": "§10 Docs in every repo",
-   "text": "· CLAUDE.md: read MEMORY first; update it at the end of every session; the user's preferences; the checks; the release steps.\n· docs/MEMORY.md: product table, architecture (files), decisions (version | decision | why), roadmap (✅ 🔜 ⬜), session log, known limits, and the \"How we work\" workflow.\n· CHANGELOG.md: ## x.y.z — date, a one-line summary, then bold sections in plain language for users. The site shows the last five sections.\n· docs/site.json: the app's public summary, read by the family site at build time and by File › Roadmap in the app:\njson\n{\n\"id\": \"plan\", \"name\": \"Datum Plan\", \"accent\": \"#0B5CAD\",\n\"logo\": \"docs/brand/datum-plan-icon.svg\",\n\"tagline\": \"…\", \"for\": \"…\",\n\"highlights\": [\"…\"],\n\"screenshots\": [\"docs/images/gantt.png\"],\n\"roadmap\": [{ \"v\": \"0.3.11\", \"title\": \"Fixes\", \"when\": \"Next\", \"items\": [\"…\"] }]\n}\nwhen is one of Next, Soon, Later, Goal. Screenshots are 1440×900 PNGs in docs/images/.\n· The brain: DATUM's brain/graph.json is generated from these files (node brain/brain.mjs); keep the MEMORY tables (Files, Decisions, Roadmap, Session log, How we work) in the same shape so it can read them.\n· docs/PLAN-x.y.md: feedback → diagnosis → proposal → size → questions, written before any big release.\n· NOTICE for third-party code and fonts; MIT license.",
+   "text": "· CLAUDE.md: read MEMORY first; update it at the end of every session; the user's preferences; the checks; the release steps.\n· docs/MEMORY.md: product table, architecture (files), decisions (version | decision | why), roadmap (✅ 🔜 ⬜), session log, known limits, and the \"How we work\" workflow.\n· CHANGELOG.md: ## x.y.z — date, a one-line summary, then bold sections in plain language for users. The site shows the last five sections.\n· docs/site.json: the app's public summary, read by the family site at build time and by File › Roadmap in the app:\njson\n{\n\"id\": \"plan\", \"name\": \"Datum Plan\", \"accent\": \"#0B5CAD\",\n\"logo\": \"docs/brand/datum-plan-icon.svg\",\n\"tagline\": \"…\", \"for\": \"…\",\n\"about\": [\"One or two plain paragraphs: what the app is and how it helps.\"],\n\"steps\": [{ \"title\": \"Enter the tasks\", \"text\": \"…\" }, { \"title\": \"…\", \"text\": \"…\" }, { \"title\": \"…\", \"text\": \"…\" }],\n\"highlights\": [\"…\"],\n\"screenshots\": [\"docs/images/gantt.png\"],\n\"roadmap\": [{ \"v\": \"0.3.11\", \"title\": \"Fixes\", \"when\": \"Next\", \"items\": [\"…\"] }]\n}\nwhen is one of Next, Soon, Later, Goal. Screenshots are 1440×900 PNGs in docs/images/; the app's page on the site shows the first four. about and steps (three steps: how the app is used) fill the Overview of the app's page (/apps/<id>); until an app sets them, the hub's apps.json supplies them.\n· The brain: DATUM's brain/graph.json is generated from these files (node brain/brain.mjs); keep the MEMORY tables (Files, Decisions, Roadmap, Session log, How we work) in the same shape so it can read them.\n· docs/PLAN-x.y.md: feedback → diagnosis → proposal → size → question",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -548,6 +548,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-32",
+   "type": "decision",
+   "app": "hub",
+   "label": "Hero = four app tiles (Hero.astro + AppGlyph.astro: Gantt…",
+   "text": "Hero = four app tiles (Hero.astro + AppGlyph.astro: Gantt, curve fit, property chart, control loop, looping gently) around the amber datum square, replacing the 3×3 workbench; the italic phrase cycles by itself (two phrases per app), hover holds, leaving resumes. One page per app (/apps/<id>); about and steps added to the site.json spec (FAMILY §10), with fallbacks in apps.json\n\nWhy: The user: the bench was too much; four animated icons for the current apps are enough; each app needs a page that explains the software.",
+   "date": "2026-10-28 (s11)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -605,13 +614,22 @@
    "id": "hub-session-6",
    "type": "session",
    "app": "hub",
+   "label": "Session 11 (app pages, simpler hero, README)",
+   "date": "2026-10-28",
+   "text": "· User (screenshot of the hero): the README is out of date; one page per app explaining the software; the hero should be just four animated vector icons for the current apps; the changing text keeps changing by itself; everything in the Datum style.\n· Built: Hero.astro (four tiles, one per app, linking to its page; the amber datum square where they meet; the phrase cycles every 2.6 s through two phrases per app and lights its tile) and AppGlyph.astro (the four drawings, 6 s loops, complete at rest); HeroWorkbench.astro removed. pages/apps/[id].astro (sections numbered by what the app has). Rail.astro shared by both pages. github.ts reads about, steps and up to four screenshots; apps.json has fallback about and steps for every app. Home cards link to the app pages (\"About Plan →\"); the footer's Apps column links them; the header's Apps is current on app pages. The scroll marker no longer shows below 1440 px.\n· README: Datum Sim row, names link to the app pages, the dead /about badge link fixed, Sim issues link. FAMILY §10: about and steps. CLAUDE.md: the new hero and app pages.\n· Plot and Atlas have published docs/site.json (their chats did it after session 10's paste-in text).\n· Checked: build; Playwright 1280 and 375, light and dark, home, every app page and the network: no horizontal overflow.\n· Next: give each app chat the paste-in text to add about and steps to docs/site.json and to link its README to its page on the site.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-7",
+   "type": "session",
+   "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
    "date": "2026-10-28",
    "text": "· The Datum Sim chat (after its 0.1.0 release) asked, through the user: add Sim to apps.json (id sim, accent #C2410C, tagline \"Model and simulate dynamic systems: block diagrams, control and motors.\"), copy its icon into brand/, add the orange accent to FAMILY §3, regenerate the brain.\n· Done, plus: FAMILY §1 row and intro; --sim in site.css (dark #F08A5D); the bench's \"Reports\" tile replaced by Sim's \"Control loop\" (step response, \"Tools to simulate control loops.\"); the lead mentions system simulation; the network's cluster anchors and lanes now come from apps.json (any number of apps), with Sim's dark accent.\n· Checked: build; Playwright on home and network.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-7",
+   "id": "hub-session-8",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -620,7 +638,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -629,7 +647,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -638,7 +656,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -2101,8 +2119,28 @@
    "app": "plot",
    "label": "Datum Plot",
    "accent": "#0E8C7F",
-   "text": "Analyse data and make publication-ready graphs.\n\nFor: Scientists, researchers, lab teams and students.\n\nStack: Rust shell (src-tauri) + Rust project engine (crates/core), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript, plain CSS tokens, IBM Plex. Python worker (py/) with numpy, SciPy and matplotlib for every calculation and every graph; the installer bundles embeddable CPython 3.13.",
+   "text": "Analyse data and make publication-ready graphs: statistics, regression, curve fitting and page layouts, in one app for Windows.\n\nFor: Scientists, researchers, lab teams and students.\n\nStack: Rust shell (src-tauri) + Rust project engine (crates/core), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript, plain CSS tokens, IBM Plex. Python worker (py/) with numpy, SciPy and matplotlib for every calculation and every graph; the installer bundles embeddable CPython 3.13.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot"
+  },
+  {
+   "id": "plot-v0.2.14",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.14",
+   "version": "0.2.14",
+   "date": "2026-10-28",
+   "text": "Many variables: a table with one row per sample, and multiple, logistic and Poisson regression.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.14"
+  },
+  {
+   "id": "plot-v0.2.13",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.2.13",
+   "version": "0.2.13",
+   "date": "2026-10-28",
+   "text": "Security: updated the library that unpacks the Python engine.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.2.13"
   },
   {
    "id": "plot-v0.2.12",
@@ -2255,33 +2293,33 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.1.0"
   },
   {
-   "id": "plot-plan-0-2-13",
+   "id": "plot-plan-0-2-15",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.2.13 Many variables",
-   "version": "0.2.13",
+   "label": "0.2.15 Patterns in many variables",
+   "version": "0.2.15",
    "when": "Next",
-   "text": "Multiple variables + regression (A7, B21)",
+   "text": "Principal component analysis\nClustering (hierarchical and k-means)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-plan-0-2-14-0-2-18",
+   "id": "plot-plan-0-2-16-0-2-19",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.2.14 – 0.2.18 Statistics and materials",
-   "version": "0.2.14 – 0.2.18",
-   "when": "Later",
-   "text": "PCA (B22) · survival (A5, B19, D9) · nested (A8, B20) · peaks + signals (B24, B25) · DSC/TGA + S–N (B31, B30)",
+   "label": "0.2.16 – 0.2.19 Statistics and materials",
+   "version": "0.2.16 – 0.2.19",
+   "when": "Soon",
+   "text": "Survival curves\nNested data\nPeaks and signal processing\nDSC/TGA thermal analysis and S–N fatigue curves",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-plan-0-2-19-0-2-25",
+   "id": "plot-plan-0-2-20-0-2-26",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.2.19 – 0.2.25 Origin power and Python",
-   "version": "0.2.19 – 0.2.25",
+   "label": "0.2.20 – 0.2.26 Worksheets, 3D and Python",
+   "version": "0.2.20 – 0.2.26",
    "when": "Later",
-   "text": "Worksheet + formulas (A9, A11) · matrix + 3D + surface fits (A10, D11, B26) · large data + regions (D17, E5) · Prism/instrument import (A13, A14) · PowerPoint/Word + posters (G5, F3) · console + own analyses (H1, H2) · templates/batch/notebooks (H3, H4, H5)",
+   "text": "Worksheets with formulas\nMatrices, 3D graphs and surface fits\nLarge data sets and regions\nProject and instrument file import\nSlides, reports and posters\nA Python console and your own analyses\nTemplates, batch processing and notebooks",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -2290,8 +2328,8 @@
    "app": "plot",
    "label": "1.0.0 Stable",
    "version": "1.0.0",
-   "when": "Later",
-   "text": "Signed installer (I6), validation report (R/NIST, J4), user guide",
+   "when": "Goal",
+   "text": "Signed installer\nValidation report against reference values\nUser guide",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -2401,6 +2439,15 @@
    "path": "py/datum/groups.py",
    "text": "Compare groups (B4–B8, B16, B23): column (values by row, for pairing), summary (values, or entered mean/SD/N), pairs_of; ttest (unpaired Welch/Student from stats, paired, ratio, one-sample; effect sizes; Shapiro and Brown-Forsythe checks), nonparam (Mann-Whitney + Hodges-Lehmann, Wilcoxon (approximate with ties, as R), KS, Kruskal-Wallis + Dunn (Bonferroni), Friedman), anova (ordinary, Welch/Brown-Forsythe via statsmodels anova_oneway, repeated measures with Geisser-Greenhouse; posthoc Tukey (scipy.stats.tukey_hsd), Dunnett (scipy.stats.dunnett), Holm-Šidák, Šidák, Bonferroni, LSD; trend; η², ω²), correlation (Pearson + Fisher-z CI, Spearman, Kendall, matrix), power (statsmodels power solvers, curve). Results carry brackets [set, set, P].",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/groups.py"
+  },
+  {
+   "id": "plot-file-py-datum-regress-py",
+   "type": "file",
+   "app": "plot",
+   "label": "regress.py",
+   "path": "py/datum/regress.py",
+   "text": "Many variables (B21): xy_view (a multi table seen as XY, first variable on X, fromMulti flag so XY analyses skip it by default), frame (complete rows), multireg (OLS / GLM binomial / GLM Poisson: coefficients, VIF, odds or rate ratios, fit table, checks, two small plots).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/regress.py"
   },
   {
    "id": "plot-file-py-datum-tools-py",
@@ -2982,13 +3029,49 @@
    "id": "plot-decision-34",
    "type": "decision",
    "app": "plot",
+   "label": "zip 9 and deny.toml (security and hardening): zip 2.x had…",
+   "date": "Session 8",
+   "text": "zip 9 and deny.toml (security and hardening): zip 2.x had three advisories (RUSTSEC-2026-0367, 0368, 0369: unsafe symlinks and permissions in extract()); Plot's own loop in runtime.rs never calls extract() and only opens its bundled runtime.zip, so the risk was low, but the version moved to 9.1.3. deny.toml (Datum Plan's, plus BSL-1.0 for clipboard-win/error-code under the clipboard plugin) and a deny CI job, as FAMILY §11's hardening standard asks\n\nWhy: Found by Datum Sim's chat with cargo deny check on a copy of 0.2.12.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-35",
+   "type": "decision",
+   "app": "plot",
+   "label": "docs/site.json (FAMILY §10) is updated in every release…",
+   "date": "Session 8",
+   "text": "docs/site.json (FAMILY §10) is updated in every release together with the roadmap above; public text (CHANGELOG, README, site.json, the in-app roadmap) never names, compares with or claims to copy a commercial product (FAMILY §13): file formats are named by extension (.xlsx, .pzfx, .pptx)\n\nWhy: The Datum family site and network read site.json and leave out lines that name other products.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-36",
+   "type": "decision",
+   "app": "plot",
+   "label": "Many variables = kind \"multi\" (Table::multi, one value per…",
+   "date": "Session 8",
+   "text": "Many variables = kind \"multi\" (Table::multi, one value per cell, row titles name the samples); graphs and XY analyses see it through regress.xy_view (first variable on X, hidden as a data set); multireg takes the outcome as options.y and the other ticked sets as predictors, listwise deletion; Wald CIs for GLMs (R's confint.default)\n\nWhy: Reuse of the XY path; no new graph code.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-37",
+   "type": "decision",
+   "app": "plot",
+   "label": "How to cite: CITATION.cff at the root (GitHub's \"Cite this…",
+   "date": "Session 8",
+   "text": "How to cite: CITATION.cff at the root (GitHub's \"Cite this repository\") and a README section; bump its version and date-released in every release\n\nWhy: A user asked how to cite the app.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-38",
+   "type": "decision",
+   "app": "plot",
    "label": "Column table = Table.kind = \"column\", same model (X column…",
    "date": "Session 7",
    "text": "Column table = Table.kind = \"column\", same model (X column kept, hidden in the UI, unused by Python); each group a data set with reps 1 (or mean/SD/N)\n\nWhy: No new table code in Rust; every op (paste, sort, exclude, sets) works unchanged.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-35",
+   "id": "plot-decision-39",
    "type": "decision",
    "app": "plot",
    "label": "Significance brackets are analysis overlays: t-test…",
@@ -2997,7 +3080,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-36",
+   "id": "plot-decision-40",
    "type": "decision",
    "app": "plot",
    "label": "Transforms, histograms and smoothing are analyses whose result…",
@@ -3006,7 +3089,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-37",
+   "id": "plot-decision-41",
    "type": "decision",
    "app": "plot",
    "label": "Second Python worker (Calc) for results and Excel; graphs keep…",
@@ -3015,7 +3098,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-decision-38",
+   "id": "plot-decision-42",
    "type": "decision",
    "app": "plot",
    "label": "Samples and wording lean to materials science and engineering…",
@@ -3110,7 +3193,7 @@
    "app": "atlas",
    "label": "Datum Atlas",
    "accent": "#6C4AB6",
-   "text": "Choose materials with property charts and selection indices.\n\nFor: Design and materials engineers, and students.\n\nStack: Rust engine (crates/core) + Rust shell (src-tauri), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript, plain CSS tokens, IBM Plex. Own SVG chart engine (geometry in Rust). Chart.js later for bar/radar, GridCraft later for expressions. No Python.",
+   "text": "Choose the right material: property charts, selection and referenced data, in one app for Windows.\n\nFor: Design and materials engineers, and students.\n\nStack: Rust engine (crates/core) + Rust shell (src-tauri), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript, plain CSS tokens, IBM Plex. Own SVG chart engine (geometry in Rust). Chart.js later for bar/radar, GridCraft later for expressions. No Python.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas"
   },
   {
@@ -3140,7 +3223,7 @@
    "label": "0.1.2 Lines and charts",
    "version": "0.1.2",
    "when": "Next",
-   "text": "Several selection lines per chart, results to Excel, keyboard, more values checked (rest of the metals, then polymers)",
+   "text": "Several selection lines per chart.\nResults to a spreadsheet; keyboard control.\nMore values checked against published datasheets (the rest of the metals, then polymers).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3149,8 +3232,8 @@
    "app": "atlas",
    "label": "0.2.0 Indices",
    "version": "0.2.0",
-   "when": "Later",
-   "text": "Index builder (~40 indices); expression axes; formula properties (GridCraft)",
+   "when": "Soon",
+   "text": "An index builder with about 40 indices.\nExpression axes and formula properties.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3159,48 +3242,48 @@
    "app": "atlas",
    "label": "0.3.0 Compare and report",
    "version": "0.3.0",
-   "when": "Later",
-   "text": "Compare + radar; selection report; ~250 materials, more values checked",
+   "when": "Soon",
+   "text": "Compare materials with radar charts.\nA selection report.\nAbout 250 materials, more values checked.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
    "id": "atlas-plan-0-3-1",
    "type": "roadmap",
    "app": "atlas",
-   "label": "0.3.1 Own data",
+   "label": "0.3.1 Your own data",
    "version": "0.3.1",
    "when": "Later",
-   "text": "Several databases, Excel/CSV import with mapping; label placement; style presets; polygon stage",
+   "text": "Several databases; CSV and spreadsheet import with column mapping.\nLabel placement, style presets, polygon selection.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "atlas-plan-0-4",
+   "id": "atlas-plan-0-4-0",
    "type": "roadmap",
    "app": "atlas",
-   "label": "0.4 Eco audit",
-   "version": "0.4",
+   "label": "0.4.0 Eco audit",
+   "version": "0.4.0",
    "when": "Later",
-   "text": "",
+   "text": "Energy and CO₂ across a product's life.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "atlas-plan-0-5",
+   "id": "atlas-plan-0-5-0",
    "type": "roadmap",
    "app": "atlas",
-   "label": "0.5 Process selection",
-   "version": "0.5",
+   "label": "0.5.0 Process selection",
+   "version": "0.5.0",
    "when": "Later",
-   "text": "",
+   "text": "Choose manufacturing processes alongside materials.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "atlas-plan-1-0",
+   "id": "atlas-plan-1-0-0",
    "type": "roadmap",
    "app": "atlas",
-   "label": "1.0 Stable",
-   "version": "1.0",
-   "when": "Later",
-   "text": "~1,000 materials, user guide, signed installer",
+   "label": "1.0.0 Stable",
+   "version": "1.0.0",
+   "when": "Goal",
+   "text": "About 1,000 materials, a user guide and a signed installer.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3438,6 +3521,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/ui/src/ribbon.tsx"
   },
   {
+   "id": "atlas-file-docs-site-json",
+   "type": "file",
+   "app": "atlas",
+   "label": "site.json",
+   "path": "docs/site.json",
+   "text": "The public summary (FAMILY §10): tagline, audience, highlights, screenshots, roadmap (Next/Soon/Later/Goal). Read by the family site, the Datum network and Help › Roadmap. site_json_is_current checks its fields, files and that its roadmap starts after the current version.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/site.json"
+  },
+  {
    "id": "atlas-file-tests-ui-run-cjs",
    "type": "file",
    "app": "atlas",
@@ -3639,13 +3731,22 @@
    "id": "atlas-decision-21",
    "type": "decision",
    "app": "atlas",
+   "label": "docs/site.json is updated in every release, together with the…",
+   "date": "0.1.1",
+   "text": "docs/site.json is updated in every release, together with the roadmap here; public text never names or compares with a commercial product (hub FAMILY §13)\n\nWhy: The user, 2026-10-28: the family site and the Datum network build from it.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-decision-22",
+   "type": "decision",
+   "app": "atlas",
    "label": "Derived properties are computed by the engine at load, not…",
    "date": "0.1.1",
    "text": "Derived properties are computed by the engine at load, not stored\n\nWhy: One source of truth; they follow corrections automatically.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "atlas-decision-22",
+   "id": "atlas-decision-23",
    "type": "decision",
    "app": "atlas",
    "label": "Logo: violet log–log axes, a dotted selection line between two…",
@@ -3686,7 +3787,25 @@
    "app": "atlas",
    "label": "Session 4 (answers, 0.1.1)",
    "date": "2026-10-25",
-   "text": "· Answers recorded in PLAN-0.1.1.md §7 (see decisions). Built 0.1.1:\n· Engine: goals.rs (22 goals, apply), Op::Goal, derived properties, imperial units for the new units, bar charts (bands), index names with ½ ⅓ ⅔ ², templates from goals, checked-value rule; 16 tests.\n· Window: goal list (with groups) and Why card, two-row chart toolbar, Setup goal list, Home tiles, Sources page, units everywhere (axes, ticks, tables, datasheet, limits, Add Material), bar charts, Copy Picture, label nudging, Tell Me finds goals and materials, ? help on the tools (help.tsx) and Help › What Is This Tool?.\n· Data: 16 datasheet sources; 51 values in 15 metals checked (✓); ranges widened where a datasheet fell outside (4340 elongation, A356 sy/ts/elongation, C26000 ρ and λ, C70600 σy, 5083 λ, 17-4PH ts).\n· Checked: clippy, 16 engine tests, check:ui, 41 UI checks (all pass); the real app under Xvfb (Home tiles, “Light, stiff beam”: line E½/ρ, 12 of 100 pass, ranking by the index).\n· Fixed while testing: the bar chart used the bubble chart's zoom window (now one window per kind and axes); the goal list crashed the UI tests until the bridge learnt goal_list; the toolbar wrapped at 1440 px (now two rows).\n· Not done: metals still draft: 1020, 1080, 304, 316, 430, grey iron, 1100, AZ91, Inconel 625, CoCr F75, zinc AG40A, lead, tin, tungsten (no primary datasheet found, or the datasheet disagreed with our range in a way that needs a closer look). Help ? for Datum Plan and Datum Plot is suggested as a task in their own repos.\n---",
+   "text": "· Answers recorded in PLAN-0.1.1.md §7 (see decisions). Built 0.1.1:\n· Engine: goals.rs (22 goals, apply), Op::Goal, derived properties, imperial units for the new units, bar charts (bands), index names with ½ ⅓ ⅔ ², templates from goals, checked-value rule; 16 tests.\n· Window: goal list (with groups) and Why card, two-row chart toolbar, Setup goal list, Home tiles, Sources page, units everywhere (axes, ticks, tables, datasheet, limits, Add Material), bar charts, Copy Picture, label nudging, Tell Me finds goals and materials, ? help on the tools (help.tsx) and Help › What Is This Tool?.\n· Data: 16 datasheet sources; 51 values in 15 metals checked (✓); ranges widened where a datasheet fell outside (4340 elongation, A356 sy/ts/elongation, C26000 ρ and λ, C70600 σy, 5083 λ, 17-4PH ts).\n· Checked: clippy, 16 engine tests, check:ui, 41 UI checks (all pass); the real app under Xvfb (Home tiles, “Light, stiff beam”: line E½/ρ, 12 of 100 pass, ranking by the index).\n· Fixed while testing: the bar chart used the bubble chart's zoom window (now one window per kind and axes); the goal list crashed the UI tests until the bridge learnt goal_list; the toolbar wrapped at 1440 px (now two rows).\n· Not done: metals still draft: 1020, 1080, 304, 316, 430, grey iron, 1100, AZ91, Inconel 625, CoCr F75, zinc AG40A, lead, tin, tungsten (no primary datasheet found, or the datasheet disagreed with our range in a way that needs a closer look). Help ? for Datum Plan and Datum Plot is suggested as a task in their own repos.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-4",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 5 (site.json)",
+   "date": "2026-10-28",
+   "text": "· Added docs/site.json (hub FAMILY §10) from the user's draft, checked against the roadmap and CHANGELOG. Corrected: not every value cites a public source (our compilation and price estimates are our own), so it now says every value names its source; datasheets and results are printed, not exported; bar charts, cost per volume and Copy Picture added; versions written with three numbers (also in the roadmap here).\n· New test site_json_is_current; CLAUDE.md and the release flow now include site.json. 17 engine tests pass.\n· README, CHANGELOG 0.1.0 and the app said \"Excel\"; reworded to \"spreadsheet\" at the user's request (FAMILY §13).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "atlas-session-5",
+   "type": "session",
+   "app": "atlas",
+   "label": "Session 6 (wording, plan for 0.1.2)",
+   "date": "2026-10-28",
+   "text": "· Reworded \"Excel\" to \"spreadsheet\" in the README, CHANGELOG 0.1.0 and the app (Material Library tile, Browse copy toast, ? help, shortcuts, ribbon Import, Data page, roadmap features), and removed other product names from app text (Copy Picture and SVG tiles, the copy toast, the ribbon tooltip), per hub FAMILY §13. Code comments are unchanged.\n· Wrote PLAN-0.1.2.md:\n· where we are;\n· proposal: 0.1.2 lines and results, 0.1.3 charts side by side, 0.2.0/0.2.1/0.2.2 indices;\n· size;\n· 7 questions.\n· Diagnosis: several lines on one chart share its axes, so \"stiff and strong\" needs a second chart. Proposed goals that add it.\n· No feature code changed. Waiting for the answers.\n---",
    "url": "https://github.com/Edgar-Mendonca/Datum-Atlas/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3699,6 +3818,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim"
   },
   {
+   "id": "sim-v0.1.1",
+   "type": "release",
+   "app": "sim",
+   "label": "Sim 0.1.1",
+   "version": "0.1.1",
+   "date": "2026-10-28",
+   "text": "Dragging blocks from the library works on Windows, and small fixes from first use.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/releases/tag/v0.1.1"
+  },
+  {
    "id": "sim-v0.1.0",
    "type": "release",
    "app": "sim",
@@ -3709,23 +3838,53 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/releases/tag/v0.1.0"
   },
   {
-   "id": "sim-plan-0-1-x",
+   "id": "sim-plan-0-1-2",
    "type": "roadmap",
    "app": "sim",
-   "label": "0.1.x First releases",
-   "version": "0.1.x",
+   "label": "0.1.2 Motor library",
+   "version": "0.1.2",
    "when": "Next",
-   "text": "Signed releases through the in-app updater\nMore worked examples and a printable verification report\nWire branch points and labels on wires\nFaster drawing of very large diagrams",
+   "text": "DC motors: separately excited, shunt, series, compound\nInduction motors: squirrel-cage, double-cage, wound-rotor\nSynchronous motors: interior PMSM, wound-field salient-pole with dampers, reluctance\nBLDC and stepper motors\nClarke and Park transforms, inverter, PWM, encoder\nRatings presets for low, medium and high voltage machines, and new motor examples",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-plan-0-1-3",
+   "type": "roadmap",
+   "app": "sim",
+   "label": "0.1.3 Discrete control",
+   "version": "0.1.3",
+   "when": "Soon",
+   "text": "Discrete transfer function, integrator and PID\nRate transition and sample-time colours\nIntegrator reset\nGoto / From",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-plan-0-1-4",
+   "type": "roadmap",
+   "app": "sim",
+   "label": "0.1.4 Wires and diagram",
+   "version": "0.1.4",
+   "when": "Soon",
+   "text": "Move wire segments and remove bends\nSignal names on wires and in scope legends\nText notes on the diagram\nFind a block",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-plan-0-1-5",
+   "type": "roadmap",
+   "app": "sim",
+   "label": "0.1.5 Scopes",
+   "version": "0.1.5",
+   "when": "Soon",
+   "text": "Two measuring cursors\nY-zoom and auto-scale; stacked plots\nKeep and compare runs\nSVG and high-resolution pictures",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
    "id": "sim-plan-0-2",
    "type": "roadmap",
    "app": "sim",
-   "label": "0.2 Bigger models",
+   "label": "0.2 Reusable models",
    "version": "0.2",
-   "when": "Soon",
-   "text": "Masks: a subsystem with its own parameter dialog\nBuses and goto/from\nDiscrete and multi-rate blocks: discrete transfer functions and PID\nIntegrator reset and more event blocks\nSolving algebraic loops\nInduction motor block",
+   "when": "Later",
+   "text": "Masks: a subsystem with its own parameters\nMy blocks: your own library\nBuses\nSolving algebraic loops\nRead any signal by hovering its wire",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3734,8 +3893,8 @@
    "app": "sim",
    "label": "0.3 Control design",
    "version": "0.3",
-   "when": "Soon",
-   "text": "Operating points (trim) and linearisation of whole models\nBode, Nyquist and root locus\nPID auto-tuning\nStep-response specifications on any signal",
+   "when": "Later",
+   "text": "Operating points and linearisation of whole models\nNyquist and root locus\nPID auto-tuning\nLive tuning while the model runs",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3745,7 +3904,7 @@
    "label": "0.4 Physical components",
    "version": "0.4",
    "when": "Later",
-   "text": "Mechanical, rotational, electrical, hydraulic and thermal components you connect by ports\nThe app writes and solves the equations (DAEs)",
+   "text": "Mechanical, rotational, electrical, hydraulic and thermal components you connect by ports",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3765,7 +3924,7 @@
    "label": "0.6 Studies",
    "version": "0.6",
    "when": "Later",
-   "text": "State machines\nPython blocks\nMonte Carlo and sensitivity analysis\nFitting model parameters to measured data\nReport builder",
+   "text": "State machines\nPython blocks\nMonte Carlo and sensitivity analysis\nFitting model parameters to measured data",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -4126,7 +4285,7 @@
    "app": "sim",
    "label": "PLAN-0.1.md",
    "path": "docs/PLAN-0.1.md",
-   "text": "The plan, the public summary and roadmap, the change log",
+   "text": "The plans, the public summary and roadmap, the change log",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/PLAN-0.1.md"
   },
   {
@@ -4301,6 +4460,33 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   },
   {
+   "id": "sim-decision-19",
+   "type": "decision",
+   "app": "sim",
+   "label": "Library drag uses plain mouse events with a ghost, and the…",
+   "date": "0.1.1",
+   "text": "Library drag uses plain mouse events with a ghost, and the window's dragDropEnabled is off\n\nWhy: On Windows Tauri catches drags for file drops, so HTML drag-and-drop never reached the diagram (the user's Windows test); mouse events behave the same everywhere and can be tested",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-decision-20",
+   "type": "decision",
+   "app": "sim",
+   "label": "User libraries (0.2) will be copied into models, not linked",
+   "date": "0.1.1",
+   "text": "User libraries (0.2) will be copied into models, not linked\n\nWhy: The user: \"whichever is simpler, safer and faster\"",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-decision-21",
+   "type": "decision",
+   "app": "sim",
+   "label": "Order: motors (0.1.2), discrete control (0.1.3), then wires…",
+   "date": "0.1.1",
+   "text": "Order: motors (0.1.2), discrete control (0.1.3), then wires and scopes; live tuning moves to 0.3\n\nWhy: The user's answers in PLAN-0.1.x §5",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
    "id": "sim-session-0",
    "type": "session",
    "app": "sim",
@@ -4325,6 +4511,24 @@
    "label": "Session 3 (0.1.0 released)",
    "date": "2026-10-28",
    "text": "· Brainstormed the next steps with the user (wire branches and probes, masks and user libraries, discrete control, motor drives, control design, live tuning). The user asked to release 0.1.0 first.\n· Released 0.1.0: release.yml started from the Actions tab (pushing the tag from the session was refused). The embedded Python's tests passed on Windows; installer 85.6 MB.\n· Next: the user tests on a Windows PC; then 0.1.1 from that feedback and docs/PLAN-0.2.md.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-session-3",
+   "type": "session",
+   "app": "sim",
+   "label": "Session 4 (plan for 0.1.x)",
+   "date": "2026-10-28",
+   "text": "· Gave the user the zip 9 and deny.toml fix for Datum Plot (tested on a copy of Plot 0.2.12: all checks pass; BSL-1.0 added to the allow-list for Plot's clipboard crates).\n· Wrote docs/PLAN-0.1.x.md: brainstorm and small releases 0.1.1 (first-use fixes) → 0.1.2 (wires) → 0.1.3 (scopes) → 0.1.4 (blocks) → 0.1.5 (motors and drives) → 0.1.6 (live tuning, command line) → 0.2.0 (masks, user libraries, buses). Waiting for the user's answers.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "sim-session-4",
+   "type": "session",
+   "app": "sim",
+   "label": "Session 4 (0.1.1)",
+   "date": "2026-10-28",
+   "text": "· The user tested 0.1.0 on Windows: it works; drag-and-drop from the library did not. Answers: order as I choose; all motor types (LV, MV, HV, synchronous, asynchronous, AC, DC); live tuning later; copied libraries; discrete blocks needed.\n· Fixed the drag (mouse-event drag with a ghost; dragDropEnabled off), added live parameter checks, re-fit when the dock opens, and branch dots. 27 UI checks (5 new), checked in the real app under Xvfb. tests_ui/realapp.sh now waits 12 s (a fresh WebView profile is slow to start).\n· Planned the motor library (PLAN-0.1.x §6) and reordered the 0.1.x steps.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
   }
  ],
@@ -4556,6 +4760,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-32",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -4607,6 +4816,11 @@
   {
    "source": "hub",
    "target": "hub-session-10",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-11",
    "kind": "session"
   },
   {
@@ -6011,6 +6225,11 @@
   },
   {
    "source": "app-plot",
+   "target": "guide-13",
+   "kind": "follows"
+  },
+  {
+   "source": "app-plot",
    "target": "plot-v0.1.0",
    "kind": "released"
   },
@@ -6085,27 +6304,37 @@
    "kind": "then"
   },
   {
+   "source": "plot-v0.2.12",
+   "target": "plot-v0.2.13",
+   "kind": "then"
+  },
+  {
+   "source": "plot-v0.2.13",
+   "target": "plot-v0.2.14",
+   "kind": "then"
+  },
+  {
    "source": "app-plot",
-   "target": "plot-v0.2.12",
+   "target": "plot-v0.2.14",
    "kind": "released"
   },
   {
-   "source": "plot-v0.2.12",
-   "target": "plot-plan-0-2-13",
+   "source": "plot-v0.2.14",
+   "target": "plot-plan-0-2-15",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-2-13",
-   "target": "plot-plan-0-2-14-0-2-18",
+   "source": "plot-plan-0-2-15",
+   "target": "plot-plan-0-2-16-0-2-19",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-2-14-0-2-18",
-   "target": "plot-plan-0-2-19-0-2-25",
+   "source": "plot-plan-0-2-16-0-2-19",
+   "target": "plot-plan-0-2-20-0-2-26",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-2-19-0-2-25",
+   "source": "plot-plan-0-2-20-0-2-26",
    "target": "plot-plan-1-0-0",
    "kind": "next"
   },
@@ -6203,6 +6432,11 @@
    "source": "plot-file-py-datum-groups-py",
    "target": "tech-statsmodels",
    "kind": "uses"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-regress-py",
+   "kind": "contains"
   },
   {
    "source": "app-plot",
@@ -6786,18 +7020,28 @@
   },
   {
    "source": "plot-decision-34",
-   "target": "tech-rust",
-   "kind": "about"
+   "target": "plot-file-src-tauri-src-runtime-rs",
+   "kind": "touches"
   },
   {
    "source": "plot-decision-34",
-   "target": "tech-python",
-   "kind": "about"
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "plot-decision-34",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plot",
    "target": "plot-decision-35",
    "kind": "decided"
+  },
+  {
+   "source": "plot-decision-35",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plot",
@@ -6810,13 +7054,43 @@
    "kind": "decided"
   },
   {
-   "source": "plot-decision-37",
+   "source": "app-plot",
+   "target": "plot-decision-38",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-38",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
+   "source": "plot-decision-38",
    "target": "tech-python",
    "kind": "about"
   },
   {
    "source": "app-plot",
-   "target": "plot-decision-38",
+   "target": "plot-decision-39",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-40",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-41",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-41",
+   "target": "tech-python",
+   "kind": "about"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-42",
    "kind": "decided"
   },
   {
@@ -7056,6 +7330,11 @@
   },
   {
    "source": "app-atlas",
+   "target": "guide-13",
+   "kind": "follows"
+  },
+  {
+   "source": "app-atlas",
    "target": "atlas-v0.1.0",
    "kind": "released"
   },
@@ -7091,17 +7370,17 @@
   },
   {
    "source": "atlas-plan-0-3-1",
-   "target": "atlas-plan-0-4",
+   "target": "atlas-plan-0-4-0",
    "kind": "next"
   },
   {
-   "source": "atlas-plan-0-4",
-   "target": "atlas-plan-0-5",
+   "source": "atlas-plan-0-4-0",
+   "target": "atlas-plan-0-5-0",
    "kind": "next"
   },
   {
-   "source": "atlas-plan-0-5",
-   "target": "atlas-plan-1-0",
+   "source": "atlas-plan-0-5-0",
+   "target": "atlas-plan-1-0-0",
    "kind": "next"
   },
   {
@@ -7237,6 +7516,11 @@
   {
    "source": "app-atlas",
    "target": "atlas-file-ui-src-ribbon-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-file-docs-site-json",
    "kind": "contains"
   },
   {
@@ -7505,17 +7789,37 @@
    "kind": "in"
   },
   {
+   "source": "atlas-decision-21",
+   "target": "atlas-file-docs-site-json",
+   "kind": "touches"
+  },
+  {
+   "source": "atlas-decision-21",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
    "source": "app-atlas",
    "target": "atlas-decision-22",
    "kind": "decided"
   },
   {
    "source": "atlas-decision-22",
+   "target": "atlas-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-decision-23",
+   "kind": "decided"
+  },
+  {
+   "source": "atlas-decision-23",
    "target": "atlas-v0.1.0",
    "kind": "in"
   },
   {
-   "source": "atlas-decision-22",
+   "source": "atlas-decision-23",
    "target": "hub",
    "kind": "family-wide"
   },
@@ -7603,6 +7907,16 @@
    "source": "atlas-session-3",
    "target": "atlas-v0.1.1",
    "kind": "shipped"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-4",
+   "kind": "session"
+  },
+  {
+   "source": "app-atlas",
+   "target": "atlas-session-5",
+   "kind": "session"
   },
   {
    "source": "hub",
@@ -7701,11 +8015,36 @@
   },
   {
    "source": "sim-v0.1.0",
-   "target": "sim-plan-0-1-x",
+   "target": "sim-v0.1.1",
+   "kind": "then"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-v0.1.1",
+   "kind": "released"
+  },
+  {
+   "source": "sim-v0.1.1",
+   "target": "sim-plan-0-1-2",
    "kind": "next"
   },
   {
-   "source": "sim-plan-0-1-x",
+   "source": "sim-plan-0-1-2",
+   "target": "sim-plan-0-1-3",
+   "kind": "next"
+  },
+  {
+   "source": "sim-plan-0-1-3",
+   "target": "sim-plan-0-1-4",
+   "kind": "next"
+  },
+  {
+   "source": "sim-plan-0-1-4",
+   "target": "sim-plan-0-1-5",
+   "kind": "next"
+  },
+  {
+   "source": "sim-plan-0-1-5",
    "target": "sim-plan-0-2",
    "kind": "next"
   },
@@ -8211,6 +8550,36 @@
   },
   {
    "source": "app-sim",
+   "target": "sim-decision-19",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-19",
+   "target": "sim-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-20",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-20",
+   "target": "sim-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-decision-21",
+   "kind": "decided"
+  },
+  {
+   "source": "sim-decision-21",
+   "target": "sim-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-sim",
    "target": "workflow-1",
    "kind": "works by"
   },
@@ -8277,6 +8646,21 @@
   {
    "source": "sim-session-2",
    "target": "sim-v0.1.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-session-3",
+   "kind": "session"
+  },
+  {
+   "source": "app-sim",
+   "target": "sim-session-4",
+   "kind": "session"
+  },
+  {
+   "source": "sim-session-4",
+   "target": "sim-v0.1.1",
    "kind": "shipped"
   },
   {

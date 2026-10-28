@@ -15,12 +15,12 @@
 
 ## 1. The apps
 
-| App | Repo (default branch) | Accent | Version (2026-10-27 for Plan) | `docs/site.json` |
+| App | Repo (default branch) | Accent | Version (2026-10-28) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
 | Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.3.11 | ✅ |
-| Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.1 | ⬜ (snippet given to the user, session 1) |
-| Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.1.1 | ⬜ (snippet given to the user, session 1) |
-| Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.0 (2026-10-28) | ✅ |
+| Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.14 | ✅ |
+| Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.1.1 | ✅ |
+| Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.1 | ✅ |
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
@@ -32,12 +32,13 @@ brain/
   graph.json              its output, committed (node brain/brain.mjs); schema in BRAIN.md
 site/
   astro.config.mjs        site https://edgar-mendonca.github.io, base /Datum; a build:done hook writes the screenshots into dist/apps/<id>/
-  src/lib/github.ts       app data: site.json, CHANGELOG.md, logo, releases, first screenshot (→ 1440 px WebP); fallbacks; the product-name filter (NAMES)
+  src/lib/github.ts       app data: site.json, CHANGELOG.md, logo, releases, up to four screenshots (→ 1440 px WebP), about and steps (site.json, else apps.json); fallbacks; the product-name filter (NAMES)
   src/lib/brain.ts        the brain for the site: public scrub (NAMES), degrees, a d3-force layout computed at build time
   src/styles/site.css     tokens (paper and ink, app accents, light/dark), type (Archivo wdth, IBM Plex, Instrument Serif), frame, bars, buttons, header, footer
   src/layouts/Base.astro  head, the theme script (Auto/Light/Dark), header, footer
-  src/components/         Mark (the datum symbol, currentColor), Header, Footer
-  src/pages/index.astro   the one landing page: hero drawing + app plates, figures, 01 apps (download), 02 how they are built, 03 latest releases, 04 network teaser, get started
+  src/components/         Mark, Logo, Header, Footer, Hero (four app tiles + the changing phrase), AppGlyph (one animated drawing per app), Rail (index by the ruler + scroll marker)
+  src/pages/index.astro   the landing page: hero, 01 apps (cards → app pages), 02 the method, 03 the newest release of each app
+  src/pages/apps/[id].astro  one page per app: hero with its drawing and download, Overview (about + 3 steps), What it does, Screens, Roadmap, Releases, Get it, previous/next
   src/pages/network.astro the Datum network: canvas stage, search, filters, Network/Flow layouts, details panel, the graph as a list
   src/scripts/network.ts  the network client (d3-force, canvas, pointer/pinch/wheel, pulses along links)
 ```
@@ -86,6 +87,7 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 | 2026-10-25 (s2) | Fonts self-hosted with @fontsource (Archivo with the width axis, IBM Plex Sans and Mono, Instrument Serif); screenshots converted to 1440 px WebP at build with sharp | No third-party requests; smaller pages. |
 | 2026-10-27 (s9) | **Hardening standard for every app** (FAMILY §11): hardening tests (failed edits change nothing, random documents, damaged files, speed gate), `cargo deny`, CI on Windows + macOS, poisoned-lock recovery, SECURITY.md and CONTRIBUTING.md. First shipped in Datum Plan 0.3.11; rustfmt is not enforced | A quick look at another open-source scheduler showed our apps lead on features but trail on rigour (tests, CI gates). In Plan the new tests found two real crashes on damaged P6 files on their first run. |
 | 2026-10-25 | Datum Plot's bundled Python is recorded in FAMILY §2 as the one exception to "no Python" | Plot's own decision (its MEMORY, session 1); the guide must not contradict a shipped app. |
+| 2026-10-28 (s11) | **Hero = four app tiles** (`Hero.astro` + `AppGlyph.astro`: Gantt, curve fit, property chart, control loop, looping gently) around the amber datum square, replacing the 3×3 workbench; the italic phrase cycles by itself (two phrases per app), hover holds, leaving resumes. **One page per app** (`/apps/<id>`); `about` and `steps` added to the site.json spec (FAMILY §10), with fallbacks in apps.json | The user: the bench was too much; four animated icons for the current apps are enough; each app needs a page that explains the software. |
 
 ## 4. Roadmap (hub)
 
@@ -142,6 +144,14 @@ Deploy: on push to the default branch, daily at 05:17 UTC, `workflow_dispatch`, 
 ### 2026-10-27: Session 9 (from Datum Plan's chat: the hardening standard)
 - In Plan's chat the user asked for a quick comparison with another open-source scheduler, then for the quick wins and for everything to be recorded here too. Plan 0.3.11 shipped the Dashboard and date-picker fixes and the hardening quick wins; its new tests found two crashes on damaged XER files (cut-off calendar text, a WBS that loops) on their first run.
 - Recorded here: the hardening standard (FAMILY §11 and the new-app checklist step 7), the decision (§3), roadmap rows (§4), Plan at 0.3.11 (§1). Regenerated the brain.
+
+### 2026-10-28: Session 11 (app pages, simpler hero, README)
+- User (screenshot of the hero): the README is out of date; one page per app explaining the software; the hero should be just four animated vector icons for the current apps; the changing text keeps changing by itself; everything in the Datum style.
+- Built: `Hero.astro` (four tiles, one per app, linking to its page; the amber datum square where they meet; the phrase cycles every 2.6 s through two phrases per app and lights its tile) and `AppGlyph.astro` (the four drawings, 6 s loops, complete at rest); `HeroWorkbench.astro` removed. `pages/apps/[id].astro` (sections numbered by what the app has). `Rail.astro` shared by both pages. github.ts reads `about`, `steps` and up to four screenshots; apps.json has fallback `about` and `steps` for every app. Home cards link to the app pages ("About Plan →"); the footer's Apps column links them; the header's Apps is current on app pages. The scroll marker no longer shows below 1440 px.
+- README: Datum Sim row, names link to the app pages, the dead /about badge link fixed, Sim issues link. FAMILY §10: `about` and `steps`. CLAUDE.md: the new hero and app pages.
+- Plot and Atlas have published docs/site.json (their chats did it after session 10's paste-in text).
+- Checked: build; Playwright 1280 and 375, light and dark, home, every app page and the network: no horizontal overflow.
+- Next: give each app chat the paste-in text to add `about` and `steps` to docs/site.json and to link its README to its page on the site.
 
 ### 2026-10-28: Session 10 (Datum Sim joins the family)
 - The Datum Sim chat (after its 0.1.0 release) asked, through the user: add Sim to apps.json (id sim, accent #C2410C, tagline "Model and simulate dynamic systems: block diagrams, control and motors."), copy its icon into brand/, add the orange accent to FAMILY §3, regenerate the brain.

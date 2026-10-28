@@ -1,5 +1,5 @@
 {
-  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline, for and shot (one screenshot) fields here are only used until the app publishes docs/site.json. An optional status field (Stable, Beta, Alpha) overrides the badge worked out from the version.",
+  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline, for and shot (one screenshot) fields here are only used until the app publishes docs/site.json. An optional status field (Stable, Beta, Alpha) overrides the badge worked out from the version. The about (paragraphs) and steps (how the app is used: title and text) fields fill the app's page on the site; site.json can set its own.",
   "apps": [
     {
       "id": "plan",
@@ -9,7 +9,25 @@
       "accent": "#0B5CAD",
       "tagline": "Plan, schedule, track and report projects.",
       "for": "Project managers, planners, engineers and contractors.",
-      "shot": "docs/images/gantt.png"
+      "shot": "docs/images/gantt.png",
+      "about": [
+        "Datum Plan is a desktop scheduler for project managers, planners, engineers and contractors. You enter tasks in a sheet that works like a spreadsheet, link them, and the engine works out the critical path to the minute, with working calendars, constraints, every link type and resource levelling.",
+        "As the work goes on, you record progress and actuals against up to 11 baselines and see where the project stands: a tracking Gantt, earned value, S-curves, a dashboard and progress reports. Plans open from common scheduling files (XML, XER, MPX), export to Excel with formulas, and every view prints to PDF."
+      ],
+      "steps": [
+        {
+          "title": "Enter the tasks",
+          "text": "Type tasks, durations and resources into the sheet, or open an existing plan."
+        },
+        {
+          "title": "Link and schedule",
+          "text": "Link the tasks; the engine works out dates, float and the critical path."
+        },
+        {
+          "title": "Track and report",
+          "text": "Save a baseline, record progress, and print the Gantt, the S-curve and the reports."
+        }
+      ]
     },
     {
       "id": "plot",
@@ -19,7 +37,25 @@
       "accent": "#0E8C7F",
       "tagline": "Analyse data and make publication-ready graphs.",
       "for": "Scientists, researchers, lab teams and students.",
-      "shot": "docs/images/graph.png"
+      "shot": "docs/images/graph.png",
+      "about": [
+        "Datum Plot keeps data, analyses and graphs linked. Type or paste data into a table, choose an analysis, and the results and the graph follow; change a value and everything updates.",
+        "It covers the statistics most lab and research work needs, from t-tests and ANOVA to regression and curve fitting, explains each result in plain words with ready methods text, and makes figures ready for a journal: multi-panel layouts at journal sizes, exported as PNG, TIFF, SVG, PDF or EPS. Python runs inside the app, with nothing else to install."
+      ],
+      "steps": [
+        {
+          "title": "Enter the data",
+          "text": "Choose a table for your kind of data and type, paste or import it."
+        },
+        {
+          "title": "Analyse",
+          "text": "Pick a test or a fit; results, P values and the methods text appear beside the data."
+        },
+        {
+          "title": "Graph and export",
+          "text": "Style the graph, lay out the figure and export it at journal size."
+        }
+      ]
     },
     {
       "id": "atlas",
@@ -29,7 +65,25 @@
       "accent": "#6C4AB6",
       "tagline": "Choose materials with property charts and selection indices.",
       "for": "Design and materials engineers, and students.",
-      "shot": "docs/images/chart.png"
+      "shot": "docs/images/chart.png",
+      "about": [
+        "Datum Atlas helps you pick a material and show why it is the right one. Choose a design goal, such as a light, stiff beam or a cheap, strong tie, and Atlas sets the property chart, the selection line and the limits for you.",
+        "Every material is a bubble spanning its range of values, grouped by family. Limits, index lines and boxes narrow the field; the materials that pass are ranked, and every one that fails says why. Every value names its public source, and you can add your own materials."
+      ],
+      "steps": [
+        {
+          "title": "Pick a goal",
+          "text": "Choose a design goal, or set the two properties to chart yourself."
+        },
+        {
+          "title": "Chart and select",
+          "text": "Move the selection line, add limits and boxes, and watch the field narrow."
+        },
+        {
+          "title": "Rank and report",
+          "text": "Compare the materials that pass, open their datasheets, and print or export the result."
+        }
+      ]
     },
     {
       "id": "sim",
@@ -39,7 +93,25 @@
       "accent": "#C2410C",
       "tagline": "Model and simulate dynamic systems: block diagrams, control and motors.",
       "for": "Control, mechanical, electrical, process and mechatronics engineers, researchers and students.",
-      "shot": "docs/images/diagram.png"
+      "shot": "docs/images/diagram.png",
+      "about": [
+        "Datum Sim models and simulates dynamic systems. You draw the system as blocks and wires: sources, transfer functions, state space, PID controllers, motors and lookup tables. Then press Run and watch the signals on live scopes.",
+        "Five solvers cover everything from simple fixed-step runs to stiff systems with exact switching times. Parameter sweeps, step-response specifications and Bode plots come from a built-in Python engine, and every block and solver is checked against known answers."
+      ],
+      "steps": [
+        {
+          "title": "Draw the model",
+          "text": "Drag blocks from the library, wire them together and set their parameters."
+        },
+        {
+          "title": "Run",
+          "text": "Choose a solver and a stop time, press Run and watch the scopes live."
+        },
+        {
+          "title": "Analyse and tune",
+          "text": "Sweep parameters, read the step-response specifications and tune the controller."
+        }
+      ]
     }
   ]
 }

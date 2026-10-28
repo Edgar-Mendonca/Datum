@@ -1,0 +1,261 @@
+---
+// One page per app: what it is, how it is used, what it does, the screens, the roadmap and the newest releases.
+// Everything comes from the app's docs/site.json, CHANGELOG.md and releases (apps.json fills the gaps).
+import Base from "../../layouts/Base.astro";
+import AppGlyph from "../../components/AppGlyph.astro";
+import Rail from "../../components/Rail.astro";
+import { loadAll, statusOf, fmtDate, fmtSize, type App } from "../../lib/github";
+
+export async function getStaticPaths() {
+  const apps = await loadAll();
+  return apps.map((a, i) => ({ params: { id: a.id }, props: { a, next: apps[(i + 1) % apps.length], prev: apps[(i - 1 + apps.length) % apps.length] } }));
+}
+interface Props { a: App; next: App; prev: App }
+const { a, next, prev } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const gh = `https://github.com/${a.repo}`;
+const short = (x: App) => x.name.replace(/^Datum /, "");
+const status = statusOf(a);
+const recent = a.changelog.slice(0, 5);
+const when = ["Next", "Soon", "Later", "Goal"];
+// The notes without their first paragraph when it is the summary already shown on the row.
+const notes = (html: string, summary: string) => {
+  const m = html.match(/^\s*<p>([\s\S]*?)<\/p>\s*/);
+  return m && m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim() === summary ? html.slice(m[0].length) : html;
+};
+
+// Sections that have something to show, numbered in order.
+const secs = [
+  ["overview", "Overview", true],
+  ["features", "What it does", a.highlights.length > 0],
+  ["screens", "Screens", a.shots.length > 0],
+  ["roadmap", "Roadmap", a.roadmap.length > 0],
+  ["releases", "Releases", recent.length > 0],
+].filter(s => s[2]).map(([id, t], i) => ({ id: id as string, t: t as string, n: String(i + 1).padStart(2, "0") }));
+const sec = (id: string) => secs.find(s => s.id === id)!;
+---
+<Base title={`${a.name}: ${a.tagline.split(":")[0].replace(/\.$/, "")}`} description={`${a.tagline} For ${a.for.charAt(0).toLowerCase()}${a.for.slice(1)}`}>
+  <div style={`--c:var(--${a.id}, ${a.accent})`}>
+    <!-- Hero: the name, what it is for, download; the app's drawing on the right. -->
+    <section id="top" class="ruled" aria-labelledby="app-title" data-rail>
+      <div class="frame pad hero">
+        <div class="hero-text">
+          <p class="crumbs mono"><a href={`${base}/`}>Datum</a><span>/</span><a href={`${base}/#apps`}>Apps</a><span>/</span><b>{short(a)}</b></p>
+          <div class="name-row">
+            <img src={a.logo} width="64" height="64" alt="" />
+            <h1 id="app-title" class="title">{a.name}</h1>
+          </div>
+          <p class="meta mono"><span class:list={["badge", status.toLowerCase().replace(/\s+/g, "-")]}>{status}</span>{a.latest && <span>v{a.latest.version} · {fmtDate(a.latest.date)}</span>}<span>Windows 10 and 11</span></p>
+          <p class="tag">{a.tagline}</p>
+          <p class="for"><span class="mono">For</span> {a.for}</p>
+          <div class="btns">
+            {a.latest
+              ? <a class="btn btn-solid" href={a.latest.download}>Download{a.latest.size ? <span class="dim">{fmtSize(a.latest.size)}</span> : null}</a>
+              : <span class="btn btn-line" aria-disabled="true">Coming soon</span>}
+            <a class="btn btn-line" href={gh}>Source on GitHub</a>
+          </div>
+        </div>
+        <div class="hero-art"><AppGlyph id={a.id} logo={a.logo} /></div>
+      </div>
+    </section>
+
+    <!-- Overview: what the app is, and how it is used in three steps -->
+    <section id="overview" class="ruled" aria-labelledby="ov-h" data-rail>
+      <div class="frame">
+        <div class="bar glass mono"><span><b>{sec("overview").n}</b> / Overview</span><span class="r">{short(a)} in a minute</span></div>
+        <div class="ov">
+          <div class="pad ov-text">
+            <h2 id="ov-h" class="h2">What <span class="it">{a.name}</span> is</h2>
+            {a.about.length ? a.about.map(p => <p>{p}</p>) : <p>{a.tagline}</p>}
+          </div>
+          {a.steps.length > 0 && (
+            <ol class="how">
+              {a.steps.map((s, k) => <li class="reveal"><span class="mono">Step {k + 1}</span><h3 class="h3">{s.title}</h3><p class="muted">{s.text}</p></li>)}
+            </ol>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {a.highlights.length > 0 && (
+      <section id="features" class="ruled" aria-labelledby="ft-h" data-rail>
+        <div class="frame">
+          <div class="bar glass mono"><span><b>{sec("features").n}</b> / What it does</span><span class="r">From the app's own summary</span></div>
+          <h2 id="ft-h" class="sr">What it does</h2>
+          <ul class="feats">
+            {a.highlights.map((h, k) => <li class="reveal"><span class="mono">{String.fromCharCode(65 + k)}</span><p>{h}</p></li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    {a.shots.length > 0 && (
+      <section id="screens" class="ruled" aria-labelledby="sc-h" data-rail>
+        <div class="frame">
+          <div class="bar glass mono"><span><b>{sec("screens").n}</b> / Screens</span><span class="r">The app as it is today</span></div>
+          <h2 id="sc-h" class="sr">Screens</h2>
+          <div class:list={["shots", { one: a.shots.length === 1 }]}>
+            {a.shots.map((s, k) => (
+              <figure class="reveal">
+                <a href={s.raw}><img src={`${base}/${s.file}`} width="1440" height="900" alt={s.alt} loading={k ? "lazy" : "eager"} decoding="async" /></a>
+                <figcaption class="mono">{String(k + 1).padStart(2, "0")} · {s.alt.replace(`${a.name}: `, "")}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {a.roadmap.length > 0 && (
+      <section id="roadmap" class="ruled" aria-labelledby="rm-h" data-rail>
+        <div class="frame">
+          <div class="bar glass mono"><span><b>{sec("roadmap").n}</b> / Roadmap</span><span class="r">Next · Soon · Later · Goal</span></div>
+          <h2 id="rm-h" class="sr">Roadmap</h2>
+          <ol class="road">
+            {a.roadmap.map(r => (
+              <li class:list={["reveal", `w-${(when.includes(r.when) ? r.when : "Later").toLowerCase()}`]}>
+                <span class="mono when">{r.when}</span>
+                <span class="mono v">v{r.v.replace(/^v/, "")}</span>
+                <h3 class="h3">{r.title}</h3>
+                <ul>{r.items.map(i => <li>{i}</li>)}</ul>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+
+    {recent.length > 0 && (
+      <section id="releases" class="ruled" aria-labelledby="rl-h" data-rail>
+        <div class="frame">
+          <div class="bar glass mono"><span><b>{sec("releases").n}</b> / Releases</span><span class="r"><a href={`${gh}/blob/HEAD/CHANGELOG.md`}>Full changelog →</a></span></div>
+          <h2 id="rl-h" class="sr">Releases</h2>
+          <ol class="rels">
+            {recent.map((c, k) => (
+              <li>
+                <details open={k === 0}>
+                  <summary><span class="mono v">v{c.version}</span><time class="mono muted" datetime={c.date}>{fmtDate(c.date)}</time><span class="sum">{c.summary || "Release notes"}</span><span class="mono tog" aria-hidden="true">+</span></summary>
+                  <div class="notes" set:html={notes(c.html, c.summary)} />
+                </details>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+
+    <!-- Get it, and the other apps -->
+    <section class="ruled" aria-label="Download and more apps">
+      <div class="frame">
+        <div class="get pad">
+          <div>
+            <h2 class="h2">Get <span class="it">{a.name}.</span></h2>
+            <p class="muted">Free and open source (MIT). Installs in seconds for your user account, with no administrator rights, and updates itself from inside the app.</p>
+          </div>
+          <div class="btns">
+            {a.latest ? <a class="btn btn-solid" href={a.latest.download}>Download v{a.latest.version}</a> : <span class="btn btn-line" aria-disabled="true">Coming soon</span>}
+            <a class="btn btn-line" href={`${gh}/issues/new`}>Report an issue</a>
+          </div>
+        </div>
+        <nav class="pn" aria-label="Other apps">
+          <a href={`${base}/apps/${prev.id}`} style={`--c:var(--${prev.id}, ${prev.accent})`}><span class="mono">← Previous</span><span class="pn-name"><img src={prev.logo} width="24" height="24" alt="" />{prev.name}</span></a>
+          <a class="r" href={`${base}/apps/${next.id}`} style={`--c:var(--${next.id}, ${next.accent})`}><span class="mono">Next →</span><span class="pn-name"><img src={next.logo} width="24" height="24" alt="" />{next.name}</span></a>
+        </nav>
+      </div>
+    </section>
+  </div>
+  <Rail items={[["top", short(a)], ...secs.map(s => [s.id, s.t] as [string, string])]} />
+</Base>
+
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(40px, 6vw, 88px); }
+  .hero-text { display: grid; gap: 18px; justify-items: start; }
+  .crumbs { display: flex; gap: 8px; color: var(--muted); font-size: 11px; }
+  .crumbs a:hover { color: var(--c); }
+  .crumbs b { color: var(--c); font-weight: 600; }
+  .name-row { display: flex; align-items: center; gap: 18px; }
+  .name-row img { width: clamp(48px, 5vw, 64px); height: auto; }
+  .title { font: 600 clamp(40px, 5.4vw, 72px)/1 var(--display); letter-spacing: -.035em; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; color: var(--muted); font-size: 11px; }
+  .badge { font-size: 10px; padding: 3px 8px; border: 1px solid currentColor; letter-spacing: .12em; }
+  .badge.stable { color: #1F7A4D; } .badge.beta { color: var(--c); } .badge.alpha { color: #8A5A00; } .badge.coming-soon { color: var(--muted); }
+  :root[data-theme="dark"] .badge.stable { color: #4CC38A; } :root[data-theme="dark"] .badge.alpha { color: #F0B450; }
+  .tag { font: 600 clamp(19px, 1.8vw, 23px)/1.35 var(--display); letter-spacing: -.01em; max-width: 36ch; }
+  .for { color: var(--muted); }
+  .for .mono { color: var(--ink); font-size: 11px; margin-right: 8px; }
+  .btn-solid:hover { background: var(--c); border-color: var(--c); }
+  .hero-art { border: 1px solid var(--line-2); background: var(--bg-2); padding: 10px; }
+  .hero-art :global(.glyph) { background: var(--paper); border: 1px solid var(--c); box-shadow: inset 0 2px 0 var(--c); }
+  .hero-art :global(.glyph-logo) { padding: 40px 0; }
+  @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+
+  .it { color: var(--c); }
+  .ov { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .ov-text { display: grid; gap: 16px; align-content: start; padding-block: clamp(32px, 5vw, 64px); border-right: 1px solid var(--line); }
+  .ov-text p { color: var(--ink-2); font-size: 16.5px; max-width: 62ch; }
+  .how li { display: grid; gap: 6px; padding: 24px var(--pad); border-bottom: 1px solid var(--line); position: relative; }
+  .how li:last-child { border-bottom: 0; }
+  .how li::before { content: ""; position: absolute; left: 0; top: 24px; width: 3px; height: 22px; background: var(--c); }
+  .how .mono { color: var(--c); font-size: 11px; }
+  .how p { font-size: 15px; }
+  @media (max-width: 900px) { .ov { grid-template-columns: 1fr; } .ov-text { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+  .feats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feats li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 22px var(--pad); border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); transition: background-color .3s; }
+  .feats li:nth-child(2n) { border-right: 0; }
+  .feats li:hover { background: var(--paper); }
+  .feats .mono { color: var(--c); font-weight: 600; padding-top: 2px; }
+  .feats p { color: var(--ink-2); font-size: 15.5px; }
+  @media (max-width: 760px) { .feats { grid-template-columns: 1fr; } .feats li { border-right: 0; } }
+
+  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); }
+  .shots.one { grid-template-columns: 1fr; }
+  .shots.one figure { padding-inline: max(var(--pad), calc((100% - 960px) / 2)); }
+  .shots figure { display: grid; gap: 10px; padding: clamp(16px, 2.6vw, 32px); align-content: start;
+    background-color: color-mix(in srgb, var(--c) 6%, var(--paper));
+    background-image: linear-gradient(color-mix(in srgb, var(--c) 12%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, transparent) 1px, transparent 1px);
+    background-size: 24px 24px; }
+  .shots img { width: 100%; border: 1px solid color-mix(in srgb, var(--c) 28%, var(--line)); box-shadow: 0 20px 40px -30px rgb(12 26 43 / .5); transition: transform .5s var(--ease); }
+  .shots a:hover img { transform: translateY(-3px); }
+  .shots figcaption { color: var(--muted); font-size: 10.5px; }
+  @media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
+
+  .road { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-right: -1px; }
+  .road > li { display: grid; gap: 8px; align-content: start; padding: 22px var(--pad) 26px; position: relative; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .road > li::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--c); opacity: .25; }
+  .road > li.w-next::before { opacity: 1; }
+  .road .when { font-size: 10px; color: var(--muted); }
+  .road .w-next .when { color: var(--c); }
+  .road .w-goal .when { color: #8A5A00; }
+  :root[data-theme="dark"] .road .w-goal .when { color: #F0B450; }
+  .road .v { font-size: 11px; color: var(--ink); }
+  .road ul { display: grid; gap: 4px; margin-top: 4px; }
+  .road ul li { color: var(--ink-2); font-size: 14px; padding-left: 14px; position: relative; }
+  .road ul li::before { content: ""; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; background: var(--c); opacity: .6; }
+
+  .rels > li { border-bottom: 1px solid var(--line); }
+  .rels > li:last-child { border-bottom: 0; }
+  .rels summary { display: grid; grid-template-columns: 100px 120px 1fr 20px; gap: 16px; align-items: baseline; padding: 18px var(--pad); cursor: pointer; list-style: none; transition: background-color .3s; }
+  .rels summary::-webkit-details-marker { display: none; }
+  .rels summary:hover { background: var(--paper); }
+  .rels .v { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--c); }
+  .rels .sum { color: var(--ink-2); font-size: 15px; }
+  .rels .tog { color: var(--muted); text-align: right; transition: transform .25s; }
+  .rels details[open] .tog { transform: rotate(45deg); }
+  .notes { padding: 0 var(--pad) 24px calc(var(--pad) + 236px); color: var(--ink-2); font-size: 14.5px; }
+  .notes :global(:is(p, ul, ol, h3, h4)) { margin: 0 0 10px; max-width: 80ch; }
+  .notes :global(ul) { list-style: square; padding-left: 18px; }
+  .notes :global(:is(h3, h4)) { font: 600 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 14px; }
+  .notes :global(code) { font: 13px var(--mono); }
+  @media (max-width: 760px) { .rels summary { grid-template-columns: auto 1fr 20px; } .rels .sum { grid-column: 1 / -1; grid-row: 2; } .notes { padding-left: var(--pad); } }
+
+  .get { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding-block: clamp(36px, 5vw, 64px); border-top: 1px solid var(--line); }
+  .get > div:first-child { display: grid; gap: 10px; max-width: 60ch; }
+  .pn { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .pn a { display: grid; gap: 8px; padding: 22px var(--pad); transition: background-color .3s; }
+  .pn a.r { text-align: right; justify-items: end; border-left: 1px solid var(--line); }
+  .pn a:hover { background: var(--paper); }
+  .pn .mono { color: var(--muted); font-size: 10.5px; }
+  .pn-name { display: flex; align-items: center; gap: 10px; font: 600 18px var(--display); }
+  .pn a:hover .pn-name { color: var(--c); }
+</style>

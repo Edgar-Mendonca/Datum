@@ -158,13 +158,15 @@ Chart.js:
     "id": "plan", "name": "Datum Plan", "accent": "#0B5CAD",
     "logo": "docs/brand/datum-plan-icon.svg",
     "tagline": "…", "for": "…",
+    "about": ["One or two plain paragraphs: what the app is and how it helps."],
+    "steps": [{ "title": "Enter the tasks", "text": "…" }, { "title": "…", "text": "…" }, { "title": "…", "text": "…" }],
     "highlights": ["…"],
     "screenshots": ["docs/images/gantt.png"],
     "roadmap": [{ "v": "0.3.11", "title": "Fixes", "when": "Next", "items": ["…"] }]
   }
   ```
 
-  `when` is one of **Next**, **Soon**, **Later**, **Goal**. Screenshots are 1440×900 PNGs in `docs/images/`.
+  `when` is one of **Next**, **Soon**, **Later**, **Goal**. Screenshots are 1440×900 PNGs in `docs/images/`; the app's page on the site shows the first four. `about` and `steps` (three steps: how the app is used) fill the Overview of the app's page (`/apps/<id>`); until an app sets them, the hub's `apps.json` supplies them.
 - **The brain:** DATUM's `brain/graph.json` is generated from these files (`node brain/brain.mjs`); keep the MEMORY tables (Files, Decisions, Roadmap, Session log, How we work) in the same shape so it can read them.
 - `docs/PLAN-x.y.md`: feedback → diagnosis → proposal → size → questions, written before any big release.
 - `NOTICE` for third-party code and fonts; MIT license.
