@@ -4,7 +4,7 @@ You are starting **Datum Sim**, a new app in the Datum family of free, open-sour
 
 - **Repository:** `Edgar-Mendonca/Datum-Sim` (MIT licence). The user creates it and gives this session access.
 - **What it is:** a desktop app to model and simulate dynamic systems: block diagrams, control design, physical components, testing against data.
-- **Decided with the user (DATUM hub, session 9, 2026-10-27):** the name is Datum Sim; it is the next app the family builds. The FEA/CFD idea is a separate, later app, **Datum Field** (see `briefs/DATUM-FIELD.md` in the hub); do not build any of it here.
+- **Decided with the user (DATUM hub, session 9, 2026-10-27):** the name is Datum Sim; it is the next app the family builds. The FEA/CFD idea is a separate app, **Datum Mesh** (formerly "Datum Field"; see `briefs/DATUM-MESH.md` in the hub); do not build any of it here.
 
 ---
 

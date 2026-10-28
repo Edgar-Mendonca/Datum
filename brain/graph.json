@@ -66,7 +66,7 @@
    "id": "guide-3",
    "type": "guide",
    "label": "§3 Colour",
-   "text": "### Base tokens (all apps, from ui/src/styles.css)\nLight:\n--bg #F2F3EF --bg2 #FFFFFF --panel #F8F8F5 --panel2 #ECEDE8 --side #F3F4F0\n--line #D3D7D6 --line2 #E6E8E5 --line3 #B9BFC2\n--text #0C1A2B --text2 #3B4859 --muted #5B6878 --navy #0C1A2B\n--amber #B7791F --crit #C0392B --green #1F7A4D\n--ok-bg #DDF2E5 --ok-fg #1F7A4D --warn-bg #FBEFD5 --warn-fg #8A5A00 --err-bg #FBE3E0 --err-fg #9B2C2C\nDark (:root[data-theme=\"dark\"]): --bg #0B1119 --bg2 #101823 --panel #0D141E --panel2 #16212E --line #223041 --text #E6EDF5 --muted #8D9AAB (copy the full block from Plan).\n### The accent set (the only tokens that change per app)\n--blue (accent), --blue2 (hover/dark), --bar, --sky (light tint), --pale (very light), --sel, --sel2 (selection), and the File sidebar colour.\n| Accent | --blue | --blue2 | --sky | --pale | --sel | --sel2 | dark --blue | File sidebar (dark) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Plan · Blue | #0B5CAD | #0A4F96 | #9CC2F7 | #E8F0FA | #DCE8F7 | #B9D2F0 | #4C9BEA | #0A3D73 |\n| Plot · Teal | #0E8C7F | #0B7468 | #8FD3C9 | #E3F5F2 | #D3EFEA | #A9DDD4 | #3FC2B2 | #0A4A44 |\n| Atlas · Violet | #6C4AB6 | #5A3C9C | #C9B8EE | #F0EBFA | #E5DCF6 | #CDBDEE | #A58BEA | #3A2766 |\n| Sim · Orange | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |\n| Amber (spare) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |\n| Crimson (spare) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |\nKeep --crit red, --green and --amber for meaning (critical/error, done/ok, warning/highlight) i",
+   "text": "### Base tokens (all apps, from ui/src/styles.css)\nLight:\n--bg #F2F3EF --bg2 #FFFFFF --panel #F8F8F5 --panel2 #ECEDE8 --side #F3F4F0\n--line #D3D7D6 --line2 #E6E8E5 --line3 #B9BFC2\n--text #0C1A2B --text2 #3B4859 --muted #5B6878 --navy #0C1A2B\n--amber #B7791F --crit #C0392B --green #1F7A4D\n--ok-bg #DDF2E5 --ok-fg #1F7A4D --warn-bg #FBEFD5 --warn-fg #8A5A00 --err-bg #FBE3E0 --err-fg #9B2C2C\nDark (:root[data-theme=\"dark\"]): --bg #0B1119 --bg2 #101823 --panel #0D141E --panel2 #16212E --line #223041 --text #E6EDF5 --muted #8D9AAB (copy the full block from Plan).\n### The accent set (the only tokens that change per app)\n--blue (accent), --blue2 (hover/dark), --bar, --sky (light tint), --pale (very light), --sel, --sel2 (selection), and the File sidebar colour.\n| Accent | --blue | --blue2 | --sky | --pale | --sel | --sel2 | dark --blue | File sidebar (dark) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Plan · Blue | #0B5CAD | #0A4F96 | #9CC2F7 | #E8F0FA | #DCE8F7 | #B9D2F0 | #4C9BEA | #0A3D73 |\n| Plot · Teal | #0E8C7F | #0B7468 | #8FD3C9 | #E3F5F2 | #D3EFEA | #A9DDD4 | #3FC2B2 | #0A4A44 |\n| Atlas · Violet | #6C4AB6 | #5A3C9C | #C9B8EE | #F0EBFA | #E5DCF6 | #CDBDEE | #A58BEA | #3A2766 |\n| Sim · Orange | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |\n| Calc · Amber (Datum Calc, from session 13) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |\n| Mesh · Crimson (Datum Mesh, from session 13) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |\nKeep --crit red, --green and --amber ",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -584,6 +584,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-36",
+   "type": "decision",
+   "app": "hub",
+   "label": "Datum Calc and Datum Mesh are built this week for a large…",
+   "text": "Datum Calc and Datum Mesh are built this week for a large engineering convention. \"Datum Field\" is renamed Datum Mesh (clear to every engineer; covers stress, heat and later flow). Accents: Calc = Amber #A8650F, Mesh = Crimson #B83250 (the two spares). Mesh 0.1 is 2D only (frames, trusses, plane stress/strain, heat) with an own solver and a verification report; 3D/CFD later with open solvers as separate programs. Briefs pre-answer every question so the app chats build at once\n\nWhy: The user: Calc and Mesh fit their work best (process, rotating equipment, mechanical, project controls, inferred from the apps' worked examples); the convention needs both this week.",
+   "date": "2026-10-28 (s13)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -659,13 +668,22 @@
    "id": "hub-session-8",
    "type": "session",
    "app": "hub",
+   "label": "Session 13 (brainstorm: Calc and Mesh for the…",
+   "date": "2026-10-28",
+   "text": "· User: which new apps fit best, given four apps and their skills? Ranked: Calc (every engineer; calc packs in the user's field), Flow (pumps, pipes, compressors; start as Calc packs), Signal (vibration for rotating equipment), Field/FEA (Frame first). Naming: keep Calc; Field → Mesh (or keep Field) for the mesh-based family.\n· User picked Datum Calc and Datum Mesh, both this week, for a big convention of engineers and vendors; asked for everything in writing for two new chats and repos.\n· Wrote briefs/DATUM-CALC.md and briefs/DATUM-MESH.md (decisions made up front, scope, architecture, day-by-day week with releases 0.1.0 → 0.1.4, cut order, benchmarks/tests, docs, roadmap). Removed briefs/DATUM-FIELD.md (its long road is §8 of the Mesh brief). FAMILY §3: Amber → Calc, Crimson → Mesh. Bucket list and decision updated.\n· Hub tasks when each app releases 0.1.0 (the user will ask here): add it to apps.json (calc #A8650F, mesh #B83250; dark accents #F0B450 and #EF7A93 in site.css as --calc/--mesh) and copy its icon to brand/; draw its AppGlyph (Calc: an equation building up with units and a PASS badge; Mesh: a bracket meshing then filling with a stress contour); the hero becomes six tiles (3×2) and the cycle gains their phrases (\"write calculations.\", \"check designs.\"; \"analyse stresses.\", \"mesh parts.\"); Datum Home's built-in list (next Home release; home.json already covers them); FAMILY §1 rows; README table rows; regenerate the brain.\n· Convention extras offered: a QR code to the site, a one-page printed handout, demo files.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-9",
+   "type": "session",
+   "app": "hub",
    "label": "Session 12 (Datum Home)",
    "date": "2026-10-28",
    "text": "· User: a launcher to install, update and uninstall all the apps; is it possible? Brainstormed first (how it works, trust, SmartScreen, size). Answers: name Datum Home; build it in this repo, foldered properly; check when opened (no tray); the site offers both Datum Home and the single apps.\n· Built home/ (0.1.0): datum-home-core (catalog, versions incl. home-v tags, releases, download_ok, checksum_for, DisplayIcon/UninstallString parsing, the card's action; 9 tests), src-tauri (catalog from home.json or built-in; per-app newest release; install = download to temp + SHA-256 + /S, refused while the app runs; uninstall = the app's uninstaller /S, then wait until the registry entry is gone; open; open_url limited to Datum pages; self-update like Plan's updater), ui (cards in each app's accent, Update all, confirm before uninstall, notes, light/dark from the system). Icons from brand/datum-icon.svg.\n· Site: home.json written after the build; loadHome() reads this repo's home-v* releases; a Datum Home band above the app cards (Get Datum Home, or \"Coming soon\" until released). Workflows home-ci.yml (ubuntu + windows) and home-release.yml (tag home-v*; rebuilds the site after).\n· Docs: README (Datum Home, home/ folder), FAMILY §9 (the release shape Datum Home relies on), CLAUDE.md (home/ rules and checks).\n· Checked: core tests; clippy on Linux and on the Windows target (mingw); UI type check and build; the window in Chromium with mocked data, light and dark; the site build and home.json.\n· Released: the first run of home-release.yml failed (cargo test --workspace compiled the Tauri shell before ui/dist existed); it now tests only datum-home-core before tauri build. Run 2 published home-v0.1.0 and rebuilt the site. To release later: Actions › \"Datum Home release\" › Run workflow (or push a home-v… tag).\n· Next: try install/update/uninstall on a real PC.\n· Later (same day): the user saw old versions in \"Latest releases\". Not a bug: the apps had released after the last site build, and the site only rebuilt daily or on a hub push. The build log now prints, per app, the version shown, its source (GitHub release or CHANGELOG) and the newest CHANGELOG entry; the Pages schedule is now hourly (17 * * * *). Make sure every app's release has SHA256SUMS.txt (they copied Plan's release.yml).",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -674,7 +692,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -683,7 +701,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -692,7 +710,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -701,7 +719,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -710,7 +728,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -723,8 +741,8 @@
    "type": "idea",
    "app": "hub",
    "label": "Datum Calc",
-   "when": "Later (after Datum Sim; the user picked it first in session 7)",
-   "text": "Engineering calculation sheets with real units, shown as readable maths, with references, pass/fail checks and a printable calc sheet. Plot analyses measured data; Calc designs what you build\n\nFor: Every engineer\nReuses: GridCraft formulas, units (Atlas), print, Plot for charts\nSize: Medium (the hard part is natural equation editing; 0.1 = units-aware lines, variables, checks, PDF)\nStatus: Later (after Datum Sim; the user picked it first in session 7)",
+   "when": "Being built (session 13): 0.1.x this week, amber accent",
+   "text": "Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: briefs/DATUM-CALC.md\n\nFor: Every engineer\nReuses: Plan's formula engine, units, print, Chart.js; Atlas materials (0.2)\nSize: Medium\nStatus: Being built (session 13): 0.1.x this week, amber accent",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -764,15 +782,6 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "idea-datum-frame",
-   "type": "idea",
-   "app": "hub",
-   "label": "Datum Frame",
-   "when": "Later (first step of Datum Field)",
-   "text": "(Step 1 of Datum Field) 2D beam, frame and truss analysis: loads, supports, shear/moment, deflection, section properties, materials from Atlas\n\nFor: Structural and mechanical engineers, students\nReuses: Own Rust FEM solver, Atlas\nSize: Medium\nStatus: Later (first step of Datum Field)",
-   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
-  },
-  {
    "id": "idea-datum-flow",
    "type": "idea",
    "app": "hub",
@@ -800,12 +809,12 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "idea-datum-field",
+   "id": "idea-datum-mesh-was-datum-field",
    "type": "idea",
    "app": "hub",
-   "label": "Datum Field",
-   "when": "Parked (named in session 9; not being built)",
-   "text": "FEA, heat transfer, CFD and coupled multiphysics on a mesh, grown in steps: Frame (beams, own solver) → 2D (own solver) → 3D linear with STEP import → nonlinear and contact → CFD → multiphysics. Datum builds set-up, results and reports; mature open solvers (CalculiX, Code_Aster, OpenFOAM, SU2, Elmer, FEniCSx) run as separate processes; OpenCascade for CAD, Gmsh for meshing, VTK for results. A built-in verification report is a headline feature. Brief: briefs/DATUM-FIELD.md\n\nFor: Mechanical, structural, thermal, process and aerospace engineers\nReuses: Atlas materials, Plot results, Datum Sim (part models as FMUs/blocks), print\nSize: Very large, multi-year\nStatus: Parked (named in session 9; not being built)",
+   "label": "Datum Mesh (was Datum Field)",
+   "when": "Being built (session 13): 0.1.x this week, crimson accent",
+   "text": "Finite-element analysis on the desktop, grown in steps: 0.1 2D frames, trusses, plane stress/strain and heat conduction with an own Rust solver (T6 triangles, spade meshing, faer) and a built-in verification report → axisymmetric, modal, buckling → 3D with STEP → nonlinear and contact → CFD → multiphysics (open solvers as separate programs). Brief: briefs/DATUM-MESH.md\n\nFor: Mechanical, structural, process and aerospace engineers, students\nReuses: Plan's canvas, Sim's solver and verification layout, Atlas materials, Calc hand checks, Plot CSV\nSize: Very large overall; 0.1 = medium\nStatus: Being built (session 13): 0.1.x this week, crimson accent",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -2308,7 +2317,7 @@
    "app": "plan",
    "label": "Session 12 (0.4.0, risk and resources)",
    "date": "2026-10-28",
-   "text": "· User: build 0.4.0. Built risk.rs (+ dmin/dmax task fields, Risk.days), usage by group with capacity and person, level::preview, import notes in both readers + compare_dates, XER activity types; window: Schedule Risk view and sidebar item, Delay (days) column, Resource Graph People/Trades and Hours/People, levelling preview dialog, import report dialog, help cards. 6 engine tests and 8 UI checks added.\n· Checked in the real app (Engineering template): Schedule Risk (1 % chance of the planned 15 Feb; P50 19 Feb, P80 23 Feb; parts lead time drives the finish), levelling preview (5 tasks move, finish 15 → 19 Feb, overallocated days 4 → 0), trades in people. Found and fixed there: stale bars and labels in Resource Graph (<For> over numbers → <Index>), and the drivers chart skipping every other task name (autoSkip: false on horizontal bars).\n· Not built from the old 0.4 list: manpower planned vs actual (needs actuals history, moved to 0.4.1) and the shared resource pool (moved to 0.6 with the portfolio). Schedule Risk is not on the Print page yet.",
+   "text": "· User: build 0.4.0. Built risk.rs (+ dmin/dmax task fields, Risk.days), usage by group with capacity and person, level::preview, import notes in both readers + compare_dates, XER activity types; window: Schedule Risk view and sidebar item, Delay (days) column, Resource Graph People/Trades and Hours/People, levelling preview dialog, import report dialog, help cards. 6 engine tests and 8 UI checks added.\n· Checked in the real app (Engineering template): Schedule Risk (1 % chance of the planned 15 Feb; P50 19 Feb, P80 23 Feb; parts lead time drives the finish), levelling preview (5 tasks move, finish 15 → 19 Feb, overallocated days 4 → 0), trades in people. Found and fixed there: stale bars and labels in Resource Graph (<For> over numbers → <Index>), and the drivers chart skipping every other task name (autoSkip: false on horizontal bars).\n· The first release run failed on Windows only: git checked the parity files out with CRLF, so the import-report test's own edit did not match (the readers trim \\r and passed). The test now normalises line endings and .gitattributes keeps the parity files LF; checked locally with CRLF copies.\n· Not built from the old 0.4 list: manpower planned vs actual (needs actuals history, moved to 0.4.1) and the shared resource pool (moved to 0.6 with the portfolio). Schedule Risk is not on the Print page yet.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -5152,6 +5161,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-36",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -5227,6 +5241,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-session-15",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
    "target": "idea-datum-calc",
    "kind": "idea"
   },
@@ -5252,11 +5271,6 @@
   },
   {
    "source": "hub",
-   "target": "idea-datum-frame",
-   "kind": "idea"
-  },
-  {
-   "source": "hub",
    "target": "idea-datum-flow",
    "kind": "idea"
   },
@@ -5272,7 +5286,7 @@
   },
   {
    "source": "hub",
-   "target": "idea-datum-field",
+   "target": "idea-datum-mesh-was-datum-field",
    "kind": "idea"
   },
   {
@@ -9367,6 +9381,11 @@
   },
   {
    "source": "idea-datum-calc",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-calc",
    "target": "app-plot",
    "kind": "reuses"
   },
@@ -9377,7 +9396,7 @@
   },
   {
    "source": "idea-datum-calc",
-   "target": "tech-gridcraft",
+   "target": "tech-chart-js",
    "kind": "uses"
   },
   {
@@ -9399,16 +9418,6 @@
    "source": "idea-datum-inspect",
    "target": "app-plot",
    "kind": "reuses"
-  },
-  {
-   "source": "idea-datum-frame",
-   "target": "app-atlas",
-   "kind": "reuses"
-  },
-  {
-   "source": "idea-datum-frame",
-   "target": "tech-rust",
-   "kind": "uses"
   },
   {
    "source": "idea-datum-estimate",
@@ -9441,19 +9450,29 @@
    "kind": "uses"
   },
   {
-   "source": "idea-datum-field",
+   "source": "idea-datum-mesh-was-datum-field",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-mesh-was-datum-field",
    "target": "app-plot",
    "kind": "reuses"
   },
   {
-   "source": "idea-datum-field",
+   "source": "idea-datum-mesh-was-datum-field",
    "target": "app-atlas",
    "kind": "reuses"
   },
   {
-   "source": "idea-datum-field",
+   "source": "idea-datum-mesh-was-datum-field",
    "target": "app-sim",
    "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-mesh-was-datum-field",
+   "target": "tech-rust",
+   "kind": "uses"
   },
   {
    "source": "idea-datum-phase",
