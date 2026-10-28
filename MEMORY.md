@@ -20,11 +20,13 @@
 | Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.4.0 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.14 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.1.1 | ✅ |
-| Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.1 | ✅ |
+| Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
+| Datum Calc | `Edgar-Mendonca/Datum-Calc` | Amber `#A8650F` | 0.1.3 | ✅ |
+| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Crimson `#B83250` | 0.1.1 | ✅ |
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
-**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt).
+**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt); **0.1.1** (session 14) adds Calc and Mesh to its built-in list and icons.
 
 ## 2. The site and the brain
 
@@ -154,6 +156,12 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.0 shipped Schedule Risk (Monte Carlo: P50/P80/P90 finish and cost, criticality, drivers, risk-register delays, optimistic/pessimistic durations), workload by trade (resource Group) in hours or people, a levelling preview, and an import report that compares every task's dates with the file. Its `docs/site.json` now has a Schedule Risk screenshot third, so the app page shows it.
 - Recorded here: decision (§3), FAMILY §7 chart rules (`autoSkip: false` on horizontal bars; `<Index>` for numbers), Plan at 0.4.0. Brain regenerated.
 
+### 2026-10-28: Session 14 (Calc and Mesh join the family)
+- Both apps were built in their own chats from the session 13 briefs: Calc 0.1.3 and Mesh 0.1.1, each with docs/site.json (about, steps), icons, and releases with SHA256SUMS.txt.
+- Hub: apps.json (calc #A8650F, mesh #B83250; fallback about/steps); icons copied to brand/; `--calc` (#8E550C light text, #F0B450 dark) and `--mesh` (#B83250, #EF7A93) in site.css; AppGlyph drawings (Calc: equation lines typing in, result in the accent, a PASS badge and a 0.82 utilisation bar; Mesh: an L-bracket meshed in triangles, shaded by stress peaking at the inner corner, fixed edge and a load arrow); the hero is six tiles in three columns (two on phones) with phrases "write calculations. / check designs." and "analyse stresses. / mesh parts."; the lead names calculations and finite-element analysis. FAMILY §1 rows, README table and issue links, CLAUDE.md (repos, hero rule), MEMORY §1.
+- Datum Home 0.1.1: Calc and Mesh in its built-in list with icons (home.json already listed them); released with the workflow.
+- Checked: site build (six apps), Playwright 1280/375 light and dark, home, both app pages and the network: no overflow; Home: core tests, clippy, UI build.
+
 ### 2026-10-28: Session 13 (from Datum Plan's chat: 0.3.12, trust in the dates)
 - Plan 0.3.12 shipped hand-worked scheduling cases (47), parity files with their own dates (`crates/core/tests/parity`, hand-made XML and XER; real exports can be dropped in), random plans with constraints and calendars (links hold, tight forward pass, row order), random edit sequences and damaged CSV/Excel. They found and fixed two scheduling mistakes (ALAP; late dates of work under way).
 - Recorded here: FAMILY §11 gains "trust in the results", decision (§3), roadmap row, Plan at 0.3.12. Brain regenerated.
@@ -224,7 +232,7 @@ Brainstormed with the user on 2026-10-26 (session 7); updated in session 9 (Datu
 
 | Name | What it does | For | Reuses / connects | Size | Status |
 | --- | --- | --- | --- | --- | --- |
-| Datum Calc | Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: [briefs/DATUM-CALC.md](briefs/DATUM-CALC.md) | Every engineer | Plan's formula engine, units, print, Chart.js; Atlas materials (0.2) | Medium | **Being built (session 13)**: 0.1.x this week, amber accent |
+| Datum Calc | (Released, in `apps.json` since session 14.) Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: [briefs/DATUM-CALC.md](briefs/DATUM-CALC.md) | Every engineer | Plan's formula engine, units, print, Chart.js; Atlas materials (0.2) | Medium | **Being built (session 13)**: 0.1.x this week, amber accent |
 | Datum Tolerance | Tolerance stack-ups: worst case, RSS, Monte Carlo, datum chain, contributor ranking, GD&T helpers | Design and manufacturing engineers | Monte Carlo (Plan 0.4), charts, print; maybe a module of Calc | Small | Later |
 | Datum Hub (app) | One launcher that installs and updates every Datum app, recent files across apps, "open with" | Everyone with more than one app | update.rs, apps.json, the brain | Small | Later (when there are more apps) |
 | Datum Lab | Local lab notebook: test plans, specimens, instrument data import, send results to Plot | R&D labs, materials testing | Plot, Atlas, grid | Medium | Later |
@@ -232,7 +240,7 @@ Brainstormed with the user on 2026-10-26 (session 7); updated in session 9 (Datu
 | Datum Flow | Pipe pressure drop, pump and compressor sizing, performance curves, open fluid property data | Process and mechanical engineers | Units, charts | Medium | Later |
 | Datum Estimate | Cost estimating: quantities, rates, contingency, cost curves, feeding costs into Plan | Estimators, contractors, PMs | Grid, formulas, Plan | Medium | Later |
 | Datum Sim | Model and simulate dynamic systems: block diagrams (signals), control design (linearise, Bode, root locus, PID tuning), physical components (mechanical, electrical, hydraulic, thermal), sweeps, Monte Carlo, fitting to measured data, FMU exchange. Rust engine and solvers; bundled Python (python-control, sympy, CasADi, FMPy, …) for analysis. Brief: [briefs/DATUM-SIM.md](briefs/DATUM-SIM.md) | Control, mechanical, electrical, process and mechatronics engineers, researchers, students | Plan's network canvas, Plot's Python runtime and graphs, Atlas materials, units, print | Large (0.1 within weeks) | **Released 0.1.0** (2026-10-28) and in `apps.json` (session 10) |
-| Datum Mesh (was Datum Field) | Finite-element analysis on the desktop, grown in steps: 0.1 2D frames, trusses, plane stress/strain and heat conduction with an own Rust solver (T6 triangles, spade meshing, faer) and a built-in verification report → axisymmetric, modal, buckling → 3D with STEP → nonlinear and contact → CFD → multiphysics (open solvers as separate programs). Brief: [briefs/DATUM-MESH.md](briefs/DATUM-MESH.md) | Mechanical, structural, process and aerospace engineers, students | Plan's canvas, Sim's solver and verification layout, Atlas materials, Calc hand checks, Plot CSV | Very large overall; 0.1 = medium | **Being built (session 13)**: 0.1.x this week, crimson accent |
+| Datum Mesh (was Datum Field) | (Released, in `apps.json` since session 14.) Finite-element analysis on the desktop, grown in steps: 0.1 2D frames, trusses, plane stress/strain and heat conduction with an own Rust solver (T6 triangles, spade meshing, faer) and a built-in verification report → axisymmetric, modal, buckling → 3D with STEP → nonlinear and contact → CFD → multiphysics (open solvers as separate programs). Brief: [briefs/DATUM-MESH.md](briefs/DATUM-MESH.md) | Mechanical, structural, process and aerospace engineers, students | Plan's canvas, Sim's solver and verification layout, Atlas materials, Calc hand checks, Plot CSV | Very large overall; 0.1 = medium | **Being built (session 13)**: 0.1.x this week, crimson accent |
 | Datum Draft | 2D technical drawings: parametric sketches, dimensions, title blocks, DXF | Engineers, drafters | Print | Large | Long-term |
 | Datum Phase | Phase diagrams, kinetics, heat-treatment curves | Materials scientists | Plot (Arrhenius), Atlas | Large | Long-term |
 | Datum Signal | Vibration and sound: FFT, filters, spectrograms, order analysis (may graduate out of Plot) | Test engineers | Plot | Medium | Long-term |

@@ -1,5 +1,5 @@
 ---
-// The hero: "Datum" and "Tools to <phrase>" on the left; on the right one animated drawing per app, around the datum
+// The hero: "Datum" and "Tools to <phrase>" on the left; on the right one animated drawing per app (two or three columns), around the datum
 // (the amber square where the tiles meet). The italic phrase changes by itself every few seconds and the tile of its
 // app lights up; hovering or focusing a tile shows that app's phrase until the pointer leaves, then the cycle goes on.
 import type { App } from "../lib/github";
@@ -15,8 +15,10 @@ const say: Record<string, { cap: string; phrases: string[] }> = {
   plot: { cap: "Analyse and graph", phrases: ["analyse data.", "fit curves."] },
   atlas: { cap: "Select materials", phrases: ["choose materials.", "map properties."] },
   sim: { cap: "Model and simulate", phrases: ["simulate systems.", "tune control loops."] },
+  calc: { cap: "Calculate and check", phrases: ["write calculations.", "check designs."] },
+  mesh: { cap: "Analyse stresses", phrases: ["analyse stresses.", "mesh parts."] },
 };
-const tiles = apps.slice(0, 4).map(a => ({ a, cap: say[a.id]?.cap ?? a.tagline, phrases: say[a.id]?.phrases ?? [`${a.tagline.split(":")[0].replace(/\.$/, "").toLowerCase()}.`] }));
+const tiles = apps.slice(0, 6).map(a => ({ a, cap: say[a.id]?.cap ?? a.tagline, phrases: say[a.id]?.phrases ?? [`${a.tagline.split(":")[0].replace(/\.$/, "").toLowerCase()}.`] }));
 // The phrase cycle takes the first phrase of every app, then the second, so the tiles take turns.
 const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, text: t.phrases[k] }] : []));
 ---
@@ -24,14 +26,14 @@ const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, t
   <div class="left">
     <h1 id="hero-title" class="title">Datum<span class="sq" aria-hidden="true"></span></h1>
     <p class="tools">Tools to <span class="say it" data-say aria-live="off">{cycle[0].text}</span></p>
-    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, and more on the way. Open source; your files stay on your computer.</p>
+    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, engineering calculations and finite-element analysis, and more on the way. Open source; your files stay on your computer.</p>
     <div class="btns">
       <a class="btn btn-solid" href="#apps">Get the apps</a>
       <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>
     </div>
   </div>
 
-  <div class="quad" data-quad data-cycle={JSON.stringify(cycle)}>
+  <div class:list={["quad", { three: tiles.length > 4 }]} data-quad data-cycle={JSON.stringify(cycle)}>
     {tiles.map(({ a, cap }, i) => (
       <a class:list={["q", { on: i === 0 }]} href={`${base}/apps/${a.id}`} data-q={i} style={`--c:var(--${a.id}, ${a.accent})`} aria-label={`${a.name}: ${cap}`}>
         <span class="q-top mono"><img src={a.logo} width="18" height="18" alt="" /><b>{short(a)}</b><span class="arrow" aria-hidden="true">→</span></span>
@@ -93,8 +95,12 @@ const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, t
   .q.on .q-cap, .q:hover .q-cap { color: var(--c); }
   .q.on .arrow, .q:hover .arrow { opacity: 1; transform: none; }
   .q:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+  .quad.three { width: min(100%, 600px); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 8px; }
+  .quad.three .q-top, .quad.three .q-cap { padding: 6px 8px; letter-spacing: .06em; }
+  .quad.three .q-cap { font-size: 9px; }
   .origin { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: var(--amber); outline: 4px solid var(--bg-2); pointer-events: none; }
 
   @media (max-width: 960px) { .hero-in { grid-template-columns: 1fr; } .quad { justify-self: stretch; width: 100%; } }
+  @media (max-width: 560px) { .quad.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 420px) { .quad { gap: 6px; padding: 6px; } .q-top, .q-cap { padding: 6px 7px; letter-spacing: .05em; } .q-cap { font-size: 8.5px; } }
 </style>

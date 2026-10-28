@@ -112,6 +112,60 @@
           "text": "Sweep parameters, read the step-response specifications and tune the controller."
         }
       ]
+    },
+    {
+      "id": "calc",
+      "repo": "Edgar-Mendonca/Datum-Calc",
+      "branch": "HEAD",
+      "name": "Datum Calc",
+      "accent": "#A8650F",
+      "tagline": "Engineering calculations with real units, as readable maths, with checks and a printable calc sheet.",
+      "for": "Mechanical, process, structural and electrical engineers, students and lecturers.",
+      "shot": "docs/images/pack.png",
+      "about": [
+        "Datum Calc is a desktop app for engineering calculation sheets: equations with their units, shown as readable maths, with checks and a printable calc sheet."
+      ],
+      "steps": [
+        {
+          "title": "Write the equations",
+          "text": "Type each equation with its units, top to bottom, as on paper."
+        },
+        {
+          "title": "Check the results",
+          "text": "Every answer carries its unit; checks show PASS or FAIL with the utilisation."
+        },
+        {
+          "title": "Print the calc sheet",
+          "text": "Print a referenced calc sheet with a title block, ready to hand in."
+        }
+      ]
+    },
+    {
+      "id": "mesh",
+      "repo": "Edgar-Mendonca/Datum-Mesh",
+      "branch": "HEAD",
+      "name": "Datum Mesh",
+      "accent": "#B83250",
+      "tagline": "Finite-element analysis on the desktop: stresses, deflections and temperatures in parts and frames.",
+      "for": "Mechanical, structural, process and aerospace engineers, students and lecturers.",
+      "shot": "docs/images/frame.png",
+      "about": [
+        "Datum Mesh finds the stresses, deflections and temperatures in parts and structures by the finite-element method, with a built-in verification report."
+      ],
+      "steps": [
+        {
+          "title": "Draw and mesh",
+          "text": "Draw a frame, or the outline of a part with its holes."
+        },
+        {
+          "title": "Load and support",
+          "text": "Put supports, forces, pressures and heat on nodes, members and edges."
+        },
+        {
+          "title": "Solve and report",
+          "text": "Solve, read deflections and stresses, and print the report."
+        }
+      ]
     }
   ]
 }

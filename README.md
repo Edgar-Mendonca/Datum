@@ -27,6 +27,8 @@ No accounts, no subscriptions, no telemetry: your files stay on your computer.
 | <img src="brand/datum-plot-icon.svg" width="56" alt=""> | **[Datum Plot](https://edgar-mendonca.github.io/Datum/apps/plot)** | Analyse data and make publication-ready graphs. For scientists, researchers, lab teams and students. | [![release](https://img.shields.io/github/v/release/Edgar-Mendonca/Datum-Plot?label=&color=0E8C7F)](https://github.com/Edgar-Mendonca/Datum-Plot/releases/latest) | [Download](https://github.com/Edgar-Mendonca/Datum-Plot/releases/latest) · [Repo](https://github.com/Edgar-Mendonca/Datum-Plot) |
 | <img src="brand/datum-atlas-icon.svg" width="56" alt=""> | **[Datum Atlas](https://edgar-mendonca.github.io/Datum/apps/atlas)** | Choose materials with property charts and selection indices. For design and materials engineers, and students. | [![release](https://img.shields.io/github/v/release/Edgar-Mendonca/Datum-Atlas?label=&color=6C4AB6)](https://github.com/Edgar-Mendonca/Datum-Atlas/releases/latest) | [Download](https://github.com/Edgar-Mendonca/Datum-Atlas/releases/latest) · [Repo](https://github.com/Edgar-Mendonca/Datum-Atlas) |
 | <img src="brand/datum-sim-icon.svg" width="56" alt=""> | **[Datum Sim](https://edgar-mendonca.github.io/Datum/apps/sim)** | Model and simulate dynamic systems: block diagrams, control and motors. For control, mechanical, electrical, process and mechatronics engineers. | [![release](https://img.shields.io/github/v/release/Edgar-Mendonca/Datum-Sim?label=&color=C2410C)](https://github.com/Edgar-Mendonca/Datum-Sim/releases/latest) | [Download](https://github.com/Edgar-Mendonca/Datum-Sim/releases/latest) · [Repo](https://github.com/Edgar-Mendonca/Datum-Sim) |
+| <img src="brand/datum-calc-icon.svg" width="56" alt=""> | **[Datum Calc](https://edgar-mendonca.github.io/Datum/apps/calc)** | Engineering calculations with real units, readable maths, checks and a printable calc sheet. For every engineer who writes calculations. | [![release](https://img.shields.io/github/v/release/Edgar-Mendonca/Datum-Calc?label=&color=A8650F)](https://github.com/Edgar-Mendonca/Datum-Calc/releases/latest) | [Download](https://github.com/Edgar-Mendonca/Datum-Calc/releases/latest) · [Repo](https://github.com/Edgar-Mendonca/Datum-Calc) |
+| <img src="brand/datum-mesh-icon.svg" width="56" alt=""> | **[Datum Mesh](https://edgar-mendonca.github.io/Datum/apps/mesh)** | Finite-element analysis: stresses, deflections and temperatures in parts and frames, with a verification report. For mechanical, structural and process engineers. | [![release](https://img.shields.io/github/v/release/Edgar-Mendonca/Datum-Mesh?label=&color=B83250)](https://github.com/Edgar-Mendonca/Datum-Mesh/releases/latest) | [Download](https://github.com/Edgar-Mendonca/Datum-Mesh/releases/latest) · [Repo](https://github.com/Edgar-Mendonca/Datum-Mesh) |
 
 Each app has its own page on the [website](https://edgar-mendonca.github.io/Datum/) (click its name): what it does, how it is used, screens, roadmap and releases.
 
@@ -38,7 +40,7 @@ Every app is free and open source (MIT), Windows first, installs in seconds for 
 
 - **Small and fast.** Quick to install, opens in a moment, smooth with large files.
 - **Private.** Your files stay on your computer. The only network call is the update check.
-- **Built for real technical work.** Each app has its own tested engine: scheduling, statistics, materials selection, system simulation.
+- **Built for real technical work.** Each app has its own tested engine: scheduling, statistics, materials selection, system simulation, calculation, finite elements.
 - **One design.** The same window, ribbon, help, printing and updater in every app. Learn one, know them all.
 - **Free forever.** MIT licence, built in the open.
 
@@ -55,7 +57,7 @@ Every app is free and open source (MIT), Windows first, installs in seconds for 
 - [**MEMORY.md**](MEMORY.md): the family memory: decisions that apply to every app, the apps list, the session log.
 - [**apps.json**](apps.json): the registry the website builds from. Adding an app is one line.
 - [**brand/**](brand): the Datum logo ("Continuum") and its guide [BRAND.md](brand/BRAND.md), and every app icon.
-- [**briefs/**](briefs): the briefs new apps start from: [Datum Sim](briefs/DATUM-SIM.md) (released), [Datum Calc](briefs/DATUM-CALC.md) and [Datum Mesh](briefs/DATUM-MESH.md) (being built).
+- [**briefs/**](briefs): the briefs new apps start from: [Datum Sim](briefs/DATUM-SIM.md) (released), [Datum Calc](briefs/DATUM-CALC.md) and [Datum Mesh](briefs/DATUM-MESH.md) (released).
 - [**brain/**](brain): the Datum brain: `graph.json`, one graph of every app, design rule, technology, source file, decision, release, plan and session, generated from the repositories ([BRAIN.md](brain/BRAIN.md)). Read it before starting anything new.
 - [**home/**](home): **Datum Home**, the desktop app that installs and updates the others (Tauri, a tested Rust core, a SolidJS window); released from this repository with tags `home-vX.Y.Z`.
 - [**site/**](site): the website (Astro): the landing page, one page per app (`/apps/<id>`) and the interactive [Datum network](https://edgar-mendonca.github.io/Datum/network). It reads each app's `docs/site.json`, `CHANGELOG.md`, latest release and the brain when it builds, every hour and on every push.
@@ -84,7 +86,7 @@ GitHub Pages must use **Settings › Pages › Source: GitHub Actions** (the wor
 
 ## Contribute and feedback
 
-- Bugs and feature requests: open an issue in the app's repository ([Plan](https://github.com/Edgar-Mendonca/Datum-Plan/issues/new), [Plot](https://github.com/Edgar-Mendonca/Datum-Plot/issues/new), [Atlas](https://github.com/Edgar-Mendonca/Datum-Atlas/issues/new), [Sim](https://github.com/Edgar-Mendonca/Datum-Sim/issues/new)).
+- Bugs and feature requests: open an issue in the app's repository ([Plan](https://github.com/Edgar-Mendonca/Datum-Plan/issues/new), [Plot](https://github.com/Edgar-Mendonca/Datum-Plot/issues/new), [Atlas](https://github.com/Edgar-Mendonca/Datum-Atlas/issues/new), [Sim](https://github.com/Edgar-Mendonca/Datum-Sim/issues/new), [Calc](https://github.com/Edgar-Mendonca/Datum-Calc/issues/new), [Mesh](https://github.com/Edgar-Mendonca/Datum-Mesh/issues/new)).
 - Ideas for new Datum apps, and anything about the family or this site: [open an issue here](https://github.com/Edgar-Mendonca/Datum/issues/new).
 
 ## Licence

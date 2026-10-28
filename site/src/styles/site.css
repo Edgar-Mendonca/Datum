@@ -13,7 +13,7 @@
   --ink: #0C1A2B; --ink-2: #2B3645; --muted: #5B6470; --faint: #A3A9B0;
   --line: #D9D9D4; --line-2: #C2C5C3;
   --em: #0B5CAD; --amber: #F2B233; --on-ink: #F2F1EE;
-  --plan: #0B5CAD; --plot: #0B7468; --atlas: #6C4AB6; --sim: #C2410C;
+  --plan: #0B5CAD; --plot: #0B7468; --atlas: #6C4AB6; --sim: #C2410C; --calc: #8E550C; --mesh: #B83250;
   --display: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
@@ -27,7 +27,7 @@
   --ink: #E6EDF5; --ink-2: #C4CEDA; --muted: #93A0B1; --faint: #4D5A6A;
   --line: #1D2836; --line-2: #2B3A4C;
   --em: #6AAEF0; --on-ink: #0B1119;
-  --plan: #4C9BEA; --plot: #3FC2B2; --atlas: #A58BEA; --sim: #F08A5D;
+  --plan: #4C9BEA; --plot: #3FC2B2; --atlas: #A58BEA; --sim: #F08A5D; --calc: #F0B450; --mesh: #EF7A93;
   color-scheme: dark;
 }
 

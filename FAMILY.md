@@ -12,6 +12,8 @@ This file is the single source for that. It lives in the DATUM repo (`Edgar-Mend
 | Datum Plot | Analyse data and make publication-ready graphs | Teal `#0E8C7F` | Axes, points, fitted curve + amber diamond | `.dplot` | `com.edgarmendonca.datumplot` | Edgar-Mendonca/Datum-Plot |
 | Datum Atlas | Choose materials with property charts and selection indices | Violet `#6C4AB6` | Log–log axes, family bubbles, index line + amber diamond | `.datlas` | `com.edgarmendonca.datumatlas` | Edgar-Mendonca/Datum-Atlas |
 | Datum Sim | Model and simulate dynamic systems: block diagrams, control and motors | Orange `#C2410C` | A feedback loop: summing node, tinted block with a settling step response, feedback path + amber diamond | `.dsim` | `com.edgarmendonca.datumsim` | Edgar-Mendonca/Datum-Sim |
+| Datum Calc | Engineering calculations with real units, readable maths, checks and a printable calc sheet | Amber `#A8650F` | See `brand/datum-calc-icon.svg` + amber diamond | `.dcalc` | `com.edgarmendonca.datumcalc` | Edgar-Mendonca/Datum-Calc |
+| Datum Mesh | Finite-element analysis: stresses, deflections and temperatures in parts and frames | Crimson `#B83250` | A meshed L-bracket with its stressed corner + amber diamond | `.dmesh` | `com.edgarmendonca.datummesh` | Edgar-Mendonca/Datum-Mesh |
 | DATUM (hub) | The family site, memory and brain | Navy `#0C1A2B` | "Continuum": two concentric D's drawn as one line, with the amber datum square where it starts ([brand/BRAND.md](brand/BRAND.md)) | — | — | Edgar-Mendonca/Datum |
 | Next apps | — | pick from §3 | — | `.d<name>` | `com.edgarmendonca.datum<name>` | Edgar-Mendonca/Datum-<Name> |
 

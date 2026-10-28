@@ -1,13 +1,47 @@
 ---
-// One animated drawing per app: what the app does, in a few lines on a grid. Used in the hero (four tiles) and at
+// One animated drawing per app: what the app does, in a few lines on a grid. Used in the hero (one tile per app) and at
 // the top of each app page. The drawings loop gently; at rest (reduced motion, no animation) every drawing is complete.
 interface Props { id: string; logo?: string; class?: string }
 const { id, logo, class: cls } = Astro.props;
-const known = ["plan", "plot", "atlas", "sim"].includes(id);
+const known = ["plan", "plot", "atlas", "sim", "calc", "mesh"].includes(id);
+
+// Mesh: an L-bracket in 10-unit cells, each split into two triangles, shaded by a stress that peaks at the inner corner.
+const cells: [number, number][] = [];
+for (let x = 30; x < 80; x += 10) for (let y = 20; y < 120; y += 10) cells.push([x, y]);
+for (let x = 80; x < 170; x += 10) for (let y = 80; y < 120; y += 10) cells.push([x, y]);
+const stress = (x: number, y: number) => Math.min(1, 9 / (Math.hypot(x - 80, y - 80) + 6));
+const tris = cells.flatMap(([x, y]) => [
+  { d: `M${x} ${y}h10v10z`, v: stress(x + 7, y + 3) },
+  { d: `M${x} ${y}v10h10z`, v: stress(x + 3, y + 7) },
+]);
+const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`).join("");
 ---
 {known ? (
   <svg class:list={["glyph", `g-${id}`, cls]} viewBox="0 0 200 140" aria-hidden="true">
     <path class="g-grid" d="M0 20H200M0 40H200M0 60H200M0 80H200M0 100H200M0 120H200M20 0V140M40 0V140M60 0V140M80 0V140M100 0V140M120 0V140M140 0V140M160 0V140M180 0V140" />
+    {id === "calc" && (
+      <Fragment>
+        <text class="g-text g-line" style="--k:0" x="16" y="30">Q = 120 m³/h</text>
+        <text class="g-text g-line" style="--k:1" x="16" y="54">H = 45 m</text>
+        <text class="g-text g-line" style="--k:2" x="16" y="78">P = ρ·g·Q·H / η</text>
+        <text class="g-text g-line g-res" style="--k:3" x="16" y="104">P = 18.4 kW</text>
+        <path class="g-rule" d="M14 88H112" />
+        <g class="g-pop" style="--k:5"><rect class="g-pass" x="128" y="90" width="56" height="20" rx="2" /><text class="g-text g-small g-pass-t" x="156" y="104" text-anchor="middle">PASS</text></g>
+        <rect class="g-track" x="16" y="118" width="168" height="6" rx="1" />
+        <rect class="g-bar g-acc" style="--k:6" x="16" y="118" width="138" height="6" rx="1" />
+        <text class="g-text g-small g-fade" x="184" y="30" text-anchor="end">0.82</text>
+      </Fragment>
+    )}
+    {id === "mesh" && (
+      <Fragment>
+        <g class="g-contour">{tris.map(t => <path d={t.d} style={`fill-opacity:${(0.12 + t.v * 0.85).toFixed(2)}`} />)}</g>
+        <path class="g-draw g-meshl" pathLength="1" d={meshLines} />
+        <path class="g-axis g-outline" d="M30 20H80V80H170V120H30Z" />
+        <path class="g-hatch" d="M26 20H84M30 20l-6-6M42 20l-6-6M54 20l-6-6M66 20l-6-6M78 20l-6-6" />
+        <path class="g-arrow g-pop" style="--k:2" d="M170 50V78M164 70l6 8 6-8" />
+        <text class="g-text g-small g-fade" x="96" y="66">σ max</text>
+      </Fragment>
+    )}
     {id === "plan" && (
       <Fragment>
         <g class="g-ink" opacity=".22"><rect x="14" y="22" width="26" height="6"/><rect x="14" y="44" width="20" height="6"/><rect x="14" y="66" width="30" height="6"/><rect x="14" y="88" width="22" height="6"/><rect x="14" y="110" width="16" height="6"/></g>
@@ -87,6 +121,21 @@ const known = ["plan", "plot", "atlas", "sim"].includes(id);
   .g-dot { fill: var(--c); offset-path: path("M37 34H52M92 34H112M156 34H184V60H28V43"); offset-distance: 30%; }
   .g-setp { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 5 3; }
   .g-draw { stroke-dasharray: 1; }
+
+  .g-line { animation: g-type 6s ease infinite both; animation-delay: calc(var(--k) * .45s); }
+  @keyframes g-type { 0% { opacity: 0; transform: translateX(-6px); } 8%, 86% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+  .g-res { fill: var(--c); font-size: 14px; }
+  .g-rule { stroke: var(--ink); stroke-width: 1.2; }
+  .g-pass { fill: color-mix(in srgb, #1F7A4D 14%, var(--card)); stroke: #1F7A4D; stroke-width: 1.4; }
+  .g-pass-t { fill: #1F7A4D; }
+  :global(:root[data-theme="dark"]) .g-pass { stroke: #4CC38A; fill: color-mix(in srgb, #4CC38A 14%, var(--card)); }
+  :global(:root[data-theme="dark"]) .g-pass-t { fill: #4CC38A; }
+  .g-track { fill: var(--line); }
+  .g-contour { fill: var(--c); animation: g-fade 6s ease infinite both; animation-delay: 1.4s; }
+  .g-meshl { fill: none; stroke: var(--ink); stroke-width: .6; opacity: .45; }
+  .g-outline { fill: none; }
+  .g-hatch { fill: none; stroke: var(--ink); stroke-width: 1.3; }
+  .g-arrow { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
   /* The loops: 6 s, everything builds up, holds, then clears; staggered by --k. */
   .g-bar { transform-box: fill-box; transform-origin: left center; animation: g-grow 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .3s); }

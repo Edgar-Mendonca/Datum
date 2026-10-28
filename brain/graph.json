@@ -38,6 +38,18 @@
    "name": "Datum Sim",
    "repo": "Edgar-Mendonca/Datum-Sim",
    "accent": "#C2410C"
+  },
+  {
+   "id": "calc",
+   "name": "Datum Calc",
+   "repo": "Edgar-Mendonca/Datum-Calc",
+   "accent": "#A8650F"
+  },
+  {
+   "id": "mesh",
+   "name": "Datum Mesh",
+   "repo": "Edgar-Mendonca/Datum-Mesh",
+   "accent": "#B83250"
   }
  ],
  "nodes": [
@@ -52,7 +64,7 @@
    "id": "guide-1",
    "type": "guide",
    "label": "§1 The apps",
-   "text": "| App | What it is for | Accent | Logo glyph | Files | Identifier | Repo |\n| --- | --- | --- | --- | --- | --- | --- |\n| Datum Plan | Plan, schedule, track and report projects | Blue #0B5CAD (glyph #2F6FCF) | Calendar with bars + amber diamond | .dplan | com.edgarmendonca.datumplan | Edgar-Mendonca/Datum-Plan |\n| Datum Plot | Analyse data and make publication-ready graphs | Teal #0E8C7F | Axes, points, fitted curve + amber diamond | .dplot | com.edgarmendonca.datumplot | Edgar-Mendonca/Datum-Plot |\n| Datum Atlas | Choose materials with property charts and selection indices | Violet #6C4AB6 | Log–log axes, family bubbles, index line + amber diamond | .datlas | com.edgarmendonca.datumatlas | Edgar-Mendonca/Datum-Atlas |\n| Datum Sim | Model and simulate dynamic systems: block diagrams, control and motors | Orange #C2410C | A feedback loop: summing node, tinted block with a settling step response, feedback path + amber diamond | .dsim | com.edgarmendonca.datumsim | Edgar-Mendonca/Datum-Sim |\n| DATUM (hub) | The family site, memory and brain | Navy #0C1A2B | \"Continuum\": two concentric D's drawn as one line, with the amber datum square where it starts (brand/BRAND.md) | — | — | Edgar-Mendonca/Datum |\n| Next apps | — | pick from §3 | — | .d<name> | com.edgarmendonca.datum<name> | Edgar-Mendonca/Datum-<Name> |\nThe registry the site builds from is apps.json.",
+   "text": "| App | What it is for | Accent | Logo glyph | Files | Identifier | Repo |\n| --- | --- | --- | --- | --- | --- | --- |\n| Datum Plan | Plan, schedule, track and report projects | Blue #0B5CAD (glyph #2F6FCF) | Calendar with bars + amber diamond | .dplan | com.edgarmendonca.datumplan | Edgar-Mendonca/Datum-Plan |\n| Datum Plot | Analyse data and make publication-ready graphs | Teal #0E8C7F | Axes, points, fitted curve + amber diamond | .dplot | com.edgarmendonca.datumplot | Edgar-Mendonca/Datum-Plot |\n| Datum Atlas | Choose materials with property charts and selection indices | Violet #6C4AB6 | Log–log axes, family bubbles, index line + amber diamond | .datlas | com.edgarmendonca.datumatlas | Edgar-Mendonca/Datum-Atlas |\n| Datum Sim | Model and simulate dynamic systems: block diagrams, control and motors | Orange #C2410C | A feedback loop: summing node, tinted block with a settling step response, feedback path + amber diamond | .dsim | com.edgarmendonca.datumsim | Edgar-Mendonca/Datum-Sim |\n| Datum Calc | Engineering calculations with real units, readable maths, checks and a printable calc sheet | Amber #A8650F | See brand/datum-calc-icon.svg + amber diamond | .dcalc | com.edgarmendonca.datumcalc | Edgar-Mendonca/Datum-Calc |\n| Datum Mesh | Finite-element analysis: stresses, deflections and temperatures in parts and frames | Crimson #B83250 | A meshed L-bracket with its stressed corner + amber diamond | .dmesh | com.edgarmendonca.datummesh | Edgar-Mendonca/Datum-Mesh |\n| DATUM (hub) | The family site, memory and brain | Navy #0C1A2B | \"Continuum\": two concentric D's drawn as o",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -650,13 +662,22 @@
    "id": "hub-session-6",
    "type": "session",
    "app": "hub",
+   "label": "Session 14 (Calc and Mesh join the family)",
+   "date": "2026-10-28",
+   "text": "· Both apps were built in their own chats from the session 13 briefs: Calc 0.1.3 and Mesh 0.1.1, each with docs/site.json (about, steps), icons, and releases with SHA256SUMS.txt.\n· Hub: apps.json (calc #A8650F, mesh #B83250; fallback about/steps); icons copied to brand/; --calc (#8E550C light text, #F0B450 dark) and --mesh (#B83250, #EF7A93) in site.css; AppGlyph drawings (Calc: equation lines typing in, result in the accent, a PASS badge and a 0.82 utilisation bar; Mesh: an L-bracket meshed in triangles, shaded by stress peaking at the inner corner, fixed edge and a load arrow); the hero is six tiles in three columns (two on phones) with phrases \"write calculations. / check designs.\" and \"analyse stresses. / mesh parts.\"; the lead names calculations and finite-element analysis. FAMILY §1 rows, README table and issue links, CLAUDE.md (repos, hero rule), MEMORY §1.\n· Datum Home 0.1.1: Calc and Mesh in its built-in list with icons (home.json already listed them); released with the workflow.\n· Checked: site build (six apps), Playwright 1280/375 light and dark, home, both app pages and the network: no overflow; Home: core tests, clippy, UI build.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-7",
+   "type": "session",
+   "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
    "date": "2026-10-28",
    "text": "· Plan 0.3.12 shipped hand-worked scheduling cases (47), parity files with their own dates (crates/core/tests/parity, hand-made XML and XER; real exports can be dropped in), random plans with constraints and calendars (links hold, tight forward pass, row order), random edit sequences and damaged CSV/Excel. They found and fixed two scheduling mistakes (ALAP; late dates of work under way).\n· Recorded here: FAMILY §11 gains \"trust in the results\", decision (§3), roadmap row, Plan at 0.3.12. Brain regenerated.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-7",
+   "id": "hub-session-8",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -665,7 +686,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -674,7 +695,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -683,7 +704,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -692,7 +713,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -701,7 +722,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -710,7 +731,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -719,7 +740,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -728,7 +749,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -742,7 +763,7 @@
    "app": "hub",
    "label": "Datum Calc",
    "when": "Being built (session 13): 0.1.x this week, amber accent",
-   "text": "Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: briefs/DATUM-CALC.md\n\nFor: Every engineer\nReuses: Plan's formula engine, units, print, Chart.js; Atlas materials (0.2)\nSize: Medium\nStatus: Being built (session 13): 0.1.x this week, amber accent",
+   "text": "(Released, in apps.json since session 14.) Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: briefs/DATUM-CALC.md\n\nFor: Every engineer\nReuses: Plan's formula engine, units, print, Chart.js; Atlas materials (0.2)\nSize: Medium\nStatus: Being built (session 13): 0.1.x this week, amber accent",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -814,7 +835,7 @@
    "app": "hub",
    "label": "Datum Mesh (was Datum Field)",
    "when": "Being built (session 13): 0.1.x this week, crimson accent",
-   "text": "Finite-element analysis on the desktop, grown in steps: 0.1 2D frames, trusses, plane stress/strain and heat conduction with an own Rust solver (T6 triangles, spade meshing, faer) and a built-in verification report → axisymmetric, modal, buckling → 3D with STEP → nonlinear and contact → CFD → multiphysics (open solvers as separate programs). Brief: briefs/DATUM-MESH.md\n\nFor: Mechanical, structural, process and aerospace engineers, students\nReuses: Plan's canvas, Sim's solver and verification layout, Atlas materials, Calc hand checks, Plot CSV\nSize: Very large overall; 0.1 = medium\nStatus: Being built (session 13): 0.1.x this week, crimson accent",
+   "text": "(Released, in apps.json since session 14.) Finite-element analysis on the desktop, grown in steps: 0.1 2D frames, trusses, plane stress/strain and heat conduction with an own Rust solver (T6 triangles, spade meshing, faer) and a built-in verification report → axisymmetric, modal, buckling → 3D with STEP → nonlinear and contact → CFD → multiphysics (open solvers as separate programs). Brief: briefs/DATUM-MESH.md\n\nFor: Mechanical, structural, process and aerospace engineers, students\nReuses: Plan's canvas, Sim's solver and verification layout, Atlas materials, Calc hand checks, Plot CSV\nSize: Very large overall; 0.1 = medium\nStatus: Being built (session 13): 0.1.x this week, crimson accent",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -4911,6 +4932,916 @@
    "date": "2026-10-28",
    "text": "· The user: \"start the motor library 0.1.2\".\n· Built motors.rs (14 motor kinds, 8 drive pieces, presets for LV/MV/HV ratings), a Drives group, the Inspector's Typical ratings, motor glyphs and port names, seven motor examples with tile pictures.\n· Checked: 49 Rust tests (12 new: induction torque against the equivalent circuit for cage, double cage and wound rotor at three slips; DC, synchronous, PMSM3, BLDC, stepper, inverter, encoder, presets), 30 UI checks (3 new), clippy, cargo deny, Python tests; the real app under Xvfb (DOL start, FOC, Inspector ratings). Record: docs/verification/2026-10-28.md.\n· Bugs found by the checks and fixed: the preset formatter cut zeros off whole numbers (Nr 50 → 5); a zero-crossing landing exactly on zero was lost by the solver.\n· Released 0.1.2 (see the release flow); site.json about, steps, highlights and roadmap updated.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Sim/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "app-calc",
+   "type": "app",
+   "app": "calc",
+   "label": "Datum Calc",
+   "accent": "#A8650F",
+   "text": "Engineering calculations with real units, as readable maths, with checks and a printable calc sheet.\n\nFor: Mechanical, process, structural and electrical engineers, students and lecturers: everyone who writes calculations.\n\nStack: Rust (engine crates/core + shell src-tauri), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript (TSX), plain CSS with light/dark tokens, IBM Plex fonts; KaTeX for maths from 0.1.1; Chart.js for plots from 0.1.2. No Python",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc"
+  },
+  {
+   "id": "calc-v0.1.3",
+   "type": "release",
+   "app": "calc",
+   "label": "Calc 0.1.3",
+   "version": "0.1.3",
+   "date": "2026-10-28",
+   "text": "Ten ready calc packs, notes on every line, copying results and CSV export: the convention build.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.3"
+  },
+  {
+   "id": "calc-v0.1.2",
+   "type": "release",
+   "app": "calc",
+   "label": "Calc 0.1.2",
+   "version": "0.1.2",
+   "date": "2026-10-28",
+   "text": "Tables, pictures and the list of every unit; a fix for gravity after a unit.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.2"
+  },
+  {
+   "id": "calc-v0.1.1",
+   "type": "release",
+   "app": "calc",
+   "label": "Calc 0.1.1",
+   "version": "0.1.1",
+   "date": "2026-10-28",
+   "text": "The engine arrives: every equation is worked out with its units, shown as maths, and checked.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.1"
+  },
+  {
+   "id": "calc-v0.1.0",
+   "type": "release",
+   "app": "calc",
+   "label": "Calc 0.1.0",
+   "version": "0.1.0",
+   "date": "2026-10-28",
+   "text": "The first release of Datum Calc: the window, the calc sheet, saving and opening, printing, and updates from day one.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/releases/tag/v0.1.0"
+  },
+  {
+   "id": "calc-plan-0-1-4",
+   "type": "roadmap",
+   "app": "calc",
+   "label": "0.1.4 Polish after the convention",
+   "version": "0.1.4",
+   "when": "Next",
+   "text": "Fixes from trying every pack on a clean Windows PC\nA Getting Started sheet\nThousands separators and more number formats",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-plan-0-2",
+   "type": "roadmap",
+   "app": "calc",
+   "label": "0.2 Materials and more packs",
+   "version": "0.2",
+   "when": "Later",
+   "text": "Material properties from Datum Atlas\nMore calc packs\nEquations shown with their numbers substituted\nSymbolic simplify",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-plan-0-3",
+   "type": "roadmap",
+   "app": "calc",
+   "label": "0.3 Matrices and ODEs",
+   "version": "0.3",
+   "when": "Later",
+   "text": "Matrices and linear systems\nSolve ordinary differential equations\nTables from CSV",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-plan-0-4",
+   "type": "roadmap",
+   "app": "calc",
+   "label": "0.4 Programs and templates",
+   "version": "0.4",
+   "when": "Later",
+   "text": "Loops and conditions inside a region\nSheet templates\nA company title block",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-plan-1-0",
+   "type": "roadmap",
+   "app": "calc",
+   "label": "1.0 Validation",
+   "version": "1.0",
+   "when": "Goal",
+   "text": "A validation report: every pack against its reference\nA user guide\nA signed installer",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-0",
+   "type": "decision",
+   "app": "calc",
+   "label": "Every product decision comes from the hub brief (session 13)…",
+   "date": "0.1.0",
+   "text": "Every product decision comes from the hub brief (session 13): name, amber accent, .dcalc, identifier, stack, KaTeX, ribbon tabs, logo, the week plan and the cut order\n\nWhy: Decided with the user for the convention; no questions before building",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-1",
+   "type": "decision",
+   "app": "calc",
+   "label": "The shell, ribbon, backstage, options, help, roadmap, updater…",
+   "date": "0.1.0",
+   "text": "The shell, ribbon, backstage, options, help, roadmap, updater, workflows and tests are copied from Datum Plan and renamed\n\nWhy: FAMILY §12: copy, don't reinvent",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-2",
+   "type": "decision",
+   "app": "calc",
+   "label": "Regions are a flat list in reading order (no free x/y placement)",
+   "date": "0.1.0",
+   "text": "Regions are a flat list in reading order (no free x/y placement)\n\nWhy: A calc is read top to bottom; order is the evaluation order; simpler editing, printing and tests",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-3",
+   "type": "decision",
+   "app": "calc",
+   "label": "Each region keeps the text the user typed; results, LaTeX and…",
+   "date": "0.1.0",
+   "text": "Each region keeps the text the user typed; results, LaTeX and errors are computed from it, never stored\n\nWhy: What is printed is always what the engine computes from the text",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-4",
+   "type": "decision",
+   "app": "calc",
+   "label": "Calc's parser is its own small Pratt parser, not Plan's…",
+   "date": "0.1.0",
+   "text": "Calc's parser is its own small Pratt parser, not Plan's GridCraft formula engine\n\nWhy: GridCraft evaluates spreadsheet formulas without units; Calc needs units on numbers, assignments, ranges and user functions. Plan's lesson kept: the engine computes, errors stay on their own line",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-5",
+   "type": "decision",
+   "app": "calc",
+   "label": "The .dcalc reader opens damaged files field by field and drops…",
+   "date": "0.1.0",
+   "text": "The .dcalc reader opens damaged files field by field and drops only the regions it cannot read; ids are renumbered when duplicated\n\nWhy: FAMILY §11 hardening: damaged files open as far as possible",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-6",
+   "type": "decision",
+   "app": "calc",
+   "label": "Printing packs regions measured at the printed width into…",
+   "date": "0.1.0",
+   "text": "Printing packs regions measured at the printed width into pages, never cutting a region; references (style Reference) print at the end\n\nWhy: A calc sheet must look professional; equations split over pages are hard to check",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-7",
+   "type": "decision",
+   "app": "calc",
+   "label": "The region editor stays open when the ribbon is clicked (Math…",
+   "date": "0.1.0",
+   "text": "The region editor stays open when the ribbon is clicked (Math and Units keys type into it)\n\nWhy: The symbol keys would otherwise end the edit before typing",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-8",
+   "type": "decision",
+   "app": "calc",
+   "label": "Page text stays dark on a light page in the dark theme",
+   "date": "0.1.0",
+   "text": "Page text stays dark on a light page in the dark theme\n\nWhy: The page is paper; it prints black on white",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-9",
+   "type": "decision",
+   "app": "calc",
+   "label": "Angle is a soft tag: it never makes values incompatible, but…",
+   "date": "0.1.1",
+   "text": "Angle is a soft tag: it never makes values incompatible, but picks rad/s, rpm or degrees for display\n\nWhy: An angle is a ratio; rpm ↔ rad/s works with rad = 1, and sin(30 deg) needs no special case",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-10",
+   "type": "decision",
+   "app": "calc",
+   "label": "°C and °F values are absolute temperatures (abs); a difference…",
+   "date": "0.1.1",
+   "text": "°C and °F values are absolute temperatures (abs); a difference of two is plain kelvin; adding a difference keeps it absolute; a mean stays absolute; a difference asked in °C shows as Δ°C\n\nWhy: Engineers mix both; the classic mistake (°C × factor with the offset) must not happen",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-11",
+   "type": "decision",
+   "app": "calc",
+   "label": "After a number, the first word is a unit if it is one; after…",
+   "date": "0.1.1",
+   "text": "After a number, the first word is a unit if it is one; after that * and / continue the unit only for units that are not names on the sheet; 2*t is never a unit\n\nWhy: Readable input (120 m^3/h) without surprises when a name is also a unit symbol",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-12",
+   "type": "decision",
+   "app": "calc",
+   "label": "σ is not a built-in constant (it is the usual name for…",
+   "date": "0.1.1",
+   "text": "σ is not a built-in constant (it is the usual name for stress); Stefan–Boltzmann is σ_SB. Constants (g, π, e, R, σ_SB, N_A, k_B, c_0) give way to names on the sheet\n\nWhy: The brief lists σ; a silent constant behind an undefined stress would be dangerous",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-13",
+   "type": "decision",
+   "app": "calc",
+   "label": "Utilisation is demand over capacity: lhs/rhs for ≤ and <…",
+   "date": "0.1.1",
+   "text": "Utilisation is demand over capacity: lhs/rhs for ≤ and <, rhs/lhs for ≥ and >\n\nWhy: A check reads the same whichever way it is written",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-14",
+   "type": "decision",
+   "app": "calc",
+   "label": "Solve and plot exist already in 0.1.1 (the engine had them)…",
+   "date": "0.1.1",
+   "text": "Solve and plot exist already in 0.1.1 (the engine had them); 0.1.2 brings tables, pictures and the units list\n\nWhy: Engine first; the cut order (image, table, plot) still holds",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-15",
+   "type": "decision",
+   "app": "calc",
+   "label": "The window shows results only from the engine (calc in every…",
+   "date": "0.1.1",
+   "text": "The window shows results only from the engine (calc in every Out); the whole sheet is worked out after every change\n\nWhy: Simple and fast enough (1,500 lines well under a second in release builds; a speed gate tests it)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-16",
+   "type": "decision",
+   "app": "calc",
+   "label": "KaTeX and Plex fonts are bundled as woff2 only (a Vite…",
+   "date": "0.1.1",
+   "text": "KaTeX and Plex fonts are bundled as woff2 only (a Vite transform drops woff/ttf)\n\nWhy: Smaller installer; WebView2 reads woff2",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-17",
+   "type": "decision",
+   "app": "calc",
+   "label": "A table is columns (name, unit, optional formula) over rows of…",
+   "date": "0.1.2",
+   "text": "A table is columns (name, unit, optional formula) over rows of typed cells; each column becomes a vector; formula columns are evaluated with the columns to their left\n\nWhy: Pump curves and data-sheet values are tables; vectors plug into interp, sum, max and plots",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-18",
+   "type": "decision",
+   "app": "calc",
+   "label": "The table editor keeps its edits local and saves them as one…",
+   "date": "0.1.2",
+   "text": "The table editor keeps its edits local and saves them as one change when it closes\n\nWhy: Every save re-renders the sheet; typing from cell to cell must not lose focus, and undo should undo the whole edit",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-19",
+   "type": "decision",
+   "app": "calc",
+   "label": "After a unit, * and / never read the constants (g, e, R, c_0)…",
+   "date": "0.1.2",
+   "text": "After a unit, * and / never read the constants (g, e, R, c_0), a function's parameters or a for variable as units\n\nWhy: 0.1.1 read kg/m^3*g as grams (found when checking the table formula in the real app)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-20",
+   "type": "decision",
+   "app": "calc",
+   "label": "Packs are plain .dcalc files embedded with include_str!, each…",
+   "date": "0.1.3",
+   "text": "Packs are plain .dcalc files embedded with include_str!, each with a test comparing its results with hand values worked out independently (in the test comments) before running\n\nWhy: The brief: every pack is a test; the files stay editable in the app",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-21",
+   "type": "decision",
+   "app": "calc",
+   "label": "Text after # on a line is its description (shown beside it…",
+   "date": "0.1.3",
+   "text": "Text after # on a line is its description (shown beside it, printed)\n\nWhy: A calc sheet describes its inputs; packs needed it",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-22",
+   "type": "decision",
+   "app": "calc",
+   "label": "Pack units are set per region where the automatic choice would…",
+   "date": "0.1.3",
+   "text": "Pack units are set per region where the automatic choice would mislead (kN·m for moments, N·m for torque, kVA/kvar)\n\nWhy: Energy and torque share a dimension; apparent power shares watts",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-23",
+   "type": "decision",
+   "app": "calc",
+   "label": "Pack references cite textbooks and standards (White, Karassik…",
+   "date": "0.1.3",
+   "text": "Pack references cite textbooks and standards (White, Karassik, Colebrook, Brown, Incropera, Roark, Gere, Shigley, Chapman; IAPWS-IF97, ASME VIII-1 UG-27, ISO 898-1/724, IEC 60034-1)\n\nWhy: The brief: each pack cites its textbook or open standard",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-decision-24",
+   "type": "decision",
+   "app": "calc",
+   "label": "release.yml ran once on a push trigger to register it (tag…",
+   "date": "0.1.1",
+   "text": "release.yml ran once on a push trigger to register it (tag pushes are blocked from the session); later releases use workflow_dispatch\n\nWhy: A workflow needs one run before GitHub lists it",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-session-0",
+   "type": "session",
+   "app": "calc",
+   "label": "Session 1 (plan + 0.1.0)",
+   "date": "2026-10-28",
+   "text": "· Read the hub brief, CLAUDE.md, MEMORY.md, FAMILY.md and Datum Plan's code; wrote docs/PLAN-0.1.md.\n· Built the skeleton from Plan: workspace, crates/core (sheet document with ops, undo/redo, tolerant reader, hardening tests), src-tauri (commands, options, recovery, recent, updater with REPO = Edgar-Mendonca/Datum-Calc), the window (ribbon with the seven Calc tabs and a Format contextual tab, File page, Options, Print, Roadmap, ? help, Tell Me, themes), amber tokens, the logo and Windows icons, CI and release workflows, docs.\n· Checked in the real app under Xvfb: File page, a new sheet, typing equations (Enter starts the next), a text region, Ctrl+S to a .dcalc, reopening it from the command line, the print preview. Fixed: Plan's .page/.rtext/.pwrap small CSS rules clashed with the sheet; the title block grid; the editor closing when the ribbon was clicked.\n· Checks: clippy clean, 4 hardening tests, 34 UI tests.\n· Released 0.1.0 (the release workflow had to run once on a push trigger to be registered; tag pushes are blocked from the session).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-session-1",
+   "type": "session",
+   "app": "calc",
+   "label": "Session 1, continued (0.1.1, the engine)",
+   "date": "2026-10-28",
+   "text": "· Engine: units.rs (about 200 units, NIST factors, absolute temperatures, display ladders), parse.rs (Pratt parser, units after numbers, statements), eval.rs (dimensions, functions, constants, vectors, checks, solve, plot, Variables), latex.rs, solve.rs (Brent). Tests: every unit factor, temperatures, dimension errors, display, LaTeX, Colebrook by solve, a whole pump sheet; tests::packs: every pack against its hand calculation; fuzz and speed hardening tests.\n· Window: KaTeX maths with results, a unit menu on every result, PASS/FAIL badges with utilisation, errors with the wrong part underlined, Chart.js plots, the Variables panel, counts in the status bar; printed sheets show the same.\n· Checked in the real app with a full pump sheet (results, check, a dimension error, plot and the solved operating point 115.5 m³/h = √(40/0.003), worked by hand).\n· Checks: clippy clean, 23 engine tests, 50 UI tests.\n· Released 0.1.1.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-session-2",
+   "type": "session",
+   "app": "calc",
+   "label": "Session 1, continued (0.1.2, tables and…",
+   "date": "2026-10-28",
+   "text": "· Engine: table regions (columns → vectors, units per column, formula columns), names defined by tables in the Variables panel; the constant/parameter fix for units after numbers.\n· Window: table view and editor, picture regions (insert, paste, size, caption), the units/constants/functions list, printing of both.\n· Checked in the real app: a pump curve table (editing a cell, Enter down, Done) and its formula column in kW; the print preview over two pages.\n· Checks: clippy clean, 24 engine tests, 63 UI tests.\n· Released 0.1.2.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "calc-session-3",
+   "type": "session",
+   "app": "calc",
+   "label": "Session 1, continued (0.1.3, the convention…",
+   "date": "2026-10-28",
+   "text": "· Ten calc packs with hand values worked out first (independent Python evaluation of the same formulas) and a test each: all ten matched on the first run.\n· Notes after # on a line; File › New with the packs grouped by field; right-click menu (Copy Result, Copy as LaTeX, Mark as Input); CSV export of inputs, results and checks.\n· Screenshots (1440×900) of a pack, the printed sheet and the units in the real app; README and site.json updated.\n· Checks: clippy clean, 36 engine tests (11 for the packs), 67 UI tests, cargo deny.\n· Released 0.1.3.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Calc/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "app-mesh",
+   "type": "app",
+   "app": "mesh",
+   "label": "Datum Mesh",
+   "accent": "#B83250",
+   "text": "Finite-element analysis on the desktop: stresses, deflections and temperatures in parts and frames.\n\nFor: Mechanical, structural, process and aerospace engineers, students and lecturers.\n\nStack: Rust engine (crates/core, own solver), Tauri 2, SolidJS + strict TypeScript; no Python, no external solvers in 0.1",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh"
+  },
+  {
+   "id": "mesh-v0.1.1",
+   "type": "release",
+   "app": "mesh",
+   "label": "Mesh 0.1.1",
+   "version": "0.1.1",
+   "date": "2026-10-28",
+   "text": "Frames and trusses solve: press Solve (F5) and see the deflected shape, the moment, shear and axial diagrams, the reactions and the equilibrium check.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.1"
+  },
+  {
+   "id": "mesh-v0.1.0",
+   "type": "release",
+   "app": "mesh",
+   "label": "Mesh 0.1.0",
+   "version": "0.1.0",
+   "date": "2026-10-28",
+   "text": "The first version: the Datum Mesh window, the drawing canvas, and models that save and open. Solving arrives in the next releases: frames and trusses in 0.1.1, parts in 0.1.2.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.0"
+  },
+  {
+   "id": "mesh-plan-0-1-2",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.1.2 Parts meshed and solved",
+   "version": "0.1.2",
+   "when": "Next",
+   "text": "Automatic triangle meshing with quality refinement and local sizes\n6-node triangles (3-node as an option), plane stress and plane strain\nStress and displacement contours, deformed shape, probe, min and max\nVerified: plate with a hole, thick cylinder, NAFEMS LE1, patch tests",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-0-1-3",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.1.3 Heat, materials and reports",
+   "version": "0.1.3",
+   "when": "Soon",
+   "text": "Steady heat conduction with convection\nMaterials library from Datum Atlas, with sources\nPrinted results report\nHelp › Verification: every benchmark with Datum Mesh's answer, the reference and the error",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-0-1-4",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.1.4 Polish",
+   "version": "0.1.4",
+   "when": "Soon",
+   "text": "Speed on large meshes\nFixes from first use",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-0-2",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.2 More analyses",
+   "version": "0.2",
+   "when": "Later",
+   "text": "Axisymmetric solids\n3D frames\nNatural frequencies and buckling of frames\nDXF import\nThermal stress\nSend results to Datum Calc and Datum Plot",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-0-3",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.3 3D solids",
+   "version": "0.3",
+   "when": "Later",
+   "text": "Linear static, modal and thermal analysis of 3D parts\nSTEP import",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-0-4",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.4 Nonlinear",
+   "version": "0.4",
+   "when": "Later",
+   "text": "Plasticity, large deflection and contact, with open solvers run as separate programs",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-0-5",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "0.5 Flow",
+   "version": "0.5",
+   "when": "Later",
+   "text": "Incompressible flow and conjugate heat transfer with open CFD solvers",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-plan-1-0",
+   "type": "roadmap",
+   "app": "mesh",
+   "label": "1.0 Validated",
+   "version": "1.0",
+   "when": "Goal",
+   "text": "A validation report covering every analysis type\nUser guide\nSigned installer",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-file-crates-core-src-model-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "model.rs",
+   "path": "crates/core/src/model.rs",
+   "text": "The model: analysis kind, nodes, members, sections, materials, shapes (polygons with bulge arcs, circles, holes), supports and loads with targets (node, member, edge, point, body), mesh settings; check (every invariant); .dmesh read item by item with migration and repair (damaged files open as far as possible, with warnings) and write",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/model.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-doc-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "doc.rs",
+   "path": "crates/core/src/doc.rs",
+   "text": "Edit operations (Add, Set, AddMember by points, Move, Delete with cascade, SetSettings, SetMeta, Batch) on a copy, kept only if check passes; snapshot undo/redo",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/doc.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-sections-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "sections.rs",
+   "path": "crates/core/src/sections.rs",
+   "text": "Section properties (A, I, c) for rectangle, round bar, tube, box, I, channel, angle and custom",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/sections.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-sparse-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "sparse.rs",
+   "path": "crates/core/src/sparse.rs",
+   "text": "The shared linear solver: triplets, supports by elimination, prescribed values, faer sparse Cholesky, a probe solve that catches mechanisms, residual",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/sparse.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-frame-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "frame.rs",
+   "path": "crates/core/src/frame.rs",
+   "text": "Frames and trusses: beam and truss stiffness, linear member loads as consistent nodal loads, self-weight, springs, reactions, equilibrium sums, exact N, V, M and deflection along each member (41 stations), stress and utilisation",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frame.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-bench-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "bench.rs",
+   "path": "crates/core/src/bench.rs",
+   "text": "The verification benchmarks as data (run() → rows with result, reference, error, source); the test fails on any row over its tolerance",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/bench.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-examples-verify-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "verify.rs",
+   "path": "crates/core/examples/verify.rs",
+   "text": "Writes the dated verification record (docs/verification/x.y.z.md)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/examples/verify.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-examples-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "examples.rs",
+   "path": "crates/core/src/examples.rs",
+   "text": "The worked examples, built in code: blank frame and part, portal frame, roof truss, lifting lug, L-bracket, flange plate, heat sink",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/examples.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-hardening-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "hardening.rs",
+   "path": "crates/core/src/hardening.rs",
+   "text": "FAMILY §11: failed edits change nothing, random edits keep the model valid and round-trip, damaged files, speed gate",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/hardening.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-examples-dump-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "dump.rs",
+   "path": "crates/core/examples/dump.rs",
+   "text": "Writes tests_ui/fixture.json (the engine's real examples) for the UI tests",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/examples/dump.rs"
+  },
+  {
+   "id": "mesh-file-src-tauri-src-main-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "main.rs",
+   "path": "src-tauri/src/main.rs",
+   "text": "Commands: state, apply, history, examples, new model, section properties, open/save, save file, options, recovery, recent, startup file, open_url, version, updates",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/src-tauri/src/main.rs"
+  },
+  {
+   "id": "mesh-file-src-tauri-src-update-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "update.rs",
+   "path": "src-tauri/src/update.rs",
+   "text": "The updater (Plan's, REPO = Datum-Mesh)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/src-tauri/src/update.rs"
+  },
+  {
+   "id": "mesh-file-ui-src-main-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "main.tsx",
+   "path": "ui/src/main.tsx",
+   "text": "Window layout, sidebar (Model, Mesh, Results, Report), status bar (tool hint, cursor, counts, drawing scale), keys, start-up and recovery",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/main.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-store-ts",
+   "type": "file",
+   "app": "mesh",
+   "label": "store.ts",
+   "path": "ui/src/store.ts",
+   "text": "Window state: the model (out().m), selection, picked edge, canvas tool, menus, dialogs",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/store.ts"
+  },
+  {
+   "id": "mesh-file-ui-src-api-ts",
+   "type": "file",
+   "app": "mesh",
+   "label": "api.ts",
+   "path": "ui/src/api.ts",
+   "text": "Shell calls and the model's shapes in TypeScript",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/api.ts"
+  },
+  {
+   "id": "mesh-file-ui-src-units-ts",
+   "type": "file",
+   "app": "mesh",
+   "label": "units.ts",
+   "path": "ui/src/units.ts",
+   "text": "Display units (SI/US) and conversions",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/units.ts"
+  },
+  {
+   "id": "mesh-file-ui-src-geom-ts",
+   "type": "file",
+   "app": "mesh",
+   "label": "geom.ts",
+   "path": "ui/src/geom.ts",
+   "text": "Arcs from bulges, edge points, normals, SVG paths, hit tests",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/geom.ts"
+  },
+  {
+   "id": "mesh-file-ui-src-canvas-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "canvas.tsx",
+   "path": "ui/src/canvas.tsx",
+   "text": "The canvas: pan, zoom, adaptive grid, rulers, snap (grid, nodes, corners), select/marquee/drag-move, draw nodes, beams, truss bars, rectangles, circles, polygons and holes, pick edges, place supports and loads; support and load symbols",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/canvas.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-panels-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "panels.tsx",
+   "path": "ui/src/panels.tsx",
+   "text": "The model tree and the Inspector (node, member, shape with its corners and arcs, edge, support, load, model settings); default support and load values",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/panels.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-ribbon-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "ribbon.tsx",
+   "path": "ui/src/ribbon.tsx",
+   "text": "Title bar, quick access, Tell Me, the ribbon (Home, Geometry, Mesh, Loads, Solve, Results, View, Help, contextual Format); planned tools dimmed with their release",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/ribbon.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-cmds-ts",
+   "type": "file",
+   "app": "mesh",
+   "label": "cmds.ts",
+   "path": "ui/src/cmds.ts",
+   "text": "Every command (ribbon, menus, keys, Tell Me)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/cmds.ts"
+  },
+  {
+   "id": "mesh-file-ui-src-dialogs-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "dialogs.tsx",
+   "path": "ui/src/dialogs.tsx",
+   "text": "Materials, sections, node at coordinates, shortcuts, getting started, glossary, recovery, close",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/dialogs.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-backstage-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "backstage.tsx",
+   "path": "ui/src/backstage.tsx",
+   "text": "File page: examples, recent, export, options, updates",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/backstage.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-results-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "results.tsx",
+   "path": "ui/src/results.tsx",
+   "text": "Frame results over the canvas (deflected shape, diagrams, reactions, utilisation, probe), the legend bar, and View › Results (equilibrium, reactions, members, solver)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/results.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-print-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "print.tsx",
+   "path": "ui/src/print.tsx",
+   "text": "Print: the model drawn to fit the page with a title block, and a report with the results and the equilibrium check",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/print.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-help-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "help.tsx",
+   "path": "ui/src/help.tsx",
+   "text": "The ? cards",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/help.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-roadmap-tsx",
+   "type": "file",
+   "app": "mesh",
+   "label": "roadmap.tsx",
+   "path": "ui/src/roadmap.tsx",
+   "text": "File › Roadmap from docs/site.json",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/roadmap.tsx"
+  },
+  {
+   "id": "mesh-file-ui-src-styles-css",
+   "type": "file",
+   "app": "mesh",
+   "label": "styles.css",
+   "path": "ui/src/styles.css",
+   "text": "Plan's styles (crimson accent) and components; the icon sprite",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/styles.css"
+  },
+  {
+   "id": "mesh-file-tests-ui-run-cjs",
+   "type": "file",
+   "app": "mesh",
+   "label": "run.cjs",
+   "path": "tests_ui/run.cjs",
+   "text": "52 UI checks of the built window with a mocked bridge",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/tests_ui/run.cjs"
+  },
+  {
+   "id": "mesh-file-tests-ui-realapp-sh",
+   "type": "file",
+   "app": "mesh",
+   "label": "realapp.sh",
+   "path": "tests_ui/realapp.sh",
+   "text": "Screenshots of the real app under Xvfb",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/tests_ui/realapp.sh"
+  },
+  {
+   "id": "mesh-file-docs-plan-0-1-md",
+   "type": "file",
+   "app": "mesh",
+   "label": "PLAN-0.1.md",
+   "path": "docs/PLAN-0.1.md",
+   "text": "The plan, the public summary and roadmap, the change log",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/PLAN-0.1.md"
+  },
+  {
+   "id": "mesh-decision-0",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Everything in the brief §1 (name, crimson accent, identifier…",
+   "date": "plan",
+   "text": "Everything in the brief §1 (name, crimson accent, identifier, .dmesh, stack, own Rust solver, 12-band blue-to-red contours with viridis in Options, ribbon tabs, logo)\n\nWhy: Made with the user in the hub, session 13",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-1",
+   "type": "decision",
+   "app": "mesh",
+   "label": "The shell and window are copied from Datum Sim, which is…",
+   "date": "plan",
+   "text": "The shell and window are copied from Datum Sim, which is Plan's skeleton already adapted to a canvas app, without Sim's Python and run thread\n\nWhy: The brief says copy, don't reinvent; Sim's copy is the closest to a drawing app",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-2",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Model in SI base units; display units in one window module…",
+   "date": "0.1.0",
+   "text": "Model in SI base units; display units in one window module; frames show m (ft), parts mm (in)\n\nWhy: One owner for conversions; no rounding when the user switches units",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-3",
+   "type": "decision",
+   "app": "mesh",
+   "label": "One id counter for every item; supports and loads point at a…",
+   "date": "0.1.0",
+   "text": "One id counter for every item; supports and loads point at a Target (node, member, edge of a shape, point, body)\n\nWhy: Edits and deletes cascade simply; one support or load type for frames and parts",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-4",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Plane geometry as polygons whose segments may bulge into arcs…",
+   "date": "0.1.0",
+   "text": "Plane geometry as polygons whose segments may bulge into arcs (bulge = tan(θ/4), as in DXF), plus circles; holes are shapes with hole: true\n\nWhy: Fillets, rounded lugs and slots without a CAD kernel; maps directly to DXF import in 0.2",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-5",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Every edit is checked by Model::check on a copy and refused if…",
+   "date": "0.1.0",
+   "text": "Every edit is checked by Model::check on a copy and refused if it breaks anything; the reader repairs damaged files item by item and lists what it dropped\n\nWhy: FAMILY §11: failed edits change nothing, damaged files open as far as possible",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-6",
+   "type": "decision",
+   "app": "mesh",
+   "label": "serde_json with float_roundtrip",
+   "date": "0.1.0",
+   "text": "serde_json with float_roundtrip\n\nWhy: The hardening test found coordinates changing in the last digit after save and open",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-7",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Atlas has no Poisson's ratio: Mesh's library (0.1.3) adds ν…",
+   "date": "0.1.0",
+   "text": "Atlas has no Poisson's ratio: Mesh's library (0.1.3) adds ν from typical values with its own source\n\nWhy: Atlas data checked in session 1",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-8",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Nodes take clicks before the load arrows drawn on them",
+   "date": "0.1.0",
+   "text": "Nodes take clicks before the load arrows drawn on them\n\nWhy: The UI test found the wind load's arrows on the portal frame's eave node stealing the drag",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-9",
+   "type": "decision",
+   "app": "mesh",
+   "label": "faer 0.24 (MIT) sparse Cholesky with its own fill-reducing…",
+   "date": "0.1.1",
+   "text": "faer 0.24 (MIT) sparse Cholesky with its own fill-reducing ordering, no default features (no rayon, rand, npy)\n\nWhy: The brief's choice; 200 000 equations factor in 0.1 s here",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-10",
+   "type": "decision",
+   "app": "mesh",
+   "label": "A probe solve (a load equal to the diagonal) alongside every…",
+   "date": "0.1.1",
+   "text": "A probe solve (a load equal to the diagonal) alongside every solve; an answer over 1e11 means a mechanism\n\nWhy: faer factored an exactly singular matrix when rounding left a tiny positive pivot (found by the spring-chain test)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-11",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Member results are integrated exactly (with linear loads M is…",
+   "date": "0.1.1",
+   "text": "Member results are integrated exactly (with linear loads M is a cubic): deflection v = v_a + θ_a s + ∫∫M/EI, stretch from N/EA\n\nWhy: Step-by-step integration missed the mid-member deflection by 5e-4 (found by benchmark 2); exact now to 1e-9",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-12",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Distributed loads in global x or y are per length of the…",
+   "date": "0.1.1",
+   "text": "Distributed loads in global x or y are per length of the member, not projected\n\nWhy: The simplest rule to explain; stated in the help and the Inspector",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-13",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Moments drawn on the tension side; N and V on the member's…",
+   "date": "0.1.1",
+   "text": "Moments drawn on the tension side; N and V on the member's local +y\n\nWhy: Common practice for moments; one fixed rule for the others, stated in the legend",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-14",
+   "type": "decision",
+   "app": "mesh",
+   "label": "After an edit results stay drawn but faded and marked out of…",
+   "date": "0.1.1",
+   "text": "After an edit results stay drawn but faded and marked out of date; Solve is F5 (no automatic re-solve)\n\nWhy: Clear about what the picture shows; solving is instant for frames, but meshed parts will not be",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-15",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Help › Verification runs bench::run() in the app, so the…",
+   "date": "0.1.1",
+   "text": "Help › Verification runs bench::run() in the app, so the report is always true for the version running; the same rows are tests and the dated record\n\nWhy: The brief's headline feature, earlier than planned because it was cheap",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-session-0",
+   "type": "session",
+   "app": "mesh",
+   "label": "Session 1 (day 1: plan, skeleton, 0.1.0)",
+   "date": "2026-10-28",
+   "text": "· Read the brief, the hub's CLAUDE, MEMORY, FAMILY and brand; Plan's and Sim's code; Atlas's data (31 metals with sources; no Poisson's ratio).\n· Wrote PLAN-0.1, CLAUDE.md, this memory, docs/site.json, README, CHANGELOG, NOTICE, SECURITY, CONTRIBUTING; drew the icon (L-bracket mesh with a darker hot spot, amber diamond).\n· Engine: model, check, repair, edits with undo, sections, six examples; 14 tests including hardening. The hardening tests found two real faults on their first run (float round-trip in the file; the id counter going backwards on repair).\n· Shell from Sim without Python; window: ribbon, tree, canvas, Inspector, dialogs, print, help.\n· UI tests found two more (nodes under load arrows could not be dragged; arcs were drawn mirrored on screen) and now guard them.\n· Checked: clippy, cargo test, UI type-check and 40 UI checks, cargo deny, screenshots in light and dark.\n· Released 0.1.0 (Release run 1 from the Actions tab). CI run 1 failed on a type error made after the last type check, run 2 on a clippy lint newer than the local toolchain; both fixed, CI green on Linux, Windows and macOS from run 3.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-session-1",
+   "type": "session",
+   "app": "mesh",
+   "label": "Session 1, continued (day 2 brought forward…",
+   "date": "2026-10-28",
+   "text": "· Engine: sparse.rs (faer), frame.rs, bench.rs with benchmarks 1–3 (12 checks, all within 1e-9), solver hardening (random frames always balance and their curves meet their nodes; a 60 × 60 grid frame solves inside the speed gate).\n· Found by tests: faer accepted a singular matrix (now a probe solve), mid-member deflection off by 5e-4 (now exact), and my own wrong reference for a propped cantilever (the engine was right: 11qL/40).\n· Window: Solve (F5), results over the canvas, legend bar, probe, View › Results, Help › Verification, results in the printed report. A support symbol that kept its old position after a fit (props read outside a reactive scope) was fixed and found by screenshot.\n· Checked: clippy, 21 engine tests, 52 UI checks, cargo deny, screenshots.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   }
  ],
  "edges": [
@@ -5242,6 +6173,11 @@
   {
    "source": "hub",
    "target": "hub-session-15",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-16",
    "kind": "session"
   },
   {
@@ -9380,6 +10316,1066 @@
    "kind": "shipped"
   },
   {
+   "source": "hub",
+   "target": "app-calc",
+   "kind": "app"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-2",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-3",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-4",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-5",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-6",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-7",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-9",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-10",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-11",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-rust",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-tauri-2",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-webview2",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-solidjs",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-vite",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-typescript",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-chart-js",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-ibm-plex",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "tech-python",
+   "kind": "uses"
+  },
+  {
+   "source": "app-calc",
+   "target": "guide-12",
+   "kind": "follows"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-v0.1.0",
+   "kind": "released"
+  },
+  {
+   "source": "calc-v0.1.0",
+   "target": "calc-v0.1.1",
+   "kind": "then"
+  },
+  {
+   "source": "calc-v0.1.1",
+   "target": "calc-v0.1.2",
+   "kind": "then"
+  },
+  {
+   "source": "calc-v0.1.2",
+   "target": "calc-v0.1.3",
+   "kind": "then"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-v0.1.3",
+   "kind": "released"
+  },
+  {
+   "source": "calc-v0.1.3",
+   "target": "calc-plan-0-1-4",
+   "kind": "next"
+  },
+  {
+   "source": "calc-plan-0-1-4",
+   "target": "calc-plan-0-2",
+   "kind": "next"
+  },
+  {
+   "source": "calc-plan-0-2",
+   "target": "calc-plan-0-3",
+   "kind": "next"
+  },
+  {
+   "source": "calc-plan-0-3",
+   "target": "calc-plan-0-4",
+   "kind": "next"
+  },
+  {
+   "source": "calc-plan-0-4",
+   "target": "calc-plan-1-0",
+   "kind": "next"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-0",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-0",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-1",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-1",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "calc-decision-1",
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "calc-decision-1",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-2",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-2",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-3",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-3",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-4",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-4",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "calc-decision-4",
+   "target": "tech-gridcraft",
+   "kind": "about"
+  },
+  {
+   "source": "calc-decision-4",
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-5",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-5",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "calc-decision-5",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-6",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-6",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-7",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-7",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-8",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-8",
+   "target": "calc-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-9",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-9",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-10",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-10",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-11",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-11",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-12",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-12",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-13",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-13",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-14",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-14",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-15",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-15",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-16",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-16",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "calc-decision-16",
+   "target": "tech-webview2",
+   "kind": "about"
+  },
+  {
+   "source": "calc-decision-16",
+   "target": "tech-vite",
+   "kind": "about"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-17",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-17",
+   "target": "calc-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-18",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-18",
+   "target": "calc-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-19",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-19",
+   "target": "calc-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-20",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-20",
+   "target": "calc-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-21",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-21",
+   "target": "calc-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-22",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-22",
+   "target": "calc-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-23",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-23",
+   "target": "calc-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-decision-24",
+   "kind": "decided"
+  },
+  {
+   "source": "calc-decision-24",
+   "target": "calc-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-1",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-2",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-3",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-4",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-5",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-6",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-7",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-8",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "workflow-9",
+   "kind": "works by"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-session-0",
+   "kind": "session"
+  },
+  {
+   "source": "calc-session-0",
+   "target": "calc-v0.1.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-session-1",
+   "kind": "session"
+  },
+  {
+   "source": "calc-session-1",
+   "target": "calc-v0.1.1",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-session-2",
+   "kind": "session"
+  },
+  {
+   "source": "calc-session-2",
+   "target": "calc-v0.1.2",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-calc",
+   "target": "calc-session-3",
+   "kind": "session"
+  },
+  {
+   "source": "calc-session-3",
+   "target": "calc-v0.1.3",
+   "kind": "shipped"
+  },
+  {
+   "source": "hub",
+   "target": "app-mesh",
+   "kind": "app"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-2",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-3",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-4",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-5",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-6",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-7",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-9",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-10",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "guide-11",
+   "kind": "follows"
+  },
+  {
+   "source": "app-mesh",
+   "target": "tech-rust",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "tech-tauri-2",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "tech-solidjs",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "tech-typescript",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "tech-python",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-v0.1.0",
+   "kind": "released"
+  },
+  {
+   "source": "mesh-v0.1.0",
+   "target": "mesh-v0.1.1",
+   "kind": "then"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-v0.1.1",
+   "kind": "released"
+  },
+  {
+   "source": "mesh-v0.1.1",
+   "target": "mesh-plan-0-1-2",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-1-2",
+   "target": "mesh-plan-0-1-3",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-1-3",
+   "target": "mesh-plan-0-1-4",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-1-4",
+   "target": "mesh-plan-0-2",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-2",
+   "target": "mesh-plan-0-3",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-3",
+   "target": "mesh-plan-0-4",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-4",
+   "target": "mesh-plan-0-5",
+   "kind": "next"
+  },
+  {
+   "source": "mesh-plan-0-5",
+   "target": "mesh-plan-1-0",
+   "kind": "next"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-model-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-doc-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-sections-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-sparse-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-frame-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-bench-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-examples-verify-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-examples-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-hardening-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-examples-dump-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-src-tauri-src-main-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-src-tauri-src-update-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-main-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-store-ts",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-api-ts",
+   "kind": "contains"
+  },
+  {
+   "source": "mesh-file-ui-src-api-ts",
+   "target": "tech-typescript",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-units-ts",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-geom-ts",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-canvas-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-panels-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-ribbon-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-cmds-ts",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-dialogs-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-backstage-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-results-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-print-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-help-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-roadmap-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-ui-src-styles-css",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-tests-ui-run-cjs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-tests-ui-realapp-sh",
+   "kind": "contains"
+  },
+  {
+   "source": "mesh-file-tests-ui-realapp-sh",
+   "target": "tech-xvfb",
+   "kind": "uses"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-docs-plan-0-1-md",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-0",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-0",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-1",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-1",
+   "target": "tech-python",
+   "kind": "about"
+  },
+  {
+   "source": "mesh-decision-1",
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "mesh-decision-1",
+   "target": "app-sim",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-2",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-2",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-3",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-3",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-4",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-4",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-5",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-5",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "mesh-decision-5",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-6",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-6",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-7",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-7",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "mesh-decision-7",
+   "target": "app-atlas",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-8",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-8",
+   "target": "mesh-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-9",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-9",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-10",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-10",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-11",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-11",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-12",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-12",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-13",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-13",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-14",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-14",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-15",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-15",
+   "target": "mesh-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-1",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-2",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-3",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-4",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-5",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-6",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-7",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-8",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "workflow-9",
+   "kind": "works by"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-session-0",
+   "kind": "session"
+  },
+  {
+   "source": "mesh-session-0",
+   "target": "mesh-v0.1.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-session-1",
+   "kind": "session"
+  },
+  {
+   "source": "mesh-session-1",
+   "target": "mesh-v0.1.1",
+   "kind": "shipped"
+  },
+  {
    "source": "idea-datum-calc",
    "target": "app-plan",
    "kind": "reuses"
@@ -9396,12 +11392,22 @@
   },
   {
    "source": "idea-datum-calc",
+   "target": "app-calc",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-calc",
    "target": "tech-chart-js",
    "kind": "uses"
   },
   {
    "source": "idea-datum-tolerance",
    "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-tolerance",
+   "target": "app-calc",
    "kind": "reuses"
   },
   {
@@ -9471,6 +11477,11 @@
   },
   {
    "source": "idea-datum-mesh-was-datum-field",
+   "target": "app-calc",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-mesh-was-datum-field",
    "target": "tech-rust",
    "kind": "uses"
   },
@@ -9497,6 +11508,11 @@
   {
    "source": "idea-datum-report",
    "target": "app-atlas",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-report",
+   "target": "app-calc",
    "kind": "reuses"
   },
   {

@@ -1,5 +1,11 @@
 # Datum Home changelog
 
+## 0.1.1 — 2026-10-28
+
+Datum Calc and Datum Mesh join Datum Home.
+
+- Calc (engineering calculations) and Mesh (finite-element analysis) are in Datum Home's own list of apps, with their icons, so they show even when the Datum site cannot be reached.
+
 ## 0.1.0 — 2026-10-28
 
 The first Datum Home: one small window to install, update, open and remove every Datum app.
