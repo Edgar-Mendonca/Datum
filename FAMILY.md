@@ -125,6 +125,7 @@ Chart.js:
 - a crosshair tooltip;
 - a PNG button on every chart; charts printable;
 - horizontal bar charts name every bar (`autoSkip: false`);
+- a `<select>` whose options load later marks the chosen `<option selected>` instead of setting `value` on the select (found in Datum Plan 0.4.1);
 - hand-drawn SVG charts over plain numbers use SolidJS `<Index>`, not `<For>` (`<For>` reuses nodes by value, so equal values keep stale positions; found in Datum Plan 0.4.0).
 
 ## 8. Printing
