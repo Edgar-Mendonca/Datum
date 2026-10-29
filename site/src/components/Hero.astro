@@ -1,9 +1,11 @@
 ---
-// The hero: "Datum" and "Tools to <phrase>" on the left; on the right one animated drawing per app (two or three columns), around the datum
-// (the amber square where the tiles meet). The italic phrase changes by itself every few seconds and the tile of its
+// The hero: "Datum" and "Tools to <phrase>" on the left; on the right one animated drawing per app: two columns up to four apps,
+// three columns for five or six, and a 3×3 bench for seven or eight (the datum in the centre cell, "More to come" filling the last place).
+// Up to six, the datum is the amber square where the tiles meet. The italic phrase changes by itself every few seconds and the tile of its
 // app lights up; hovering or focusing a tile shows that app's phrase until the pointer leaves, then the cycle goes on.
 import type { App } from "../lib/github";
 import AppGlyph from "./AppGlyph.astro";
+import Mark from "./Mark.astro";
 interface Props { apps: App[] }
 const { apps } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -17,8 +19,10 @@ const say: Record<string, { cap: string; phrases: string[] }> = {
   sim: { cap: "Model and simulate", phrases: ["simulate systems.", "tune control loops."] },
   calc: { cap: "Calculate and check", phrases: ["write calculations.", "check designs."] },
   mesh: { cap: "Analyse stresses", phrases: ["analyse stresses.", "mesh parts."] },
+  pipe: { cap: "Pipe stress analysis", phrases: ["analyse piping.", "check pipe stresses."] },
 };
-const tiles = apps.slice(0, 6).map(a => ({ a, cap: say[a.id]?.cap ?? a.tagline, phrases: say[a.id]?.phrases ?? [`${a.tagline.split(":")[0].replace(/\.$/, "").toLowerCase()}.`] }));
+const tiles = apps.slice(0, 8).map(a => ({ a, cap: say[a.id]?.cap ?? a.tagline, phrases: say[a.id]?.phrases ?? [`${a.tagline.split(":")[0].replace(/\.$/, "").toLowerCase()}.`] }));
+const nine = tiles.length > 6;
 // The phrase cycle takes the first phrase of every app, then the second, so the tiles take turns.
 const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, text: t.phrases[k] }] : []));
 ---
@@ -26,22 +30,26 @@ const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, t
   <div class="left">
     <h1 id="hero-title" class="title">Datum<span class="sq" aria-hidden="true"></span></h1>
     <p class="tools">Tools to <span class="say it" data-say aria-live="off">{cycle[0].text}</span></p>
-    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, engineering calculations and finite-element analysis, and more on the way. Open source; your files stay on your computer.</p>
+    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, engineering calculations, finite-element and pipe stress analysis, and more on the way. Open source; your files stay on your computer.</p>
     <div class="btns">
       <a class="btn btn-solid" href="#apps">Get the apps</a>
       <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>
     </div>
   </div>
 
-  <div class:list={["quad", { three: tiles.length > 4 }]} data-quad data-cycle={JSON.stringify(cycle)}>
+  <div class:list={["quad", { three: tiles.length > 4, nine }]} data-quad data-cycle={JSON.stringify(cycle)}>
     {tiles.map(({ a, cap }, i) => (
-      <a class:list={["q", { on: i === 0 }]} href={`${base}/apps/${a.id}`} data-q={i} style={`--c:var(--${a.id}, ${a.accent})`} aria-label={`${a.name}: ${cap}`}>
-        <span class="q-top mono"><img src={a.logo} width="18" height="18" alt="" /><b>{short(a)}</b><span class="arrow" aria-hidden="true">→</span></span>
-        <AppGlyph id={a.id} logo={a.logo} />
-        <span class="q-cap mono">{cap}</span>
-      </a>
+      <Fragment>
+        {nine && i === 4 && <div class="centre" aria-hidden="true"><Mark class="m" /><span class="mono">Datum</span></div>}
+        <a class:list={["q", { on: i === 0 }]} href={`${base}/apps/${a.id}`} data-q={i} style={`--c:var(--${a.id}, ${a.accent})`} aria-label={`${a.name}: ${cap}`}>
+          <span class="q-top mono"><img src={a.logo} width="18" height="18" alt="" /><b>{short(a)}</b><span class="arrow" aria-hidden="true">→</span></span>
+          <AppGlyph id={a.id} logo={a.logo} />
+          <span class="q-cap mono">{cap}</span>
+        </a>
+      </Fragment>
     ))}
-    <span class="origin" aria-hidden="true"></span>
+    {nine && tiles.length < 8 && <a class="more" href="https://github.com/Edgar-Mendonca/Datum/issues/new"><span class="plus" aria-hidden="true">+</span><span class="mono">More to come</span></a>}
+    {!nine && <span class="origin" aria-hidden="true"></span>}
   </div>
 </div>
 
@@ -98,9 +106,17 @@ const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, t
   .quad.three { width: min(100%, 600px); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 8px; }
   .quad.three .q-top, .quad.three .q-cap { padding: 6px 8px; letter-spacing: .06em; }
   .quad.three .q-cap { font-size: 9px; }
+  .quad.nine { width: min(100%, 620px); }
+  .centre { display: grid; place-content: center; justify-items: center; gap: 10px; border: 1px dashed var(--line-2); background: var(--paper); }
+  .centre :global(.m) { width: 44px; height: 48px; color: var(--ink); }
+  .centre .mono { font-size: 10px; color: var(--muted); }
+  .more { display: grid; place-content: center; justify-items: center; gap: 8px; border: 1px dashed var(--line-2); color: var(--muted); transition: border-color .25s, color .25s; }
+  .more .plus { font: 300 34px/1 var(--display); color: var(--amber); }
+  .more .mono { font-size: 9.5px; }
+  .more:hover { border-color: var(--amber); color: var(--ink); }
   .origin { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: var(--amber); outline: 4px solid var(--bg-2); pointer-events: none; }
 
   @media (max-width: 960px) { .hero-in { grid-template-columns: 1fr; } .quad { justify-self: stretch; width: 100%; } }
-  @media (max-width: 560px) { .quad.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .quad.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } .quad.nine .centre { display: none; } }
   @media (max-width: 420px) { .quad { gap: 6px; padding: 6px; } .q-top, .q-cap { padding: 6px 7px; letter-spacing: .05em; } .q-cap { font-size: 8.5px; } }
 </style>

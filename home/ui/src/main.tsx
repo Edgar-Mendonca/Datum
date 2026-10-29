@@ -15,8 +15,9 @@ import atlas from "../../../brand/datum-atlas-icon.svg";
 import sim from "../../../brand/datum-sim-icon.svg";
 import calc from "../../../brand/datum-calc-icon.svg";
 import mesh from "../../../brand/datum-mesh-icon.svg";
+import pipe from "../../../brand/datum-pipe-icon.svg";
 
-const ICONS: Record<string, string> = { plan, plot, atlas, sim, calc, mesh };
+const ICONS: Record<string, string> = { plan, plot, atlas, sim, calc, mesh, pipe };
 const SITE = "https://edgar-mendonca.github.io/Datum/";
 const mb = (b: number) => (b ? `${(b / 1048576).toFixed(b > 10485760 ? 0 : 1)} MB` : "");
 const day = (d: string) => (d ? new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "");

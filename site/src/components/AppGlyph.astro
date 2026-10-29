@@ -3,7 +3,7 @@
 // the top of each app page. The drawings loop gently; at rest (reduced motion, no animation) every drawing is complete.
 interface Props { id: string; logo?: string; class?: string }
 const { id, logo, class: cls } = Astro.props;
-const known = ["plan", "plot", "atlas", "sim", "calc", "mesh"].includes(id);
+const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe"].includes(id);
 
 // Mesh: an L-bracket in 10-unit cells, each split into two triangles, shaded by a stress that peaks at the inner corner.
 const cells: [number, number][] = [];
@@ -40,6 +40,17 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
         <path class="g-hatch" d="M26 20H84M30 20l-6-6M42 20l-6-6M54 20l-6-6M66 20l-6-6M78 20l-6-6" />
         <path class="g-arrow g-pop" style="--k:2" d="M170 50V78M164 70l6 8 6-8" />
         <text class="g-text g-small g-fade" x="96" y="66">σ max</text>
+      </Fragment>
+    )}
+    {id === "pipe" && (
+      <Fragment>
+        <path class="g-tube" d="M18 112H66V40H134V112H182" />
+        <path class="g-tube-c" d="M18 112H66V40H134V112H182" />
+        <path class="g-hot g-fade" d="M66 64V40H92M108 40H134V64" />
+        <path class="g-draw g-defl" pathLength="1" d="M18 112H58C64 112 60 52 72 34H128C140 52 136 112 142 112H182" />
+        <g class="g-anchor"><rect x="8" y="102" width="10" height="20" /><rect x="182" y="102" width="10" height="20" /></g>
+        <path class="g-guide" d="M36 104V120M152 104V120" />
+        <text class="g-text g-small g-fade" x="100" y="80" text-anchor="middle">SE/SA 0.74</text>
       </Fragment>
     )}
     {id === "plan" && (
@@ -136,6 +147,13 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
   .g-outline { fill: none; }
   .g-hatch { fill: none; stroke: var(--ink); stroke-width: 1.3; }
   .g-arrow { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .g-tube { fill: none; stroke: var(--ink); stroke-width: 10; stroke-linejoin: round; opacity: .16; }
+  .g-tube-c { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linejoin: round; opacity: .55; }
+  .g-hot { fill: none; stroke: var(--c); stroke-width: 10; stroke-linejoin: round; opacity: .55; }
+  .g-defl { fill: none; stroke: var(--c); stroke-width: 2.4; stroke-linecap: round; }
+  .g-anchor { fill: var(--ink); }
+  .g-guide { stroke: var(--ink); stroke-width: 2; }
 
   /* The loops: 6 s, everything builds up, holds, then clears; staggered by --k. */
   .g-bar { transform-box: fill-box; transform-origin: left center; animation: g-grow 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .3s); }

@@ -15,18 +15,19 @@
 
 ## 1. The apps
 
-| App | Repo (default branch) | Accent | Version (2026-10-28) | `docs/site.json` |
+| App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
 | Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.4.2 | ✅ |
-| Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.14 | ✅ |
-| Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.1.1 | ✅ |
+| Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
+| Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
-| Datum Calc | `Edgar-Mendonca/Datum-Calc` | Amber `#A8650F` | 0.1.3 | ✅ |
-| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Crimson `#B83250` | 0.1.1 | ✅ |
+| Datum Calc | `Edgar-Mendonca/Datum-Calc` | Amber `#A8650F` | 0.1.6 | ✅ |
+| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Crimson `#B83250` | 0.1.3 | ✅ |
+| Datum Pipe | `Edgar-Mendonca/Datum-Pipe` | Moss `#4D7C0F` | 0.1.4 (2026-10-28) | ✅ |
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
-**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt); **0.1.1** (session 14) adds Calc and Mesh to its built-in list and icons.
+**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt); **0.1.1** (session 14) adds Calc and Mesh to its built-in list and icons; **0.1.2** (session 18) adds Pipe.
 
 ## 2. The site and the brain
 
@@ -164,6 +165,13 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
+### 2026-10-29: Session 18 (Datum Pipe joins the family)
+- Session 17 (brainstorm, no files): a data-acquisition, control and test app (the user used a graphical DAQ tool for control and ADC work). Recommended a **separate app, "Datum Bench"**, not part of Sim: real-time I/O, drivers, logging, alarms and safety are a different engine from simulated time; share Sim's block canvas, scopes and Python; hardware in the loop joins them later. Hardware first: microcontroller boards over serial (with a small Datum firmware), Modbus RTU/TCP, bench instruments over USB/LAN, the sound card; front panel, logging, triggers, calibration, PID with interlocks; vibration analysis (the old "Signal" idea) as a module. After Pipe 0.1 and the 1.0s. Not yet in the bucket list (add it with the user's go-ahead).
+- Session 18: Datum Pipe released 0.1.4 overnight from `briefs/DATUM-PIPE.md` (site.json, icon, SHA256SUMS in releases). Hub: apps.json (pipe #4D7C0F), brand icon, `--pipe` (#4D7C0F / dark #A3D65C), AppGlyph "pipe" (a pipe run with an expansion loop between anchors, guides, the deflected shape drawing itself in moss, the loop corners highlighted, "SE/SA 0.74"). Bug found and fixed: a class named `g-pipe` collided with the SVG's own `g-<id>` class and faded the whole drawing; glyph classes must never be `g-<app id>`.
+- **Hero for seven apps:** a 3×3 bench: seven app tiles, the Datum mark in the centre cell and "More to come" in the last place (`nine` mode; up to six apps keep the earlier layouts; phones show two columns without the centre cell). Lead mentions pipe stress analysis. FAMILY §1, README (row, issue link, briefs line), CLAUDE.md (repos, hero rule), MEMORY §1 versions refreshed.
+- Datum Home 0.1.2: Pipe in its built-in list with its icon; released with the workflow.
+- Checked: site build (seven apps), Playwright 1280/375, light and dark (home, Pipe and Calc pages, network): no overflow; Pipe drawing still and animated; Home core tests, clippy, UI build.
+
 ### 2026-10-28: Session 16 (Datum Pipe brief)
 - Session 15 (brainstorm, no files): researched where engineers, students and researchers lack free tools. Already covered by open source: process simulation, statistics and SPC, chromatography, load flow. Real gaps: pipe stress analysis (none), reliability GUI (Weibull, RBD, FMEA, RCM), P&ID with data, shell-and-tube thermal design, vibration/condition monitoring, DOE with a window, control valve sizing, pressure vessels (copyrighted codes), rotor dynamics GUI. Recommended Pipe, Reliability, Flowsheet, and more Calc packs; maturity (1.0s) before quantity.
 - Session 16: the user chose **Datum Pipe** and asked for a brief for an overnight run: a 0.1 with many features that "looks like an app". Wrote `briefs/DATUM-PIPE.md` (no commercial names): element table + 3D view, pipe library, bends/tees/reducers/rigids, linear supports, three operating cases, automatic SUS/OPE/EXP/HYD cases, the process piping code equations, results on the model, support and nozzle loads, automatic isometric drawing, stress report, six examples, eight benchmarks; releases 0.1.0 → 0.1.4 in seven steps; cut order; roadmap 0.2–1.0. FAMILY §3: Moss accent for Pipe. Bucket list: Pipe, Reliability, Flowsheet.
@@ -250,7 +258,7 @@ Brainstormed with the user on 2026-10-26 (session 7); updated in session 9 (Datu
 | Name | What it does | For | Reuses / connects | Size | Status |
 | --- | --- | --- | --- | --- | --- |
 | Datum Calc | (Released, in `apps.json` since session 14.) Engineering calculation sheets with real units, shown as readable maths, with checks (pass/fail), solve and plot regions, calc packs in the user's field (pumps, pipes, compressors, heat exchangers, vessels, beams, bolts, motors) and a printable calc sheet. Plot analyses measured data; Calc designs what you build. Brief: [briefs/DATUM-CALC.md](briefs/DATUM-CALC.md) | Every engineer | Plan's formula engine, units, print, Chart.js; Atlas materials (0.2) | Medium | **Being built (session 13)**: 0.1.x this week, amber accent |
-| Datum Pipe | Pipe stress analysis: 3D routing (element table + 3D view), pipe library, supports, operating cases, automatic load cases, the process piping code equations (hoop, minimum wall, sustained, expansion range), support and nozzle loads, an automatic isometric drawing, a stress report and a verification report. Own 3D pipe-beam solver (from Mesh). Brief: [briefs/DATUM-PIPE.md](briefs/DATUM-PIPE.md) | Piping, stress, mechanical, process and plant engineers, consultants, students | Mesh solver, Calc units, Atlas materials, Plan shell | Large overall; 0.1 = one overnight run | **Being built (session 16)**, moss accent |
+| Datum Pipe | (Released 0.1.4, in `apps.json` since session 18.) Pipe stress analysis: 3D routing (element table + 3D view), pipe library, supports, operating cases, automatic load cases, the process piping code equations (hoop, minimum wall, sustained, expansion range), support and nozzle loads, an automatic isometric drawing, a stress report and a verification report. Own 3D pipe-beam solver (from Mesh). Brief: [briefs/DATUM-PIPE.md](briefs/DATUM-PIPE.md) | Piping, stress, mechanical, process and plant engineers, consultants, students | Mesh solver, Calc units, Atlas materials, Plan shell | Large overall; 0.1 = one overnight run | **Released** (session 18), moss accent |
 | Datum Reliability | Weibull and life data, reliability block diagrams, FMEA, RCM (session 15 research: no free GUI tool exists) | Reliability, maintenance and quality engineers | Plot statistics, Plan Monte Carlo | Medium | Idea (session 15) |
 | Datum Flowsheet | P&ID drawing with symbols and data: line, equipment and instrument lists from the drawing (session 15: no open-source P&ID tool with proper symbols) | Process, chemical and mechanical engineers, students | Plan's canvas, print | Medium | Idea (session 15) |
 | Datum Tolerance | Tolerance stack-ups: worst case, RSS, Monte Carlo, datum chain, contributor ranking, GD&T helpers | Design and manufacturing engineers | Monte Carlo (Plan 0.4), charts, print; maybe a module of Calc | Small | Later |

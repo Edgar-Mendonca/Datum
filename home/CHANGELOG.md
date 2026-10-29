@@ -1,5 +1,11 @@
 # Datum Home changelog
 
+## 0.1.2 — 2026-10-29
+
+Datum Pipe joins Datum Home.
+
+- Pipe (pipe stress analysis) is in Datum Home's own list of apps, with its icon, so it shows even when the Datum site cannot be reached.
+
 ## 0.1.1 — 2026-10-28
 
 Datum Calc and Datum Mesh join Datum Home.

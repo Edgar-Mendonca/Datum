@@ -166,6 +166,33 @@
           "text": "Solve, read deflections and stresses, and print the report."
         }
       ]
+    },
+    {
+      "id": "pipe",
+      "repo": "Edgar-Mendonca/Datum-Pipe",
+      "branch": "HEAD",
+      "name": "Datum Pipe",
+      "accent": "#4D7C0F",
+      "tagline": "Pipe stress analysis on the desktop: displacements, support loads, nozzle loads and code stresses, with an automatic isometric.",
+      "for": "Piping, stress, mechanical, process and plant engineers, consultants and students.",
+      "shot": "docs/images/model.png",
+      "about": [
+        "Datum Pipe works out how a piping system moves and what it pushes on when it heats up, carries its weight and holds its pressure, with an automatic isometric and a stress report."
+      ],
+      "steps": [
+        {
+          "title": "Route the piping",
+          "text": "Type each element in the table; it draws in 3D at once."
+        },
+        {
+          "title": "Support and load it",
+          "text": "Add supports, temperatures, pressures and equipment movements."
+        },
+        {
+          "title": "Check and report",
+          "text": "Analyze, see the stress ratios on the model and print the stress report."
+        }
+      ]
     }
   ]
 }
