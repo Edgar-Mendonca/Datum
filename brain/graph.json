@@ -683,6 +683,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-45",
+   "type": "decision",
+   "app": "hub",
+   "label": "Datum Schema aims at the enterprise class of plant engineering…",
+   "text": "Datum Schema aims at the enterprise class of plant engineering tools (object-based, plant hierarchy, class library, many disciplines and users), not at drawing tools. From 0.1: objects are the master and symbols are views; plant hierarchy; class library as data; the project is one SQLite file with a change history; names follow DEXPI. Roadmap 0.2–0.7 adds DEXPI, datasheets, PFD stream tables, revisions, instrumentation, multi-user, electrical (brief addendum)\n\nWhy: The user has used the enterprise tools (one object-based one especially) and wants that class; the core must be object-based now or it would need rebuilding later. Sent to the running Schema chat as a course correction.",
+   "date": "2026-10-29 (s23)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -749,13 +758,22 @@
    "id": "hub-session-7",
    "type": "session",
    "app": "hub",
+   "label": "Session 23 (Schema's direction: enterprise…",
+   "date": "2026-10-29",
+   "text": "· User (Schema chat already running) asked which tools exist and said the target is the enterprise class, not drawing tools. Listed the market in chat only (no names in files): enterprise object-based suites, mid-range P&ID tools, general diagramming. Explained what makes the enterprise class (object as master, plant hierarchy, class library, many disciplines, many users, open exchange) and where 0.1 stands.\n· Gave the user a course correction for the running Schema chat (objects master, hierarchy, class library, SQLite project with history, DEXPI naming) and appended it to briefs/DATUM-SCHEMA.md with an enterprise roadmap (0.2–0.7). Decision recorded.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-8",
+   "type": "session",
+   "app": "hub",
    "label": "Session 22 (Datum Schema brief)",
    "date": "2026-10-29",
    "text": "· User needs an eighth app for next week's exhibition; asked Bench vs P&ID, and what a P&ID app adds over plain CAD. Research: intelligent P&IDs carry data per item (automatic line/equipment/instrument/valve lists, integrity checks) and only expensive plant suites do it; the open DEXPI standard (OPC 30250) has an open Python model (pyDEXPI) but no free desktop app. Recommended the P&ID app (visual, links Pipe, Sim and Calc) over Bench (hardware risk).\n· Name: Datum Schema (user's choice). Copyright question answered (keep \"© Edgar Mendonca\": MIT needs an owner; Datum is a brand, not a legal entity).\n· Wrote briefs/DATUM-SCHEMA.md: decisions up front (magenta accent, .dschema, publisher \"Datum\", layout, own symbols following ISO 10628-2 / ISA-5.1), ~80 symbols, data on everything, 13 live checks, line hydraulics, four lists, PDF/SVG/DXF, three examples + \"Find the faults\", tests, a 7-step day plan (0.1.0 → 0.1.4), cut order, roadmap (DEXPI, send to Pipe/Sim, PFD stream tables, loop diagrams). FAMILY §3: Magenta. Bucket list: Flowsheet → Schema.\n· Hub tasks when Schema releases: apps.json (schema #9C1F84; --schema #9C1F84 / dark #E07BC9), icon to brand/, AppGlyph \"schema\" (classes never g-schema!), phrases (\"draw P&IDs.\", \"check the plant.\"), the hero then has eight tiles: the 3×3 bench is full (no \"More to come\"), FAMILY §1, README, Datum Home built-in list, brain.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 21 (publisher \"Datum\")",
@@ -764,7 +782,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
@@ -773,7 +791,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -782,7 +800,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -791,7 +809,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -800,7 +818,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -809,7 +827,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -818,7 +836,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -827,7 +845,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -836,7 +854,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -845,7 +863,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -854,7 +872,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -863,7 +881,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -872,7 +890,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-21",
+   "id": "hub-session-22",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -881,7 +899,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-22",
+   "id": "hub-session-23",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -890,7 +908,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-23",
+   "id": "hub-session-24",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -899,7 +917,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-24",
+   "id": "hub-session-25",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -9246,6 +9264,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-45",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -9367,6 +9390,11 @@
   {
    "source": "hub",
    "target": "hub-session-24",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-25",
    "kind": "session"
   },
   {

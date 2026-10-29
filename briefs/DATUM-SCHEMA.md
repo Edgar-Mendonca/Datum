@@ -245,3 +245,27 @@ If time runs short, cut in this order: the "Hold" cloud, the line-hop gaps, ANSI
 | 0.4 | Instrument loop diagrams and instrument datasheets from the index; cause-and-effect matrix from interlocks; valve datasheets |
 | 0.5 | Company symbol and title-block templates; project-wide reports (MTO of valves and fittings); multi-user review comments |
 | 1.0 | User guide, a validation note for the hydraulics, signed installer |
+
+---
+
+## Addendum (session 23): the direction is enterprise-class, object-based plant engineering
+
+Sent to the running chat as a course correction; it does not change 0.1's features or the day plan.
+
+1. **Objects are the master.** Every equipment item, line, valve and instrument is an object in the project model with a unique id; a symbol on a sheet is only a view of an object (later on several sheets, in lists and in datasheets). Deleting a symbol asks whether to delete the object or only remove it from the sheet.
+2. **Plant hierarchy:** project › plant › unit › area, with defaults so it can be ignored at first; a "Plant" panel tab beside the palette; the lists can group by it.
+3. **Class library:** object types are data, not code. Each class defines its attributes (name, unit, allowed values, required or not) and its default symbol; the built-in classes ship as a JSON library; users add attributes in Options. Checks and lists read attributes through the class library.
+4. **The project is one SQLite database** (`.dschema`) with tables for objects, attributes, classes, hierarchy, sheets and views, and a **history** table of every change (who, when, old value, new value): the base for revisions and multi-user work.
+5. **Names follow the open P&ID data standard (DEXPI)** where it costs nothing, so its import and export become a mapping.
+
+**Roadmap towards enterprise class (replaces §7):**
+
+| Version | Scope |
+| --- | --- |
+| 0.2 | DEXPI import and export; send a line to Datum Pipe, a loop to Datum Sim; DXF import as a background; datasheets generated from the class library |
+| 0.3 | Process flow diagrams with stream tables and heat and mass balance checks; revisions with drawing comparison; change history per object |
+| 0.4 | Instrumentation: instrument index with full attributes, loop diagrams, instrument datasheets, I/O list, cause-and-effect matrix |
+| 0.5 | Multi-user projects (a shared project on a network drive or a small Datum server, with locking), approvals, issue for review, hand-over data export |
+| 0.6 | Electrical: single-line diagrams, motor and cable lists linked to the same objects |
+| 0.7 | Company class libraries and symbol sets, templates, project-wide reports (MTO of valves and fittings) |
+| 1.0 | User guide, validation note for the hydraulics, signed installer |
