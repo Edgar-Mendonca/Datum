@@ -647,6 +647,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-41",
+   "type": "decision",
+   "app": "hub",
+   "label": "No shared code kit for now: every app stays self-contained.…",
+   "text": "No shared code kit for now: every app stays self-contained. Shared pieces (shell, ribbon, File page, updater, printing, styles, icon set, units engine, solver parts) keep being copied from the reference app, never linked. When a shared piece is fixed or improved in one app, that app's chat records it in this hub (FAMILY or MEMORY), and the user passes it to the other apps' chats. Reference copies: shell, updater, print, icons → Datum Plan; units → Datum Calc; frame/sparse solver → Datum Mesh; Python runtime → Datum Plot\n\nWhy: The user: a shared kit could break every app at once; separate apps are safer. Revisit only if drift becomes a real cost. The graph stays the map of what exists where.",
+   "date": "2026-10-29 (s19)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -713,13 +722,22 @@
    "id": "hub-session-7",
    "type": "session",
    "app": "hub",
+   "label": "Session 19 (brainstorm: the brain, AI and…",
+   "date": "2026-10-29",
+   "text": "· User: is the network a neural network that can be \"trained\" as Datum's brain, and could an AI assistant use it? Answer: brain/graph.json is a knowledge graph (facts and links, rebuilt hourly, exact, explainable), not a neural network; training our own model would be costly, imprecise and stale. The right pattern is retrieval: the graph and docs hold the facts, an existing language model reads and answers with citations. Ideas (not started): an \"ask the brain\" tool for the app chats; offline help search shared by the apps; later an opt-in assistant (local model or the user's own key), citing sources and never producing engineering numbers itself (results only from the tested engines). Privacy promise (no telemetry) rules out a default cloud assistant.\n· User: is code and icon reuse real? Answer: decisions come from the hub, code is copied from the reference apps (not rewritten), the graph is the map. Proposed a shared kit (crates + UI package + one icon library in the hub); the user declined for now: separate apps are safer (decision above).",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-8",
+   "type": "session",
+   "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
    "date": "2026-10-29",
    "text": "· Session 17 (brainstorm, no files): a data-acquisition, control and test app (the user used a graphical DAQ tool for control and ADC work). Recommended a separate app, \"Datum Bench\", not part of Sim: real-time I/O, drivers, logging, alarms and safety are a different engine from simulated time; share Sim's block canvas, scopes and Python; hardware in the loop joins them later. Hardware first: microcontroller boards over serial (with a small Datum firmware), Modbus RTU/TCP, bench instruments over USB/LAN, the sound card; front panel, logging, triggers, calibration, PID with interlocks; vibration analysis (the old \"Signal\" idea) as a module. After Pipe 0.1 and the 1.0s. Not yet in the bucket list (add it with the user's go-ahead).\n· Session 18: Datum Pipe released 0.1.4 overnight from briefs/DATUM-PIPE.md (site.json, icon, SHA256SUMS in releases). Hub: apps.json (pipe #4D7C0F), brand icon, --pipe (#4D7C0F / dark #A3D65C), AppGlyph \"pipe\" (a pipe run with an expansion loop between anchors, guides, the deflected shape drawing itself in moss, the loop corners highlighted, \"SE/SA 0.74\"). Bug found and fixed: a class named g-pipe collided with the SVG's own g-<id> class and faded the whole drawing; glyph classes must never be g-<app id>.\n· Hero for seven apps: a 3×3 bench: seven app tiles, the Datum mark in the centre cell and \"More to come\" in the last place (nine mode; up to six apps keep the earlier layouts; phones show two columns without the centre cell). Lead mentions pipe stress analysis. FAMILY §1, README (row, issue link, briefs line), CLAUDE.md (repos, hero rule), MEMORY §1 versions refreshed.\n· Datum Home 0.1.2: Pipe in its built-in list with its icon; released with the workflow.\n· Checked: site build (seven apps), Playwright 1280/375, light and dark (home, Pipe and Calc pages, network): no overflow; Pipe drawing still and animated; Home core tests, clippy, UI build.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -728,7 +746,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -737,7 +755,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -746,7 +764,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -755,7 +773,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -764,7 +782,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -773,7 +791,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -782,7 +800,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -791,7 +809,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -800,7 +818,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -809,7 +827,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -818,7 +836,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -827,7 +845,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -7979,6 +7997,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-41",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -8080,6 +8103,11 @@
   {
    "source": "hub",
    "target": "hub-session-20",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-21",
    "kind": "session"
   },
   {
