@@ -44,12 +44,12 @@ function Home() {
     if (checking()) return;
     setChecking(true);
     try {
-      const c = await invoke<{ online: boolean; apps: App[] }>("catalog");
+      const c = await invoke<{ online: boolean; apps: App[]; home: Release | null }>("catalog");
       setOnline(c.online);
       setRows(c.apps.map(app => ({ app, info: rows.find(r => r.app.id === app.id)?.info })));
       await Promise.all(c.apps.map(a => refresh(a.id)));
       setChecked(new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }));
-      invoke<Release | null>("home_update").then(setSelf).catch(() => {});
+      invoke<Release | null>("home_update", { site: c.home }).then(setSelf).catch(() => {});
     } catch (e) {
       setRows([]);
       setOnline(false);

@@ -153,15 +153,22 @@ export async function copyShots(dist: URL) {
     mkdirSync(new URL(".", to), { recursive: true });
     writeFileSync(to, s.bytes!);
   }
+  // Release notes as plain text (the CHANGELOG section of that version).
+  const text = (html = "") => html.replace(/<li>/g, "- ").replace(/<\/(p|li|h\d)>/g, "\n").replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
   const latest = (a: App) => a.latest && !a.latest.fromChangelog && /setup\.exe$/i.test(a.latest.download)
-    ? { version: a.latest.version, date: a.latest.date, notes: "", setup: a.latest.download, sums: a.latest.sums ?? null, size: a.latest.size ?? 0, page: a.latest.url } : null;
-  const home = { $schema: "Datum Home's list of apps, written by the Datum site at every build (site/src/lib/github.ts).", updated: new Date().toISOString(),
+    ? { version: a.latest.version, date: a.latest.date, notes: text(a.changelog.find(c => c.version === a.latest!.version)?.html), setup: a.latest.download,
+        sums: a.latest.sums ?? null, size: a.latest.size ?? 0, page: a.latest.url } : null;
+  const h = await loadHome();
+  const home = { $schema: "Datum Home's list of apps and its own newest release, written by the Datum site at every build (site/src/lib/github.ts). Datum Home reads this instead of asking GitHub.",
+    updated: new Date().toISOString(),
+    home: h && h.sums ? { version: h.version, date: h.date, notes: h.notes, setup: h.download, sums: h.sums, size: h.size ?? 0, page: h.url } : null,
     apps: apps.map(a => ({ id: a.id, name: a.name, repo: a.repo, accent: a.accent, tagline: a.tagline, logo: a.logo, latest: latest(a) })) };
   writeFileSync(new URL("home.json", dist), JSON.stringify(home, null, 1));
 }
 
 /** Datum Home, the app that installs and updates the others: its newest release in this repository (tags home-vX.Y.Z). */
-export type HomeApp = { version: string; date: string; url: string; download: string; size?: number };
+export type HomeApp = { version: string; date: string; url: string; download: string; size?: number; sums?: string; notes: string };
 export function loadHome(): Promise<HomeApp | null> {
   const g = globalThis as any;
   return g.__datumHome ??= (async () => {
@@ -169,8 +176,9 @@ export function loadHome(): Promise<HomeApp | null> {
     const r = (Array.isArray(rels) ? rels : []).find((r: any) => !r.draft && !r.prerelease && /^home-v\d/.test(r.tag_name));
     if (!r) return null;
     const exe = (r.assets ?? []).find((a: any) => /setup\.exe$/i.test(a.name));
+    const sums = (r.assets ?? []).find((a: any) => /sha256sums\.txt$/i.test(a.name));
     return { version: String(r.tag_name).replace(/^home-v/, ""), date: String(r.published_at).slice(0, 10), url: r.html_url,
-      download: exe?.browser_download_url ?? r.html_url, size: exe?.size };
+      download: exe?.browser_download_url ?? r.html_url, size: exe?.size, sums: sums?.browser_download_url, notes: String(r.body ?? "").replace(/\r\n/g, "\n").trim() };
   })();
 }
 

@@ -64,6 +64,21 @@ pub fn parse_catalog(json: &str) -> Option<Vec<App>> {
     (!apps.is_empty()).then_some(apps)
 }
 
+/// Datum Home's own newest release as the site saw it (`{"home": {...}}` in home.json), if it can be installed.
+pub fn parse_home(json: &str) -> Option<Release> {
+    #[derive(Deserialize)]
+    struct Site {
+        home: Option<Release>,
+    }
+    let r = serde_json::from_str::<Site>(json).ok()?.home?;
+    installable(HOME_REPO, &r).then_some(r)
+}
+
+/// A release Datum Home can install: an installer from the repository's own releases, with its checksum list.
+pub fn installable(repo: &str, r: &Release) -> bool {
+    r.sums.as_deref().is_some_and(|u| download_ok(repo, u)) && r.setup.as_deref().is_some_and(|u| download_ok(repo, u))
+}
+
 /// Only `Edgar-Mendonca/Datum` and `Edgar-Mendonca/Datum-<Name>`.
 pub fn repo_ok(repo: &str) -> bool {
     let Some(name) = repo.strip_prefix(&format!("{OWNER}/")) else { return false };
@@ -212,7 +227,7 @@ pub struct Card {
 /// Works out each app's card from what is installed and the newest release.
 pub fn card(app: App, installed: Option<Installed>, release: Option<Release>) -> Card {
     let release = release.or_else(|| app.latest.clone());
-    let can_install = release.as_ref().is_some_and(|r| r.sums.is_some() && r.setup.as_deref().is_some_and(|u| download_ok(&app.repo, u)));
+    let can_install = release.as_ref().is_some_and(|r| installable(&app.repo, r));
     let action = match (&installed, &release) {
         (Some(i), Some(r)) if can_install && newer(&r.version, &i.version) => Action::Update,
         (Some(_), _) => Action::Open,
@@ -301,6 +316,21 @@ mod tests {
         d["draft"] = json!(true);
         assert!(parse_release(&d).is_none());
         assert!(parse_release(&json!({ "tag_name": "nightly" })).is_none());
+    }
+
+    #[test]
+    fn site_copy_of_releases() {
+        let r = parse_release(&rel("home-v0.1.3", HOME_REPO)).unwrap();
+        let json = serde_json::to_string(&json!({ "apps": [], "home": r })).unwrap();
+        assert_eq!(parse_home(&json).unwrap().version, "0.1.3");
+        assert!(parse_home(r#"{"apps":[]}"#).is_none());
+        // An installer from another repository is never offered as Datum Home's update.
+        let other = parse_release(&rel("v0.1.3", "Edgar-Mendonca/Datum-Plan")).unwrap();
+        assert!(parse_home(&serde_json::to_string(&json!({ "home": other })).unwrap()).is_none());
+        assert!(installable(HOME_REPO, &r));
+        let mut nosums = r.clone();
+        nosums.sums = None;
+        assert!(!installable(HOME_REPO, &nosums));
     }
 
     #[test]

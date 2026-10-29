@@ -32,12 +32,15 @@ fn version() -> &'static str {
     env!("CARGO_PKG_VERSION")
 }
 
-/// The apps: from the Datum site, else the built-in list. `online` says which.
+/// The apps: from the Datum site, else the built-in list. `online` says which. The site (rebuilt every hour) also
+/// carries each app's newest release and Datum Home's own, so a normal check asks GitHub nothing.
 #[tauri::command]
 async fn catalog() -> R<serde_json::Value> {
     blocking(|| {
-        let site = agent().get(core::CATALOG_URL).call().ok().and_then(|r| r.into_string().ok()).and_then(|s| core::parse_catalog(&s));
-        Ok(json!({ "online": site.is_some(), "apps": site.unwrap_or_else(core::builtin) }))
+        let text = agent().get(core::CATALOG_URL).call().ok().and_then(|r| r.into_string().ok());
+        let site = text.as_deref().and_then(core::parse_catalog);
+        let home = text.as_deref().and_then(core::parse_home);
+        Ok(json!({ "online": site.is_some(), "apps": site.unwrap_or_else(core::builtin), "home": home }))
     })
     .await
 }
@@ -66,15 +69,22 @@ fn latest(repo: &str) -> R<Option<Release>> {
         .max_by(|a, b| core::version_key(&a.version).cmp(&core::version_key(&b.version))))
 }
 
-/// One app's card: what is installed, the newest release, and what the button does.
+/// One app's card: what is installed, the newest release, and what the button does. The site's copy of the
+/// newest release is used when it can be installed; GitHub is asked only for an app the site does not cover
+/// (GitHub allows about 60 questions an hour per network without an account).
 #[tauri::command]
 async fn card(app: App) -> R<serde_json::Value> {
     blocking(move || {
         let installed = sys::installed();
         let mine = core::find_installed(&app, &installed).cloned();
-        let (release, error) = match latest(&app.repo) {
-            Ok(r) => (r, None),
-            Err(e) => (None, Some(e)),
+        let from_site = app.latest.as_ref().is_some_and(|r| core::installable(&app.repo, r));
+        let (release, error) = if from_site {
+            (None, None)
+        } else {
+            match latest(&app.repo) {
+                Ok(r) => (r, None),
+                Err(e) => (None, Some(e)),
+            }
         };
         let c: Card = core::card(app, mine, release);
         let running = c.installed.as_ref().is_some_and(|i| sys::running(&i.exe));
@@ -83,11 +93,17 @@ async fn card(app: App) -> R<serde_json::Value> {
     .await
 }
 
-/// Datum Home's own newest release, if it is newer than this one.
+/// Datum Home's own newest release, if it is newer than this one: the site's copy when it has one, else GitHub.
 #[tauri::command]
-async fn home_update() -> R<Option<Release>> {
-    blocking(|| Ok(latest(core::HOME_REPO)?.filter(|r| core::newer(&r.version, env!("CARGO_PKG_VERSION")) && r.sums.is_some())))
-        .await
+async fn home_update(site: Option<Release>) -> R<Option<Release>> {
+    blocking(move || {
+        let r = match site.filter(|r| core::installable(core::HOME_REPO, r)) {
+            Some(r) => Some(r),
+            None => latest(core::HOME_REPO)?,
+        };
+        Ok(r.filter(|r| core::newer(&r.version, env!("CARGO_PKG_VERSION")) && core::installable(core::HOME_REPO, r)))
+    })
+    .await
 }
 
 /// Downloads an installer to the temp folder and checks it against the release's SHA256SUMS.txt.

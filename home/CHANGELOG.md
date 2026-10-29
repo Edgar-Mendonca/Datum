@@ -1,5 +1,13 @@
 # Datum Home changelog
 
+## 0.1.3 — 2026-10-29
+
+No more "GitHub is busy" messages.
+
+- Datum Home now reads the newest version of every app, and of itself, from the Datum site, which checks GitHub every hour. Opening Datum Home no longer asks GitHub anything, so its limit of about 60 questions an hour per network is never reached.
+- GitHub is asked directly only for an app the site does not list yet.
+- Release notes come from the site too.
+
 ## 0.1.2 — 2026-10-29
 
 Datum Pipe joins Datum Home.
