@@ -3,7 +3,7 @@
 // the top of each app page. The drawings loop gently; at rest (reduced motion, no animation) every drawing is complete.
 interface Props { id: string; logo?: string; class?: string }
 const { id, logo, class: cls } = Astro.props;
-const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe"].includes(id);
+const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe", "schema"].includes(id);
 
 // Mesh: an L-bracket in 10-unit cells, each split into two triangles, shaded by a stress that peaks at the inner corner.
 const cells: [number, number][] = [];
@@ -51,6 +51,19 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
         <g class="g-anchor"><rect x="8" y="102" width="10" height="20" /><rect x="182" y="102" width="10" height="20" /></g>
         <path class="g-guide" d="M36 104V120M152 104V120" />
         <text class="g-text g-small g-fade" x="100" y="80" text-anchor="middle">SE/SA 0.74</text>
+      </Fragment>
+    )}
+    {id === "schema" && (
+      <Fragment>
+        <rect class="g-vessel" x="20" y="22" width="34" height="76" rx="14" />
+        <path class="g-draw g-procline" pathLength="1" d="M54 84H96M120 84H136" />
+        <path class="g-bowtie" d="M96 76V92L120 76V92Z" />
+        <path class="g-acc" d="M128 80l8 4-8 4z" />
+        <circle class="g-pumpc" cx="152" cy="84" r="15" />
+        <path class="g-pumpt" d="M146 76L162 84L146 92" />
+        <path class="g-sig" d="M108 76V54M54 46H92" />
+        <g class="g-pop" style="--k:3"><circle class="g-bubble" cx="108" cy="42" r="12" /><text class="g-text g-tiny-t" x="108" y="45" text-anchor="middle">LIC</text></g>
+        <g class="g-pop" style="--k:5"><rect class="g-pass" x="122" y="110" width="66" height="18" rx="2" /><text class="g-text g-small g-pass-t" x="155" y="123" text-anchor="middle">0 errors</text></g>
       </Fragment>
     )}
     {id === "plan" && (
@@ -154,6 +167,15 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
   .g-defl { fill: none; stroke: var(--c); stroke-width: 2.4; stroke-linecap: round; }
   .g-anchor { fill: var(--ink); }
   .g-guide { stroke: var(--ink); stroke-width: 2; }
+
+  .g-vessel { fill: color-mix(in srgb, var(--c) 14%, var(--card)); stroke: var(--ink); stroke-width: 2; }
+  .g-procline { fill: none; stroke: var(--ink); stroke-width: 2.6; }
+  .g-bowtie { fill: var(--card); stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
+  .g-pumpc { fill: color-mix(in srgb, var(--c) 14%, var(--card)); stroke: var(--ink); stroke-width: 2; }
+  .g-pumpt { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+  .g-sig { fill: none; stroke: var(--c); stroke-width: 1.6; stroke-dasharray: 5 4; }
+  .g-bubble { fill: var(--card); stroke: var(--c); stroke-width: 2; }
+  .g-tiny-t { font-size: 8.5px; }
 
   /* The loops: 6 s, everything builds up, holds, then clears; staggered by --k. */
   .g-bar { transform-box: fill-box; transform-origin: left center; animation: g-grow 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .3s); }

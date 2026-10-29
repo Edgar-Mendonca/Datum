@@ -20,6 +20,7 @@ const say: Record<string, { cap: string; phrases: string[] }> = {
   calc: { cap: "Calculate and check", phrases: ["write calculations.", "check designs."] },
   mesh: { cap: "Analyse stresses", phrases: ["analyse stresses.", "mesh parts."] },
   pipe: { cap: "Pipe stress analysis", phrases: ["analyse piping.", "check pipe stresses."] },
+  schema: { cap: "Intelligent P&IDs", phrases: ["draw P&IDs.", "check the plant."] },
 };
 const tiles = apps.slice(0, 8).map(a => ({ a, cap: say[a.id]?.cap ?? a.tagline, phrases: say[a.id]?.phrases ?? [`${a.tagline.split(":")[0].replace(/\.$/, "").toLowerCase()}.`] }));
 const nine = tiles.length > 6;
@@ -30,7 +31,7 @@ const cycle = [0, 1].flatMap(k => tiles.flatMap((t, i) => t.phrases[k] ? [{ i, t
   <div class="left">
     <h1 id="hero-title" class="title">Datum<span class="sq" aria-hidden="true"></span></h1>
     <p class="tools">Tools to <span class="say it" data-say aria-live="off">{cycle[0].text}</span></p>
-    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, engineering calculations, finite-element and pipe stress analysis, and more on the way. Open source; your files stay on your computer.</p>
+    <p class="lead">Desktop software for technical work: scheduling and project control, data analysis and graphs, materials selection, system simulation and control, engineering calculations, finite-element and pipe stress analysis, intelligent P&IDs, and more on the way. Open source; your files stay on your computer.</p>
     <div class="btns">
       <a class="btn btn-solid" href="#apps">Get the apps</a>
       <a class="btn btn-line" href={`${base}/network`}>Explore the network</a>

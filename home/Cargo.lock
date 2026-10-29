@@ -506,7 +506,7 @@ dependencies = [
 
 [[package]]
 name = "datum-home"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "datum-home-core",
  "serde",

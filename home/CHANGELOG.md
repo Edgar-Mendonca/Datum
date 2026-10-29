@@ -1,5 +1,11 @@
 # Datum Home changelog
 
+## 0.1.5 — 2026-10-29
+
+Datum Schema joins Datum Home.
+
+- Schema (intelligent P&IDs) is in Datum Home's own list of apps, with its icon, so it shows even when the Datum site cannot be reached.
+
 ## 0.1.4 — 2026-10-29
 
 Windows now lists the publisher as "Datum".

@@ -56,6 +56,12 @@
    "name": "Datum Pipe",
    "repo": "Edgar-Mendonca/Datum-Pipe",
    "accent": "#4D7C0F"
+  },
+  {
+   "id": "schema",
+   "name": "Datum Schema",
+   "repo": "Edgar-Mendonca/Datum-Schema",
+   "accent": "#9C1F84"
   }
  ],
  "nodes": [
@@ -758,13 +764,22 @@
    "id": "hub-session-7",
    "type": "session",
    "app": "hub",
+   "label": "Session 24 (Datum Schema joins the family…",
+   "date": "2026-10-29",
+   "text": "· Datum Schema released 0.1.3 (site.json, icon, SHA256SUMS, publisher \"Datum\").\n· Hub: apps.json (schema #9C1F84), brand icon, --schema (#9C1F84 / dark #E07BC9), AppGlyph \"schema\" (a vessel, a process line with a valve and flow arrow to a pump, an LIC bubble with dashed signal lines, a \"0 errors\" badge; classes g-vessel, g-procline, g-bowtie, g-pumpc, g-pumpt, g-sig, g-bubble), phrases \"draw P&IDs. / check the plant.\", lead mentions intelligent P&IDs. The 3×3 hero is now full (eight apps around the Datum mark; no \"More to come\"); a ninth app needs a new layout (4 columns, or a 4×3 bench). FAMILY §1, README, CLAUDE.md, MEMORY §1.\n· Datum Home 0.1.5: Schema in its built-in list with its icon; released.\n· Checked: site build, Playwright 1280/375 (home, Schema page, network): no overflow; Schema drawing light and dark; Home core tests, clippy, UI.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-8",
+   "type": "session",
+   "app": "hub",
    "label": "Session 23 (Schema's direction: enterprise…",
    "date": "2026-10-29",
    "text": "· User (Schema chat already running) asked which tools exist and said the target is the enterprise class, not drawing tools. Listed the market in chat only (no names in files): enterprise object-based suites, mid-range P&ID tools, general diagramming. Explained what makes the enterprise class (object as master, plant hierarchy, class library, many disciplines, many users, open exchange) and where 0.1 stands.\n· Gave the user a course correction for the running Schema chat (objects master, hierarchy, class library, SQLite project with history, DEXPI naming) and appended it to briefs/DATUM-SCHEMA.md with an enterprise roadmap (0.2–0.7). Decision recorded.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 22 (Datum Schema brief)",
@@ -773,7 +788,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 21 (publisher \"Datum\")",
@@ -782,7 +797,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
@@ -791,7 +806,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -800,7 +815,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -809,7 +824,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -818,7 +833,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -827,7 +842,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -836,7 +851,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -845,7 +860,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -854,7 +869,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -863,7 +878,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -872,7 +887,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -881,7 +896,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-21",
+   "id": "hub-session-22",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -890,7 +905,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-22",
+   "id": "hub-session-23",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -899,7 +914,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-23",
+   "id": "hub-session-24",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -908,7 +923,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-24",
+   "id": "hub-session-25",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -917,7 +932,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-25",
+   "id": "hub-session-26",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -957,8 +972,8 @@
    "type": "idea",
    "app": "hub",
    "label": "Datum Schema (was \"Flowsheet\")",
-   "when": "Being built (session 22), magenta accent",
-   "text": "Intelligent P&IDs and process flow diagrams: our own symbols (ISO 10628-2 / ISA-5.1 conventions), data on every item and line, connectivity, live checks (13 rules), line hydraulics (velocity, ΔP, limits), line list, equipment list, instrument index, valve list, PDF/SVG/DXF, CSV/Excel. Brief: briefs/DATUM-SCHEMA.md\n\nFor: Process, chemical, mechanical, piping and instrument engineers, students\nReuses: Sim's canvas, Calc's units and pipe ΔP, Pipe's size library, Plan's shell and Excel export\nSize: Medium; 0.1 = one unattended run\nStatus: Being built (session 22), magenta accent",
+   "when": "Released (session 24), magenta accent",
+   "text": "Intelligent P&IDs and process flow diagrams: our own symbols (ISO 10628-2 / ISA-5.1 conventions), data on every item and line, connectivity, live checks (13 rules), line hydraulics (velocity, ΔP, limits), line list, equipment list, instrument index, valve list, PDF/SVG/DXF, CSV/Excel. Brief: briefs/DATUM-SCHEMA.md\n\nFor: Process, chemical, mechanical, piping and instrument engineers, students\nReuses: Sim's canvas, Calc's units and pipe ΔP, Pipe's size library, Plan's shell and Excel export\nSize: Medium; 0.1 = one unattended run\nStatus: Released (session 24), magenta accent",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -8969,6 +8984,619 @@
    "date": "2026-10-29",
    "text": "· Engine: Support.one_way, Support.gap, Support::conditional; solve_conditional (per-case iteration, exact holds, springs with offsets, 1 N/mm fallback); CaseResult.contacts and iterations. Benchmarks 12–13 (34 checks), four worked cases, random hardening models with one-way rests and gaps.\n· Examples: rests one-way, steam guides with 3 mm gaps (all settle with no warnings; results otherwise unchanged).\n· UI: Inspector one-way switch and gap; Support Loads state column and solve count; help; ribbon's Nonlinear group now only plans friction. Three UI checks; the mock bridge adds supports.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "app-schema",
+   "type": "app",
+   "app": "schema",
+   "label": "Datum Schema",
+   "accent": "#9C1F84",
+   "text": "Intelligent P&IDs and process flow diagrams: draw, check and list.\n\nFor: Process, chemical, mechanical, piping and instrument engineers, operators and students.\n\nStack: Rust engine (crates/core: model, symbols, graph, tags, checks, hydraulics, lists, frame, routing, DXF), Tauri 2, SolidJS + strict TypeScript; no Python",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema"
+  },
+  {
+   "id": "schema-v0.1.4",
+   "type": "release",
+   "app": "schema",
+   "label": "Schema 0.1.4",
+   "version": "0.1.4",
+   "date": "2026-10-29",
+   "text": "The exhibition build.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/releases/tag/v0.1.4"
+  },
+  {
+   "id": "schema-v0.1.3",
+   "type": "release",
+   "app": "schema",
+   "label": "Schema 0.1.3",
+   "version": "0.1.3",
+   "date": "2026-10-29",
+   "text": "Fixes from an independent review of the engine, and polish.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/releases/tag/v0.1.3"
+  },
+  {
+   "id": "schema-v0.1.2",
+   "type": "release",
+   "app": "schema",
+   "label": "Schema 0.1.2",
+   "version": "0.1.2",
+   "date": "2026-10-29",
+   "text": "Fast with big drawings; hydraulic badges in colour.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/releases/tag/v0.1.2"
+  },
+  {
+   "id": "schema-v0.1.1",
+   "type": "release",
+   "app": "schema",
+   "label": "Schema 0.1.1",
+   "version": "0.1.1",
+   "date": "2026-10-29",
+   "text": "The drawing now checks itself, lists itself and sizes its lines; the examples, printing and DXF.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/releases/tag/v0.1.1"
+  },
+  {
+   "id": "schema-v0.1.0",
+   "type": "release",
+   "app": "schema",
+   "label": "Schema 0.1.0",
+   "version": "0.1.0",
+   "date": "2026-10-29",
+   "text": "The first release: the window, the sheet, symbols and lines, and the updater.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/releases/tag/v0.1.0"
+  },
+  {
+   "id": "schema-plan-0-2",
+   "type": "roadmap",
+   "app": "schema",
+   "label": "0.2 Exchange and links",
+   "version": "0.2",
+   "when": "Next",
+   "text": "Open P&ID data exchange (the DEXPI XML format) import and export\nSend a line to Datum Pipe as a stress model\nSend a loop to Datum Sim (pump, valve, tank, controller) as a dynamic model\nDXF import of an old drawing as a background",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-plan-0-3",
+   "type": "roadmap",
+   "app": "schema",
+   "label": "0.3 Process flow diagrams",
+   "version": "0.3",
+   "when": "Later",
+   "text": "Stream tables (flow, pressure, temperature, composition per stream)\nHeat and mass balance checks\nRevision clouds and comparing revisions",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-plan-0-4",
+   "type": "roadmap",
+   "app": "schema",
+   "label": "0.4 Instrument documents",
+   "version": "0.4",
+   "when": "Later",
+   "text": "Instrument loop diagrams and datasheets from the index\nCause-and-effect matrix from interlocks\nValve datasheets",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-plan-0-5",
+   "type": "roadmap",
+   "app": "schema",
+   "label": "0.5 Company templates and review",
+   "version": "0.5",
+   "when": "Later",
+   "text": "Company symbol and title-block templates\nProject-wide reports (valve and fitting take-off)\nReview comments from several people",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-plan-1-0",
+   "type": "roadmap",
+   "app": "schema",
+   "label": "1.0 Version 1",
+   "version": "1.0",
+   "when": "Goal",
+   "text": "User guide\nA validation note for the hydraulics\nSigned installer",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-file-crates-core-src-model-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "model.rs",
+   "path": "crates/core/src/model.rs",
+   "text": "The project: sheets (number, title, size A3/A1/ANSI B/ANSI D, revisions, legend flag), items (symbol, position, quarter turns, mirror, scale, tag, data, off-page partner), lines (type, ends on a port, on another line or free, bend points, flow flip, data), notes (note, leader, Hold cloud), settings (line number format, rules off, hydraulic limits, roughness, grid); .dschema read part by part with normalize (damaged files open as far as possible, with warnings), and write",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/model.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-symbols-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "symbols.rs",
+   "path": "crates/core/src/symbols.rs",
+   "text": "The symbol library (about 80 of our own drawings in a small drawing language: polylines, outlines, fills, dashes, circles, arcs, ellipses, rectangles, text), ports with directions, categories, tag prefixes, in-line and terminal flags; placement (turn, mirror, scale); primitives and their SVG",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/symbols.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-fields-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "fields.rs",
+   "path": "crates/core/src/fields.rs",
+   "text": "The data each kind of thing carries, with the quantity of each number (for units) and choices",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/fields.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-units-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "units.rs",
+   "path": "crates/core/src/units.rs",
+   "text": "Calc's unit table (NIST SP 811) with unit expressions and Schema's display table",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/units.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-pipes-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "pipes.rs",
+   "path": "crates/core/src/pipes.rs",
+   "text": "Pipe's sizes ½\"–24\" and schedules (ASME B36.10M/B36.19M dimensions); inside diameters",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/pipes.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-doc-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "doc.rs",
+   "path": "crates/core/src/doc.rs",
+   "text": "Edit operations (add, set, move, rotate, mirror, delete with merge of in-line items, set data, tags, bend points, split, paste with the next free tags, pair connectors, sheets, title, project, settings, renumber, batch) on a copy, kept only if normalize finds nothing to repair; undo/redo; size-limited reads and atomic writes",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/doc.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-graph-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "graph.rs",
+   "path": "crates/core/src/graph.rs",
+   "text": "Connectivity: port positions, line numbers from the format, the network (lines per port, branches), runs (one line number through in-line items and off-page pairs), walks along the piping (reach), from/to, pump suction/discharge",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/graph.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-tags-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "tags.rs",
+   "path": "crates/core/src/tags.rs",
+   "text": "Tags: split, next free per prefix and sheet, copies (P-101A → P-101B), renumber, duplicates, ISA-5.1 letters, controllers, measurements, final elements",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/tags.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-route-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "route.rs",
+   "path": "crates/core/src/route.rs",
+   "text": "Sim's orthogonal router, extended to ports facing four directions and open ends",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/route.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-view-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "view.rs",
+   "path": "crates/core/src/view.rs",
+   "text": "What the window draws for a sheet: items with ports and upright texts (tags, instrument letters and loop numbers, fail positions, connector partners), lines (route, pieces with hops, arrows or signal marks, line number, hydraulic badge), notes and Hold clouds, the legend",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/view.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-frame-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "frame.rs",
+   "path": "crates/core/src/frame.rs",
+   "text": "The sheet frame: border, zones, title block, revision table, as primitives",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/frame.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-hydraulics-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "hydraulics.rs",
+   "path": "crates/core/src/hydraulics.rs",
+   "text": "Inside diameter, velocity, Reynolds, Colebrook (or 64/Re), Δp per 100 m and over length + fittings, limits by service, status",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/hydraulics.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-checks-rs-checks-tests-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "tests.rs)",
+   "path": "crates/core/src/checks.rs (+ checks/tests.rs)",
+   "text": "The 13 checks, one function per rule, each issue with level, reason, ids and place; a passing and a failing test per rule",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/checks.rs (+ checks/tests.rs)"
+  },
+  {
+   "id": "schema-file-crates-core-src-lists-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "lists.rs",
+   "path": "crates/core/src/lists.rs",
+   "text": "The line list (one row per line number: from/to, hydraulics), equipment list, instrument index, valve list; CSV with a formula guard; Excel (rust_xlsxwriter)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/lists.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-dxf-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "dxf.rs",
+   "path": "crates/core/src/dxf.rs",
+   "text": "The DXF writer (R12: layers per line type and symbol category, blocks with a TAG attribute, text, frame) and read_back for the tests",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/dxf.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-examples-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "examples.rs",
+   "path": "crates/core/src/examples.rs",
+   "text": "The examples built through the edit operations: pump transfer, compressor package, exchanger loop, Find the faults (tests: 0 errors and warnings; exactly the planted faults)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/examples.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-hardening-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "hardening.rs",
+   "path": "crates/core/src/hardening.rs",
+   "text": "FAMILY §11: random projects and edits, failed edits change nothing, damaged files, hostile values, speed gate (500 symbols)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/hardening.rs"
+  },
+  {
+   "id": "schema-file-crates-core-src-api-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "api.rs",
+   "path": "crates/core/src/api.rs",
+   "text": "What the shell's commands return (derived: the sheet's view, issues, hydraulics, runs, numbers; library), shared with the test server",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/api.rs"
+  },
+  {
+   "id": "schema-file-crates-core-examples-serve-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "serve.rs",
+   "path": "crates/core/examples/serve.rs",
+   "text": "The test server: the window and the engine behind one local HTTP port, answering the shell's commands, for the UI tests",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/examples/serve.rs"
+  },
+  {
+   "id": "schema-file-src-tauri-src-main-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "main.rs",
+   "path": "src-tauri/src/main.rs",
+   "text": "Commands: state, apply, history, derived, list, views, examples, new project, library, unit table, open/save, save file, export (CSV, Excel, DXF), options, recovery, recent, startup file, open_url, version, updates; guard, crash.log, atomic saves",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/src-tauri/src/main.rs"
+  },
+  {
+   "id": "schema-file-src-tauri-src-update-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "update.rs",
+   "path": "src-tauri/src/update.rs",
+   "text": "The updater (Plan's, REPO = Datum-Schema)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/src-tauri/src/update.rs"
+  },
+  {
+   "id": "schema-file-ui-src-main-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "main.tsx",
+   "path": "ui/src/main.tsx",
+   "text": "Window layout (palette, sheet with its tab bar, inspector, bottom panel), status bar, keys, start-up and recovery",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/main.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-store-ts",
+   "type": "file",
+   "app": "schema",
+   "label": "store.ts",
+   "path": "ui/src/store.ts",
+   "text": "Window state: the project, the open sheet, the engine's derived data, the library, the selection, the drawing tool, layers, panel, menus, dialogs",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/store.ts"
+  },
+  {
+   "id": "schema-file-ui-src-canvas-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "canvas.tsx",
+   "path": "ui/src/canvas.tsx",
+   "text": "The drawing canvas (from Sim's): pan, zoom, snap, marquee, move, draw lines from ports, drag segments and ends, drop symbols (in-line ones into lines), the symbol sprite, primitives",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/canvas.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-palette-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "palette.tsx",
+   "path": "ui/src/palette.tsx",
+   "text": "The symbol palette: categories, search, common instruments",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/palette.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-inspector-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "inspector.tsx",
+   "path": "ui/src/inspector.tsx",
+   "text": "The Inspector: item, line (with hydraulics), note, or the sheet and title block",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/inspector.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-panels-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "panels.tsx",
+   "path": "ui/src/panels.tsx",
+   "text": "The bottom panel: Checks and the four lists (sort, filter, group, click to find, edit, export)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/panels.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-ribbon-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "ribbon.tsx",
+   "path": "ui/src/ribbon.tsx",
+   "text": "Title bar, quick access, Tell Me, the ribbon; every command",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/ribbon.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-backstage-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "backstage.tsx",
+   "path": "ui/src/backstage.tsx",
+   "text": "File page (examples, export, options with the check rules and limits, updates), print (sheets at size or A3, lists, legend; the SVG writer), roadmap",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/backstage.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-help-tsx",
+   "type": "file",
+   "app": "schema",
+   "label": "help.tsx",
+   "path": "ui/src/help.tsx",
+   "text": "The ? cards and the rule list; dialogs (save changes, recovery, add a symbol by name, pair connectors, shortcuts, getting started, glossary)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/help.tsx"
+  },
+  {
+   "id": "schema-file-ui-src-styles-css",
+   "type": "file",
+   "app": "schema",
+   "label": "styles.css",
+   "path": "ui/src/styles.css",
+   "text": "Plan's styles (magenta accent) and components; the icon sprite",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/ui/src/styles.css"
+  },
+  {
+   "id": "schema-file-tests-ui-run-cjs",
+   "type": "file",
+   "app": "schema",
+   "label": "run.cjs",
+   "path": "tests_ui/run.cjs",
+   "text": "UI checks of the built window against the real engine (through the test server)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/tests_ui/run.cjs"
+  },
+  {
+   "id": "schema-file-tests-ui-screens-cjs",
+   "type": "file",
+   "app": "schema",
+   "label": "screens.cjs",
+   "path": "tests_ui/screens.cjs",
+   "text": "The four README and site screenshots (1440×900, docs/images/)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/tests_ui/screens.cjs"
+  },
+  {
+   "id": "schema-file-crates-core-examples-bench-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "bench.rs",
+   "path": "crates/core/examples/bench.rs",
+   "text": "Where the time goes on a 500-symbol sheet",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/examples/bench.rs"
+  },
+  {
+   "id": "schema-file-docs-plan-0-1-md",
+   "type": "file",
+   "app": "schema",
+   "label": "PLAN-0.1.md",
+   "path": "docs/PLAN-0.1.md",
+   "text": "The plan, the public summary and roadmap, the change log",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/PLAN-0.1.md"
+  },
+  {
+   "id": "schema-decision-0",
+   "type": "decision",
+   "app": "schema",
+   "label": "Everything in the brief §1 (name, magenta accent, identifier…",
+   "date": "plan",
+   "text": "Everything in the brief §1 (name, magenta accent, identifier, .dschema, stack, units, ribbon tabs, layout, own symbols after ISO 10628-2 and ISA-5.1, logo, public words)\n\nWhy: Made with the user in the hub, session 22",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-1",
+   "type": "decision",
+   "app": "schema",
+   "label": "The shell (main.rs, styles, ribbon, File page, print, help) is…",
+   "date": "plan",
+   "text": "The shell (main.rs, styles, ribbon, File page, print, help) is copied from Datum Pipe, the newest copy of Plan's shell; the updater, guard, crash.log and atomic writes from Plan 0.4.3 itself\n\nWhy: Pipe's shell is already adapted to an engineering app; Plan carries the latest safety rules (FAMILY §11) and Pipe's release profile still aborts on panic",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-2",
+   "type": "decision",
+   "app": "schema",
+   "label": "Symbols are data in the engine (a small drawing language)…",
+   "date": "plan",
+   "text": "Symbols are data in the engine (a small drawing language), turned into SVG for the window and into blocks for DXF\n\nWhy: One drawing per symbol; the window, print and DXF always agree",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-3",
+   "type": "decision",
+   "app": "schema",
+   "label": "Positions are sheet millimetres (y down); text primitives are…",
+   "date": "plan",
+   "text": "Positions are sheet millimetres (y down); text primitives are placed by the middle of their height\n\nWhy: Prints at true size; one rule for SVG (dominant-baseline: central) and DXF (middle alignment)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-4",
+   "type": "decision",
+   "app": "schema",
+   "label": "Undo keeps the whole project before each edit (bounded to 200)…",
+   "date": "plan",
+   "text": "Undo keeps the whole project before each edit (bounded to 200) rather than inverse operations\n\nWhy: The brief asks for undo as operations; edits are operations, and a snapshot per operation is the simplest exact undo for a project of this size (Plan does the same)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-5",
+   "type": "decision",
+   "app": "schema",
+   "label": "A run (one pipeline) is the process lines joined through…",
+   "date": "plan",
+   "text": "A run (one pipeline) is the process lines joined through in-line items and off-page pairs whose line numbers agree; a size change at a reducer starts a new run\n\nWhy: The line list lists pipelines, not drawn pieces; the number carries the size, so it changes at a reducer",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-6",
+   "type": "decision",
+   "app": "schema",
+   "label": "Data typed on a line goes to every drawn piece of its run…",
+   "date": "plan",
+   "text": "Data typed on a line goes to every drawn piece of its run; hydraulics are per run, from its first piece\n\nWhy: The pieces of one pipeline always agree, so the line list, badges and checks agree",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-7",
+   "type": "decision",
+   "app": "schema",
+   "label": "Lines are drawn and routed by the engine (Sim's router, ports…",
+   "date": "plan",
+   "text": "Lines are drawn and routed by the engine (Sim's router, ports facing four ways); bend points the user drags are kept\n\nWhy: The brief: Sim's wires with bends you can drag",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-8",
+   "type": "decision",
+   "app": "schema",
+   "label": "Instrument presets (PT, LIC, FIC…) in the palette; a new…",
+   "date": "plan",
+   "text": "Instrument presets (PT, LIC, FIC…) in the palette; a new instrument given only its letters takes the next free loop number on its sheet\n\nWhy: The brief lists the tag letters; loops share numbers (LT-101, LIC-101, LV-101)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-9",
+   "type": "decision",
+   "app": "schema",
+   "label": "Tags number 101 … on sheet 1, 201 … on sheet 2 (line sequence…",
+   "date": "plan",
+   "text": "Tags number 101 … on sheet 1, 201 … on sheet 2 (line sequence 1001 …, 2001 …)\n\nWhy: \"Automatic numbering per prefix and sheet\" in the brief",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-10",
+   "type": "decision",
+   "app": "schema",
+   "label": "Manual valves take the prefix HV (hand valve), not V",
+   "date": "0.1.0",
+   "text": "Manual valves take the prefix HV (hand valve), not V\n\nWhy: V is the vessels' prefix; the first test placed a valve tagged V-103 among vessels V-101 and V-102",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-11",
+   "type": "decision",
+   "app": "schema",
+   "label": "The build ran ahead of the brief's step plan (checks, lists…",
+   "date": "0.1.1",
+   "text": "The build ran ahead of the brief's step plan (checks, lists, hydraulics, DXF and examples were ready with the canvas), so 0.1.1 carries brief steps 3–6 and the next releases are speed, polish and the exhibition build; each CHANGELOG section says what its release really contains\n\nWhy: Releases stay small and true; holding finished work back to match a plan would only delay it",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-12",
+   "type": "decision",
+   "app": "schema",
+   "label": "An independent review of the engine before the exhibition…",
+   "date": "0.1.3",
+   "text": "An independent review of the engine before the exhibition build, as Datum Pipe did: run joining by number at items with 3+ lines, one new sequence per pasted pipeline, checks 8/10 walk through off-page pairs, merge skipped in loops and keeps the other half's data, running out of ids is an error, CSV quotes CR, no apostrophe in Excel text, DXF letters upright outside blocks and no 5-digit escapes\n\nWhy: Every confirmed finding fixed with a regression test; bend points on split left as a known limit",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-13",
+   "type": "decision",
+   "app": "schema",
+   "label": "The DXF was read back with an independent reader (ezdxf…",
+   "date": "0.1.3",
+   "text": "The DXF was read back with an independent reader (ezdxf 1.4.5): all four examples open with 0 errors and 0 repairs, blocks and TAG attributes intact, and render the right way up\n\nWhy: \"Opens in any CAD program\" should be checked by a reader we did not write",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-14",
+   "type": "decision",
+   "app": "schema",
+   "label": "The router marks cells and edges inside symbols by index…",
+   "date": "0.1.2",
+   "text": "The router marks cells and edges inside symbols by index ranges (binary search on the grid lines) and keeps distances in arrays, and its second search window is 120 mm\n\nWhy: Routing was 5 s on a crowded 500-symbol sheet; now 0.07 s with the same routes",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-15",
+   "type": "decision",
+   "app": "schema",
+   "label": "One line number label and one hydraulic badge per run per…",
+   "date": "0.1.1",
+   "text": "One line number label and one hydraulic badge per run per sheet, on its longest straight segment\n\nWhy: Labels on every short piece between valves cluttered the examples",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-16",
+   "type": "decision",
+   "app": "schema",
+   "label": "A process-type line with an end on an instrument bubble or a…",
+   "date": "0.1.1",
+   "text": "A process-type line with an end on an instrument bubble or a thermowell is an instrument connection: no number, not in the line list, not checked as a pipeline\n\nWhy: Impulse lines are part of the instrument, not the piping",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-17",
+   "type": "decision",
+   "app": "schema",
+   "label": "Final elements for check 11 are control valves and regulators…",
+   "date": "0.1.1",
+   "text": "Final elements for check 11 are control valves and regulators only (by symbol), not relief devices\n\nWhy: PSV and breather tags end in V too, and hid a missing control valve in Find the faults",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-18",
+   "type": "decision",
+   "app": "schema",
+   "label": "The UI tests drive the real engine: examples/serve.rs answers…",
+   "date": "0.1.0",
+   "text": "The UI tests drive the real engine: examples/serve.rs answers the shell's commands over a local HTTP port and serves the built window; api.rs holds what both return\n\nWhy: The brief's UI tests (place, connect, split, see a check appear and clear, export a list) need the real engine, not a canned fixture",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-session-0",
+   "type": "session",
+   "app": "schema",
+   "label": "Session 1 (0.1.0)",
+   "date": "2026-10-29",
+   "text": "· Read the brief, the hub (CLAUDE, MEMORY, FAMILY, BRAND, BRAIN) and the reference apps (Plan's shell and updater, Sim's canvas and router, Calc's units and pipe pack, Pipe's sizes and shell).\n· Wrote CLAUDE.md, this MEMORY, PLAN-0.1; the logo (vessel, line with flow arrow and instrument bubble, pump, amber diamond) and the Windows icons.\n· Engine: model and file with repair, symbols (82 definitions), fields, units, pipe sizes, routing, frame, graph, tags, edit operations with split and merge, view, hydraulics (tested against a hand calculation and Datum Calc's pipe pack); 23 tests.\n· Window: ribbon, File page, Options (with the check rules and hydraulic limits), canvas, palette, inspector, bottom panel, print and SVG writer, help cards; the test server and 16 UI checks against the real engine.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-session-1",
+   "type": "session",
+   "app": "schema",
+   "label": "Session 1, summary (0.1.0 → 0.1.4)",
+   "date": "2026-10-29",
+   "text": "· Released: 0.1.0 (shell, sheet, symbols, lines, updater), 0.1.1 (checks, hydraulics, lists, examples, print, DXF), 0.1.2 (fast routing, coloured badges, line number highlight, screenshots), 0.1.3 (fixes from an independent engine review), 0.1.4 (the exhibition build: final check, README demo). Each as DatumSchema-x.y.z-setup.exe + SHA256SUMS.txt from release.yml.\n· Works: about 80 own symbols; lines port to port with routing, hops, flow arrows and signal marks; in-line symbols split lines and join them again when deleted; off-page connectors with jump; sheets A3/A1/ANSI B/ANSI D with zones, title block and revisions; legend sheet; notes, leaders, Hold clouds; tags and loops numbered per sheet, renumber, copy with the next free tag; the 13 checks with the Checks panel; line hydraulics with badges and editable limits; the four live lists with sort, filter, group, edit, CSV and Excel; print (sheets, lists with title block, legend), SVG, DXF (read by ezdxf with 0 errors); SI/US units; undo/redo; recovery; the updater. 55 engine tests (hardening, every check, hydraulics against a hand calculation and Datum Calc's pack, DXF read back, examples) and 47 UI checks against the real engine.\n· Cut or not done: nothing from the brief's cut list was cut (the Hold cloud, line hops, ANSI sizes and the rarer symbols are all in). Not done: bend points are dropped when a line is split; check 8 does not look at a check valve's direction; the real shell was only started on Linux (Xvfb), the installer is built and published by the release workflow on Windows.\n· The 2-minute exhibition demo: ope",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   }
  ],
  "edges": [
@@ -9395,6 +10023,11 @@
   {
    "source": "hub",
    "target": "hub-session-25",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-26",
    "kind": "session"
   },
   {
@@ -17460,6 +18093,566 @@
   {
    "source": "pipe-session-9",
    "target": "pipe-v0.1.7",
+   "kind": "shipped"
+  },
+  {
+   "source": "hub",
+   "target": "app-schema",
+   "kind": "app"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-2",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-3",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-4",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-5",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-6",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-7",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-9",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-10",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "guide-11",
+   "kind": "follows"
+  },
+  {
+   "source": "app-schema",
+   "target": "tech-rust",
+   "kind": "uses"
+  },
+  {
+   "source": "app-schema",
+   "target": "tech-tauri-2",
+   "kind": "uses"
+  },
+  {
+   "source": "app-schema",
+   "target": "tech-solidjs",
+   "kind": "uses"
+  },
+  {
+   "source": "app-schema",
+   "target": "tech-typescript",
+   "kind": "uses"
+  },
+  {
+   "source": "app-schema",
+   "target": "tech-python",
+   "kind": "uses"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-v0.1.0",
+   "kind": "released"
+  },
+  {
+   "source": "schema-v0.1.0",
+   "target": "schema-v0.1.1",
+   "kind": "then"
+  },
+  {
+   "source": "schema-v0.1.1",
+   "target": "schema-v0.1.2",
+   "kind": "then"
+  },
+  {
+   "source": "schema-v0.1.2",
+   "target": "schema-v0.1.3",
+   "kind": "then"
+  },
+  {
+   "source": "schema-v0.1.3",
+   "target": "schema-v0.1.4",
+   "kind": "then"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-v0.1.4",
+   "kind": "released"
+  },
+  {
+   "source": "schema-v0.1.4",
+   "target": "schema-plan-0-2",
+   "kind": "next"
+  },
+  {
+   "source": "schema-plan-0-2",
+   "target": "schema-plan-0-3",
+   "kind": "next"
+  },
+  {
+   "source": "schema-plan-0-3",
+   "target": "schema-plan-0-4",
+   "kind": "next"
+  },
+  {
+   "source": "schema-plan-0-4",
+   "target": "schema-plan-0-5",
+   "kind": "next"
+  },
+  {
+   "source": "schema-plan-0-5",
+   "target": "schema-plan-1-0",
+   "kind": "next"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-model-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-symbols-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-fields-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-units-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-pipes-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-doc-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-graph-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-tags-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-route-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-view-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-frame-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-hydraulics-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-checks-rs-checks-tests-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-lists-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-dxf-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-examples-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-hardening-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-api-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-examples-serve-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-src-tauri-src-main-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-src-tauri-src-update-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-main-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-store-ts",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-canvas-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-palette-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-inspector-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-panels-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-ribbon-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-backstage-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-help-tsx",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-ui-src-styles-css",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-tests-ui-run-cjs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-tests-ui-screens-cjs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-examples-bench-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-docs-plan-0-1-md",
+   "kind": "contains"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-0",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-1",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-1",
+   "target": "schema-file-src-tauri-src-main-rs",
+   "kind": "touches"
+  },
+  {
+   "source": "schema-decision-1",
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "schema-decision-1",
+   "target": "app-pipe",
+   "kind": "mentions"
+  },
+  {
+   "source": "schema-decision-1",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-2",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-3",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-4",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-4",
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-5",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-6",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-7",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-7",
+   "target": "app-sim",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-8",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-9",
+   "kind": "decided"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-10",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-10",
+   "target": "schema-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-11",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-11",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-12",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-12",
+   "target": "schema-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "schema-decision-12",
+   "target": "app-pipe",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-13",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-13",
+   "target": "schema-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-14",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-14",
+   "target": "schema-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-15",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-15",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-16",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-16",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-17",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-17",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-18",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-18",
+   "target": "schema-v0.1.0",
+   "kind": "in"
+  },
+  {
+   "source": "schema-decision-18",
+   "target": "schema-file-crates-core-src-api-rs",
+   "kind": "touches"
+  },
+  {
+   "source": "schema-decision-18",
+   "target": "schema-file-crates-core-examples-serve-rs",
+   "kind": "touches"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-1",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-2",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-3",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-4",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-5",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-6",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-7",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-8",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "workflow-9",
+   "kind": "works by"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-session-0",
+   "kind": "session"
+  },
+  {
+   "source": "schema-session-0",
+   "target": "schema-v0.1.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-session-1",
+   "kind": "session"
+  },
+  {
+   "source": "schema-session-1",
+   "target": "schema-v0.1.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "schema-session-1",
+   "target": "schema-v0.1.4",
    "kind": "shipped"
   },
   {

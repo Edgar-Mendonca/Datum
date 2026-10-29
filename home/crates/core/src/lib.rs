@@ -41,6 +41,7 @@ pub fn builtin() -> Vec<App> {
         ("calc", "Datum Calc", "#A8650F", "Engineering calculations with real units, as readable maths, with checks and a printable calc sheet."),
         ("mesh", "Datum Mesh", "#B83250", "Finite-element analysis on the desktop: stresses, deflections and temperatures in parts and frames."),
         ("pipe", "Datum Pipe", "#4D7C0F", "Pipe stress analysis on the desktop: displacements, support loads, nozzle loads and code stresses, with an automatic isometric."),
+        ("schema", "Datum Schema", "#9C1F84", "Intelligent P&IDs and process flow diagrams: draw, check and list."),
     ]
     .into_iter()
     .map(|(id, name, accent, tagline)| App {
@@ -274,8 +275,8 @@ mod tests {
     fn builtin_repos_are_ours() {
         let apps = builtin();
         assert_eq!(apps[0].repo, "Edgar-Mendonca/Datum-Plan");
-        assert_eq!(apps.len(), 7);
-        assert_eq!(apps[6].repo, "Edgar-Mendonca/Datum-Pipe");
+        assert_eq!(apps.len(), 8);
+        assert_eq!(apps[7].repo, "Edgar-Mendonca/Datum-Schema");
         assert!(apps.iter().all(|a| repo_ok(&a.repo)));
     }
 

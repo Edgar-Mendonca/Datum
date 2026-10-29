@@ -15,6 +15,7 @@ This file is the single source for that. It lives in the DATUM repo (`Edgar-Mend
 | Datum Calc | Engineering calculations with real units, readable maths, checks and a printable calc sheet | Amber `#A8650F` | See `brand/datum-calc-icon.svg` + amber diamond | `.dcalc` | `com.edgarmendonca.datumcalc` | Edgar-Mendonca/Datum-Calc |
 | Datum Mesh | Finite-element analysis: stresses, deflections and temperatures in parts and frames | Crimson `#B83250` | A meshed L-bracket with its stressed corner + amber diamond | `.dmesh` | `com.edgarmendonca.datummesh` | Edgar-Mendonca/Datum-Mesh |
 | Datum Pipe | Pipe stress analysis: displacements, support and nozzle loads, code stresses, automatic isometric | Moss `#4D7C0F` | A pipe run with an expansion loop and an anchor + amber diamond | `.dpipe` | `com.edgarmendonca.datumpipe` | Edgar-Mendonca/Datum-Pipe |
+| Datum Schema | Intelligent P&IDs and process flow diagrams: objects with data, connectivity, checks, lists, line hydraulics | Magenta `#9C1F84` | A vessel, a line with a valve and an instrument bubble, a pump + amber diamond | `.dschema` | `com.edgarmendonca.datumschema` | Edgar-Mendonca/Datum-Schema |
 | DATUM (hub) | The family site, memory and brain | Navy `#0C1A2B` | "Continuum": two concentric D's drawn as one line, with the amber datum square where it starts ([brand/BRAND.md](brand/BRAND.md)) | — | — | Edgar-Mendonca/Datum |
 | Next apps | — | pick from §3 | — | `.d<name>` | `com.edgarmendonca.datum<name>` | Edgar-Mendonca/Datum-<Name> |
 

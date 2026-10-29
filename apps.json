@@ -193,6 +193,33 @@
           "text": "Analyze, see the stress ratios on the model and print the stress report."
         }
       ]
+    },
+    {
+      "id": "schema",
+      "repo": "Edgar-Mendonca/Datum-Schema",
+      "branch": "HEAD",
+      "name": "Datum Schema",
+      "accent": "#9C1F84",
+      "tagline": "Intelligent P&IDs and process flow diagrams: draw, check and list.",
+      "for": "Process, chemical, mechanical, piping and instrument engineers, operators and students.",
+      "shot": "docs/images/compressor.png",
+      "about": [
+        "Datum Schema draws intelligent P&IDs: every symbol and line is an object with its data, so the line list, equipment list, instrument index and valve list write themselves and the drawing is checked as you work."
+      ],
+      "steps": [
+        {
+          "title": "Draw the plant",
+          "text": "Place equipment, valves and instruments and connect them with lines."
+        },
+        {
+          "title": "Check it as you go",
+          "text": "Live checks and line hydraulics flag problems on the drawing."
+        },
+        {
+          "title": "Print the drawings and lists",
+          "text": "Print sheets and lists, or export them to PDF, DXF and Excel."
+        }
+      ]
     }
   ]
 }
