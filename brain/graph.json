@@ -126,7 +126,7 @@
    "id": "guide-9",
    "type": "guide",
    "label": "§9 Updates and releases",
-   "text": "· Updater: src-tauri/src/update.rs.\n· Set REPO to the app's repo. It checks GitHub releases at start, and beta versions when turned on.\n· It downloads the installer, checks SHA256SUMS and installs.\n· The CHANGELOG section becomes the in-app \"What's new\".\n· Versions: small numbered releases (0.1.0, 0.1.1, …), always three numbers (the updater compares three), consecutive with no jumped numbers.\n· Release workflow (.github/workflows/release.yml, windows-latest):\n· builds the UI and the app and creates the tag;\n· publishes Datum<App>-x.y.z-setup.exe + SHA256SUMS.txt.\n· Run it with workflow_dispatch when tag pushes are blocked.\n· CI (ci.yml, ubuntu): clippy -D warnings, cargo test --workspace, npm run check:ui, the Playwright UI tests.\n· Options and recovery files in the app's data folder (com.edgarmendonca.datum<app>).\n· Datum Home (home/ in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named Datum<App>-x.y.z-setup.exe that accepts /S, a SHA256SUMS.txt beside it, the Windows display name equal to the app's name in apps.json (\"Datum Plan\") and the publisher \"Edgar Mendonca\". A release without SHA256SUMS.txt is never installed by Datum Home.\n· The family site rebuilds every hour and on every push to DATUM, so a release appears there within the hour (or at once: run the \"Pages\" workflow in DATUM).",
+   "text": "· Updater: src-tauri/src/update.rs.\n· Set REPO to the app's repo. It checks GitHub releases at start, and beta versions when turned on.\n· It downloads the installer, checks SHA256SUMS and installs.\n· The CHANGELOG section becomes the in-app \"What's new\".\n· Versions: small numbered releases (0.1.0, 0.1.1, …), always three numbers (the updater compares three), consecutive with no jumped numbers.\n· Release workflow (.github/workflows/release.yml, windows-latest):\n· builds the UI and the app and creates the tag;\n· publishes Datum<App>-x.y.z-setup.exe + SHA256SUMS.txt.\n· Run it with workflow_dispatch when tag pushes are blocked.\n· CI (ci.yml, ubuntu): clippy -D warnings, cargo test --workspace, npm run check:ui, the Playwright UI tests.\n· Options and recovery files in the app's data folder (com.edgarmendonca.datum<app>).\n· Datum Home (home/ in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named Datum<App>-x.y.z-setup.exe that accepts /S, a SHA256SUMS.txt beside it, the Windows display name equal to the app's name in apps.json (\"Datum Plan\") and the publisher \"Datum\" (bundle.publisher in tauri.conf.json; apps released before 2026-10-29 used \"Edgar Mendonca\", which Datum Home still accepts). A release without SHA256SUMS.txt is never installed by Datum Home.\n· The family site rebuilds every hour and on every push to DATUM, so a release appears there within the hour (or at once: run the \"Pages\" workflow in DATUM).",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/FAMILY.md"
   },
   {
@@ -665,6 +665,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-43",
+   "type": "decision",
+   "app": "hub",
+   "label": "The Windows publisher of every app is \"Datum\"…",
+   "text": "The Windows publisher of every app is \"Datum\" (bundle.publisher in tauri.conf.json), not the author's name; the copyright line keeps the author (\"© 2026 Edgar Mendonca\"), who holds it. Datum Home accepts both publisher names, so apps installed earlier are still recognised\n\nWhy: The user: Settings › Apps showed their name for every app; it should show the brand. Home went first (0.1.4) so no app is ever missed during the switch.",
+   "date": "2026-10-29 (s21)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -731,13 +740,22 @@
    "id": "hub-session-7",
    "type": "session",
    "app": "hub",
+   "label": "Session 21 (publisher \"Datum\")",
+   "date": "2026-10-29",
+   "text": "· User (screenshot of Windows Settings › Apps): every Datum app lists \"Edgar Mendonca\" as publisher; wanted \"Datum\". The value is bundle.publisher in each app's tauri.conf.json.\n· Datum Home 0.1.4: its own publisher \"Datum\"; core::PUBLISHERS = [\"Datum\", \"Edgar Mendonca\"] so installs from both eras are found (test added). FAMILY §9 says the publisher is \"Datum\". Gave the user paste-in text for the seven app chats (change publisher, keep copyright, release).\n· Note for code signing later: the signing certificate names its legal owner; Windows then shows that name in security prompts, separately from this field.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-8",
+   "type": "session",
+   "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
    "date": "2026-10-29",
    "text": "· User (screenshot): Datum Home showed \"GitHub is busy (rate limit)\" on every card. Cause: GitHub allows about 60 unauthenticated API calls an hour per network (shared by everyone behind one connection); Home made eight per open, and the apps' own updaters add more. The versions shown were still right (the site's copy).\n· Fix (Home 0.1.3): core::installable, core::parse_home; catalog also returns the site's copy of Home's release; card skips GitHub when the site's release is installable; home_update(site) uses the site's copy first. Site: home.json gains home (Home's newest release with SHA256SUMS) and release notes per app (the CHANGELOG section as plain text). New core test site_copy_of_releases.\n· Not changed: each app's own in-app updater still asks GitHub once at start (one call per app opened; fine in practice). If that ever shows the same message, the apps can read home.json too (paste-in text for their chats).\n· Checked: core tests (10), clippy Linux and Windows target, UI check and build, site build with home.json.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -746,7 +764,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -755,7 +773,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -764,7 +782,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -773,7 +791,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -782,7 +800,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -791,7 +809,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -800,7 +818,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -809,7 +827,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -818,7 +836,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -827,7 +845,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -836,7 +854,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -845,7 +863,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -854,7 +872,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-21",
+   "id": "hub-session-22",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -863,7 +881,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-22",
+   "id": "hub-session-23",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -6149,6 +6167,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh"
   },
   {
+   "id": "mesh-v0.1.4",
+   "type": "release",
+   "app": "mesh",
+   "label": "Mesh 0.1.4",
+   "version": "0.1.4",
+   "date": "2026-10-29",
+   "text": "Polish: large parts open faster, a pin load for lugs and clevises, members joined where they cross when you ask, and the small problems left over from the 0.1.1 review.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.4"
+  },
+  {
    "id": "mesh-v0.1.3",
    "type": "release",
    "app": "mesh",
@@ -6189,13 +6217,13 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.0"
   },
   {
-   "id": "mesh-plan-0-1-4",
+   "id": "mesh-plan-0-1-5",
    "type": "roadmap",
    "app": "mesh",
-   "label": "0.1.4 Polish",
-   "version": "0.1.4",
+   "label": "0.1.5 First use",
+   "version": "0.1.5",
    "when": "Next",
-   "text": "Fixes from first use on a clean Windows PC\nSpeed and smaller result transfers on very large meshes\nScreenshots and a fuller README",
+   "text": "Fixes from first use on a clean Windows PC\nA user guide in the app's help",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -6263,7 +6291,7 @@
    "app": "mesh",
    "label": "doc.rs",
    "path": "crates/core/src/doc.rs",
-   "text": "Edit operations (Add, Set, AddMember by points, Move, Delete with cascade, SetSettings, SetMeta, Batch) on a copy, kept only if check passes; snapshot undo/redo",
+   "text": "Edit operations (Add, Set, AddMember by points, Move, Delete with cascade, InsertCorner, RemoveCorner, JoinCrossings, SetSettings, SetMeta, Batch) on a copy, kept only if check passes; snapshot undo/redo; changed = differs from the saved snapshot",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/doc.rs"
   },
   {
@@ -6328,6 +6356,15 @@
    "path": "crates/core/src/lib.rs",
    "text": "Results (frame, plane or heat, tagged by kind) and solve() for any analysis; tests that every example solves, balances and agrees with hand checks",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/lib.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-wire-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "wire.rs",
+   "path": "crates/core/src/wire.rs",
+   "text": "Results packed for the window: long numeric arrays as base64 (f32 values, u32 indices), everything else unchanged; the window's unwire (ui/src/api.ts) unpacks them",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/wire.rs"
   },
   {
    "id": "mesh-file-crates-core-examples-bigpart-rs",
@@ -6398,7 +6435,7 @@
    "app": "mesh",
    "label": "main.rs",
    "path": "src-tauri/src/main.rs",
-   "text": "Commands: state, apply, history, examples, new model, section properties, open/save, save file, options, recovery, recent, startup file, open_url, version, updates",
+   "text": "Files written safely (temporary file, sync, rename). Commands: state, apply, history, examples, new model, section properties, open/save, save file, options, recovery, recent, startup file, open_url, version, updates",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/src-tauri/src/main.rs"
   },
   {
@@ -6569,7 +6606,7 @@
    "app": "mesh",
    "label": "run.cjs",
    "path": "tests_ui/run.cjs",
-   "text": "86 UI checks of the built window with a mocked bridge",
+   "text": "93 UI checks of the built window with a mocked bridge (results in the fixture packed as the shell sends them)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/tests_ui/run.cjs"
   },
   {
@@ -6900,6 +6937,60 @@
    "id": "mesh-decision-34",
    "type": "decision",
    "app": "mesh",
+   "label": "Long result arrays go to the window as base64 f32/u32…",
+   "date": "0.1.4",
+   "text": "Long result arrays go to the window as base64 f32/u32 (wire.rs); drawing triangles are rebuilt in the window\n\nWhy: 22 MB of JSON for 25 000 elements; now 6.2 MB. Seven significant digits are more than any display shows; equilibrium sums stay in full precision",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-35",
+   "type": "decision",
+   "app": "mesh",
+   "label": "A pin load (Bearing): pressure p₀ max(0, −n·F̂) on the edge…",
+   "date": "0.1.4",
+   "text": "A pin load (Bearing): pressure p₀ max(0, −n·F̂) on the edge, scaled so the push along F̂ is the whole force\n\nWhy: The lug's pin was an even traction all round the hole, pulling on the far side too",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-36",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Crossing members join only on request (Format › Join Where…",
+   "date": "0.1.4",
+   "text": "Crossing members join only on request (Format › Join Where They Cross, Op::JoinCrossings)\n\nWhy: Automatic joining would connect X-bracing that passes without a joint",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-37",
+   "type": "decision",
+   "app": "mesh",
+   "label": "The document is \"changed\" when it differs from the saved…",
+   "date": "0.1.4",
+   "text": "The document is \"changed\" when it differs from the saved snapshot; saving writes a temp file then renames\n\nWhy: 0.1.1 review: undo to the saved state stayed changed; a crash mid-save could corrupt the file",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-38",
+   "type": "decision",
+   "app": "mesh",
+   "label": "A drag snaps the grabbed point (node, member start, first…",
+   "date": "0.1.4",
+   "text": "A drag snaps the grabbed point (node, member start, first corner) to the grid, not the offset\n\nWhy: 0.1.1 review: items off the grid stayed off it",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-39",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Each top-level setting is read on its own; one that cannot be…",
+   "date": "0.1.4",
+   "text": "Each top-level setting is read on its own; one that cannot be read falls back to its default with a warning\n\nWhy: 0.1.1 review: an unknown analysis or a negative counter refused the whole file",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-40",
+   "type": "decision",
+   "app": "mesh",
    "label": "Help › Verification runs bench::run() in the app, so the…",
    "date": "0.1.1",
    "text": "Help › Verification runs bench::run() in the app, so the report is always true for the version running; the same rows are tests and the dated record\n\nWhy: The brief's headline feature, earlier than planned because it was cheap",
@@ -6939,6 +7030,15 @@
    "label": "Session 1, continued (0.1.3: parts, heat…",
    "date": "2026-10-28",
    "text": "· The user asked for 0.1.3 with 0.1.4's work in it. Restored the stashed mesh.rs and plane.rs; fixed the sloping-roller case (a frame round the part); found and fixed a slow check that made edits of large frames take 52 ms each.\n· Engine: benchmarks 4–8 (Kirsch, Lamé, NAFEMS LE1 with convergence series; wall and fin; patch tests), heat.rs, materials.rs (54 materials from Atlas), one solve() for every analysis. Building benchmark 4 found that local refinement did not grade (now a size field) and that the minimum refinement area hid small triangles. Random parts and a 50 000-node speed gate in the hardening tests (42 engine tests).\n· Window: parts.tsx (contours, markers, probe, legend, Mesh view, results page), ribbon Mesh and Results tabs live, Refine Near tool, mesh settings in the Inspector and tree, the library dialog, convergence tables in Help › Verification, the Report view and the part report with contour pictures.\n· Found in the real app: the edge-force thickness bug (2.9 MPa instead of 287 MPa in the L-bracket) and 25 s to draw a 25 000-element result (Path2D.closePath); both fixed, the first with an engine test and a hand check.\n· Checked: clippy, 42 engine tests, 86 UI checks, cargo deny, real app (bracket, heat sink, mesh view, results, report, a 25 000-element bracket: 103 000 equations in 1.5 s in a debug build).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-session-4",
+   "type": "session",
+   "app": "mesh",
+   "label": "Session 1, continued (0.1.4: polish)",
+   "date": "2026-10-29",
+   "text": "· The user: \"next is 0.1.4 proceed\". Scope chosen from the open lists: result transfer size, the 0.1.1 review's low findings, and two known limits (the lug's pin, crossing members).\n· Engine: wire.rs (packed results, round-trip test), Bearing load with a test and a lug hand check, JoinCrossings with a test (split loads), saved snapshot for the changed mark (test), settings read one by one (hardening test). 48 engine tests, plus a shell test for safe saving.\n· Window: unpacking, pin load tool and drawing, Join Where They Cross, drags land on the grid and arrows follow them, autosave interval re-armed, print title block units and equilibrium with moments, min/max labels kept apart. 93 UI checks.\n· Checked: clippy, tests, UI checks, cargo deny, real app (lug with its pin load solved). Timing: a 25 000-element result now arrives as 6.2 MB.\n· Not checked: a clean Windows PC (no Windows machine here; CI builds and tests on Windows).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -8231,6 +8331,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-43",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -8342,6 +8447,11 @@
   {
    "source": "hub",
    "target": "hub-session-22",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-23",
    "kind": "session"
   },
   {
@@ -13775,17 +13885,22 @@
    "kind": "then"
   },
   {
+   "source": "mesh-v0.1.3",
+   "target": "mesh-v0.1.4",
+   "kind": "then"
+  },
+  {
    "source": "app-mesh",
-   "target": "mesh-v0.1.3",
+   "target": "mesh-v0.1.4",
    "kind": "released"
   },
   {
-   "source": "mesh-v0.1.3",
-   "target": "mesh-plan-0-1-4",
+   "source": "mesh-v0.1.4",
+   "target": "mesh-plan-0-1-5",
    "kind": "next"
   },
   {
-   "source": "mesh-plan-0-1-4",
+   "source": "mesh-plan-0-1-5",
    "target": "mesh-plan-0-2",
    "kind": "next"
   },
@@ -13852,6 +13967,11 @@
   {
    "source": "app-mesh",
    "target": "mesh-file-crates-core-src-lib-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-wire-rs",
    "kind": "contains"
   },
   {
@@ -14376,6 +14496,71 @@
   },
   {
    "source": "mesh-decision-34",
+   "target": "mesh-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "mesh-decision-34",
+   "target": "mesh-file-crates-core-src-wire-rs",
+   "kind": "touches"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-35",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-35",
+   "target": "mesh-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-36",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-36",
+   "target": "mesh-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-37",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-37",
+   "target": "mesh-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-38",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-38",
+   "target": "mesh-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-39",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-39",
+   "target": "mesh-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-40",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-40",
    "target": "mesh-v0.1.1",
    "kind": "in"
   },
@@ -14462,6 +14647,16 @@
   {
    "source": "mesh-session-3",
    "target": "mesh-v0.1.3",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-session-4",
+   "kind": "session"
+  },
+  {
+   "source": "mesh-session-4",
+   "target": "mesh-v0.1.4",
    "kind": "shipped"
   },
   {

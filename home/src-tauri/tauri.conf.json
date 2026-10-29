@@ -27,7 +27,7 @@
   "bundle": {
     "active": true,
     "targets": ["nsis"],
-    "publisher": "Edgar Mendonca",
+    "publisher": "Datum",
     "copyright": "© 2026 Edgar Mendonca",
     "category": "Utility",
     "shortDescription": "Install and update the Datum apps",

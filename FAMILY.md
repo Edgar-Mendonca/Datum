@@ -151,7 +151,7 @@ Chart.js:
   - Run it with workflow_dispatch when tag pushes are blocked.
 - **CI** (`ci.yml`, ubuntu): clippy `-D warnings`, `cargo test --workspace`, `npm run check:ui`, the Playwright UI tests.
 - Options and recovery files in the app's data folder (`com.edgarmendonca.datum<app>`).
-- **Datum Home** (`home/` in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named `Datum<App>-x.y.z-setup.exe` that accepts `/S`, a `SHA256SUMS.txt` beside it, the Windows display name equal to the app's name in `apps.json` ("Datum Plan") and the publisher "Edgar Mendonca". A release without `SHA256SUMS.txt` is never installed by Datum Home.
+- **Datum Home** (`home/` in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named `Datum<App>-x.y.z-setup.exe` that accepts `/S`, a `SHA256SUMS.txt` beside it, the Windows display name equal to the app's name in `apps.json` ("Datum Plan") and the publisher **"Datum"** (`bundle.publisher` in `tauri.conf.json`; apps released before 2026-10-29 used "Edgar Mendonca", which Datum Home still accepts). A release without `SHA256SUMS.txt` is never installed by Datum Home.
 - **The family site** rebuilds every hour and on every push to DATUM, so a release appears there within the hour (or at once: run the "Pages" workflow in DATUM).
 
 ## 10. Docs in every repo

@@ -27,7 +27,7 @@
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
 
-**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt); **0.1.1** (session 14) adds Calc and Mesh to its built-in list and icons; **0.1.2** (session 18) adds Pipe; **0.1.3** (session 20) reads every release from the site's home.json, so opening it asks GitHub nothing.
+**Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt); **0.1.1** (session 14) adds Calc and Mesh to its built-in list and icons; **0.1.2** (session 18) adds Pipe; **0.1.3** (session 20) reads every release from the site's home.json, so opening it asks GitHub nothing; **0.1.4** (session 21) publishes as "Datum" and accepts both publisher names.
 
 ## 2. The site and the brain
 
@@ -106,6 +106,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | 2026-10-28 (s16) | **Datum Pipe** (pipe stress analysis) is the next app, built in one overnight run from `briefs/DATUM-PIPE.md`; accent **Moss** `#4D7C0F` (new, FAMILY §3). Codes: implement published equations only, allowables are user inputs pre-filled with typical values; never claim certification. Commercial piping software is never named anywhere (repo, briefs, memory, site), at the user's explicit request | Session 15 research found no open-source pipe stress tool; the user has used the commercial ones for years and finds them expensive and hard to use. |
 | 2026-10-29 (s19) | **No shared code kit for now: every app stays self-contained.** Shared pieces (shell, ribbon, File page, updater, printing, styles, icon set, units engine, solver parts) keep being **copied** from the reference app, never linked. When a shared piece is fixed or improved in one app, that app's chat records it in this hub (FAMILY or MEMORY), and the user passes it to the other apps' chats. Reference copies: shell, updater, print, icons → Datum Plan; units → Datum Calc; frame/sparse solver → Datum Mesh; Python runtime → Datum Plot | The user: a shared kit could break every app at once; separate apps are safer. Revisit only if drift becomes a real cost. The graph stays the map of what exists where. |
 | 2026-10-29 (s20) | **Datum Home reads releases from the site, not GitHub.** home.json (written by the hourly site build, which has a token) carries each app's newest release with installer, checksum list and notes, and Datum Home's own (`home`). Home calls the GitHub API only for an app the site does not cover, or for its own update if the site has none | Users saw "GitHub is busy (rate limit)": unauthenticated API calls are limited to about 60 an hour per network, and Home made one per app plus one for itself on every open. A release now reaches Home within the hour (or at once: run Pages). |
+| 2026-10-29 (s21) | **The Windows publisher of every app is "Datum"** (`bundle.publisher` in `tauri.conf.json`), not the author's name; the copyright line keeps the author ("© 2026 Edgar Mendonca"), who holds it. Datum Home accepts both publisher names, so apps installed earlier are still recognised | The user: Settings › Apps showed their name for every app; it should show the brand. Home went first (0.1.4) so no app is ever missed during the switch. |
 
 ## 4. Roadmap (hub)
 
@@ -166,6 +167,11 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-10-29: Session 21 (publisher "Datum")
+- User (screenshot of Windows Settings › Apps): every Datum app lists "Edgar Mendonca" as publisher; wanted "Datum". The value is `bundle.publisher` in each app's `tauri.conf.json`.
+- Datum Home 0.1.4: its own publisher "Datum"; `core::PUBLISHERS` = ["Datum", "Edgar Mendonca"] so installs from both eras are found (test added). FAMILY §9 says the publisher is "Datum". Gave the user paste-in text for the seven app chats (change publisher, keep copyright, release).
+- Note for code signing later: the signing certificate names its legal owner; Windows then shows that name in security prompts, separately from this field.
 
 ### 2026-10-29: Session 20 (Datum Home: no more rate-limit errors)
 - User (screenshot): Datum Home showed "GitHub is busy (rate limit)" on every card. Cause: GitHub allows about 60 unauthenticated API calls an hour per network (shared by everyone behind one connection); Home made eight per open, and the apps' own updaters add more. The versions shown were still right (the site's copy).

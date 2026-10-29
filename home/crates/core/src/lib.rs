@@ -9,7 +9,9 @@ pub const CATALOG_URL: &str = "https://edgar-mendonca.github.io/Datum/home.json"
 /// Datum Home's own releases (tags `home-vX.Y.Z` in the Datum hub repository).
 pub const HOME_REPO: &str = "Edgar-Mendonca/Datum";
 pub const OWNER: &str = "Edgar-Mendonca";
-pub const PUBLISHER: &str = "Edgar Mendonca";
+/// The publisher name the Datum installers give Windows ("Datum"); apps released before 2026-10-29 used the author's name.
+pub const PUBLISHER: &str = "Datum";
+pub const PUBLISHERS: [&str; 2] = [PUBLISHER, "Edgar Mendonca"];
 
 /// One app in the family, as the site lists it.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -197,9 +199,9 @@ pub fn split_command(cmd: &str) -> (String, Vec<String>) {
     (prog, rest.split_whitespace().map(Into::into).collect())
 }
 
-/// The installed entry for an app: same display name and our publisher (or none given).
+/// The installed entry for an app: same display name and one of our publisher names (or none given).
 pub fn find_installed<'a>(app: &App, list: &'a [Installed]) -> Option<&'a Installed> {
-    list.iter().find(|i| i.name.eq_ignore_ascii_case(&app.name) && (i.publisher.is_empty() || i.publisher == PUBLISHER))
+    list.iter().find(|i| i.name.eq_ignore_ascii_case(&app.name) && (i.publisher.is_empty() || PUBLISHERS.contains(&i.publisher.as_str())))
 }
 
 /// What the app's main button does.
@@ -359,6 +361,10 @@ mod tests {
         assert!(find_installed(&plan(), &[other]).is_none());
         let list = [inst("0.3.11")];
         assert_eq!(find_installed(&plan(), &list).unwrap().version, "0.3.11");
+        // Apps installed before the publisher became "Datum" are still found.
+        let mut old = inst("0.3.10");
+        old.publisher = "Edgar Mendonca".into();
+        assert_eq!(find_installed(&plan(), &[old]).unwrap().version, "0.3.10");
     }
 
     #[test]
