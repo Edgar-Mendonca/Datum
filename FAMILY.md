@@ -181,6 +181,8 @@ Chart.js:
 - `docs/PLAN-x.y.md`: feedback → diagnosis → proposal → size → questions, written before any big release.
 - `NOTICE` for third-party code and fonts; MIT license.
 
+- **The guide** (from Datum Plan 0.4.4): `docs/guide/<lang>.md` (English, and other languages users need; Datum Plan has Simplified Chinese) with screenshots in `docs/guide/img/` (numbered orange markers, made by a script from the real window), built to PDF by `scripts/guide.cjs` (cover, contents, figures, page numbers; Noto Sans SC for Chinese), attached to every release as `Datum<App>-Guide-<lang>.pdf` and listed in `SHA256SUMS.txt`. In the app, **Help › Guide** and a File-page tile download the version's guide, verify it against the checksums, save it in Downloads and open it; nothing is bundled in the installer. Translations keep the English UI names in bold with the meaning in brackets.
+
 ## 11. How we work (from Datum Plan)
 
 1. The user reviews a release and sends screenshots.

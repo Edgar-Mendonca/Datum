@@ -287,13 +287,22 @@
    "id": "hub-decision-0",
    "type": "decision",
    "app": "hub",
+   "label": "A guide per app, per language, downloaded on demand (FAMILY…",
+   "text": "A guide per app, per language, downloaded on demand (FAMILY §10): Markdown in docs/guide/<lang>.md with numbered screenshots, built to PDF (scripts/guide.cjs), attached to every release as Datum<App>-Guide-<lang>.pdf (in SHA256SUMS.txt), and fetched by Help › Guide (verify, save to Downloads, open). Translations keep the English UI names in bold with the meaning beside them\n\nWhy: Datum Plan 0.4.4: users (some Chinese-speaking) needed a guide; the installer stays small and the guide always matches the version.",
+   "date": "2026-10-29 (s25)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-1",
+   "type": "decision",
+   "app": "hub",
    "label": "FAMILY.md moves to DATUM and becomes the source of truth…",
    "text": "FAMILY.md moves to DATUM and becomes the source of truth; section numbers 1–12 are kept so \"FAMILY §3\" means the same everywhere; §13 \"Principles and public words\" added\n\nWhy: The brief. App repos keep a short docs/FAMILY.md that links here.",
    "date": "2026-10-25",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-1",
+   "id": "hub-decision-2",
    "type": "decision",
    "app": "hub",
    "label": "Commercial product names removed from FAMILY.md (\"What it…",
@@ -302,7 +311,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-2",
+   "id": "hub-decision-3",
    "type": "decision",
    "app": "hub",
    "label": "The site leaves out any CHANGELOG, highlight or roadmap line…",
@@ -311,7 +320,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-3",
+   "id": "hub-decision-4",
    "type": "decision",
    "app": "hub",
    "label": "Base path /Datum (the repo's real name), not /DATUM as in the…",
@@ -320,7 +329,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-4",
+   "id": "hub-decision-5",
    "type": "decision",
    "app": "hub",
    "label": "Astro 7.3.8 (Node ≥ 22.12) and marked 18.1.1; Node 22 in Actions",
@@ -329,7 +338,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-5",
+   "id": "hub-decision-6",
    "type": "decision",
    "app": "hub",
    "label": "apps.json branch HEAD (default branch) instead of naming…",
@@ -338,7 +347,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-6",
+   "id": "hub-decision-7",
    "type": "decision",
    "app": "hub",
    "label": "Pages workflow runs on every push but deploys only from the…",
@@ -347,7 +356,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-7",
+   "id": "hub-decision-8",
    "type": "decision",
    "app": "hub",
    "label": "Text and filled buttons use an --ink token: the accent, or a…",
@@ -356,7 +365,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-8",
+   "id": "hub-decision-9",
    "type": "decision",
    "app": "hub",
    "label": "Family mark brand/datum-icon.svg: grey-tint tile, navy \"D\"…",
@@ -365,7 +374,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-9",
+   "id": "hub-decision-10",
    "type": "decision",
    "app": "hub",
    "label": "The site is one landing page plus the Datum network; the app…",
@@ -374,7 +383,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-10",
+   "id": "hub-decision-11",
    "type": "decision",
    "app": "hub",
    "label": "Look taken from the user's zhuojia site (paper-and-ink grid…",
@@ -383,7 +392,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-11",
+   "id": "hub-decision-12",
    "type": "decision",
    "app": "hub",
    "label": "The logo is the user's own design, \"Continuum\": two concentric…",
@@ -392,7 +401,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-12",
+   "id": "hub-decision-13",
    "type": "decision",
    "app": "hub",
    "label": "The site is simple and technical: IBM Plex Sans and Mono only…",
@@ -401,7 +410,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-13",
+   "id": "hub-decision-14",
    "type": "decision",
    "app": "hub",
    "label": "Datum Sim joins the family: in apps.json, icon in brand/…",
@@ -410,7 +419,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-14",
+   "id": "hub-decision-15",
    "type": "decision",
    "app": "hub",
    "label": "Datum Sim is the next app (system simulation and control…",
@@ -419,7 +428,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-15",
+   "id": "hub-decision-16",
    "type": "decision",
    "app": "hub",
    "label": "Briefs for new apps live in the hub's briefs/ (DATUM-SIM.md…",
@@ -428,7 +437,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-16",
+   "id": "hub-decision-17",
    "type": "decision",
    "app": "hub",
    "label": "pages.yml waits for GitHub's branch-based Pages build of the…",
@@ -437,7 +446,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-17",
+   "id": "hub-decision-18",
    "type": "decision",
    "app": "hub",
    "label": "Bench tiles are real capabilities of the apps (Plan: schedule…",
@@ -446,7 +455,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-18",
+   "id": "hub-decision-19",
    "type": "decision",
    "app": "hub",
    "label": "The changing blue words use Instrument Serif italic (.it)…",
@@ -455,7 +464,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-19",
+   "id": "hub-decision-20",
    "type": "decision",
    "app": "hub",
    "label": "Artcraft-like scrolling: glass sticky section bars, an index…",
@@ -464,7 +473,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-20",
+   "id": "hub-decision-21",
    "type": "decision",
    "app": "hub",
    "label": "Theme: three visible buttons (Auto, Light, Dark) instead of a…",
@@ -473,7 +482,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-21",
+   "id": "hub-decision-22",
    "type": "decision",
    "app": "hub",
    "label": "Status badges (Stable / Beta / Alpha) from apps.json status or…",
@@ -482,7 +491,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-22",
+   "id": "hub-decision-23",
    "type": "decision",
    "app": "hub",
    "label": "The workbench hero (HeroWorkbench.astro, replaces…",
@@ -491,7 +500,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-23",
+   "id": "hub-decision-24",
    "type": "decision",
    "app": "hub",
    "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
@@ -500,7 +509,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-24",
+   "id": "hub-decision-25",
    "type": "decision",
    "app": "hub",
    "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
@@ -509,7 +518,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-25",
+   "id": "hub-decision-26",
    "type": "decision",
    "app": "hub",
    "label": "The hero is a field of animated SVG tiles around the wordmark…",
@@ -518,7 +527,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-26",
+   "id": "hub-decision-27",
    "type": "decision",
    "app": "hub",
    "label": "New family mark: the GD&T datum feature symbol (framed \"D\"…",
@@ -527,7 +536,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-27",
+   "id": "hub-decision-28",
    "type": "decision",
    "app": "hub",
    "label": "The brain: brain/brain.mjs builds one graph (nodes: hub, apps…",
@@ -536,7 +545,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-28",
+   "id": "hub-decision-29",
    "type": "decision",
    "app": "hub",
    "label": "The public network removes sentences that name other products…",
@@ -545,7 +554,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-29",
+   "id": "hub-decision-30",
    "type": "decision",
    "app": "hub",
    "label": "Fonts self-hosted with @fontsource (Archivo with the width…",
@@ -554,7 +563,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-30",
+   "id": "hub-decision-31",
    "type": "decision",
    "app": "hub",
    "label": "Safety rules for every app's shell and hostile values join the…",
@@ -563,7 +572,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-31",
+   "id": "hub-decision-32",
    "type": "decision",
    "app": "hub",
    "label": "Apps may ship a command line and an MCP server for AI…",
@@ -572,7 +581,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-32",
+   "id": "hub-decision-33",
    "type": "decision",
    "app": "hub",
    "label": "In SolidJS, a <select> whose options load later marks <option…",
@@ -581,7 +590,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-33",
+   "id": "hub-decision-34",
    "type": "decision",
    "app": "hub",
    "label": "Every import is a parity check: an app that opens files…",
@@ -590,7 +599,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-34",
+   "id": "hub-decision-35",
    "type": "decision",
    "app": "hub",
    "label": "Trust in the results joins the hardening standard (FAMILY…",
@@ -599,7 +608,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-35",
+   "id": "hub-decision-36",
    "type": "decision",
    "app": "hub",
    "label": "Hardening standard for every app (FAMILY §11): hardening tests…",
@@ -608,7 +617,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-36",
+   "id": "hub-decision-37",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -617,7 +626,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-37",
+   "id": "hub-decision-38",
    "type": "decision",
    "app": "hub",
    "label": "Hero = four app tiles (Hero.astro + AppGlyph.astro: Gantt…",
@@ -626,7 +635,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-38",
+   "id": "hub-decision-39",
    "type": "decision",
    "app": "hub",
    "label": "Datum Home, a desktop app in this repo (home/) that installs…",
@@ -635,7 +644,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-39",
+   "id": "hub-decision-40",
    "type": "decision",
    "app": "hub",
    "label": "Datum Calc and Datum Mesh are built this week for a large…",
@@ -644,7 +653,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-40",
+   "id": "hub-decision-41",
    "type": "decision",
    "app": "hub",
    "label": "Datum Pipe (pipe stress analysis) is the next app, built in…",
@@ -653,7 +662,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-41",
+   "id": "hub-decision-42",
    "type": "decision",
    "app": "hub",
    "label": "No shared code kit for now: every app stays self-contained.…",
@@ -662,7 +671,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-42",
+   "id": "hub-decision-43",
    "type": "decision",
    "app": "hub",
    "label": "Datum Home reads releases from the site, not GitHub. home.json…",
@@ -671,7 +680,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-43",
+   "id": "hub-decision-44",
    "type": "decision",
    "app": "hub",
    "label": "The Windows publisher of every app is \"Datum\"…",
@@ -680,7 +689,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-44",
+   "id": "hub-decision-45",
    "type": "decision",
    "app": "hub",
    "label": "Datum Schema (intelligent P&IDs and process flow diagrams) is…",
@@ -689,7 +698,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-45",
+   "id": "hub-decision-46",
    "type": "decision",
    "app": "hub",
    "label": "Datum Schema aims at the enterprise class of plant engineering…",
@@ -764,13 +773,22 @@
    "id": "hub-session-7",
    "type": "session",
    "app": "hub",
+   "label": "Session 25 (from Datum Plan's chat: 0.4.4, the…",
+   "date": "2026-10-29",
+   "text": "· Plan 0.4.4 shipped the Datum Plan Guide in English and Simplified Chinese (about 30 pages each, numbered screenshots), downloaded from the release by Help › Guide; 0.4.3 had changed the Windows publisher to \"Datum\". Recorded the guide pattern (decision, FAMILY §10) and Plan at 0.4.4. Brain regenerated.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-8",
+   "type": "session",
+   "app": "hub",
    "label": "Session 24 (Datum Schema joins the family…",
    "date": "2026-10-29",
    "text": "· Datum Schema released 0.1.3 (site.json, icon, SHA256SUMS, publisher \"Datum\").\n· Hub: apps.json (schema #9C1F84), brand icon, --schema (#9C1F84 / dark #E07BC9), AppGlyph \"schema\" (a vessel, a process line with a valve and flow arrow to a pump, an LIC bubble with dashed signal lines, a \"0 errors\" badge; classes g-vessel, g-procline, g-bowtie, g-pumpc, g-pumpt, g-sig, g-bubble), phrases \"draw P&IDs. / check the plant.\", lead mentions intelligent P&IDs. The 3×3 hero is now full (eight apps around the Datum mark; no \"More to come\"); a ninth app needs a new layout (4 columns, or a 4×3 bench). FAMILY §1, README, CLAUDE.md, MEMORY §1.\n· Datum Home 0.1.5: Schema in its built-in list with its icon; released.\n· Checked: site build, Playwright 1280/375 (home, Schema page, network): no overflow; Schema drawing light and dark; Home core tests, clippy, UI.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 23 (Schema's direction: enterprise…",
@@ -779,7 +797,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 22 (Datum Schema brief)",
@@ -788,7 +806,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 21 (publisher \"Datum\")",
@@ -797,7 +815,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
@@ -806,7 +824,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -815,7 +833,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -824,7 +842,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -833,7 +851,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -842,7 +860,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -851,7 +869,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -860,7 +878,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -869,7 +887,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -878,7 +896,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -887,7 +905,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-21",
+   "id": "hub-session-22",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -896,7 +914,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-22",
+   "id": "hub-session-23",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -905,7 +923,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-23",
+   "id": "hub-session-24",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -914,7 +932,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-24",
+   "id": "hub-session-25",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -923,7 +941,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-25",
+   "id": "hub-session-26",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -932,7 +950,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-26",
+   "id": "hub-session-27",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -1101,6 +1119,16 @@
    "accent": "#0B5CAD",
    "text": "Plan, schedule, track and report your projects: one small, fast app for Windows.\n\nFor: Project managers, planners, engineers and contractors.\n\nStack: Rust (engine + shell), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript (TSX), plain CSS with light/dark tokens, Chart.js, IBM Plex fonts; Excel formulas from the GridCraft crates (pinned git dependency, see NOTICE)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan"
+  },
+  {
+   "id": "plan-v0.4.4",
+   "type": "release",
+   "app": "plan",
+   "label": "Plan 0.4.4",
+   "version": "0.4.4",
+   "date": "2026-10-29",
+   "text": "The Datum Plan Guide: a step-by-step guide with pictures, in English and Simplified Chinese.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.4.4"
   },
   {
    "id": "plan-v0.4.3",
@@ -1453,6 +1481,33 @@
    "path": "crates/core/src/risk.rs",
    "text": "Schedule risk (Monte Carlo): SimOpts (iterations, default range −low/+high %, seed), simulate → P10/50/80/90, chance of the planned finish, finish-day histogram, cost P50/P80, criticality, drivers (correlation), risk hit rates. Triangular draws; every run is a full schedule().",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/crates/core/src/risk.rs"
+  },
+  {
+   "id": "plan-file-docs-guide-en-md",
+   "type": "file",
+   "app": "plan",
+   "label": "en.md",
+   "path": "docs/guide/en.md",
+   "text": "The Datum Plan Guide: Markdown sources (English, Simplified Chinese), screenshots, built PDFs (attached to every release as DatumPlan-Guide-en.pdf / -zh.pdf).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/guide/en.md"
+  },
+  {
+   "id": "plan-file-tests-ui-guide-shots-cjs",
+   "type": "file",
+   "app": "plan",
+   "label": "guide_shots.cjs",
+   "path": "tests_ui/guide_shots.cjs",
+   "text": "Guide screenshots: the built window with dump guide (a plan in progress) behind the mocked bridge, numbered markers drawn on the page, optional clip. Home and Project Setup come from the real app (Xvfb).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/tests_ui/guide_shots.cjs"
+  },
+  {
+   "id": "plan-file-scripts-guide-cjs",
+   "type": "file",
+   "app": "plan",
+   "label": "guide.cjs",
+   "path": "scripts/guide.cjs",
+   "text": "Builds the guide PDFs: small Markdown subset → HTML (cover, clickable contents, figures, tips, tables, [[keys]]) → Chromium A4 PDF with page numbers; IBM Plex + Noto Sans SC (@fontsource/noto-sans-sc, dev only). npm run guide runs both scripts.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/scripts/guide.cjs"
   },
   {
    "id": "plan-file-crates-core-src-ops-rs",
@@ -2061,13 +2116,31 @@
    "id": "plan-decision-38",
    "type": "decision",
    "app": "plan",
+   "label": "The guide is a PDF per language, downloaded on demand (not in…",
+   "date": "0.4.4",
+   "text": "The guide is a PDF per language, downloaded on demand (not in the installer): update::guide(lang) fetches DatumPlan-Guide-{lang}.pdf from this version's release (else latest), requires a matching line in that release's SHA256SUMS.txt and a %PDF header, caps 60 MB, saves to Downloads (\"Datum Plan Guide.pdf\" / \"Datum Plan 使用指南.pdf\") with write_atomic, opens it\n\nWhy: The user: keep the installer small; inside the app, one click. Same trust rules as updates.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-39",
+   "type": "decision",
+   "app": "plan",
+   "label": "Guide text in Markdown in the repo; the Chinese guide keeps…",
+   "date": "0.4.4",
+   "text": "Guide text in Markdown in the repo; the Chinese guide keeps English UI names in bold with the Chinese meaning beside them; screenshots stay in English with numbered orange markers\n\nWhy: The app is English-only; readers must find the buttons. Easy to keep up to date each release (CLAUDE.md step 3).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-40",
+   "type": "decision",
+   "app": "plan",
    "label": "Windows publisher is \"Datum\" (bundle.publisher; the copyright…",
    "date": "0.4.3",
    "text": "Windows publisher is \"Datum\" (bundle.publisher; the copyright stays \"© 2026 Edgar Mendonca\"). src-tauri/windows/hooks.nsh (NSIS_HOOK_PREINSTALL) reads the old Software\\Edgar Mendonca\\Datum Plan install-folder key, installs there if it differs, and deletes the old key\n\nWhy: Family rule (FAMILY §9 in the hub). Tauri's NSIS remembers the folder under Software\\<publisher>\\<product>; the uninstall entry and the default folder use only the product name, so default installs update in place.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-39",
+   "id": "plan-decision-41",
    "type": "decision",
    "app": "plan",
    "label": "Release builds unwind (not abort); guard() in the shell turns…",
@@ -2076,7 +2149,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-40",
+   "id": "plan-decision-42",
    "type": "decision",
    "app": "plan",
    "label": "Project::normalize clamps spans to MAX_SPAN (10,000,000…",
@@ -2085,7 +2158,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-41",
+   "id": "plan-decision-43",
    "type": "decision",
    "app": "plan",
    "label": "WorkCal::between counts whole weeks arithmetically (plus…",
@@ -2094,7 +2167,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-42",
+   "id": "plan-decision-44",
    "type": "decision",
    "app": "plan",
    "label": "Saves use doc::write_atomic (temp file + rename) for plans…",
@@ -2103,7 +2176,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-43",
+   "id": "plan-decision-45",
    "type": "decision",
    "app": "plan",
    "label": "Updater: SHA256SUMS.txt is required; exact file-name match…",
@@ -2112,7 +2185,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-44",
+   "id": "plan-decision-46",
    "type": "decision",
    "app": "plan",
    "label": "CSV export prefixes ' to text starting with = + - @ (unless a…",
@@ -2121,7 +2194,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-45",
+   "id": "plan-decision-47",
    "type": "decision",
    "app": "plan",
    "label": "Money: each task's cost and actual cost rounded to the…",
@@ -2130,7 +2203,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-46",
+   "id": "plan-decision-48",
    "type": "decision",
    "app": "plan",
    "label": "CLI and MCP change plans only through Op (the window's…",
@@ -2139,7 +2212,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-47",
+   "id": "plan-decision-49",
    "type": "decision",
    "app": "plan",
    "label": "Print: Schedule Risk, Look-ahead and Manpower are flow views…",
@@ -2148,7 +2221,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-48",
+   "id": "plan-decision-50",
    "type": "decision",
    "app": "plan",
    "label": "Actual progress between stored periods is a straight line…",
@@ -2157,7 +2230,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-49",
+   "id": "plan-decision-51",
    "type": "decision",
    "app": "plan",
    "label": "Manpower \"Done\" is earned hours (planned hours × progress)…",
@@ -2166,7 +2239,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-50",
+   "id": "plan-decision-52",
    "type": "decision",
    "app": "plan",
    "label": "Earned schedule uses the same weights and curves as the…",
@@ -2175,7 +2248,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-51",
+   "id": "plan-decision-53",
    "type": "decision",
    "app": "plan",
    "label": "Rules of credit are step templates (CreditRule) that…",
@@ -2184,7 +2257,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-52",
+   "id": "plan-decision-54",
    "type": "decision",
    "app": "plan",
    "label": "Constraint log is Project.log (LogItem), edited with Op::Log…",
@@ -2193,7 +2266,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-53",
+   "id": "plan-decision-55",
    "type": "decision",
    "app": "plan",
    "label": "<select> whose options load later marks the chosen <option…",
@@ -2202,7 +2275,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-54",
+   "id": "plan-decision-56",
    "type": "decision",
    "app": "plan",
    "label": "Monte Carlo uses triangular draws (min, planned, max) and the…",
@@ -2211,7 +2284,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-55",
+   "id": "plan-decision-57",
    "type": "decision",
    "app": "plan",
    "label": "Trades are the resources' Group; usage(\"group\") sums work…",
@@ -2220,7 +2293,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-56",
+   "id": "plan-decision-58",
    "type": "decision",
    "app": "plan",
    "label": "Levelling always previews (level::preview levels a clone and…",
@@ -2229,7 +2302,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-57",
+   "id": "plan-decision-59",
    "type": "decision",
    "app": "plan",
    "label": "Imports return notes (Imported::Plan(p, notes)): reader notes…",
@@ -2238,7 +2311,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-58",
+   "id": "plan-decision-60",
    "type": "decision",
    "app": "plan",
    "label": "Charts over plain numbers use <Index>, not <For>",
@@ -2247,7 +2320,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-59",
+   "id": "plan-decision-61",
    "type": "decision",
    "app": "plan",
    "label": "ALAP uses free float only: the largest shift (≤ free float)…",
@@ -2256,7 +2329,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-60",
+   "id": "plan-decision-62",
    "type": "decision",
    "app": "plan",
    "label": "A started task's late start is that of its remaining work…",
@@ -2265,7 +2338,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-61",
+   "id": "plan-decision-63",
    "type": "decision",
    "app": "plan",
    "label": "Parity files are hand-made until real exports are added; the…",
@@ -2274,7 +2347,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-62",
+   "id": "plan-decision-64",
    "type": "decision",
    "app": "plan",
    "label": "docs/site.json carries about (two paragraphs) and steps…",
@@ -2283,7 +2356,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-63",
+   "id": "plan-decision-65",
    "type": "decision",
    "app": "plan",
    "label": "rustfmt is not enforced; the code stays in its compact hand…",
@@ -2292,7 +2365,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-64",
+   "id": "plan-decision-66",
    "type": "decision",
    "app": "plan",
    "label": "Hardening gates in CI: cargo deny, Windows + macOS cargo test…",
@@ -2301,7 +2374,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-65",
+   "id": "plan-decision-67",
    "type": "decision",
    "app": "plan",
    "label": "Without a status date, progress reports (Dashboard, period…",
@@ -2310,7 +2383,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-66",
+   "id": "plan-decision-68",
    "type": "decision",
    "app": "plan",
    "label": "The window's state lock recovers from a poisoned mutex…",
@@ -2319,7 +2392,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-67",
+   "id": "plan-decision-69",
    "type": "decision",
    "app": "plan",
    "label": "The Datum apps share one design and workflow in FAMILY.md…",
@@ -2328,7 +2401,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-68",
+   "id": "plan-decision-70",
    "type": "decision",
    "app": "plan",
    "label": "Templates carry people/assign/costs; Work is titled \"Man-hours\"",
@@ -2337,7 +2410,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-69",
+   "id": "plan-decision-71",
    "type": "decision",
    "app": "plan",
    "label": "One grid *engine* (selection, clipboard, fill, formatting…",
@@ -2346,7 +2419,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-70",
+   "id": "plan-decision-72",
    "type": "decision",
    "app": "plan",
    "label": "Network: layout_with(rows, sums, wbs); bands returned with the…",
@@ -2355,7 +2428,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-71",
+   "id": "plan-decision-73",
    "type": "decision",
    "app": "plan",
    "label": "Other views print through one Frame; reports print as flowing…",
@@ -2364,7 +2437,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-72",
+   "id": "plan-decision-74",
    "type": "decision",
    "app": "plan",
    "label": "Fill series follow Excel (numbers, text+number, dates by step…",
@@ -2373,7 +2446,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-73",
+   "id": "plan-decision-75",
    "type": "decision",
    "app": "plan",
    "label": "open_url only opens github.com/Edgar-Mendonca/Datum-Plan links",
@@ -2382,7 +2455,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-74",
+   "id": "plan-decision-76",
    "type": "decision",
    "app": "plan",
    "label": "Ribbon tabs: Task, Schedule, Progress (user rejected \"Home\")…",
@@ -2391,7 +2464,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-75",
+   "id": "plan-decision-77",
    "type": "decision",
    "app": "plan",
    "label": "Hidden columns stay in the table with a negative width…",
@@ -2400,7 +2473,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-76",
+   "id": "plan-decision-78",
    "type": "decision",
    "app": "plan",
    "label": "Print lays the table and chart out as one strip; pages are…",
@@ -2409,7 +2482,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-77",
+   "id": "plan-decision-79",
    "type": "decision",
    "app": "plan",
    "label": "Printing lays out pages in the UI (SVG) and uses the WebView…",
@@ -2418,7 +2491,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-78",
+   "id": "plan-decision-80",
    "type": "decision",
    "app": "plan",
    "label": "Cell formatting reuses the task's existing style JSON field…",
@@ -2427,7 +2500,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-79",
+   "id": "plan-decision-81",
    "type": "decision",
    "app": "plan",
    "label": "Every user-reported bug gets a UI test that fails on the…",
@@ -2436,7 +2509,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-80",
+   "id": "plan-decision-82",
    "type": "decision",
    "app": "plan",
    "label": "No Python; a separate future app \"Datum Plot\"…",
@@ -2766,6 +2839,15 @@
    "label": "Session 15 (0.4.3, publisher \"Datum\")",
    "date": "2026-10-29",
    "text": "· User (family rule): the Windows publisher becomes \"Datum\". Changed bundle.publisher (copyright unchanged); nothing else in the repo writes the publisher (LICENSE, NOTICE and README keep the copyright holder). Read Tauri's NSIS template (in the CLI binary): the uninstall key and the default folder use the product name, but the remembered install folder lives under Software\\<publisher>\\<product>, so added windows/hooks.nsh to carry a custom folder across. Not tested on a real Windows upgrade.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-session-29",
+   "type": "session",
+   "app": "plan",
+   "label": "Session 16 (0.4.4, the guide)",
+   "date": "2026-10-29",
+   "text": "· User: users (some Chinese-speaking) need a guide, not a tutorial: English and mainland Simplified Chinese PDFs, inside the app as a PDF icon that downloads from GitHub (not in the installer); screenshots in English with markups.\n· Built: dump guide (Engineering template with baseline, two closed periods, progress, risks with delays, constraints, timeline milestones; plus query:timeline, query:tracking and resources answers for the harness), guide_shots.cjs (21 shots; markers by selector, ribbon group caption or text; badge placement; clips), real-app Home and Setup shots with a PIL markup, guide.cjs (PDF builder), the guide texts, update::guide + guide command, Help › Guide, File › Guide tile, i-pdf icon, first-start hint, Tell Me entry, release attaches both PDFs (in SHA256SUMS). UI test for the dialog.\n· Found on the way: the harness answered every query with the Gantt grid (timeline and Tracking looked wrong), fixed with per-query answers.\n· Not checked: a native Chinese reader has not reviewed the Chinese text; the download was tested only after release (see the release check).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -8995,6 +9077,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema"
   },
   {
+   "id": "schema-v0.1.5",
+   "type": "release",
+   "app": "schema",
+   "label": "Schema 0.1.5",
+   "version": "0.1.5",
+   "date": "2026-10-29",
+   "text": "The first step to an object-based plant engineering tool: plant objects, a database file and a history.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/releases/tag/v0.1.5"
+  },
+  {
    "id": "schema-v0.1.4",
    "type": "release",
    "app": "schema",
@@ -9095,12 +9187,21 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
+   "id": "schema-file-crates-core-src-file-rs",
+   "type": "file",
+   "app": "schema",
+   "label": "file.rs",
+   "path": "crates/core/src/file.rs",
+   "text": "The project file: SQLite tables (meta, nodes, objects, attributes, sheets, items, lines, notes, history, and an object_attributes view), atomic write, table-by-table read with repair, JSON fallback for 0.1 files and recovery copies",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/file.rs"
+  },
+  {
    "id": "schema-file-crates-core-src-model-rs",
    "type": "file",
    "app": "schema",
    "label": "model.rs",
    "path": "crates/core/src/model.rs",
-   "text": "The project: sheets (number, title, size A3/A1/ANSI B/ANSI D, revisions, legend flag), items (symbol, position, quarter turns, mirror, scale, tag, data, off-page partner), lines (type, ends on a port, on another line or free, bend points, flow flip, data), notes (note, leader, Hold cloud), settings (line number format, rules off, hydraulic limits, roughness, grid); .dschema read part by part with normalize (damaged files open as far as possible, with warnings), and write",
+   "text": "The project: plant objects (Obj: id, uid, class, tag, hierarchy node, data; line numbers are PipingNetworkSystem objects) and the hierarchy (Node: plant › unit › area); items and line pieces are views with obj; the 0.1 JSON migration (migrate_1); sheets (number, title, size A3/A1/ANSI B/ANSI D, revisions, legend flag), items (symbol, position, quarter turns, mirror, scale, tag, data, off-page partner), lines (type, ends on a port, on another line or free, bend points, flow flip, data), notes (note, leader, Hold cloud), settings (line number format, rules off, hydraulic limits, roughness, grid); .dschema read part by part with normalize (damaged files open as far as possible, with warnings), and write",
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/model.rs"
   },
   {
@@ -9145,7 +9246,7 @@
    "app": "schema",
    "label": "doc.rs",
    "path": "crates/core/src/doc.rs",
-   "text": "Edit operations (add, set, move, rotate, mirror, delete with merge of in-line items, set data, tags, bend points, split, paste with the next free tags, pair connectors, sheets, title, project, settings, renumber, batch) on a copy, kept only if normalize finds nothing to repair; undo/redo; size-limited reads and atomic writes",
+   "text": "The history (Change: who, when, what, object, old, new; recorded by diffing objects after every edit, undo and redo). Edit operations (NewLineObject, SetNode, AddNode, SetNode2, DeleteNode, add, set, move, rotate, mirror, delete with merge of in-line items, set data, tags, bend points, split, paste with the next free tags, pair connectors, sheets, title, project, settings, renumber, batch) on a copy, kept only if normalize finds nothing to repair; undo/redo; size-limited reads and atomic writes",
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/crates/core/src/doc.rs"
   },
   {
@@ -9413,13 +9514,76 @@
    "id": "schema-decision-0",
    "type": "decision",
    "app": "schema",
+   "label": "Objects own tags and data; items and line pieces point at them…",
+   "date": "0.1.5",
+   "text": "Objects own tags and data; items and line pieces point at them (obj). A process line joined to an in-line symbol or a paired off-page connector whose other side has a line continues that line's object; otherwise it gets a new one with the sheet's next sequence number; NewLineObject splits a piece off\n\nWhy: The user's \"objects are the master\"; a line number is a real object, so the run inference (and its bugs) is gone",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-1",
+   "type": "decision",
+   "app": "schema",
+   "label": "Objects no view shows are deleted with their last view (until…",
+   "date": "0.1.5",
+   "text": "Objects no view shows are deleted with their last view (until 0.1.7 offers \"remove from sheet only\")\n\nWhy: No orphans until the Plant panel can show them",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-2",
+   "type": "decision",
+   "app": "schema",
+   "label": "The history is kept in the document (not in the undo…",
+   "date": "0.1.5",
+   "text": "The history is kept in the document (not in the undo snapshots) and saved in the file; undo and redo are recorded as changes too\n\nWhy: An audit trail must not disappear with an undo",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-3",
+   "type": "decision",
+   "app": "schema",
+   "label": "SQLite via rusqlite (bundled); objects and attribute values…",
+   "date": "0.1.5",
+   "text": "SQLite via rusqlite (bundled); objects and attribute values are real tables (queryable); geometry rows keep JSON columns; recovery copies stay JSON\n\nWhy: The user's single-database file; JSON for the parts nobody queries keeps the writer small",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-4",
+   "type": "decision",
+   "app": "schema",
+   "label": "Ids stay u32 inside the file; every object also has a uid…",
+   "date": "0.1.5",
+   "text": "Ids stay u32 inside the file; every object also has a uid (UUID form) for exchange and later merging\n\nWhy: Small ids keep the engine and window simple; the uid carries identity across projects",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-5",
+   "type": "decision",
+   "app": "schema",
+   "label": "Versions stay consecutive (0.1.4 released, then 0.1.5…); the…",
+   "date": "0.1.3 (agreed)",
+   "text": "Versions stay consecutive (0.1.4 released, then 0.1.5…); the object core order and defaults are in docs/PLAN-0.2.md §7; no reverse engineering of commercial software, only public documentation and open standards\n\nWhy: The user's answers after the proposal",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-6",
+   "type": "decision",
+   "app": "schema",
+   "label": "Datum Schema becomes an object-based plant engineering tool…",
+   "date": "0.1.3 (course change)",
+   "text": "Datum Schema becomes an object-based plant engineering tool, not a drawing tool: objects are the master and symbols are views of them; a plant hierarchy (project › plant › unit › area); classes and attributes as data (a JSON class library, user attributes in Options); the project as one SQLite database with a history of every change; DEXPI names. The proposal and open questions are in docs/PLAN-0.2.md; 0.1.4 is held until they are discussed\n\nWhy: The user's direction after 0.1.3: an open-source tool in the class of the enterprise object-based plant engineering suites, for students, researchers and engineers",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-decision-7",
+   "type": "decision",
+   "app": "schema",
    "label": "Everything in the brief §1 (name, magenta accent, identifier…",
    "date": "plan",
    "text": "Everything in the brief §1 (name, magenta accent, identifier, .dschema, stack, units, ribbon tabs, layout, own symbols after ISO 10628-2 and ISA-5.1, logo, public words)\n\nWhy: Made with the user in the hub, session 22",
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-1",
+   "id": "schema-decision-8",
    "type": "decision",
    "app": "schema",
    "label": "The shell (main.rs, styles, ribbon, File page, print, help) is…",
@@ -9428,7 +9592,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-2",
+   "id": "schema-decision-9",
    "type": "decision",
    "app": "schema",
    "label": "Symbols are data in the engine (a small drawing language)…",
@@ -9437,7 +9601,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-3",
+   "id": "schema-decision-10",
    "type": "decision",
    "app": "schema",
    "label": "Positions are sheet millimetres (y down); text primitives are…",
@@ -9446,7 +9610,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-4",
+   "id": "schema-decision-11",
    "type": "decision",
    "app": "schema",
    "label": "Undo keeps the whole project before each edit (bounded to 200)…",
@@ -9455,7 +9619,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-5",
+   "id": "schema-decision-12",
    "type": "decision",
    "app": "schema",
    "label": "A run (one pipeline) is the process lines joined through…",
@@ -9464,7 +9628,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-6",
+   "id": "schema-decision-13",
    "type": "decision",
    "app": "schema",
    "label": "Data typed on a line goes to every drawn piece of its run…",
@@ -9473,7 +9637,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-7",
+   "id": "schema-decision-14",
    "type": "decision",
    "app": "schema",
    "label": "Lines are drawn and routed by the engine (Sim's router, ports…",
@@ -9482,7 +9646,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-8",
+   "id": "schema-decision-15",
    "type": "decision",
    "app": "schema",
    "label": "Instrument presets (PT, LIC, FIC…) in the palette; a new…",
@@ -9491,7 +9655,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-9",
+   "id": "schema-decision-16",
    "type": "decision",
    "app": "schema",
    "label": "Tags number 101 … on sheet 1, 201 … on sheet 2 (line sequence…",
@@ -9500,7 +9664,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-10",
+   "id": "schema-decision-17",
    "type": "decision",
    "app": "schema",
    "label": "Manual valves take the prefix HV (hand valve), not V",
@@ -9509,7 +9673,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-11",
+   "id": "schema-decision-18",
    "type": "decision",
    "app": "schema",
    "label": "The build ran ahead of the brief's step plan (checks, lists…",
@@ -9518,7 +9682,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-12",
+   "id": "schema-decision-19",
    "type": "decision",
    "app": "schema",
    "label": "An independent review of the engine before the exhibition…",
@@ -9527,7 +9691,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-13",
+   "id": "schema-decision-20",
    "type": "decision",
    "app": "schema",
    "label": "The DXF was read back with an independent reader (ezdxf…",
@@ -9536,7 +9700,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-14",
+   "id": "schema-decision-21",
    "type": "decision",
    "app": "schema",
    "label": "The router marks cells and edges inside symbols by index…",
@@ -9545,7 +9709,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-15",
+   "id": "schema-decision-22",
    "type": "decision",
    "app": "schema",
    "label": "One line number label and one hydraulic badge per run per…",
@@ -9554,7 +9718,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-16",
+   "id": "schema-decision-23",
    "type": "decision",
    "app": "schema",
    "label": "A process-type line with an end on an instrument bubble or a…",
@@ -9563,7 +9727,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-17",
+   "id": "schema-decision-24",
    "type": "decision",
    "app": "schema",
    "label": "Final elements for check 11 are control valves and regulators…",
@@ -9572,7 +9736,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "schema-decision-18",
+   "id": "schema-decision-25",
    "type": "decision",
    "app": "schema",
    "label": "The UI tests drive the real engine: examples/serve.rs answers…",
@@ -9596,6 +9760,24 @@
    "label": "Session 1, summary (0.1.0 → 0.1.4)",
    "date": "2026-10-29",
    "text": "· Released: 0.1.0 (shell, sheet, symbols, lines, updater), 0.1.1 (checks, hydraulics, lists, examples, print, DXF), 0.1.2 (fast routing, coloured badges, line number highlight, screenshots), 0.1.3 (fixes from an independent engine review), 0.1.4 (the exhibition build: final check, README demo). Each as DatumSchema-x.y.z-setup.exe + SHA256SUMS.txt from release.yml.\n· Works: about 80 own symbols; lines port to port with routing, hops, flow arrows and signal marks; in-line symbols split lines and join them again when deleted; off-page connectors with jump; sheets A3/A1/ANSI B/ANSI D with zones, title block and revisions; legend sheet; notes, leaders, Hold clouds; tags and loops numbered per sheet, renumber, copy with the next free tag; the 13 checks with the Checks panel; line hydraulics with badges and editable limits; the four live lists with sort, filter, group, edit, CSV and Excel; print (sheets, lists with title block, legend), SVG, DXF (read by ezdxf with 0 errors); SI/US units; undo/redo; recovery; the updater. 55 engine tests (hardening, every check, hydraulics against a hand calculation and Datum Calc's pack, DXF read back, examples) and 47 UI checks against the real engine.\n· Cut or not done: nothing from the brief's cut list was cut (the Hold cloud, line hops, ANSI sizes and the rarer symbols are all in). Not done: bend points are dropped when a line is split; check 8 does not look at a check valve's direction; the real shell was only started on Linux (Xvfb), the installer is built and published by the release workflow on Windows.\n· The 2-minute exhibition demo: ope",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-session-2",
+   "type": "session",
+   "app": "schema",
+   "label": "Session 1, course change",
+   "date": "2026-10-29",
+   "text": "· The user changed direction after 0.1.3: an object-based plant engineering application, not a drawing tool (objects master, views on sheets, plant hierarchy, class library as data, SQLite with history, DEXPI names). 0.1.4 is committed but not released.\n· Read the public documentation of the enterprise suites (object database across the lifecycle, base objects and classes, rules with real-time consistency and propagation, task lists, claims and working layers, revisions, 3D comparison) and of DEXPI (Proteus XML, specification CC BY 4.0, pyDEXPI). Wrote docs/PLAN-0.2.md with the proposal, the release order and seven questions for the user.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "schema-session-3",
+   "type": "session",
+   "app": "schema",
+   "label": "Session 1, 0.1.5 (the object core begins)",
+   "date": "2026-10-29",
+   "text": "· 0.1.4 released as agreed. Built 0.1.5: objects and views, line-number objects, the plant hierarchy model, the history, the SQLite file with 0.1 conversion. Engine 58 tests (new: SQLite round trip with history, 0.1 conversion, damaged databases); 48 UI checks including the SQLite file read back.\n· Did not use the reverse-engineering toolkit the user pointed to: it is for inspecting other software, and the rule is to build from public documentation and open standards only.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Schema/blob/HEAD/docs/MEMORY.md"
   }
  ],
@@ -9897,6 +10079,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-46",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -10028,6 +10215,11 @@
   {
    "source": "hub",
    "target": "hub-session-26",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-27",
    "kind": "session"
   },
   {
@@ -10291,12 +10483,17 @@
    "kind": "then"
   },
   {
+   "source": "plan-v0.4.3",
+   "target": "plan-v0.4.4",
+   "kind": "then"
+  },
+  {
    "source": "app-plan",
-   "target": "plan-v0.4.3",
+   "target": "plan-v0.4.4",
    "kind": "released"
   },
   {
-   "source": "plan-v0.4.3",
+   "source": "plan-v0.4.4",
    "target": "plan-plan-0-5",
    "kind": "next"
   },
@@ -10409,6 +10606,31 @@
    "source": "app-plan",
    "target": "plan-file-crates-core-src-risk-rs",
    "kind": "contains"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-file-docs-guide-en-md",
+   "kind": "contains"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-file-tests-ui-guide-shots-cjs",
+   "kind": "contains"
+  },
+  {
+   "source": "plan-file-tests-ui-guide-shots-cjs",
+   "target": "tech-xvfb",
+   "kind": "uses"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-file-scripts-guide-cjs",
+   "kind": "contains"
+  },
+  {
+   "source": "plan-file-scripts-guide-cjs",
+   "target": "tech-ibm-plex",
+   "kind": "uses"
   },
   {
    "source": "app-plan",
@@ -10992,18 +11214,8 @@
   },
   {
    "source": "plan-decision-38",
-   "target": "plan-v0.4.3",
+   "target": "plan-v0.4.4",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-38",
-   "target": "tech-nsis",
-   "kind": "about"
-  },
-  {
-   "source": "plan-decision-38",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11012,7 +11224,7 @@
   },
   {
    "source": "plan-decision-39",
-   "target": "plan-v0.4.2",
+   "target": "plan-v0.4.4",
    "kind": "in"
   },
   {
@@ -11022,8 +11234,18 @@
   },
   {
    "source": "plan-decision-40",
-   "target": "plan-v0.4.2",
+   "target": "plan-v0.4.3",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-40",
+   "target": "tech-nsis",
+   "kind": "about"
+  },
+  {
+   "source": "plan-decision-40",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11102,7 +11324,7 @@
   },
   {
    "source": "plan-decision-48",
-   "target": "plan-v0.4.1",
+   "target": "plan-v0.4.2",
    "kind": "in"
   },
   {
@@ -11112,7 +11334,7 @@
   },
   {
    "source": "plan-decision-49",
-   "target": "plan-v0.4.1",
+   "target": "plan-v0.4.2",
    "kind": "in"
   },
   {
@@ -11162,7 +11384,7 @@
   },
   {
    "source": "plan-decision-54",
-   "target": "plan-v0.4.0",
+   "target": "plan-v0.4.1",
    "kind": "in"
   },
   {
@@ -11172,7 +11394,7 @@
   },
   {
    "source": "plan-decision-55",
-   "target": "plan-v0.4.0",
+   "target": "plan-v0.4.1",
    "kind": "in"
   },
   {
@@ -11212,7 +11434,7 @@
   },
   {
    "source": "plan-decision-59",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -11222,7 +11444,7 @@
   },
   {
    "source": "plan-decision-60",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -11236,24 +11458,14 @@
    "kind": "in"
   },
   {
-   "source": "plan-decision-61",
-   "target": "hub",
-   "kind": "family-wide"
-  },
-  {
    "source": "app-plan",
    "target": "plan-decision-62",
    "kind": "decided"
   },
   {
    "source": "plan-decision-62",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-62",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11262,8 +11474,13 @@
   },
   {
    "source": "plan-decision-63",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-63",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11274,6 +11491,11 @@
    "source": "plan-decision-64",
    "target": "plan-v0.3.11",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-64",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11302,13 +11524,8 @@
   },
   {
    "source": "plan-decision-67",
-   "target": "plan-v0.3.8",
+   "target": "plan-v0.3.11",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-67",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11316,9 +11533,24 @@
    "kind": "decided"
   },
   {
+   "source": "plan-decision-68",
+   "target": "plan-v0.3.11",
+   "kind": "in"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-69",
    "kind": "decided"
+  },
+  {
+   "source": "plan-decision-69",
+   "target": "plan-v0.3.8",
+   "kind": "in"
+  },
+  {
+   "source": "plan-decision-69",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -11361,11 +11593,6 @@
    "kind": "decided"
   },
   {
-   "source": "plan-decision-77",
-   "target": "tech-rust",
-   "kind": "about"
-  },
-  {
    "source": "app-plan",
    "target": "plan-decision-78",
    "kind": "decided"
@@ -11376,17 +11603,32 @@
    "kind": "decided"
   },
   {
+   "source": "plan-decision-79",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-80",
    "kind": "decided"
   },
   {
-   "source": "plan-decision-80",
+   "source": "app-plan",
+   "target": "plan-decision-81",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-82",
+   "kind": "decided"
+  },
+  {
+   "source": "plan-decision-82",
    "target": "plan-v0.3.1",
    "kind": "in"
   },
   {
-   "source": "plan-decision-80",
+   "source": "plan-decision-82",
    "target": "tech-python",
    "kind": "about"
   },
@@ -11698,6 +11940,16 @@
   {
    "source": "plan-session-28",
    "target": "plan-v0.4.3",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-session-29",
+   "kind": "session"
+  },
+  {
+   "source": "plan-session-29",
+   "target": "plan-v0.4.4",
    "kind": "shipped"
   },
   {
@@ -18196,12 +18448,17 @@
    "kind": "then"
   },
   {
+   "source": "schema-v0.1.4",
+   "target": "schema-v0.1.5",
+   "kind": "then"
+  },
+  {
    "source": "app-schema",
-   "target": "schema-v0.1.4",
+   "target": "schema-v0.1.5",
    "kind": "released"
   },
   {
-   "source": "schema-v0.1.4",
+   "source": "schema-v0.1.5",
    "target": "schema-plan-0-2",
    "kind": "next"
   },
@@ -18224,6 +18481,11 @@
    "source": "schema-plan-0-5",
    "target": "schema-plan-1-0",
    "kind": "next"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-file-crates-core-src-file-rs",
+   "kind": "contains"
   },
   {
    "source": "app-schema",
@@ -18406,29 +18668,19 @@
    "kind": "decided"
   },
   {
+   "source": "schema-decision-0",
+   "target": "schema-v0.1.5",
+   "kind": "in"
+  },
+  {
    "source": "app-schema",
    "target": "schema-decision-1",
    "kind": "decided"
   },
   {
    "source": "schema-decision-1",
-   "target": "schema-file-src-tauri-src-main-rs",
-   "kind": "touches"
-  },
-  {
-   "source": "schema-decision-1",
-   "target": "app-plan",
-   "kind": "mentions"
-  },
-  {
-   "source": "schema-decision-1",
-   "target": "app-pipe",
-   "kind": "mentions"
-  },
-  {
-   "source": "schema-decision-1",
-   "target": "hub",
-   "kind": "family-wide"
+   "target": "schema-v0.1.5",
+   "kind": "in"
   },
   {
    "source": "app-schema",
@@ -18436,9 +18688,19 @@
    "kind": "decided"
   },
   {
+   "source": "schema-decision-2",
+   "target": "schema-v0.1.5",
+   "kind": "in"
+  },
+  {
    "source": "app-schema",
    "target": "schema-decision-3",
    "kind": "decided"
+  },
+  {
+   "source": "schema-decision-3",
+   "target": "schema-v0.1.5",
+   "kind": "in"
   },
   {
    "source": "app-schema",
@@ -18447,8 +18709,8 @@
   },
   {
    "source": "schema-decision-4",
-   "target": "app-plan",
-   "kind": "mentions"
+   "target": "schema-v0.1.5",
+   "kind": "in"
   },
   {
    "source": "app-schema",
@@ -18456,9 +18718,19 @@
    "kind": "decided"
   },
   {
+   "source": "schema-decision-5",
+   "target": "schema-v0.1.3",
+   "kind": "in"
+  },
+  {
    "source": "app-schema",
    "target": "schema-decision-6",
    "kind": "decided"
+  },
+  {
+   "source": "schema-decision-6",
+   "target": "schema-v0.1.3",
+   "kind": "in"
   },
   {
    "source": "app-schema",
@@ -18466,14 +18738,29 @@
    "kind": "decided"
   },
   {
-   "source": "schema-decision-7",
-   "target": "app-sim",
-   "kind": "mentions"
-  },
-  {
    "source": "app-schema",
    "target": "schema-decision-8",
    "kind": "decided"
+  },
+  {
+   "source": "schema-decision-8",
+   "target": "schema-file-src-tauri-src-main-rs",
+   "kind": "touches"
+  },
+  {
+   "source": "schema-decision-8",
+   "target": "app-plan",
+   "kind": "mentions"
+  },
+  {
+   "source": "schema-decision-8",
+   "target": "app-pipe",
+   "kind": "mentions"
+  },
+  {
+   "source": "schema-decision-8",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-schema",
@@ -18486,19 +18773,14 @@
    "kind": "decided"
   },
   {
-   "source": "schema-decision-10",
-   "target": "schema-v0.1.0",
-   "kind": "in"
-  },
-  {
    "source": "app-schema",
    "target": "schema-decision-11",
    "kind": "decided"
   },
   {
    "source": "schema-decision-11",
-   "target": "schema-v0.1.1",
-   "kind": "in"
+   "target": "app-plan",
+   "kind": "mentions"
   },
   {
    "source": "app-schema",
@@ -18506,24 +18788,9 @@
    "kind": "decided"
   },
   {
-   "source": "schema-decision-12",
-   "target": "schema-v0.1.3",
-   "kind": "in"
-  },
-  {
-   "source": "schema-decision-12",
-   "target": "app-pipe",
-   "kind": "mentions"
-  },
-  {
    "source": "app-schema",
    "target": "schema-decision-13",
    "kind": "decided"
-  },
-  {
-   "source": "schema-decision-13",
-   "target": "schema-v0.1.3",
-   "kind": "in"
   },
   {
    "source": "app-schema",
@@ -18532,8 +18799,8 @@
   },
   {
    "source": "schema-decision-14",
-   "target": "schema-v0.1.2",
-   "kind": "in"
+   "target": "app-sim",
+   "kind": "mentions"
   },
   {
    "source": "app-schema",
@@ -18541,19 +18808,9 @@
    "kind": "decided"
   },
   {
-   "source": "schema-decision-15",
-   "target": "schema-v0.1.1",
-   "kind": "in"
-  },
-  {
    "source": "app-schema",
    "target": "schema-decision-16",
    "kind": "decided"
-  },
-  {
-   "source": "schema-decision-16",
-   "target": "schema-v0.1.1",
-   "kind": "in"
   },
   {
    "source": "app-schema",
@@ -18562,7 +18819,7 @@
   },
   {
    "source": "schema-decision-17",
-   "target": "schema-v0.1.1",
+   "target": "schema-v0.1.0",
    "kind": "in"
   },
   {
@@ -18572,16 +18829,91 @@
   },
   {
    "source": "schema-decision-18",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-19",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-19",
+   "target": "schema-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "schema-decision-19",
+   "target": "app-pipe",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-20",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-20",
+   "target": "schema-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-21",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-21",
+   "target": "schema-v0.1.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-22",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-22",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-23",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-23",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-24",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-24",
+   "target": "schema-v0.1.1",
+   "kind": "in"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-decision-25",
+   "kind": "decided"
+  },
+  {
+   "source": "schema-decision-25",
    "target": "schema-v0.1.0",
    "kind": "in"
   },
   {
-   "source": "schema-decision-18",
+   "source": "schema-decision-25",
    "target": "schema-file-crates-core-src-api-rs",
    "kind": "touches"
   },
   {
-   "source": "schema-decision-18",
+   "source": "schema-decision-25",
    "target": "schema-file-crates-core-examples-serve-rs",
    "kind": "touches"
   },
@@ -18653,6 +18985,21 @@
   {
    "source": "schema-session-1",
    "target": "schema-v0.1.4",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-session-2",
+   "kind": "session"
+  },
+  {
+   "source": "app-schema",
+   "target": "schema-session-3",
+   "kind": "session"
+  },
+  {
+   "source": "schema-session-3",
+   "target": "schema-v0.1.5",
    "kind": "shipped"
   },
   {
