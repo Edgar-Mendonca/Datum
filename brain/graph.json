@@ -784,7 +784,7 @@
    "app": "hub",
    "label": "Session 26 (from Datum Plan's chat: 0.5.0…",
    "date": "2026-10-30",
-   "text": "· Plan 0.5.0: Sheets work like Excel (point-and-click formulas, 490 functions suggested, AutoSum, fill and paste with formulas, rows and columns) and read the plan live through Tasks/Resources tables and names; Plan Data lists; country flags and a resource Country. Next in Plan: 0.5.1 custom dashboards. Recorded the decision and the FAMILY note; brain regenerated.",
+   "text": "· Plan 0.5.0: Sheets work like Excel (point-and-click formulas, 490 functions suggested, AutoSum, fill and paste with formulas, rows and columns) and read the plan live through Tasks/Resources tables and names; Plan Data lists; country flags and a resource Country. Then 0.5.1 fixed a scroll echo between the task sheet and the chart (felt stuck) and the Tell Me overlay hiding the window (a class name colliding with the title bar's). Next in Plan: 0.5.2 custom dashboards. Recorded the decision and the FAMILY note; brain regenerated.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -1139,6 +1139,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan"
   },
   {
+   "id": "plan-v0.5.1",
+   "type": "release",
+   "app": "plan",
+   "label": "Plan 0.5.1",
+   "version": "0.5.1",
+   "date": "2026-10-30",
+   "text": "Two fixes.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.5.1"
+  },
+  {
    "id": "plan-v0.5.0",
    "type": "release",
    "app": "plan",
@@ -1309,11 +1319,11 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.1.0"
   },
   {
-   "id": "plan-plan-0-5-1",
+   "id": "plan-plan-0-5-2",
    "type": "roadmap",
    "app": "plan",
-   "label": "0.5.1 Custom dashboards",
-   "version": "0.5.1",
+   "label": "0.5.2 Custom dashboards",
+   "version": "0.5.2",
    "when": "Next",
    "text": "Dashboards you lay out yourself: number tiles, charts, tables and flag lists built from the plan and your sheets.\nSeveral dashboards per plan, each printed to one PDF page and kept up to date by the plan.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
@@ -2217,9 +2227,9 @@
    "id": "plan-decision-42",
    "type": "decision",
    "app": "plan",
-   "label": "Custom dashboards are 0.5.1, built on the 0.5.0 sheets",
+   "label": "Custom dashboards are 0.5.2 (0.5.1 became a fix release)…",
    "date": "0.5.0",
-   "text": "Custom dashboards are 0.5.1, built on the 0.5.0 sheets\n\nWhy: Sheets first so dashboard tiles can read sheet ranges and plan names.",
+   "text": "Custom dashboards are 0.5.2 (0.5.1 became a fix release), built on the 0.5.0 sheets\n\nWhy: Sheets first so dashboard tiles can read sheet ranges and plan names.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -2957,7 +2967,7 @@
    "app": "plan",
    "label": "Session 17 (0.5.0, sheets like Excel)",
    "date": "2026-10-30",
-   "text": "· User: Sheets were unusable (\"can't even SUM\"); they build client dashboards in Excel by copying MPP values; wants GridCraft's engine used, and country flags for vendors. Asked for gaps vs other tools first (web search: update compare with logic change log, ghost bars, health trend, milestone trend, delay analysis, scenarios); agreed to start with sheets + dashboards.\n· Diagnosis: the engine already calculated SUM; the window lacked Excel habits (clicking cells while typing committed the edit, no suggestions, fill/paste dropped formulas, dates as serials, plan data only as Plan!M:M).\n· Built: sheet.rs tables/names/numfmt/spills/shift/adjust/rename; Op::SheetInsert, sheet rename/delete rewrite formulas and names stay unique; commands sheet_catalog, formula_shift; ops catalogue gains Sheet/SheetCells/SheetInsert; Excel export adds Tasks/Resources tables and names. UI: sheets.tsx rewritten, formulas.ts, sheetdlg.tsx, flags.tsx, resource Country column, sheets help topic. Real-app check (Xvfb) found and fixed: fast typing lost the second key; search in Insert Function kept the old pick.\n· Tests: engine test sheets_read_the_plan_by_name_and_behave_like_excel; 9 new UI checks (flags, suggestions, Tab, pointing, Enter closes brackets, column suggestions, Plan Data, Insert Row, Country column). Guide: Sheets chapter rewritten (en + zh), shots sheets, sheet-formula; scripts/guide.cjs keeps code spans literal.\n· Shipped the guide Downloads fallback (from session 16) in this release.\n· Next: 0.5.1 custom dashboards (open questions: which tiles first, Excel charts in export or PDF onl",
+   "text": "· User: Sheets were unusable (\"can't even SUM\"); they build client dashboards in Excel by copying MPP values; wants GridCraft's engine used, and country flags for vendors. Asked for gaps vs other tools first (web search: update compare with logic change log, ghost bars, health trend, milestone trend, delay analysis, scenarios); agreed to start with sheets + dashboards.\n· Diagnosis: the engine already calculated SUM; the window lacked Excel habits (clicking cells while typing committed the edit, no suggestions, fill/paste dropped formulas, dates as serials, plan data only as Plan!M:M).\n· Built: sheet.rs tables/names/numfmt/spills/shift/adjust/rename; Op::SheetInsert, sheet rename/delete rewrite formulas and names stay unique; commands sheet_catalog, formula_shift; ops catalogue gains Sheet/SheetCells/SheetInsert; Excel export adds Tasks/Resources tables and names. UI: sheets.tsx rewritten, formulas.ts, sheetdlg.tsx, flags.tsx, resource Country column, sheets help topic. Real-app check (Xvfb) found and fixed: fast typing lost the second key; search in Insert Function kept the old pick.\n· Tests: engine test sheets_read_the_plan_by_name_and_behave_like_excel; 9 new UI checks (flags, suggestions, Tab, pointing, Enter closes brackets, column suggestions, Plan Data, Insert Row, Country column). Guide: Sheets chapter rewritten (en + zh), shots sheets, sheet-formula; scripts/guide.cjs keeps code spans literal.\n· Shipped the guide Downloads fallback (from session 16) in this release.\n· Then 0.5.1 (same day, user report): scrolling the schedule stuck — grid and chart echoed each other",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -10834,17 +10844,22 @@
    "kind": "then"
   },
   {
+   "source": "plan-v0.5.0",
+   "target": "plan-v0.5.1",
+   "kind": "then"
+  },
+  {
    "source": "app-plan",
-   "target": "plan-v0.5.0",
+   "target": "plan-v0.5.1",
    "kind": "released"
   },
   {
-   "source": "plan-v0.5.0",
-   "target": "plan-plan-0-5-1",
+   "source": "plan-v0.5.1",
+   "target": "plan-plan-0-5-2",
    "kind": "next"
   },
   {
-   "source": "plan-plan-0-5-1",
+   "source": "plan-plan-0-5-2",
    "target": "plan-plan-0-5",
    "kind": "next"
   },

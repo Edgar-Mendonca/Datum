@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.0 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.1 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
@@ -174,7 +174,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
 ### 2026-10-30: Session 26 (from Datum Plan's chat: 0.5.0, sheets like Excel)
-- Plan 0.5.0: Sheets work like Excel (point-and-click formulas, 490 functions suggested, AutoSum, fill and paste with formulas, rows and columns) and read the plan live through Tasks/Resources tables and names; Plan Data lists; country flags and a resource Country. Next in Plan: 0.5.1 custom dashboards. Recorded the decision and the FAMILY note; brain regenerated.
+- Plan 0.5.0: Sheets work like Excel (point-and-click formulas, 490 functions suggested, AutoSum, fill and paste with formulas, rows and columns) and read the plan live through Tasks/Resources tables and names; Plan Data lists; country flags and a resource Country. Then 0.5.1 fixed a scroll echo between the task sheet and the chart (felt stuck) and the Tell Me overlay hiding the window (a class name colliding with the title bar's). Next in Plan: 0.5.2 custom dashboards. Recorded the decision and the FAMILY note; brain regenerated.
 
 ### 2026-10-29: Session 25 (from Datum Plan's chat: 0.4.4, the guide)
 - Plan 0.4.4 shipped the Datum Plan Guide in English and Simplified Chinese (about 30 pages each, numbered screenshots), downloaded from the release by Help › Guide; 0.4.3 had changed the Windows publisher to "Datum". Recorded the guide pattern (decision, FAMILY §10) and Plan at 0.4.4. Brain regenerated.
