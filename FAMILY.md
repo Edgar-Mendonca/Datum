@@ -28,6 +28,7 @@ The registry the site builds from is [`apps.json`](apps.json).
 - **UI: SolidJS + Vite + strict TypeScript** in `ui/src/*.tsx`, built to `ui/dist` (embedded at compile time). State in `ui/src/store.ts`. Plain CSS with tokens (no CSS framework).
 - **Charts:** Chart.js in the family chart style (see §7). An app may add its own SVG plot engine for publication graphs, but must keep this look.
 - **Spreadsheet formulas:** the GridCraft crates (pinned git dependency, attribution in NOTICE) where the app needs them.
+- **Sheets inside an app** (from Datum Plan 0.5.0) behave like a spreadsheet through GridCraft (references by clicking, suggestions, fill and paste that move references, insert and delete rows) and read the app's data by name: GridCraft tables and workbook names, not copied values. Countries show as flags from bundled SVGs (flag-icons, MIT), never emoji.
 - **No Python** inside the apps (size and second runtime). The one exception is **Datum Plot**, which bundles its own Python (numpy, SciPy, matplotlib) for statistics and graphs; the decision is recorded in Plot's `docs/MEMORY.md`.
 - Small, compact code that matches the surrounding style.
 

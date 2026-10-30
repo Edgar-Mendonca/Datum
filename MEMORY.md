@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.4.4 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.0 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
@@ -65,6 +65,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | Date | Decision | Why |
 | --- | --- | --- |
 | 2026-10-29 (s25) | **A guide per app, per language, downloaded on demand** (FAMILY §10): Markdown in `docs/guide/<lang>.md` with numbered screenshots, built to PDF (`scripts/guide.cjs`), attached to every release as `Datum<App>-Guide-<lang>.pdf` (in SHA256SUMS.txt), and fetched by Help › Guide (verify, save to Downloads, open). Translations keep the English UI names in bold with the meaning beside them | Datum Plan 0.4.4: users (some Chinese-speaking) needed a guide; the installer stays small and the guide always matches the version. |
+| 2026-10-30 (s26) | **Spreadsheets inside an app read the app's data by name**: GridCraft tables (`Tasks[Finish]`) and workbook names (`ProjectFinish`), with Excel habits (click cells into formulas, suggestions, fill/paste moving references, insert/delete rows) taken from GridCraft rather than re-written; country flags are a cell format drawn from bundled SVGs (flag-icons, MIT), never emoji | Datum Plan 0.5.0: users built client dashboards in Excel by copying values; Windows does not draw flag emoji. |
 | 2026-10-25 | FAMILY.md moves to DATUM and becomes the source of truth; section numbers 1–12 are kept so "FAMILY §3" means the same everywhere; §13 "Principles and public words" added | The brief. App repos keep a short `docs/FAMILY.md` that links here. |
 | 2026-10-25 | Commercial product names removed from FAMILY.md ("What it replaces" column → "What it is for"; ribbon, sidebar, chart style and grid wording made neutral) | The user's rule: never name, compare with, or say we copy any commercial product. |
 | 2026-10-25 | The site leaves out any CHANGELOG, highlight or roadmap line that names another product (`NAMES` in `github.ts`) and lists it in the build log | The apps' older CHANGELOG sections still compare with other tools; the public site must not, whatever the app repos say. File formats and interoperability words (Excel, Word, CSV) are not filtered. |
@@ -171,6 +172,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-10-30: Session 26 (from Datum Plan's chat: 0.5.0, sheets like Excel)
+- Plan 0.5.0: Sheets work like Excel (point-and-click formulas, 490 functions suggested, AutoSum, fill and paste with formulas, rows and columns) and read the plan live through Tasks/Resources tables and names; Plan Data lists; country flags and a resource Country. Next in Plan: 0.5.1 custom dashboards. Recorded the decision and the FAMILY note; brain regenerated.
 
 ### 2026-10-29: Session 25 (from Datum Plan's chat: 0.4.4, the guide)
 - Plan 0.4.4 shipped the Datum Plan Guide in English and Simplified Chinese (about 30 pages each, numbered screenshots), downloaded from the release by Help › Guide; 0.4.3 had changed the Windows publisher to "Datum". Recorded the guide pattern (decision, FAMILY §10) and Plan at 0.4.4. Brain regenerated.
