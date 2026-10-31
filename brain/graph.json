@@ -359,13 +359,22 @@
    "id": "hub-decision-8",
    "type": "decision",
    "app": "hub",
+   "label": "Header pictures are a list per place, each with its own size…",
+   "text": "Header pictures are a list per place, each with its own size, on every page; the legend lists only what the pages show. A picture in the centre puts the title under it. Engine checks find bugs by asserting tests, never by reading alone.\n\nWhy: The user wanted one to three logos per side and found the fixed legend incomplete; a full audit of formulas, links and progress found ten real bugs.",
+   "date": "2026-10-31 (s30)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-decision-9",
+   "type": "decision",
+   "app": "hub",
    "label": "FAMILY.md moves to DATUM and becomes the source of truth…",
    "text": "FAMILY.md moves to DATUM and becomes the source of truth; section numbers 1–12 are kept so \"FAMILY §3\" means the same everywhere; §13 \"Principles and public words\" added\n\nWhy: The brief. App repos keep a short docs/FAMILY.md that links here.",
    "date": "2026-10-25",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-9",
+   "id": "hub-decision-10",
    "type": "decision",
    "app": "hub",
    "label": "Commercial product names removed from FAMILY.md (\"What it…",
@@ -374,7 +383,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-10",
+   "id": "hub-decision-11",
    "type": "decision",
    "app": "hub",
    "label": "The site leaves out any CHANGELOG, highlight or roadmap line…",
@@ -383,7 +392,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-11",
+   "id": "hub-decision-12",
    "type": "decision",
    "app": "hub",
    "label": "Base path /Datum (the repo's real name), not /DATUM as in the…",
@@ -392,7 +401,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-12",
+   "id": "hub-decision-13",
    "type": "decision",
    "app": "hub",
    "label": "Astro 7.3.8 (Node ≥ 22.12) and marked 18.1.1; Node 22 in Actions",
@@ -401,7 +410,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-13",
+   "id": "hub-decision-14",
    "type": "decision",
    "app": "hub",
    "label": "apps.json branch HEAD (default branch) instead of naming…",
@@ -410,7 +419,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-14",
+   "id": "hub-decision-15",
    "type": "decision",
    "app": "hub",
    "label": "Pages workflow runs on every push but deploys only from the…",
@@ -419,7 +428,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-15",
+   "id": "hub-decision-16",
    "type": "decision",
    "app": "hub",
    "label": "Text and filled buttons use an --ink token: the accent, or a…",
@@ -428,7 +437,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-16",
+   "id": "hub-decision-17",
    "type": "decision",
    "app": "hub",
    "label": "Family mark brand/datum-icon.svg: grey-tint tile, navy \"D\"…",
@@ -437,7 +446,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-17",
+   "id": "hub-decision-18",
    "type": "decision",
    "app": "hub",
    "label": "The site is one landing page plus the Datum network; the app…",
@@ -446,7 +455,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-18",
+   "id": "hub-decision-19",
    "type": "decision",
    "app": "hub",
    "label": "Look taken from the user's zhuojia site (paper-and-ink grid…",
@@ -455,7 +464,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-19",
+   "id": "hub-decision-20",
    "type": "decision",
    "app": "hub",
    "label": "The logo is the user's own design, \"Continuum\": two concentric…",
@@ -464,7 +473,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-20",
+   "id": "hub-decision-21",
    "type": "decision",
    "app": "hub",
    "label": "The site is simple and technical: IBM Plex Sans and Mono only…",
@@ -473,7 +482,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-21",
+   "id": "hub-decision-22",
    "type": "decision",
    "app": "hub",
    "label": "Datum Sim joins the family: in apps.json, icon in brand/…",
@@ -482,7 +491,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-22",
+   "id": "hub-decision-23",
    "type": "decision",
    "app": "hub",
    "label": "Datum Sim is the next app (system simulation and control…",
@@ -491,7 +500,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-23",
+   "id": "hub-decision-24",
    "type": "decision",
    "app": "hub",
    "label": "Briefs for new apps live in the hub's briefs/ (DATUM-SIM.md…",
@@ -500,7 +509,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-24",
+   "id": "hub-decision-25",
    "type": "decision",
    "app": "hub",
    "label": "pages.yml waits for GitHub's branch-based Pages build of the…",
@@ -509,7 +518,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-25",
+   "id": "hub-decision-26",
    "type": "decision",
    "app": "hub",
    "label": "Bench tiles are real capabilities of the apps (Plan: schedule…",
@@ -518,7 +527,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-26",
+   "id": "hub-decision-27",
    "type": "decision",
    "app": "hub",
    "label": "The changing blue words use Instrument Serif italic (.it)…",
@@ -527,7 +536,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-27",
+   "id": "hub-decision-28",
    "type": "decision",
    "app": "hub",
    "label": "Artcraft-like scrolling: glass sticky section bars, an index…",
@@ -536,7 +545,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-28",
+   "id": "hub-decision-29",
    "type": "decision",
    "app": "hub",
    "label": "Theme: three visible buttons (Auto, Light, Dark) instead of a…",
@@ -545,7 +554,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-29",
+   "id": "hub-decision-30",
    "type": "decision",
    "app": "hub",
    "label": "Status badges (Stable / Beta / Alpha) from apps.json status or…",
@@ -554,7 +563,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-30",
+   "id": "hub-decision-31",
    "type": "decision",
    "app": "hub",
    "label": "The workbench hero (HeroWorkbench.astro, replaces…",
@@ -563,7 +572,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-31",
+   "id": "hub-decision-32",
    "type": "decision",
    "app": "hub",
    "label": "Two-panel hero (HeroPanel.astro): \"Datum\" with the amber…",
@@ -572,7 +581,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-32",
+   "id": "hub-decision-33",
    "type": "decision",
    "app": "hub",
    "label": "Family mark replaced by a \"D\" that is a protractor (ruler…",
@@ -581,7 +590,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-33",
+   "id": "hub-decision-34",
    "type": "decision",
    "app": "hub",
    "label": "The hero is a field of animated SVG tiles around the wordmark…",
@@ -590,7 +599,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-34",
+   "id": "hub-decision-35",
    "type": "decision",
    "app": "hub",
    "label": "New family mark: the GD&T datum feature symbol (framed \"D\"…",
@@ -599,7 +608,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-35",
+   "id": "hub-decision-36",
    "type": "decision",
    "app": "hub",
    "label": "The brain: brain/brain.mjs builds one graph (nodes: hub, apps…",
@@ -608,7 +617,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-36",
+   "id": "hub-decision-37",
    "type": "decision",
    "app": "hub",
    "label": "The public network removes sentences that name other products…",
@@ -617,7 +626,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-37",
+   "id": "hub-decision-38",
    "type": "decision",
    "app": "hub",
    "label": "Fonts self-hosted with @fontsource (Archivo with the width…",
@@ -626,7 +635,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-38",
+   "id": "hub-decision-39",
    "type": "decision",
    "app": "hub",
    "label": "Safety rules for every app's shell and hostile values join the…",
@@ -635,7 +644,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-39",
+   "id": "hub-decision-40",
    "type": "decision",
    "app": "hub",
    "label": "Apps may ship a command line and an MCP server for AI…",
@@ -644,7 +653,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-40",
+   "id": "hub-decision-41",
    "type": "decision",
    "app": "hub",
    "label": "In SolidJS, a <select> whose options load later marks <option…",
@@ -653,7 +662,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-41",
+   "id": "hub-decision-42",
    "type": "decision",
    "app": "hub",
    "label": "Every import is a parity check: an app that opens files…",
@@ -662,7 +671,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-42",
+   "id": "hub-decision-43",
    "type": "decision",
    "app": "hub",
    "label": "Trust in the results joins the hardening standard (FAMILY…",
@@ -671,7 +680,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-43",
+   "id": "hub-decision-44",
    "type": "decision",
    "app": "hub",
    "label": "Hardening standard for every app (FAMILY §11): hardening tests…",
@@ -680,7 +689,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-44",
+   "id": "hub-decision-45",
    "type": "decision",
    "app": "hub",
    "label": "Datum Plot's bundled Python is recorded in FAMILY §2 as the…",
@@ -689,7 +698,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-45",
+   "id": "hub-decision-46",
    "type": "decision",
    "app": "hub",
    "label": "Hero = four app tiles (Hero.astro + AppGlyph.astro: Gantt…",
@@ -698,7 +707,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-46",
+   "id": "hub-decision-47",
    "type": "decision",
    "app": "hub",
    "label": "Datum Home, a desktop app in this repo (home/) that installs…",
@@ -707,7 +716,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-47",
+   "id": "hub-decision-48",
    "type": "decision",
    "app": "hub",
    "label": "Datum Calc and Datum Mesh are built this week for a large…",
@@ -716,7 +725,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-48",
+   "id": "hub-decision-49",
    "type": "decision",
    "app": "hub",
    "label": "Datum Pipe (pipe stress analysis) is the next app, built in…",
@@ -725,7 +734,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-49",
+   "id": "hub-decision-50",
    "type": "decision",
    "app": "hub",
    "label": "No shared code kit for now: every app stays self-contained.…",
@@ -734,7 +743,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-50",
+   "id": "hub-decision-51",
    "type": "decision",
    "app": "hub",
    "label": "Datum Home reads releases from the site, not GitHub. home.json…",
@@ -743,7 +752,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-51",
+   "id": "hub-decision-52",
    "type": "decision",
    "app": "hub",
    "label": "The Windows publisher of every app is \"Datum\"…",
@@ -752,7 +761,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-52",
+   "id": "hub-decision-53",
    "type": "decision",
    "app": "hub",
    "label": "Datum Schema (intelligent P&IDs and process flow diagrams) is…",
@@ -761,7 +770,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-decision-53",
+   "id": "hub-decision-54",
    "type": "decision",
    "app": "hub",
    "label": "Datum Schema aims at the enterprise class of plant engineering…",
@@ -836,13 +845,22 @@
    "id": "hub-session-7",
    "type": "session",
    "app": "hub",
+   "label": "Session 30 (from Datum Plan's chat: 0.5.11…",
+   "date": "2026-10-31",
+   "text": "· Plan 0.5.11: any number of header pictures left/centre/right (each sized and moved), title under centre pictures and a title size, a legend of what shows, baseline and deadline in print, subplans print as expanded on screen. Audit of formulas, links and progress: ten bugs fixed with tests (DateDiff/DateAdd, Finish fields from formulas, milestones-only %, cost-curve earned value, earned schedule within a day, level of effort, SS from summaries, actuals on a day off, links on summaries, mirror rows, Update Links on long chains). The user's own project files stay private and outside every repo. Brain regenerated.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-8",
+   "type": "session",
+   "app": "hub",
    "label": "Session 29 (from Datum Plan's chat: 0.5.10…",
    "date": "2026-10-31",
    "text": "· The user's PDFs showed the browser's header/footer and blank half-pages, the print panel was squashed, and the header was code-based. Plan 0.5.10: direct Save as PDF, page setup kept until the print window is done, a simple Header & footer, subplans in print, and a fixed class-name clash. Recorded the decision and the FAMILY note; brain regenerated.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-8",
+   "id": "hub-session-9",
    "type": "session",
    "app": "hub",
    "label": "Session 28 (from Datum Plan's chat: 0.5.7…",
@@ -851,7 +869,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-9",
+   "id": "hub-session-10",
    "type": "session",
    "app": "hub",
    "label": "Session 27 (from Datum Plan's chat: 0.5.4 and…",
@@ -860,7 +878,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-11",
    "type": "session",
    "app": "hub",
    "label": "Session 26 (from Datum Plan's chat: 0.5.0…",
@@ -869,7 +887,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 25 (from Datum Plan's chat: 0.4.4, the…",
@@ -878,7 +896,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 24 (Datum Schema joins the family…",
@@ -887,7 +905,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 23 (Schema's direction: enterprise…",
@@ -896,7 +914,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 22 (Datum Schema brief)",
@@ -905,7 +923,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 21 (publisher \"Datum\")",
@@ -914,7 +932,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
@@ -923,7 +941,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -932,7 +950,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -941,7 +959,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -950,7 +968,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -959,7 +977,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-21",
+   "id": "hub-session-22",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -968,7 +986,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-22",
+   "id": "hub-session-23",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -977,7 +995,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-23",
+   "id": "hub-session-24",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -986,7 +1004,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-24",
+   "id": "hub-session-25",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -995,7 +1013,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-25",
+   "id": "hub-session-26",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -1004,7 +1022,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-26",
+   "id": "hub-session-27",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -1013,7 +1031,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-27",
+   "id": "hub-session-28",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -1022,7 +1040,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-28",
+   "id": "hub-session-29",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -1031,7 +1049,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-29",
+   "id": "hub-session-30",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -1040,7 +1058,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-30",
+   "id": "hub-session-31",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -1049,7 +1067,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-31",
+   "id": "hub-session-32",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -1218,6 +1236,16 @@
    "accent": "#0B5CAD",
    "text": "Plan, schedule, track and report your projects: one small, fast app for Windows.\n\nFor: Project managers, planners, engineers and contractors.\n\nStack: Rust (engine + shell), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript (TSX), plain CSS with light/dark tokens, Chart.js, IBM Plex fonts; Excel formulas from the GridCraft crates (pinned git dependency, see NOTICE)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan"
+  },
+  {
+   "id": "plan-v0.5.11",
+   "type": "release",
+   "app": "plan",
+   "label": "Plan 0.5.11",
+   "version": "0.5.11",
+   "date": "2026-10-31",
+   "text": "Pictures and a full legend in print, subplans that print as you see them, and a checked engine.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.5.11"
   },
   {
    "id": "plan-v0.5.10",
@@ -2559,13 +2587,40 @@
    "id": "plan-decision-60",
    "type": "decision",
    "app": "plan",
+   "label": "Header pictures are a list per place (pics…",
+   "date": "0.5.11",
+   "text": "Header pictures are a list per place (pics: [Pic[],Pic[],Pic[]], each {v, h}); old imgs/imgH migrate in load(); the header height follows the tallest picture\n\nWhy: The user wants one to three logos per side, each adjustable; one shared height could not fit a wide and a square logo together.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-61",
+   "type": "decision",
+   "app": "plan",
+   "label": "The print legend is built from what the rows show (no fixed…",
+   "date": "0.5.11",
+   "text": "The print legend is built from what the rows show (no fixed list)\n\nWhy: The fixed legend missed baselines, deadlines, subplans and critical milestones.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-62",
+   "type": "decision",
+   "app": "plan",
+   "label": "A row with SS + FF (lag 0) to the same task in another plan is…",
+   "date": "0.5.11",
+   "text": "A row with SS + FF (lag 0) to the same task in another plan is a mirror: its duration is the working time between its dates\n\nWhy: Master rows that copy a subplan phase showed their own stale duration.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plan-decision-63",
+   "type": "decision",
+   "app": "plan",
    "label": "Guide text in Markdown in the repo; the Chinese guide keeps…",
    "date": "0.4.4",
    "text": "Guide text in Markdown in the repo; the Chinese guide keeps English UI names in bold with the Chinese meaning beside them; screenshots stay in English with numbered orange markers\n\nWhy: The app is English-only; readers must find the buttons. Easy to keep up to date each release (CLAUDE.md step 3).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-61",
+   "id": "plan-decision-64",
    "type": "decision",
    "app": "plan",
    "label": "Windows publisher is \"Datum\" (bundle.publisher; the copyright…",
@@ -2574,7 +2629,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-62",
+   "id": "plan-decision-65",
    "type": "decision",
    "app": "plan",
    "label": "Release builds unwind (not abort); guard() in the shell turns…",
@@ -2583,7 +2638,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-63",
+   "id": "plan-decision-66",
    "type": "decision",
    "app": "plan",
    "label": "Project::normalize clamps spans to MAX_SPAN (10,000,000…",
@@ -2592,7 +2647,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-64",
+   "id": "plan-decision-67",
    "type": "decision",
    "app": "plan",
    "label": "WorkCal::between counts whole weeks arithmetically (plus…",
@@ -2601,7 +2656,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-65",
+   "id": "plan-decision-68",
    "type": "decision",
    "app": "plan",
    "label": "Saves use doc::write_atomic (temp file + rename) for plans…",
@@ -2610,7 +2665,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-66",
+   "id": "plan-decision-69",
    "type": "decision",
    "app": "plan",
    "label": "Updater: SHA256SUMS.txt is required; exact file-name match…",
@@ -2619,7 +2674,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-67",
+   "id": "plan-decision-70",
    "type": "decision",
    "app": "plan",
    "label": "CSV export prefixes ' to text starting with = + - @ (unless a…",
@@ -2628,7 +2683,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-68",
+   "id": "plan-decision-71",
    "type": "decision",
    "app": "plan",
    "label": "Money: each task's cost and actual cost rounded to the…",
@@ -2637,7 +2692,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-69",
+   "id": "plan-decision-72",
    "type": "decision",
    "app": "plan",
    "label": "CLI and MCP change plans only through Op (the window's…",
@@ -2646,7 +2701,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-70",
+   "id": "plan-decision-73",
    "type": "decision",
    "app": "plan",
    "label": "Print: Schedule Risk, Look-ahead and Manpower are flow views…",
@@ -2655,7 +2710,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-71",
+   "id": "plan-decision-74",
    "type": "decision",
    "app": "plan",
    "label": "Actual progress between stored periods is a straight line…",
@@ -2664,7 +2719,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-72",
+   "id": "plan-decision-75",
    "type": "decision",
    "app": "plan",
    "label": "Manpower \"Done\" is earned hours (planned hours × progress)…",
@@ -2673,7 +2728,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-73",
+   "id": "plan-decision-76",
    "type": "decision",
    "app": "plan",
    "label": "Earned schedule uses the same weights and curves as the…",
@@ -2682,7 +2737,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-74",
+   "id": "plan-decision-77",
    "type": "decision",
    "app": "plan",
    "label": "Rules of credit are step templates (CreditRule) that…",
@@ -2691,7 +2746,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-75",
+   "id": "plan-decision-78",
    "type": "decision",
    "app": "plan",
    "label": "Constraint log is Project.log (LogItem), edited with Op::Log…",
@@ -2700,7 +2755,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-76",
+   "id": "plan-decision-79",
    "type": "decision",
    "app": "plan",
    "label": "<select> whose options load later marks the chosen <option…",
@@ -2709,7 +2764,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-77",
+   "id": "plan-decision-80",
    "type": "decision",
    "app": "plan",
    "label": "Monte Carlo uses triangular draws (min, planned, max) and the…",
@@ -2718,7 +2773,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-78",
+   "id": "plan-decision-81",
    "type": "decision",
    "app": "plan",
    "label": "Trades are the resources' Group; usage(\"group\") sums work…",
@@ -2727,7 +2782,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-79",
+   "id": "plan-decision-82",
    "type": "decision",
    "app": "plan",
    "label": "Levelling always previews (level::preview levels a clone and…",
@@ -2736,7 +2791,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-80",
+   "id": "plan-decision-83",
    "type": "decision",
    "app": "plan",
    "label": "Imports return notes (Imported::Plan(p, notes)): reader notes…",
@@ -2745,7 +2800,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-81",
+   "id": "plan-decision-84",
    "type": "decision",
    "app": "plan",
    "label": "Charts over plain numbers use <Index>, not <For>",
@@ -2754,7 +2809,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-82",
+   "id": "plan-decision-85",
    "type": "decision",
    "app": "plan",
    "label": "ALAP uses free float only: the largest shift (≤ free float)…",
@@ -2763,7 +2818,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-83",
+   "id": "plan-decision-86",
    "type": "decision",
    "app": "plan",
    "label": "A started task's late start is that of its remaining work…",
@@ -2772,7 +2827,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-84",
+   "id": "plan-decision-87",
    "type": "decision",
    "app": "plan",
    "label": "Parity files are hand-made until real exports are added; the…",
@@ -2781,7 +2836,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-85",
+   "id": "plan-decision-88",
    "type": "decision",
    "app": "plan",
    "label": "docs/site.json carries about (two paragraphs) and steps…",
@@ -2790,7 +2845,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-86",
+   "id": "plan-decision-89",
    "type": "decision",
    "app": "plan",
    "label": "rustfmt is not enforced; the code stays in its compact hand…",
@@ -2799,7 +2854,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-87",
+   "id": "plan-decision-90",
    "type": "decision",
    "app": "plan",
    "label": "Hardening gates in CI: cargo deny, Windows + macOS cargo test…",
@@ -2808,7 +2863,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-88",
+   "id": "plan-decision-91",
    "type": "decision",
    "app": "plan",
    "label": "Without a status date, progress reports (Dashboard, period…",
@@ -2817,7 +2872,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-89",
+   "id": "plan-decision-92",
    "type": "decision",
    "app": "plan",
    "label": "The window's state lock recovers from a poisoned mutex…",
@@ -2826,7 +2881,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-90",
+   "id": "plan-decision-93",
    "type": "decision",
    "app": "plan",
    "label": "The Datum apps share one design and workflow in FAMILY.md…",
@@ -2835,7 +2890,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-91",
+   "id": "plan-decision-94",
    "type": "decision",
    "app": "plan",
    "label": "Templates carry people/assign/costs; Work is titled \"Man-hours\"",
@@ -2844,7 +2899,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-92",
+   "id": "plan-decision-95",
    "type": "decision",
    "app": "plan",
    "label": "One grid *engine* (selection, clipboard, fill, formatting…",
@@ -2853,7 +2908,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-93",
+   "id": "plan-decision-96",
    "type": "decision",
    "app": "plan",
    "label": "Network: layout_with(rows, sums, wbs); bands returned with the…",
@@ -2862,7 +2917,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-94",
+   "id": "plan-decision-97",
    "type": "decision",
    "app": "plan",
    "label": "Other views print through one Frame; reports print as flowing…",
@@ -2871,7 +2926,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-95",
+   "id": "plan-decision-98",
    "type": "decision",
    "app": "plan",
    "label": "Fill series follow Excel (numbers, text+number, dates by step…",
@@ -2880,7 +2935,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-96",
+   "id": "plan-decision-99",
    "type": "decision",
    "app": "plan",
    "label": "open_url only opens github.com/Edgar-Mendonca/Datum-Plan links",
@@ -2889,7 +2944,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-97",
+   "id": "plan-decision-100",
    "type": "decision",
    "app": "plan",
    "label": "Ribbon tabs: Task, Schedule, Progress (user rejected \"Home\")…",
@@ -2898,7 +2953,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-98",
+   "id": "plan-decision-101",
    "type": "decision",
    "app": "plan",
    "label": "Hidden columns stay in the table with a negative width…",
@@ -2907,7 +2962,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-99",
+   "id": "plan-decision-102",
    "type": "decision",
    "app": "plan",
    "label": "Print lays the table and chart out as one strip; pages are…",
@@ -2916,7 +2971,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-100",
+   "id": "plan-decision-103",
    "type": "decision",
    "app": "plan",
    "label": "Printing lays out pages in the UI (SVG) and uses the WebView…",
@@ -2925,7 +2980,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-101",
+   "id": "plan-decision-104",
    "type": "decision",
    "app": "plan",
    "label": "Cell formatting reuses the task's existing style JSON field…",
@@ -2934,7 +2989,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-102",
+   "id": "plan-decision-105",
    "type": "decision",
    "app": "plan",
    "label": "Every user-reported bug gets a UI test that fails on the…",
@@ -2943,7 +2998,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plan-decision-103",
+   "id": "plan-decision-106",
    "type": "decision",
    "app": "plan",
    "label": "No Python; a separate future app \"Datum Plot\"…",
@@ -3312,6 +3367,16 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot"
   },
   {
+   "id": "plot-v0.3.6",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.3.6",
+   "version": "0.3.6",
+   "date": "2026-10-31",
+   "text": "Multiple t-tests and volcano plots.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.3.6"
+  },
+  {
    "id": "plot-v0.3.5",
    "type": "release",
    "app": "plot",
@@ -3632,23 +3697,23 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.1.0"
   },
   {
-   "id": "plot-plan-0-3-6",
+   "id": "plot-plan-0-3-7",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.3.6 Many tests at once",
-   "version": "0.3.6",
+   "label": "0.3.7 More graph types",
+   "version": "0.3.7",
    "when": "Next",
-   "text": "Multiple t-tests with false discovery rate\nVolcano plots",
+   "text": "Ternary, waterfall, radar and bubble graphs",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "plot-plan-0-3-7-0-3-9",
+   "id": "plot-plan-0-3-8-0-3-9",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.3.7–0.3.9 More graphs and tests",
-   "version": "0.3.7–0.3.9",
+   "label": "0.3.8–0.3.9 More graphs and tests",
+   "version": "0.3.8–0.3.9",
    "when": "Soon",
-   "text": "Ternary, waterfall, radar and bubble graphs\nVector fields and 3D scatter\nThree-way ANOVA, ANCOVA, kappa, McNemar, bootstrap CIs, spline fits",
+   "text": "Vector fields and 3D scatter\nThree-way ANOVA, ANCOVA, kappa, McNemar, bootstrap CIs, spline fits",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -3940,6 +4005,15 @@
    "path": "py/datum/repeated.py",
    "text": "Two-way repeated measures (B32, called by groups.twoway when rm is rows/sets/both): long (sub-columns are subjects), classic (complete data: split plot via subject means + within-stratum OLS; fully within via closed-form SS; GG ε from pooled within-group covariance and orthonormal (Kronecker) contrasts), mixed (statsmodels MixedLM REML, subject random, subject×factor variance components for \"both\"; Wald F with between–within DF; tries lbfgs, bfgs, powell, nm), comparisons (cell-mean contrasts from the mixed model, patsy design of the same coding). Tests: py/tests/test_repeated.py (AnovaRM exact; classic = mixed for complete split plot).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/repeated.py"
+  },
+  {
+   "id": "plot-file-py-datum-many-py",
+   "type": "file",
+   "app": "plot",
+   "label": "many.py",
+   "path": "py/datum/many.py",
+   "text": "Multiple t-tests (B33) and the volcano (D18): multit on a grouped table (rows = genes, first two data sets, replicates = sub-columns; Welch/Student/paired/Mann-Whitney per row; statsmodels multipletests fdr_bh, fdr_tsbky, holm-sidak, bonferroni or none; rows without two values or variation are counted as not tested). Returns a results table by P (first 2000), a volcano small_plot with the top discoveries labelled, and a volcano XY table (rowTitles = row names, sets Discoveries / Not discoveries) with its own graph settings (points only), which Results › New table from result uses. Tests: py/tests/test_many.py (SciPy per row, BH by hand).",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/py/datum/many.py"
   },
   {
    "id": "plot-file-py-worker-py",
@@ -4830,6 +4904,15 @@
    "label": "Two-way repeated measures = sub-columns are subjects (rm…",
    "date": "Session 10",
    "text": "Two-way repeated measures = sub-columns are subjects (rm: rows, sets or both), classic RM ANOVA with GG when complete, a mixed model (REML, between–within DF) when values are missing; comparisons always from the mixed model. Three-way ANOVA moved to 0.3.9 (B34)\n\nWhy: Validated against AnovaRM and by classic = mixed on complete data; the grouped table has two factors, so three-way needs its own table design.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-66",
+   "type": "decision",
+   "app": "plot",
+   "label": "Multiple t-tests on grouped tables (rows = features, two data…",
+   "date": "Session 10",
+   "text": "Multiple t-tests on grouped tables (rows = features, two data sets, replicates in sub-columns), FDR (BH) by default at q < 0.05; the volcano is a results plot plus an optional XY table; results may now carry graph settings for their new table (used for points-only volcanoes)\n\nWhy: Matches how such data are laid out in a grouped table; a picture on the results sheet plus an editable graph on request keeps graphs and results separate.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -7528,8 +7611,18 @@
    "app": "mesh",
    "label": "Datum Mesh",
    "accent": "#B83250",
-   "text": "Finite-element analysis on the desktop: stresses, deflections and temperatures in parts and frames.\n\nFor: Mechanical, structural, process and aerospace engineers, students and lecturers.\n\nStack: Rust engine (crates/core, own solver), Tauri 2, SolidJS + strict TypeScript; no Python, no external solvers in 0.1",
+   "text": "One open-source platform for structural and finite-element analysis: frames, plates, solids, heat and vibration, our own solver that proves its answers.\n\nFor: Mechanical, structural, process and aerospace engineers, students and lecturers.\n\nStack: Rust engine (crates/core, own solver), Tauri 2, SolidJS + strict TypeScript; no Python, no external solvers in 0.1",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh"
+  },
+  {
+   "id": "mesh-v0.4.0",
+   "type": "release",
+   "app": "mesh",
+   "label": "Mesh 0.4.0",
+   "version": "0.4.0",
+   "date": "2026-10-31",
+   "text": "The engine grows a core: analysis steps, and frames that bend far.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.4.0"
   },
   {
    "id": "mesh-v0.3.5",
@@ -7712,33 +7805,23 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/releases/tag/v0.1.0"
   },
   {
-   "id": "mesh-plan-0-4",
+   "id": "mesh-plan-0-4-1-0-4-3",
    "type": "roadmap",
    "app": "mesh",
-   "label": "0.4 Any 3D part, and beyond linear",
-   "version": "0.4",
+   "label": "0.4.1–0.4.3 Structures, complete",
+   "version": "0.4.1–0.4.3",
    "when": "Next",
-   "text": "STEP import of any 3D part, meshed with an open mesher that comes in the installer\nYielding, large deflection and contact\nA quicker solver for large 3D models",
+   "text": "Plates and shells for slabs and walls, joined to frames\nLarge deflection for 3D frames\nResponse spectrum and time history\nTension-only and compression-only members, support settlement, member offsets, rigid floors",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-plan-later",
+   "id": "mesh-plan-0-5-0-7",
    "type": "roadmap",
    "app": "mesh",
-   "label": "later Frames, continued",
-   "version": "later",
+   "label": "0.5–0.7 Nonlinear and dynamic solids",
+   "version": "0.5–0.7",
    "when": "Later",
-   "text": "Second-order (P-delta) analysis\nPlates and shells for slabs and walls\nResponse spectrum analysis",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
-  },
-  {
-   "id": "mesh-plan-0-5",
-   "type": "roadmap",
-   "app": "mesh",
-   "label": "0.5 Flow",
-   "version": "0.5",
-   "when": "Later",
-   "text": "Incompressible flow and conjugate heat transfer with open CFD solvers",
+   "text": "Plasticity and rubber, tetrahedra, mesh import\nImplicit and explicit dynamics, transient heat\nContact",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -7748,7 +7831,7 @@
    "label": "1.0 Validated",
    "version": "1.0",
    "when": "Goal",
-   "text": "A validation report covering every analysis type\nUser guide\nSigned installer",
+   "text": "A validation report covering every analysis\nUser guide\nSigned installer",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -7788,31 +7871,31 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/sketch.tsx"
   },
   {
-   "id": "mesh-file-crates-core-src-cases-rs",
+   "id": "mesh-file-crates-core-src-engine-cases-rs",
    "type": "file",
    "app": "mesh",
    "label": "cases.rs",
-   "path": "crates/core/src/cases.rs",
+   "path": "crates/core/src/engine/cases.rs",
    "text": "Load cases and combinations (0.3.3): Which, select (a case's loads, or a combination's scaled), label, envelope (every combination solved, member extremes and reactions)",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/cases.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/engine/cases.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-release-rs",
+   "id": "mesh-file-crates-core-src-frames-release-rs",
    "type": "file",
    "app": "mesh",
    "label": "release.rs",
-   "path": "crates/core/src/release.rs",
+   "path": "crates/core/src/frames/release.rs",
    "text": "Hinges by static condensation: Release<N> (T, Tᵀ K T, Tᵀ f, the released rotations recovered) shared by frame.rs and space.rs",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/release.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frames/release.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-steel-rs",
+   "id": "mesh-file-crates-core-src-frames-steel-rs",
    "type": "file",
    "app": "mesh",
    "label": "steel.rs",
-   "path": "crates/core/src/steel.rs",
+   "path": "crates/core/src/frames/steel.rs",
    "text": "IPE, HEA, HEB tables (EN 10365 dimensions with root radii and table areas)",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/steel.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frames/steel.rs"
   },
   {
    "id": "mesh-file-ui-src-cases-tsx",
@@ -7833,58 +7916,58 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/dxf.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-sections-rs",
+   "id": "mesh-file-crates-core-src-frames-sections-rs",
    "type": "file",
    "app": "mesh",
    "label": "sections.rs",
-   "path": "crates/core/src/sections.rs",
+   "path": "crates/core/src/frames/sections.rs",
    "text": "Section properties (A, I, c) for rectangle, round bar, tube, box, I, channel, angle and custom",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/sections.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frames/sections.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-sparse-rs",
+   "id": "mesh-file-crates-core-src-engine-sparse-rs",
    "type": "file",
    "app": "mesh",
    "label": "sparse.rs",
-   "path": "crates/core/src/sparse.rs",
-   "text": "The shared linear solver: triplets, supports by elimination, prescribed values, faer sparse Cholesky, a probe solve that catches mechanisms, residual",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/sparse.rs"
+   "path": "crates/core/src/engine/sparse.rs",
+   "text": "The shared linear solver: triplets, supports by elimination, prescribed values, faer sparse Cholesky, a probe solve that catches mechanisms, residual; solve_many (0.4.0): several right-hand sides, Cholesky when positive definite else sparse LU, and says which (stable or not)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/engine/sparse.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-mesh-rs",
+   "id": "mesh-file-crates-core-src-solids-mesh-rs",
    "type": "file",
    "app": "mesh",
    "label": "mesh.rs",
-   "path": "crates/core/src/mesh.rs",
+   "path": "crates/core/src/solids/mesh.rs",
    "text": "Meshing parts: outlines (arcs split by the local size) into a spade constrained Delaunay triangulation inside a frame round the part, refined for angle and size; local sizes from refined edges and points grow into the global size (a size field: too-large triangles get a point at their centre, then refinement again); triangles kept where there is material (centroid test); 6-node triangles with midside nodes on true arcs; boundary edges tagged with their shape edge; quality",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/mesh.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/solids/mesh.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-plane-rs",
+   "id": "mesh-file-crates-core-src-solids-plane-rs",
    "type": "file",
    "app": "mesh",
    "label": "plane.rs",
-   "path": "crates/core/src/plane.rs",
+   "path": "crates/core/src/solids/plane.rs",
    "text": "Plane stress and plane strain: T3/T6 elements, edge pressure (× thickness) and edge forces (whole force or per length, for the whole thickness), gravity, point loads, fixed/pinned/roller/symmetry supports (rollers on sloping or curved edges by a stiff spring along the normal), reactions, the equilibrium check (forces, and moments against forces × reach), stresses recovered and averaged at nodes, per-element values, von Mises, principals, safety factor",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/plane.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/solids/plane.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-heat-rs",
+   "id": "mesh-file-crates-core-src-solids-heat-rs",
    "type": "file",
    "app": "mesh",
    "label": "heat.rs",
-   "path": "crates/core/src/heat.rs",
+   "path": "crates/core/src/solids/heat.rs",
    "text": "Steady heat conduction: T3/T6, fixed temperatures, flux, convection, generation; heat flux recovered at nodes and per element; heat flows at every support and load and the heat balance",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/heat.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/solids/heat.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-materials-rs",
+   "id": "mesh-file-crates-core-src-solids-materials-rs",
    "type": "file",
    "app": "mesh",
    "label": "materials.rs",
-   "path": "crates/core/src/materials.rs",
+   "path": "crates/core/src/solids/materials.rs",
    "text": "The materials library: 54 metals and plastics from Datum Atlas with sources (E, ρ, k, α the middle of the range, yield the low end, ν typical for the family); the script rebuilds the JSON from an Atlas checkout",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/materials.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/solids/materials.rs"
   },
   {
    "id": "mesh-file-crates-core-src-lib-rs",
@@ -7892,7 +7975,7 @@
    "app": "mesh",
    "label": "lib.rs",
    "path": "crates/core/src/lib.rs",
-   "text": "Results (frame, plane or heat, tagged by kind) and solve() for any analysis; tests that every example solves, balances and agrees with hand checks",
+   "text": "Modules: engine (sparse, modal, cases, path), frames (frame, space, corot, release, sections, steel), solids (mesh, plane, heat, solid, materials), re-exported by their old names (crate::frame …) so paths still work. Results (frame, plane or heat, tagged by kind) and solve() for any analysis, solve_for (by steps); tests that every example solves, balances and agrees with hand checks",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/lib.rs"
   },
   {
@@ -7914,22 +7997,22 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/examples/bigpart.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-solid-rs",
+   "id": "mesh-file-crates-core-src-solids-solid-rs",
    "type": "file",
    "app": "mesh",
    "label": "solid.rs",
-   "path": "crates/core/src/solid.rs",
+   "path": "crates/core/src/solids/solid.rs",
    "text": "3D solids (0.3.0; revolved 0.3.2; heat and frequencies 0.3.4: heat, modes, build shared by the static solve and the modes): the section's 2D mesh swept into layers (Swept, with map/pos: a revolved part's axis nodes are one node on every level and a full turn's last level is its first), line supports (line_nodes), held directions, Volume (every node, field values and tetrahedra for the window's cutting plane), 18- and 6-node wedges (triangle × line shape functions), faces for loads and supports (side faces from edges, end faces), penalty rollers on sloping faces, nodal stresses averaged by volume, principal stresses, the outer surface for the window (Surface), MAX_UNKNOWNS",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/solid.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/solids/solid.rs"
   },
   {
-   "id": "mesh-file-crates-core-src-space-rs",
+   "id": "mesh-file-crates-core-src-frames-space-rs",
    "type": "file",
    "app": "mesh",
    "label": "space.rs",
-   "path": "crates/core/src/space.rs",
+   "path": "crates/core/src/frames/space.rs",
    "text": "3D frames: local axes (axes), the 12×12 beam (axial, torsion, bending both ways) and truss bars, member loads in any direction, supports and springs in six directions, results along members (N, Vy, Vz, T, My, Mz, 3D deflection), six-way equilibrium",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/space.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frames/space.rs"
   },
   {
    "id": "mesh-file-ui-src-plane3-ts",
@@ -7977,13 +8060,13 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/view3d.tsx"
   },
   {
-   "id": "mesh-file-crates-core-src-modal-rs",
+   "id": "mesh-file-crates-core-src-engine-modal-rs",
    "type": "file",
    "app": "mesh",
    "label": "modal.rs",
-   "path": "crates/core/src/modal.rs",
+   "path": "crates/core/src/engine/modal.rs",
    "text": "Natural frequencies and buckling (subspace shared, Kind): subspace iteration on one sparse Cholesky of K, Rayleigh–Ritz with a small dense Cholesky and Jacobi eigen solve; mode shapes scaled to a largest movement of 1",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/modal.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/engine/modal.rs"
   },
   {
    "id": "mesh-file-ui-src-modes-tsx",
@@ -7995,13 +8078,40 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/ui/src/modes.tsx"
   },
   {
-   "id": "mesh-file-crates-core-src-frame-rs",
+   "id": "mesh-file-crates-core-src-engine-path-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "path.rs",
+   "path": "crates/core/src/engine/path.rs",
+   "text": "The path solver (0.4.0): the Problem trait a module gives (size, held unknowns, internal forces and tangent at given movements); follow from a state in balance with base as base + λ·load goes from λ 0 to 1, by Newton load control (increments halved when they will not converge, and when they jump from a stable to an unstable balance) or Crisfield's cylindrical arc length (root nearest the last direction, predictor sign from the last increment, length adapted to the iterations, a load-controlled finish at λ = 1); Path of points with λ, movements, iterations and stability",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/engine/path.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-frames-corot-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "corot.rs",
+   "path": "crates/core/src/frames/corot.rs",
+   "text": "Corotational plane beams and truss bars (0.4.0): each piece's deformations in axes that turn with its chord (ū from the movements, not the positions, to keep digits; θ̄ wrapped), local linear beam with hinges condensed, internal forces Bᵀq and the consistent tangent (checked against finite differences); member loads and fixed-end moments as dead nodal loads, warming in N; results on the deflected frame (moments of loads and reactions from where the nodes are now), diagrams per piece (4 stations each) and the deflected shape from the chord plus the cubic; Curve (load–deflection of a node, stability, first limit)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frames/corot.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-steps-rs",
+   "type": "file",
+   "app": "mesh",
+   "label": "steps.rs",
+   "path": "crates/core/src/steps.rs",
+   "text": "Analysis steps (0.4.0): run (no steps or linear ones: the linear solve of the last step's load × factor; large-deflection steps on plane frames: each step's load assembled, the path followed from the last step's end, the curve and the solver report); solve_for goes through it",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/steps.rs"
+  },
+  {
+   "id": "mesh-file-crates-core-src-frames-frame-rs",
    "type": "file",
    "app": "mesh",
    "label": "frame.rs",
-   "path": "crates/core/src/frame.rs",
+   "path": "crates/core/src/frames/frame.rs",
    "text": "Frames and trusses: beam and truss stiffness, linear member loads as consistent nodal loads, self-weight, springs, reactions, equilibrium sums, exact N, V, M and deflection along each member (41 stations), stress and utilisation",
-   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frame.rs"
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/crates/core/src/frames/frame.rs"
   },
   {
    "id": "mesh-file-crates-core-src-bench-rs",
@@ -8718,13 +8828,49 @@
    "id": "mesh-decision-52",
    "type": "decision",
    "app": "mesh",
+   "label": "Large deflection by corotational beams (Crisfield vol. 1 ch.…",
+   "date": "0.4.0",
+   "text": "Large deflection by corotational beams (Crisfield vol. 1 ch. 7): the local element is the linear beam, so P-delta and large rotations come from the geometry, exact as pieces shorten; beams cut into pieces per step (10 by default) rather than a local geometric stiffness. Steps carry on from the last; loads are dead loads. Arc length is Crisfield's cylindrical form; past limit points the tangent is solved by sparse LU\n\nWhy: Simple, robust and checked to 0.2 % on the elastica; the same element pattern (stiffness, internal force) is the interface the 3D, plate and solid modules will follow",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-53",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Benchmarks for large deflection against closed forms wherever…",
+   "date": "0.4.0",
+   "text": "Benchmarks for large deflection against closed forms wherever they exist: AISC 360 C2 cases (sec and tan formulas), the elastica by elliptic integrals (AGM) for NL5/NL6; Lee's frame (NL7) against the literature's 18.54 with 0.5 % tolerance (we get 18.56 with 20 pieces and 60 increments)\n\nWhy: Known answers, not our own converged numbers",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-54",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Vision (2026-10-31): one engine (a core plus modules) for…",
+   "date": "0.4",
+   "text": "Vision (2026-10-31): one engine (a core plus modules) for frames, plates, solids, heat and dynamics, linear and nonlinear, organised in steps; our own mechanics from published methods; finish the structures side (0.4.x) on the new core before nonlinear solids (0.5+). Replaces the 0.4 plan of STEP import with Gmsh in the installer; mesh and CAD import come in 0.5 as files and optional add-ons\n\nWhy: The user's aim from the start was an Abaqus-like nonlinear solver; frames and solids need the same Newton and time loops, so two engines would mean twice the work and answers that disagree",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-55",
+   "type": "decision",
+   "app": "mesh",
+   "label": "Researched 2026-10-31: tangency-labs/FieldCraft (Rust…",
+   "date": "0.4",
+   "text": "Researched 2026-10-31: tangency-labs/FieldCraft (Rust, MIT/Apache, own supernodal Cholesky, block Lanczos, tet/hex mesher, Newton/Riks, J2, hyperelastic, explicit, mortar contact, LBM; 48.6 MB Windows download; 394/403 checks) and SolidCraft (its CAD; its kernel solidcore is a Rust port of NVIDIA's open SMLib B-rep kernel; no NVIDIA libraries in the solver, GPU through wgpu). Libraries: faer (has LDLᵀ, Bunch–Kaufman, LU, Lanczos), METIS (Apache, metis crate), FEBio (MIT, reference only), truck (Apache B-rep; STEP reading immature). Benchmarks: NAFEMS NL1–NL7, LE/FV/T, MacNeal–Harder, Scordelis–Lo, Hill cylinder, Rivlin, Hertz, wave in a bar, Taylor bar, AISC 360 C2\n\nWhy: Background for the vision; we read them for what they verify, not to copy",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "mesh-decision-56",
+   "type": "decision",
+   "app": "mesh",
    "label": "DXF import adds shapes to the open part in one step; shapes…",
    "date": "0.3.5",
    "text": "DXF import adds shapes to the open part in one step; shapes sorted solids first, largest first; non-finite numbers skipped\n\nWhy: Undo restores; a garbled file never makes a NaN corner",
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-53",
+   "id": "mesh-decision-57",
    "type": "decision",
    "app": "mesh",
    "label": "3D heat is its own analysis (Analysis::SolidHeat, is_solid())…",
@@ -8733,7 +8879,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-54",
+   "id": "mesh-decision-58",
    "type": "decision",
    "app": "mesh",
    "label": "Load cases: Load.case (a case that does not exist means the…",
@@ -8742,7 +8888,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-55",
+   "id": "mesh-decision-59",
    "type": "decision",
    "app": "mesh",
    "label": "Hinges by static condensation of the member's released end…",
@@ -8751,7 +8897,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-56",
+   "id": "mesh-decision-60",
    "type": "decision",
    "app": "mesh",
    "label": "Section tables from EN 10365 nominal dimensions; properties…",
@@ -8760,7 +8906,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-57",
+   "id": "mesh-decision-61",
    "type": "decision",
    "app": "mesh",
    "label": "Revolve is a property of a 3D solid (Model.revolve, radians, 0…",
@@ -8769,7 +8915,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-58",
+   "id": "mesh-decision-62",
    "type": "decision",
    "app": "mesh",
    "label": "Elements pinched on the axis keep their repeated node: the…",
@@ -8778,7 +8924,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-59",
+   "id": "mesh-decision-63",
    "type": "decision",
    "app": "mesh",
    "label": "The cutting plane is drawn by the window from Volume…",
@@ -8787,7 +8933,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-60",
+   "id": "mesh-decision-64",
    "type": "decision",
    "app": "mesh",
    "label": "SupportKind::Hold {x, y, z} and Target::Line {shape, edge, at}…",
@@ -8796,7 +8942,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-61",
+   "id": "mesh-decision-65",
    "type": "decision",
    "app": "mesh",
    "label": "The user chose (2026-10-30) a frames release next (0.3.3: load…",
@@ -8805,7 +8951,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-62",
+   "id": "mesh-decision-66",
    "type": "decision",
    "app": "mesh",
    "label": "Combining shapes uses i_overlay (MIT/Apache) on outlines cut…",
@@ -8814,7 +8960,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-63",
+   "id": "mesh-decision-67",
    "type": "decision",
    "app": "mesh",
    "label": "Sketch tools are engine ops (Fillet, Chamfer, Combine, Offset…",
@@ -8823,7 +8969,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-64",
+   "id": "mesh-decision-68",
    "type": "decision",
    "app": "mesh",
    "label": "The window gets a solid's outer surface only (nodes…",
@@ -8832,7 +8978,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-65",
+   "id": "mesh-decision-69",
    "type": "decision",
    "app": "mesh",
    "label": "Budgets: installer under 5 MB (release.yml), window startup…",
@@ -8841,7 +8987,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-66",
+   "id": "mesh-decision-70",
    "type": "decision",
    "app": "mesh",
    "label": "three.js is loaded only when a 3D frame is shown (lazy…",
@@ -8850,7 +8996,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-67",
+   "id": "mesh-decision-71",
    "type": "decision",
    "app": "mesh",
    "label": "3D buckling is flexural only: the geometric stiffness has no…",
@@ -8859,7 +9005,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-68",
+   "id": "mesh-decision-72",
    "type": "decision",
    "app": "mesh",
    "label": "3D frames reuse the plane frame's modal solvers…",
@@ -8868,7 +9014,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-69",
+   "id": "mesh-decision-73",
    "type": "decision",
    "app": "mesh",
    "label": "Datum Mesh's purpose written down (top of this file); frames…",
@@ -8877,7 +9023,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-70",
+   "id": "mesh-decision-74",
    "type": "decision",
    "app": "mesh",
    "label": "The Windows publisher is \"Datum\" (bundle.publisher), as for…",
@@ -8886,7 +9032,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-71",
+   "id": "mesh-decision-75",
    "type": "decision",
    "app": "mesh",
    "label": "3D frames are a separate analysis (Space) with y up and z as…",
@@ -8895,7 +9041,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-72",
+   "id": "mesh-decision-76",
    "type": "decision",
    "app": "mesh",
    "label": "Member axes: local y = z × x (the plane frame's local y), or…",
@@ -8904,7 +9050,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-73",
+   "id": "mesh-decision-77",
    "type": "decision",
    "app": "mesh",
    "label": "Members are drawn on working planes (Front, Side, Plan at a…",
@@ -8913,7 +9059,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-74",
+   "id": "mesh-decision-78",
    "type": "decision",
    "app": "mesh",
    "label": "three.js 0.185.1 (MIT) for the 3D view, pinned exactly",
@@ -8922,7 +9068,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-75",
+   "id": "mesh-decision-79",
    "type": "decision",
    "app": "mesh",
    "label": "Buckling solves B φ = μ K φ for the largest μ = 1/λ, so K…",
@@ -8931,7 +9077,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-76",
+   "id": "mesh-decision-80",
    "type": "decision",
    "app": "mesh",
    "label": "Beams are cut into 8 pieces (frame::SPLIT) for modes and…",
@@ -8940,7 +9086,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-77",
+   "id": "mesh-decision-81",
    "type": "decision",
    "app": "mesh",
    "label": "Truss bars are checked on their own as pinned struts rather…",
@@ -8949,7 +9095,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-78",
+   "id": "mesh-decision-82",
    "type": "decision",
    "app": "mesh",
    "label": "Natural frequencies by subspace iteration (p = max(2q, q + 8)…",
@@ -8958,7 +9104,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-79",
+   "id": "mesh-decision-83",
    "type": "decision",
    "app": "mesh",
    "label": "Frame assembly (frame::assemble) and the plane solver's…",
@@ -8967,7 +9113,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "mesh-decision-80",
+   "id": "mesh-decision-84",
    "type": "decision",
    "app": "mesh",
    "label": "Help › Verification runs bench::run() in the app, so the…",
@@ -9138,6 +9284,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
   },
   {
+   "id": "mesh-session-18",
+   "type": "session",
+   "app": "mesh",
+   "label": "Session 1, continued (vision; 0.4.0 started)",
+   "date": "2026-10-31",
+   "text": "· Released 0.3.5. The user pointed to tangency-labs (FieldCraft, SolidCraft) and explained the real aim: an Abaqus-like nonlinear and dynamic solver, one platform for frames and everything else, our own code. Researched their repos, open libraries and the benchmark sets (three research agents; findings in Decisions). Agreed: one engine of a core and modules, organised in steps, mechanics from published methods; finish the structures side first on the new core. Wrote docs/VISION.md; updated CLAUDE.md, the site roadmap and README. Started 0.4.0.\n· 0.4.0 built and released. Module split (engine/, frames/, solids/ with the old paths re-exported); Step in the model (kind linear/newton/arc, load, factor, increments, pieces, monitor) with doc ops, check, repair and cascade; engine/path.rs (Newton, arc length; tested on the von Mises truss exactly); sparse::solve_many (LU past limit points); frames/corot.rs; steps.rs; benchmark 21 (15 rows); Lee's frame example; window: Solve › Steps dialog, Results › Load–Deflection curve (SVG, unstable points hollow), true-size deflected shape, solver report rows; 8 new UI checks; real app checked (example opens, solves past its limit in 55 ms, reactions balance). Found on the way: NL6 first stayed on the straight unstable branch (Newton happily converges to it), fixed by cutting increments that jump from a stable to an unstable balance; NL6's test column was stocky (7.5 % axial strain spoils the inextensible elastica), made slender (L/r 173); a garbled revolve angle and garbled steps made damaged files fail check (repair now covers both). Timing",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Mesh/blob/HEAD/docs/MEMORY.md"
+  },
+  {
    "id": "app-pipe",
    "type": "app",
    "app": "pipe",
@@ -9145,6 +9300,16 @@
    "accent": "#4D7C0F",
    "text": "Pipe stress analysis on the desktop: displacements, support loads, nozzle loads and code stresses, with an automatic isometric.\n\nFor: Piping, stress, mechanical, process and plant engineers, consultants and students.\n\nStack: Rust engine (crates/core, own solver with faer), Tauri 2, SolidJS + strict TypeScript, three.js for the 3D view; no Python",
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe"
+  },
+  {
+   "id": "pipe-v0.2.1",
+   "type": "release",
+   "app": "pipe",
+   "label": "Pipe 0.2.1",
+   "version": "0.2.1",
+   "date": "2026-10-31",
+   "text": "Ease of use: the first step of the third stage.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/releases/tag/v0.2.1"
   },
   {
    "id": "pipe-v0.2.0",
@@ -9347,13 +9512,73 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-plan-0-3",
+   "id": "pipe-plan-0-2-1",
    "type": "roadmap",
    "app": "pipe",
-   "label": "0.3 Equipment and flanges",
-   "version": "0.3",
+   "label": "0.2.1 Ease of use",
+   "version": "0.2.1",
+   "when": "Done",
+   "text": "When a model can move freely, the node and direction that nothing holds\nAnalyze automatically after each edit\nValues typed with their units (20 ft, 6 in, 150 mm)\nRight-click menus on nodes and elements in the 3D view",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-plan-0-2-2",
+   "type": "roadmap",
+   "app": "pipe",
+   "label": "0.2.2 Speed on large models",
+   "version": "0.2.2",
    "when": "Next",
-   "text": "Nozzle checks to the published pump, compressor and steam turbine standards\nFlange leakage check\nLocal stresses at vessel nozzles\nRelief valve thrust\nBroken into small 0.x.y steps before it starts",
+   "text": "Large models (1500+ elements) measured in the table, the 3D view and the analysis, and made fast\nSpeed checks that guard it",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-plan-0-2-3",
+   "type": "roadmap",
+   "app": "pipe",
+   "label": "0.2.3 Rotating equipment nozzles",
+   "version": "0.2.3",
+   "when": "Planned",
+   "text": "Pump, compressor and steam turbine nozzle checks by the standards' published equations, with the allowable tables as your inputs",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-plan-0-2-4",
+   "type": "roadmap",
+   "app": "pipe",
+   "label": "0.2.4 Flange leakage",
+   "version": "0.2.4",
+   "when": "Planned",
+   "text": "Flange leakage by the equivalent pressure method against the flange rating",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-plan-0-2-5",
+   "type": "roadmap",
+   "app": "pipe",
+   "label": "0.2.5 Relief valve thrust",
+   "version": "0.2.5",
+   "when": "Planned",
+   "text": "The reaction of an open discharge as an occasional load",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-plan-0-2-6",
+   "type": "roadmap",
+   "app": "pipe",
+   "label": "0.2.6 Vessel nozzles",
+   "version": "0.2.6",
+   "when": "Planned",
+   "text": "Nozzle flexibility and local stresses at vessels, where published equations allow (not copyrighted charts)",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-plan-0-3-0",
+   "type": "roadmap",
+   "app": "pipe",
+   "label": "0.3.0 Equipment and flanges, complete",
+   "version": "0.3.0",
+   "when": "Milestone",
+   "text": "Everything in 0.2.1–0.2.6 reviewed, with the verification record and examples updated\nNo new features: 0.3.0 marks the stage as finished",
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -9795,13 +10020,58 @@
    "id": "pipe-decision-0",
    "type": "decision",
    "app": "pipe",
+   "label": "The sparse solver marks a mechanism with the free unknown…",
+   "date": "0.2.1",
+   "text": "The sparse solver marks a mechanism with the free unknown (\"[dof n]\": the zero pivot, the largest probe answer, or a 1e-9-stiffened copy's largest answer); locate_free turns it into the node and direction; the window selects that node\n\nWhy: The most common question a new user has: where is it free?",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-decision-1",
+   "type": "decision",
+   "app": "pipe",
+   "label": "Analyze automatically is a per-user option (on by default)…",
+   "date": "0.2.1",
+   "text": "Analyze automatically is a per-user option (on by default): 400 ms after an edit, 300 ms after opening; quiet (no tab switch, toasts only when something is wrong and changed)\n\nWhy: Results that follow the typing; fast enough on every example",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-decision-2",
+   "type": "decision",
+   "app": "pipe",
+   "label": "Typed units: the engine sends every unit symbol with its…",
+   "date": "0.2.1",
+   "text": "Typed units: the engine sends every unit symbol with its factor, offset and dimension (units::typed) and each display quantity's dimension; parseQ in ui/src/units.ts adds number-unit pairs (' and \" for feet and inches), refuses a wrong dimension\n\nWhy: The engine stays the only source of factors",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-decision-3",
+   "type": "decision",
+   "app": "pipe",
+   "label": "3D view: right-click menus; a node within 14 px of the pointer…",
+   "date": "0.2.1",
+   "text": "3D view: right-click menus; a node within 14 px of the pointer wins over the pipe under it, for left and right clicks\n\nWhy: Nodes are small targets",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-decision-4",
+   "type": "decision",
+   "app": "pipe",
+   "label": "Stage 0.3 split into 0.2.1–0.2.6 with 0.3.0 as the milestone…",
+   "date": "plan",
+   "text": "Stage 0.3 split into 0.2.1–0.2.6 with 0.3.0 as the milestone; the owner asked for ease of use and efficiency too, so those come first (0.2.1, 0.2.2)\n\nWhy: Small releases, as the owner asked; usability before new checks",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-decision-5",
+   "type": "decision",
+   "app": "pipe",
    "label": "Touching one-way or gapped supports held exactly on one…",
    "date": "0.2.0",
    "text": "Touching one-way or gapped supports held exactly on one unknown share its reaction equally (CondSolve.share), with the shared-support warning\n\nWhy: Found by the review; the same rule as linear supports",
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-1",
+   "id": "pipe-decision-6",
    "type": "decision",
    "app": "pipe",
    "label": "A custom bend radius ≤ D/2 is refused by check (and repaired…",
@@ -9810,7 +10080,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-2",
+   "id": "pipe-decision-7",
    "type": "decision",
    "app": "pipe",
    "label": "Hanger travel = the pipe's movement minus the hanger's own…",
@@ -9819,7 +10089,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-3",
+   "id": "pipe-decision-8",
    "type": "decision",
    "app": "pipe",
    "label": "The .pcf import splits a piece at any support or olet point…",
@@ -9828,7 +10098,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-4",
+   "id": "pipe-decision-9",
    "type": "decision",
    "app": "pipe",
    "label": "The regulator's piping benchmark problems (NUREG/CR-1677…",
@@ -9837,7 +10107,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-5",
+   "id": "pipe-decision-10",
    "type": "decision",
    "app": "pipe",
    "label": ".pcf import in crates/core/src/import.rs: a new unsaved model…",
@@ -9846,7 +10116,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-6",
+   "id": "pipe-decision-11",
    "type": "decision",
    "app": "pipe",
    "label": "Public words name the format by its extension only (.pcf…",
@@ -9855,7 +10125,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-7",
+   "id": "pipe-decision-12",
    "type": "decision",
    "app": "pipe",
    "label": "SupKind::Hanger { k, cold } (0 in the file); analyze sizes…",
@@ -9864,7 +10134,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-8",
+   "id": "pipe-decision-13",
    "type": "decision",
    "app": "pipe",
    "label": "Choice: the first table row (in the user's order) with H and C…",
@@ -9873,7 +10143,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-9",
+   "id": "pipe-decision-14",
    "type": "decision",
    "app": "pipe",
    "label": "The final solve models a hanger as a Y spring of rate k plus…",
@@ -9882,7 +10152,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-10",
+   "id": "pipe-decision-15",
    "type": "decision",
    "app": "pipe",
    "label": "Settings.springs (default typical_springs(): series A/B/C with…",
@@ -9891,7 +10161,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-11",
+   "id": "pipe-decision-16",
    "type": "decision",
    "app": "pipe",
    "label": "Wind and seismic are model settings (wind_q, wind_cd…",
@@ -9900,7 +10170,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-12",
+   "id": "pipe-decision-17",
    "type": "decision",
    "app": "pipe",
    "label": "Wind per metre = q Cd D (w − (w·t) t) with D over insulation…",
@@ -9909,7 +10179,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-13",
+   "id": "pipe-decision-18",
    "type": "decision",
    "app": "pipe",
    "label": "Recommended: OPE1+WIN / OPE1+SEIS (Sum with wind/seis) and OCC…",
@@ -9918,7 +10188,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-14",
+   "id": "pipe-decision-19",
    "type": "decision",
    "app": "pipe",
    "label": "An occasional range's stress = the largest SUS stress at the…",
@@ -9927,7 +10197,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-15",
+   "id": "pipe-decision-20",
    "type": "decision",
    "app": "pipe",
    "label": "Recipe::Sum.wind/seis and the settings have serde defaults, so…",
@@ -9936,7 +10206,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-16",
+   "id": "pipe-decision-21",
    "type": "decision",
    "app": "pipe",
    "label": "Support.mu on rests, guides, line stops and restraints…",
@@ -9945,7 +10215,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-17",
+   "id": "pipe-decision-22",
    "type": "decision",
    "app": "pipe",
    "label": "Sticking holds the pipe across (exactly along a global axis…",
@@ -9954,7 +10224,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-18",
+   "id": "pipe-decision-23",
    "type": "decision",
    "app": "pipe",
    "label": "A sliding force is solved exactly for each support from its…",
@@ -9963,7 +10233,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-19",
+   "id": "pipe-decision-24",
    "type": "decision",
    "app": "pipe",
    "label": "N is taken from the previous solve (lagged); friction is in…",
@@ -9972,7 +10242,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-20",
+   "id": "pipe-decision-25",
    "type": "decision",
    "app": "pipe",
    "label": "When a case does not settle, the loads returned are those of…",
@@ -9981,7 +10251,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-21",
+   "id": "pipe-decision-26",
    "type": "decision",
    "app": "pipe",
    "label": "The 1500-element speed gate runs without friction; a…",
@@ -9990,7 +10260,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-22",
+   "id": "pipe-decision-27",
    "type": "decision",
    "app": "pipe",
    "label": "Support.one_way (rests) and Support.gap (rests, guides, line…",
@@ -9999,7 +10269,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-23",
+   "id": "pipe-decision-28",
    "type": "decision",
    "app": "pipe",
    "label": "Each Sum case is solved by iteration with its own support…",
@@ -10008,7 +10278,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-24",
+   "id": "pipe-decision-29",
    "type": "decision",
    "app": "pipe",
    "label": "A touching rigid support along a global axis is held exactly…",
@@ -10017,7 +10287,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-25",
+   "id": "pipe-decision-30",
    "type": "decision",
    "app": "pipe",
    "label": "When open gaps leave a mechanism, the open supports get 1 N/mm…",
@@ -10026,7 +10296,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-26",
+   "id": "pipe-decision-31",
    "type": "decision",
    "app": "pipe",
    "label": "Linear-only models keep the one-factorisation path, bit for bit",
@@ -10035,7 +10305,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-27",
+   "id": "pipe-decision-32",
    "type": "decision",
    "app": "pipe",
    "label": "The Windows publisher is \"Datum\" (bundle.publisher in…",
@@ -10044,7 +10314,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-28",
+   "id": "pipe-decision-33",
    "type": "decision",
    "app": "pipe",
    "label": "Public words about the code: \"calculates using the published…",
@@ -10053,7 +10323,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-29",
+   "id": "pipe-decision-34",
    "type": "decision",
    "app": "pipe",
    "label": "Bend wall: an extra check per bend at its intrados with I =…",
@@ -10062,7 +10332,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-30",
+   "id": "pipe-decision-35",
    "type": "decision",
    "app": "pipe",
    "label": "t ≥ D/6 fails the wall check, with a warning, rather than…",
@@ -10071,7 +10341,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-31",
+   "id": "pipe-decision-36",
    "type": "decision",
    "app": "pipe",
    "label": "Ze = π r₂² Ts at a tee's branch end (setting branch_ze, on)…",
@@ -10080,7 +10350,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-32",
+   "id": "pipe-decision-37",
    "type": "decision",
    "app": "pipe",
    "label": "Pressure elongation (setting pressure_elongation, off) is…",
@@ -10089,7 +10359,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-33",
+   "id": "pipe-decision-38",
    "type": "decision",
    "app": "pipe",
    "label": "Two rigid supports holding one direction at a node share its…",
@@ -10098,7 +10368,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-34",
+   "id": "pipe-decision-39",
    "type": "decision",
    "app": "pipe",
    "label": "The 0.2 stage is split into the small releases 0.1.5–0.1.11…",
@@ -10107,7 +10377,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-35",
+   "id": "pipe-decision-40",
    "type": "decision",
    "app": "pipe",
    "label": "Everything in the brief §1 (name, moss accent, identifier…",
@@ -10116,7 +10386,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-36",
+   "id": "pipe-decision-41",
    "type": "decision",
    "app": "pipe",
    "label": "The shell and window are copied from Datum Mesh (Plan's…",
@@ -10125,7 +10395,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-37",
+   "id": "pipe-decision-42",
    "type": "decision",
    "app": "pipe",
    "label": "Y is up; X east, Z south (right-handed). The first node of…",
@@ -10134,7 +10404,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-38",
+   "id": "pipe-decision-43",
    "type": "decision",
    "app": "pipe",
    "label": "Bends and tees are components on the element that ends at…",
@@ -10143,7 +10413,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-39",
+   "id": "pipe-decision-44",
    "type": "decision",
    "app": "pipe",
    "label": "Line conditions are named sets (T1–T3, P1–P3, hydrotest) that…",
@@ -10152,7 +10422,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-40",
+   "id": "pipe-decision-45",
    "type": "decision",
    "app": "pipe",
    "label": "Temperatures are kelvin in the file (SI base), shown in °C or °F",
@@ -10161,7 +10431,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-41",
+   "id": "pipe-decision-46",
    "type": "decision",
    "app": "pipe",
    "label": "Typical allowables are worked out from typical strengths as…",
@@ -10170,7 +10440,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-42",
+   "id": "pipe-decision-47",
    "type": "decision",
    "app": "pipe",
    "label": "Modulus and expansion against temperature: Atlas's room values…",
@@ -10179,7 +10449,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-43",
+   "id": "pipe-decision-48",
    "type": "decision",
    "app": "pipe",
    "label": "The display table comes from the engine (Calc's units), not…",
@@ -10188,7 +10458,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-44",
+   "id": "pipe-decision-49",
    "type": "decision",
    "app": "pipe",
    "label": "SI lengths in mm everywhere; US lengths along the pipe in ft…",
@@ -10197,7 +10467,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-45",
+   "id": "pipe-decision-50",
    "type": "decision",
    "app": "pipe",
    "label": "Load cases are rebuilt after every edit while \"automatic\" is…",
@@ -10206,7 +10476,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-46",
+   "id": "pipe-decision-51",
    "type": "decision",
    "app": "pipe",
    "label": "Every element (straight, arc, reducer, rigid) from its exact…",
@@ -10215,7 +10485,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-47",
+   "id": "pipe-decision-52",
    "type": "decision",
    "app": "pipe",
    "label": "Shear deformation with κ = 0.5 (thin tube); the beam-theory…",
@@ -10224,7 +10494,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-48",
+   "id": "pipe-decision-53",
    "type": "decision",
    "app": "pipe",
    "label": "Rigid supports along global axes hold their degree of freedom…",
@@ -10233,7 +10503,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-49",
+   "id": "pipe-decision-54",
    "type": "decision",
    "app": "pipe",
    "label": "The modulus at the installed temperature for every case…",
@@ -10242,7 +10512,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-50",
+   "id": "pipe-decision-55",
    "type": "decision",
    "app": "pipe",
    "label": "Bend flexibility and SIF pressure corrections use the highest…",
@@ -10251,7 +10521,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-51",
+   "id": "pipe-decision-56",
    "type": "decision",
    "app": "pipe",
    "label": "Rigid elements are 1000 × the pipe's stiffness; their weight…",
@@ -10260,7 +10530,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-52",
+   "id": "pipe-decision-57",
    "type": "decision",
    "app": "pipe",
    "label": "Tee SIFs apply at every segment end on the tee's point, with…",
@@ -10269,7 +10539,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-53",
+   "id": "pipe-decision-58",
    "type": "decision",
    "app": "pipe",
    "label": "The equilibrium check is judged against the larger of the…",
@@ -10278,7 +10548,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-54",
+   "id": "pipe-decision-59",
    "type": "decision",
    "app": "pipe",
    "label": "The window gets the analysis geometry (arcs, points) with…",
@@ -10287,7 +10557,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-55",
+   "id": "pipe-decision-60",
    "type": "decision",
    "app": "pipe",
    "label": "Releases follow the brief's steps, but 0.1.1 already shows…",
@@ -10296,7 +10566,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-56",
+   "id": "pipe-decision-61",
    "type": "decision",
    "app": "pipe",
    "label": "The isometric and the full report (brief step 6) came in…",
@@ -10305,7 +10575,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-57",
+   "id": "pipe-decision-62",
    "type": "decision",
    "app": "pipe",
    "label": "Example supports chosen like a designer would: a line stop…",
@@ -10314,7 +10584,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-58",
+   "id": "pipe-decision-63",
    "type": "decision",
    "app": "pipe",
    "label": "An independent review of the engine (a separate agent, told to…",
@@ -10323,7 +10593,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-59",
+   "id": "pipe-decision-64",
    "type": "decision",
    "app": "pipe",
    "label": "A guide or line stop takes the run through its node (two…",
@@ -10332,7 +10602,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-60",
+   "id": "pipe-decision-65",
    "type": "decision",
    "app": "pipe",
    "label": "Tees take their SIF from the run's pipe and their plane from…",
@@ -10341,7 +10611,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-61",
+   "id": "pipe-decision-66",
    "type": "decision",
    "app": "pipe",
    "label": "Bend SIF pressure correction with the lowest operating…",
@@ -10350,7 +10620,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-62",
+   "id": "pipe-decision-67",
    "type": "decision",
    "app": "pipe",
    "label": "A flexible anchor's stiffness is translational; its rotations…",
@@ -10359,7 +10629,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-63",
+   "id": "pipe-decision-68",
    "type": "decision",
    "app": "pipe",
    "label": "The equilibrium help says what the check proves (loads…",
@@ -10368,7 +10638,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-64",
+   "id": "pipe-decision-69",
    "type": "decision",
    "app": "pipe",
    "label": "The element table keys its rows by position (Solid's Index)…",
@@ -10377,7 +10647,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-65",
+   "id": "pipe-decision-70",
    "type": "decision",
    "app": "pipe",
    "label": "The loop wizard puts the loop in the middle of a straight…",
@@ -10386,7 +10656,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-66",
+   "id": "pipe-decision-71",
    "type": "decision",
    "app": "pipe",
    "label": "Copy Section joins the copy's first node to a chosen node and…",
@@ -10395,7 +10665,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "pipe-decision-67",
+   "id": "pipe-decision-72",
    "type": "decision",
    "app": "pipe",
    "label": "Iso tags: one per element, on its longest line; dimensions…",
@@ -10543,6 +10813,15 @@
    "app": "pipe",
    "label": "Summary of the second stage (0.1.5–0.2.0)",
    "text": "· Released: 0.1.5 (code check fixes, Help › Sources, legal wording), 0.1.6 (publisher \"Datum\"), 0.1.7 (one-way rests, gaps), 0.1.8 (friction), 0.1.9 (wind, static seismic, occasional check), 0.1.10 (spring hangers), 0.1.11 (.pcf import), 0.2.0 (review).\n· Works: every support is linear or settles by iteration (contact, gaps, friction) with balanced loads; occasional loads; hangers sized from the user's spring table; import from design tools; 18 benchmarks (48 checks) and 35 hand-worked cases.\n· Moved: the regulator's public benchmarks to 0.4 (they are dynamic).\n· Next: stage 0.3 (equipment and flanges), to be split into small 0.2.x releases first.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "pipe-session-16",
+   "type": "session",
+   "app": "pipe",
+   "label": "Session 2, continued (0.2.1: ease of use)",
+   "date": "2026-10-31",
+   "text": "· Owner asked to start the third stage and to make the app more efficient and easier: the stage was split into 0.2.1–0.2.6 with ease of use (0.2.1) and speed (0.2.2) first.\n· Engine: mechanism location in sparse.rs (mechanism(Option<dof>), locate) and solve.rs (locate_free); units::typed and Shown.dim; one worked case. UI: auto-analyze option and quiet solves (rstate.ts), parseQ and numInQ in number fields, table and V3 inputs, 3D right-click menus and node picking; four UI checks. Checked in the real app (node and element menus).",
    "url": "https://github.com/Edgar-Mendonca/Datum-Pipe/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -12200,6 +12479,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-54",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -12356,6 +12640,11 @@
   {
    "source": "hub",
    "target": "hub-session-31",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-32",
    "kind": "session"
   },
   {
@@ -12679,12 +12968,17 @@
    "kind": "then"
   },
   {
+   "source": "plan-v0.5.10",
+   "target": "plan-v0.5.11",
+   "kind": "then"
+  },
+  {
    "source": "app-plan",
-   "target": "plan-v0.5.10",
+   "target": "plan-v0.5.11",
    "kind": "released"
   },
   {
-   "source": "plan-v0.5.10",
+   "source": "plan-v0.5.11",
    "target": "plan-plan-0-5",
    "kind": "next"
   },
@@ -13680,7 +13974,7 @@
   },
   {
    "source": "plan-decision-60",
-   "target": "plan-v0.4.4",
+   "target": "plan-v0.5.11",
    "kind": "in"
   },
   {
@@ -13690,18 +13984,8 @@
   },
   {
    "source": "plan-decision-61",
-   "target": "plan-v0.4.3",
+   "target": "plan-v0.5.11",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-61",
-   "target": "tech-nsis",
-   "kind": "about"
-  },
-  {
-   "source": "plan-decision-61",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -13710,7 +13994,7 @@
   },
   {
    "source": "plan-decision-62",
-   "target": "plan-v0.4.2",
+   "target": "plan-v0.5.11",
    "kind": "in"
   },
   {
@@ -13720,7 +14004,7 @@
   },
   {
    "source": "plan-decision-63",
-   "target": "plan-v0.4.2",
+   "target": "plan-v0.4.4",
    "kind": "in"
   },
   {
@@ -13730,8 +14014,18 @@
   },
   {
    "source": "plan-decision-64",
-   "target": "plan-v0.4.2",
+   "target": "plan-v0.4.3",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-64",
+   "target": "tech-nsis",
+   "kind": "about"
+  },
+  {
+   "source": "plan-decision-64",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -13800,7 +14094,7 @@
   },
   {
    "source": "plan-decision-71",
-   "target": "plan-v0.4.1",
+   "target": "plan-v0.4.2",
    "kind": "in"
   },
   {
@@ -13810,7 +14104,7 @@
   },
   {
    "source": "plan-decision-72",
-   "target": "plan-v0.4.1",
+   "target": "plan-v0.4.2",
    "kind": "in"
   },
   {
@@ -13820,7 +14114,7 @@
   },
   {
    "source": "plan-decision-73",
-   "target": "plan-v0.4.1",
+   "target": "plan-v0.4.2",
    "kind": "in"
   },
   {
@@ -13860,7 +14154,7 @@
   },
   {
    "source": "plan-decision-77",
-   "target": "plan-v0.4.0",
+   "target": "plan-v0.4.1",
    "kind": "in"
   },
   {
@@ -13870,7 +14164,7 @@
   },
   {
    "source": "plan-decision-78",
-   "target": "plan-v0.4.0",
+   "target": "plan-v0.4.1",
    "kind": "in"
   },
   {
@@ -13880,7 +14174,7 @@
   },
   {
    "source": "plan-decision-79",
-   "target": "plan-v0.4.0",
+   "target": "plan-v0.4.1",
    "kind": "in"
   },
   {
@@ -13910,7 +14204,7 @@
   },
   {
    "source": "plan-decision-82",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -13920,7 +14214,7 @@
   },
   {
    "source": "plan-decision-83",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
   },
   {
@@ -13930,13 +14224,8 @@
   },
   {
    "source": "plan-decision-84",
-   "target": "plan-v0.3.12",
+   "target": "plan-v0.4.0",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-84",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -13945,13 +14234,8 @@
   },
   {
    "source": "plan-decision-85",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-85",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -13960,7 +14244,7 @@
   },
   {
    "source": "plan-decision-86",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
   },
   {
@@ -13970,8 +14254,13 @@
   },
   {
    "source": "plan-decision-87",
-   "target": "plan-v0.3.11",
+   "target": "plan-v0.3.12",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-87",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -13982,6 +14271,11 @@
    "source": "plan-decision-88",
    "target": "plan-v0.3.11",
    "kind": "in"
+  },
+  {
+   "source": "plan-decision-88",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -14000,13 +14294,8 @@
   },
   {
    "source": "plan-decision-90",
-   "target": "plan-v0.3.8",
+   "target": "plan-v0.3.11",
    "kind": "in"
-  },
-  {
-   "source": "plan-decision-90",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -14014,14 +14303,34 @@
    "kind": "decided"
   },
   {
+   "source": "plan-decision-91",
+   "target": "plan-v0.3.11",
+   "kind": "in"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-92",
    "kind": "decided"
   },
   {
+   "source": "plan-decision-92",
+   "target": "plan-v0.3.11",
+   "kind": "in"
+  },
+  {
    "source": "app-plan",
    "target": "plan-decision-93",
    "kind": "decided"
+  },
+  {
+   "source": "plan-decision-93",
+   "target": "plan-v0.3.8",
+   "kind": "in"
+  },
+  {
+   "source": "plan-decision-93",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-plan",
@@ -14059,11 +14368,6 @@
    "kind": "decided"
   },
   {
-   "source": "plan-decision-100",
-   "target": "tech-rust",
-   "kind": "about"
-  },
-  {
    "source": "app-plan",
    "target": "plan-decision-101",
    "kind": "decided"
@@ -14080,11 +14384,31 @@
   },
   {
    "source": "plan-decision-103",
+   "target": "tech-rust",
+   "kind": "about"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-104",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-105",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plan",
+   "target": "plan-decision-106",
+   "kind": "decided"
+  },
+  {
+   "source": "plan-decision-106",
    "target": "plan-v0.3.1",
    "kind": "in"
   },
   {
-   "source": "plan-decision-103",
+   "source": "plan-decision-106",
    "target": "tech-python",
    "kind": "about"
   },
@@ -14714,22 +15038,27 @@
    "kind": "then"
   },
   {
+   "source": "plot-v0.3.5",
+   "target": "plot-v0.3.6",
+   "kind": "then"
+  },
+  {
    "source": "app-plot",
-   "target": "plot-v0.3.5",
+   "target": "plot-v0.3.6",
    "kind": "released"
   },
   {
-   "source": "plot-v0.3.5",
-   "target": "plot-plan-0-3-6",
+   "source": "plot-v0.3.6",
+   "target": "plot-plan-0-3-7",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-3-6",
-   "target": "plot-plan-0-3-7-0-3-9",
+   "source": "plot-plan-0-3-7",
+   "target": "plot-plan-0-3-8-0-3-9",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-3-7-0-3-9",
+   "source": "plot-plan-0-3-8-0-3-9",
    "target": "plot-plan-0-3-10-0-3-14",
    "kind": "next"
   },
@@ -14950,6 +15279,21 @@
   },
   {
    "source": "plot-file-py-datum-repeated-py",
+   "target": "tech-statsmodels",
+   "kind": "uses"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-file-py-datum-many-py",
+   "kind": "contains"
+  },
+  {
+   "source": "plot-file-py-datum-many-py",
+   "target": "tech-scipy",
+   "kind": "uses"
+  },
+  {
+   "source": "plot-file-py-datum-many-py",
    "target": "tech-statsmodels",
    "kind": "uses"
   },
@@ -15816,6 +16160,11 @@
   {
    "source": "app-plot",
    "target": "plot-decision-65",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-66",
    "kind": "decided"
   },
   {
@@ -18989,27 +19338,27 @@
    "kind": "then"
   },
   {
+   "source": "mesh-v0.3.5",
+   "target": "mesh-v0.4.0",
+   "kind": "then"
+  },
+  {
    "source": "app-mesh",
-   "target": "mesh-v0.3.5",
+   "target": "mesh-v0.4.0",
    "kind": "released"
   },
   {
-   "source": "mesh-v0.3.5",
-   "target": "mesh-plan-0-4",
+   "source": "mesh-v0.4.0",
+   "target": "mesh-plan-0-4-1-0-4-3",
    "kind": "next"
   },
   {
-   "source": "mesh-plan-0-4",
-   "target": "mesh-plan-later",
+   "source": "mesh-plan-0-4-1-0-4-3",
+   "target": "mesh-plan-0-5-0-7",
    "kind": "next"
   },
   {
-   "source": "mesh-plan-later",
-   "target": "mesh-plan-0-5",
-   "kind": "next"
-  },
-  {
-   "source": "mesh-plan-0-5",
+   "source": "mesh-plan-0-5-0-7",
    "target": "mesh-plan-1-0",
    "kind": "next"
   },
@@ -19035,17 +19384,17 @@
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-cases-rs",
+   "target": "mesh-file-crates-core-src-engine-cases-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-release-rs",
+   "target": "mesh-file-crates-core-src-frames-release-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-steel-rs",
+   "target": "mesh-file-crates-core-src-frames-steel-rs",
    "kind": "contains"
   },
   {
@@ -19060,32 +19409,32 @@
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-sections-rs",
+   "target": "mesh-file-crates-core-src-frames-sections-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-sparse-rs",
+   "target": "mesh-file-crates-core-src-engine-sparse-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-mesh-rs",
+   "target": "mesh-file-crates-core-src-solids-mesh-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-plane-rs",
+   "target": "mesh-file-crates-core-src-solids-plane-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-heat-rs",
+   "target": "mesh-file-crates-core-src-solids-heat-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-materials-rs",
+   "target": "mesh-file-crates-core-src-solids-materials-rs",
    "kind": "contains"
   },
   {
@@ -19105,12 +19454,12 @@
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-solid-rs",
+   "target": "mesh-file-crates-core-src-solids-solid-rs",
    "kind": "contains"
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-space-rs",
+   "target": "mesh-file-crates-core-src-frames-space-rs",
    "kind": "contains"
   },
   {
@@ -19145,7 +19494,7 @@
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-modal-rs",
+   "target": "mesh-file-crates-core-src-engine-modal-rs",
    "kind": "contains"
   },
   {
@@ -19155,7 +19504,22 @@
   },
   {
    "source": "app-mesh",
-   "target": "mesh-file-crates-core-src-frame-rs",
+   "target": "mesh-file-crates-core-src-engine-path-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-frames-corot-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-steps-rs",
+   "kind": "contains"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-file-crates-core-src-frames-frame-rs",
    "kind": "contains"
   },
   {
@@ -19790,7 +20154,7 @@
   },
   {
    "source": "mesh-decision-44",
-   "target": "mesh-file-crates-core-src-plane-rs",
+   "target": "mesh-file-crates-core-src-solids-plane-rs",
    "kind": "touches"
   },
   {
@@ -19870,7 +20234,7 @@
   },
   {
    "source": "mesh-decision-52",
-   "target": "mesh-v0.3.5",
+   "target": "mesh-v0.4.0",
    "kind": "in"
   },
   {
@@ -19880,7 +20244,7 @@
   },
   {
    "source": "mesh-decision-53",
-   "target": "mesh-v0.3.4",
+   "target": "mesh-v0.4.0",
    "kind": "in"
   },
   {
@@ -19890,7 +20254,7 @@
   },
   {
    "source": "mesh-decision-54",
-   "target": "mesh-v0.3.3",
+   "target": "mesh-v0.4.0",
    "kind": "in"
   },
   {
@@ -19900,8 +20264,13 @@
   },
   {
    "source": "mesh-decision-55",
-   "target": "mesh-v0.3.3",
+   "target": "mesh-v0.4.0",
    "kind": "in"
+  },
+  {
+   "source": "mesh-decision-55",
+   "target": "tech-rust",
+   "kind": "about"
   },
   {
    "source": "app-mesh",
@@ -19910,7 +20279,7 @@
   },
   {
    "source": "mesh-decision-56",
-   "target": "mesh-v0.3.3",
+   "target": "mesh-v0.3.5",
    "kind": "in"
   },
   {
@@ -19920,7 +20289,7 @@
   },
   {
    "source": "mesh-decision-57",
-   "target": "mesh-v0.3.2",
+   "target": "mesh-v0.3.4",
    "kind": "in"
   },
   {
@@ -19930,7 +20299,7 @@
   },
   {
    "source": "mesh-decision-58",
-   "target": "mesh-v0.3.2",
+   "target": "mesh-v0.3.3",
    "kind": "in"
   },
   {
@@ -19940,7 +20309,7 @@
   },
   {
    "source": "mesh-decision-59",
-   "target": "mesh-v0.3.2",
+   "target": "mesh-v0.3.3",
    "kind": "in"
   },
   {
@@ -19950,7 +20319,7 @@
   },
   {
    "source": "mesh-decision-60",
-   "target": "mesh-v0.3.2",
+   "target": "mesh-v0.3.3",
    "kind": "in"
   },
   {
@@ -19970,7 +20339,7 @@
   },
   {
    "source": "mesh-decision-62",
-   "target": "mesh-v0.3.1",
+   "target": "mesh-v0.3.2",
    "kind": "in"
   },
   {
@@ -19980,7 +20349,7 @@
   },
   {
    "source": "mesh-decision-63",
-   "target": "mesh-v0.3.1",
+   "target": "mesh-v0.3.2",
    "kind": "in"
   },
   {
@@ -19990,7 +20359,7 @@
   },
   {
    "source": "mesh-decision-64",
-   "target": "mesh-v0.3.0",
+   "target": "mesh-v0.3.2",
    "kind": "in"
   },
   {
@@ -20000,13 +20369,8 @@
   },
   {
    "source": "mesh-decision-65",
-   "target": "mesh-v0.2.6",
+   "target": "mesh-v0.3.2",
    "kind": "in"
-  },
-  {
-   "source": "mesh-decision-65",
-   "target": "mesh-file-tools-size-cjs",
-   "kind": "touches"
   },
   {
    "source": "app-mesh",
@@ -20015,13 +20379,8 @@
   },
   {
    "source": "mesh-decision-66",
-   "target": "mesh-v0.2.6",
+   "target": "mesh-v0.3.1",
    "kind": "in"
-  },
-  {
-   "source": "mesh-decision-66",
-   "target": "mesh-file-ui-src-view3d-tsx",
-   "kind": "touches"
   },
   {
    "source": "app-mesh",
@@ -20030,7 +20389,7 @@
   },
   {
    "source": "mesh-decision-67",
-   "target": "mesh-v0.2.6",
+   "target": "mesh-v0.3.1",
    "kind": "in"
   },
   {
@@ -20040,7 +20399,7 @@
   },
   {
    "source": "mesh-decision-68",
-   "target": "mesh-v0.2.6",
+   "target": "mesh-v0.3.0",
    "kind": "in"
   },
   {
@@ -20050,8 +20409,13 @@
   },
   {
    "source": "mesh-decision-69",
-   "target": "mesh-v0.2.5",
+   "target": "mesh-v0.2.6",
    "kind": "in"
+  },
+  {
+   "source": "mesh-decision-69",
+   "target": "mesh-file-tools-size-cjs",
+   "kind": "touches"
   },
   {
    "source": "app-mesh",
@@ -20060,13 +20424,13 @@
   },
   {
    "source": "mesh-decision-70",
-   "target": "mesh-v0.2.5",
+   "target": "mesh-v0.2.6",
    "kind": "in"
   },
   {
    "source": "mesh-decision-70",
-   "target": "hub",
-   "kind": "family-wide"
+   "target": "mesh-file-ui-src-view3d-tsx",
+   "kind": "touches"
   },
   {
    "source": "app-mesh",
@@ -20075,7 +20439,7 @@
   },
   {
    "source": "mesh-decision-71",
-   "target": "mesh-v0.2.4",
+   "target": "mesh-v0.2.6",
    "kind": "in"
   },
   {
@@ -20085,7 +20449,7 @@
   },
   {
    "source": "mesh-decision-72",
-   "target": "mesh-v0.2.4",
+   "target": "mesh-v0.2.6",
    "kind": "in"
   },
   {
@@ -20095,13 +20459,8 @@
   },
   {
    "source": "mesh-decision-73",
-   "target": "mesh-v0.2.4",
+   "target": "mesh-v0.2.5",
    "kind": "in"
-  },
-  {
-   "source": "mesh-decision-73",
-   "target": "app-plan",
-   "kind": "mentions"
   },
   {
    "source": "app-mesh",
@@ -20110,8 +20469,13 @@
   },
   {
    "source": "mesh-decision-74",
-   "target": "mesh-v0.2.4",
+   "target": "mesh-v0.2.5",
    "kind": "in"
+  },
+  {
+   "source": "mesh-decision-74",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-mesh",
@@ -20120,7 +20484,7 @@
   },
   {
    "source": "mesh-decision-75",
-   "target": "mesh-v0.2.3",
+   "target": "mesh-v0.2.4",
    "kind": "in"
   },
   {
@@ -20130,7 +20494,7 @@
   },
   {
    "source": "mesh-decision-76",
-   "target": "mesh-v0.2.3",
+   "target": "mesh-v0.2.4",
    "kind": "in"
   },
   {
@@ -20140,8 +20504,13 @@
   },
   {
    "source": "mesh-decision-77",
-   "target": "mesh-v0.2.3",
+   "target": "mesh-v0.2.4",
    "kind": "in"
+  },
+  {
+   "source": "mesh-decision-77",
+   "target": "app-plan",
+   "kind": "mentions"
   },
   {
    "source": "app-mesh",
@@ -20150,7 +20519,7 @@
   },
   {
    "source": "mesh-decision-78",
-   "target": "mesh-v0.2.2",
+   "target": "mesh-v0.2.4",
    "kind": "in"
   },
   {
@@ -20160,7 +20529,7 @@
   },
   {
    "source": "mesh-decision-79",
-   "target": "mesh-v0.2.2",
+   "target": "mesh-v0.2.3",
    "kind": "in"
   },
   {
@@ -20170,6 +20539,46 @@
   },
   {
    "source": "mesh-decision-80",
+   "target": "mesh-v0.2.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-81",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-81",
+   "target": "mesh-v0.2.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-82",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-82",
+   "target": "mesh-v0.2.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-83",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-83",
+   "target": "mesh-v0.2.2",
+   "kind": "in"
+  },
+  {
+   "source": "app-mesh",
+   "target": "mesh-decision-84",
+   "kind": "decided"
+  },
+  {
+   "source": "mesh-decision-84",
    "target": "mesh-v0.1.1",
    "kind": "in"
   },
@@ -20399,6 +20808,16 @@
    "kind": "shipped"
   },
   {
+   "source": "app-mesh",
+   "target": "mesh-session-18",
+   "kind": "session"
+  },
+  {
+   "source": "mesh-session-18",
+   "target": "mesh-v0.4.0",
+   "kind": "shipped"
+  },
+  {
    "source": "hub",
    "target": "app-pipe",
    "kind": "app"
@@ -20544,12 +20963,17 @@
    "kind": "then"
   },
   {
+   "source": "pipe-v0.2.0",
+   "target": "pipe-v0.2.1",
+   "kind": "then"
+  },
+  {
    "source": "app-pipe",
-   "target": "pipe-v0.2.0",
+   "target": "pipe-v0.2.1",
    "kind": "released"
   },
   {
-   "source": "pipe-v0.2.0",
+   "source": "pipe-v0.2.1",
    "target": "pipe-plan-0-1-5",
    "kind": "next"
   },
@@ -20585,11 +21009,41 @@
   },
   {
    "source": "pipe-plan-0-2-0",
-   "target": "pipe-plan-0-3",
+   "target": "pipe-plan-0-2-1",
    "kind": "next"
   },
   {
-   "source": "pipe-plan-0-3",
+   "source": "pipe-plan-0-2-1",
+   "target": "pipe-plan-0-2-2",
+   "kind": "next"
+  },
+  {
+   "source": "pipe-plan-0-2-2",
+   "target": "pipe-plan-0-2-3",
+   "kind": "next"
+  },
+  {
+   "source": "pipe-plan-0-2-3",
+   "target": "pipe-plan-0-2-4",
+   "kind": "next"
+  },
+  {
+   "source": "pipe-plan-0-2-4",
+   "target": "pipe-plan-0-2-5",
+   "kind": "next"
+  },
+  {
+   "source": "pipe-plan-0-2-5",
+   "target": "pipe-plan-0-2-6",
+   "kind": "next"
+  },
+  {
+   "source": "pipe-plan-0-2-6",
+   "target": "pipe-plan-0-3-0",
+   "kind": "next"
+  },
+  {
+   "source": "pipe-plan-0-3-0",
    "target": "pipe-plan-0-4",
    "kind": "next"
   },
@@ -20845,7 +21299,7 @@
   },
   {
    "source": "pipe-decision-0",
-   "target": "pipe-v0.2.0",
+   "target": "pipe-v0.2.1",
    "kind": "in"
   },
   {
@@ -20855,7 +21309,7 @@
   },
   {
    "source": "pipe-decision-1",
-   "target": "pipe-v0.2.0",
+   "target": "pipe-v0.2.1",
    "kind": "in"
   },
   {
@@ -20865,8 +21319,13 @@
   },
   {
    "source": "pipe-decision-2",
-   "target": "pipe-v0.2.0",
+   "target": "pipe-v0.2.1",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-2",
+   "target": "pipe-file-ui-src-units-ts",
+   "kind": "touches"
   },
   {
    "source": "app-pipe",
@@ -20875,7 +21334,7 @@
   },
   {
    "source": "pipe-decision-3",
-   "target": "pipe-v0.2.0",
+   "target": "pipe-v0.2.1",
    "kind": "in"
   },
   {
@@ -20884,24 +21343,14 @@
    "kind": "decided"
   },
   {
-   "source": "pipe-decision-4",
-   "target": "pipe-v0.1.11",
-   "kind": "in"
-  },
-  {
    "source": "app-pipe",
    "target": "pipe-decision-5",
    "kind": "decided"
   },
   {
    "source": "pipe-decision-5",
-   "target": "pipe-v0.1.11",
+   "target": "pipe-v0.2.0",
    "kind": "in"
-  },
-  {
-   "source": "pipe-decision-5",
-   "target": "pipe-file-crates-core-src-import-rs",
-   "kind": "touches"
   },
   {
    "source": "app-pipe",
@@ -20910,13 +21359,8 @@
   },
   {
    "source": "pipe-decision-6",
-   "target": "pipe-v0.1.11",
+   "target": "pipe-v0.2.0",
    "kind": "in"
-  },
-  {
-   "source": "pipe-decision-6",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-pipe",
@@ -20925,7 +21369,7 @@
   },
   {
    "source": "pipe-decision-7",
-   "target": "pipe-v0.1.10",
+   "target": "pipe-v0.2.0",
    "kind": "in"
   },
   {
@@ -20935,7 +21379,7 @@
   },
   {
    "source": "pipe-decision-8",
-   "target": "pipe-v0.1.10",
+   "target": "pipe-v0.2.0",
    "kind": "in"
   },
   {
@@ -20945,7 +21389,7 @@
   },
   {
    "source": "pipe-decision-9",
-   "target": "pipe-v0.1.10",
+   "target": "pipe-v0.1.11",
    "kind": "in"
   },
   {
@@ -20955,8 +21399,13 @@
   },
   {
    "source": "pipe-decision-10",
-   "target": "pipe-v0.1.10",
+   "target": "pipe-v0.1.11",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-10",
+   "target": "pipe-file-crates-core-src-import-rs",
+   "kind": "touches"
   },
   {
    "source": "app-pipe",
@@ -20965,8 +21414,13 @@
   },
   {
    "source": "pipe-decision-11",
-   "target": "pipe-v0.1.9",
+   "target": "pipe-v0.1.11",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-11",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-pipe",
@@ -20975,7 +21429,7 @@
   },
   {
    "source": "pipe-decision-12",
-   "target": "pipe-v0.1.9",
+   "target": "pipe-v0.1.10",
    "kind": "in"
   },
   {
@@ -20985,7 +21439,7 @@
   },
   {
    "source": "pipe-decision-13",
-   "target": "pipe-v0.1.9",
+   "target": "pipe-v0.1.10",
    "kind": "in"
   },
   {
@@ -20995,7 +21449,7 @@
   },
   {
    "source": "pipe-decision-14",
-   "target": "pipe-v0.1.9",
+   "target": "pipe-v0.1.10",
    "kind": "in"
   },
   {
@@ -21005,7 +21459,7 @@
   },
   {
    "source": "pipe-decision-15",
-   "target": "pipe-v0.1.9",
+   "target": "pipe-v0.1.10",
    "kind": "in"
   },
   {
@@ -21015,7 +21469,7 @@
   },
   {
    "source": "pipe-decision-16",
-   "target": "pipe-v0.1.8",
+   "target": "pipe-v0.1.9",
    "kind": "in"
   },
   {
@@ -21025,7 +21479,7 @@
   },
   {
    "source": "pipe-decision-17",
-   "target": "pipe-v0.1.8",
+   "target": "pipe-v0.1.9",
    "kind": "in"
   },
   {
@@ -21035,7 +21489,7 @@
   },
   {
    "source": "pipe-decision-18",
-   "target": "pipe-v0.1.8",
+   "target": "pipe-v0.1.9",
    "kind": "in"
   },
   {
@@ -21045,7 +21499,7 @@
   },
   {
    "source": "pipe-decision-19",
-   "target": "pipe-v0.1.8",
+   "target": "pipe-v0.1.9",
    "kind": "in"
   },
   {
@@ -21055,7 +21509,7 @@
   },
   {
    "source": "pipe-decision-20",
-   "target": "pipe-v0.1.8",
+   "target": "pipe-v0.1.9",
    "kind": "in"
   },
   {
@@ -21075,7 +21529,7 @@
   },
   {
    "source": "pipe-decision-22",
-   "target": "pipe-v0.1.7",
+   "target": "pipe-v0.1.8",
    "kind": "in"
   },
   {
@@ -21085,7 +21539,7 @@
   },
   {
    "source": "pipe-decision-23",
-   "target": "pipe-v0.1.7",
+   "target": "pipe-v0.1.8",
    "kind": "in"
   },
   {
@@ -21095,7 +21549,7 @@
   },
   {
    "source": "pipe-decision-24",
-   "target": "pipe-v0.1.7",
+   "target": "pipe-v0.1.8",
    "kind": "in"
   },
   {
@@ -21105,7 +21559,7 @@
   },
   {
    "source": "pipe-decision-25",
-   "target": "pipe-v0.1.7",
+   "target": "pipe-v0.1.8",
    "kind": "in"
   },
   {
@@ -21115,7 +21569,7 @@
   },
   {
    "source": "pipe-decision-26",
-   "target": "pipe-v0.1.7",
+   "target": "pipe-v0.1.8",
    "kind": "in"
   },
   {
@@ -21125,13 +21579,8 @@
   },
   {
    "source": "pipe-decision-27",
-   "target": "pipe-v0.1.6",
+   "target": "pipe-v0.1.7",
    "kind": "in"
-  },
-  {
-   "source": "pipe-decision-27",
-   "target": "hub",
-   "kind": "family-wide"
   },
   {
    "source": "app-pipe",
@@ -21140,13 +21589,8 @@
   },
   {
    "source": "pipe-decision-28",
-   "target": "pipe-v0.1.5",
+   "target": "pipe-v0.1.7",
    "kind": "in"
-  },
-  {
-   "source": "pipe-decision-28",
-   "target": "pipe-file-ui-src-help-tsx",
-   "kind": "touches"
   },
   {
    "source": "app-pipe",
@@ -21155,7 +21599,7 @@
   },
   {
    "source": "pipe-decision-29",
-   "target": "pipe-v0.1.5",
+   "target": "pipe-v0.1.7",
    "kind": "in"
   },
   {
@@ -21165,7 +21609,7 @@
   },
   {
    "source": "pipe-decision-30",
-   "target": "pipe-v0.1.5",
+   "target": "pipe-v0.1.7",
    "kind": "in"
   },
   {
@@ -21175,7 +21619,7 @@
   },
   {
    "source": "pipe-decision-31",
-   "target": "pipe-v0.1.5",
+   "target": "pipe-v0.1.7",
    "kind": "in"
   },
   {
@@ -21185,8 +21629,13 @@
   },
   {
    "source": "pipe-decision-32",
-   "target": "pipe-v0.1.5",
+   "target": "pipe-v0.1.6",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-32",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-pipe",
@@ -21199,9 +21648,19 @@
    "kind": "in"
   },
   {
+   "source": "pipe-decision-33",
+   "target": "pipe-file-ui-src-help-tsx",
+   "kind": "touches"
+  },
+  {
    "source": "app-pipe",
    "target": "pipe-decision-34",
    "kind": "decided"
+  },
+  {
+   "source": "pipe-decision-34",
+   "target": "pipe-v0.1.5",
+   "kind": "in"
   },
   {
    "source": "app-pipe",
@@ -21210,8 +21669,8 @@
   },
   {
    "source": "pipe-decision-35",
-   "target": "tech-rust",
-   "kind": "about"
+   "target": "pipe-v0.1.5",
+   "kind": "in"
   },
   {
    "source": "app-pipe",
@@ -21220,18 +21679,8 @@
   },
   {
    "source": "pipe-decision-36",
-   "target": "app-plan",
-   "kind": "mentions"
-  },
-  {
-   "source": "pipe-decision-36",
-   "target": "app-sim",
-   "kind": "mentions"
-  },
-  {
-   "source": "pipe-decision-36",
-   "target": "app-mesh",
-   "kind": "mentions"
+   "target": "pipe-v0.1.5",
+   "kind": "in"
   },
   {
    "source": "app-pipe",
@@ -21240,7 +21689,7 @@
   },
   {
    "source": "pipe-decision-37",
-   "target": "pipe-v0.1.0",
+   "target": "pipe-v0.1.5",
    "kind": "in"
   },
   {
@@ -21250,7 +21699,7 @@
   },
   {
    "source": "pipe-decision-38",
-   "target": "pipe-v0.1.0",
+   "target": "pipe-v0.1.5",
    "kind": "in"
   },
   {
@@ -21259,24 +21708,14 @@
    "kind": "decided"
   },
   {
-   "source": "pipe-decision-39",
-   "target": "pipe-v0.1.0",
-   "kind": "in"
-  },
-  {
    "source": "app-pipe",
    "target": "pipe-decision-40",
    "kind": "decided"
   },
   {
    "source": "pipe-decision-40",
-   "target": "pipe-v0.1.0",
-   "kind": "in"
-  },
-  {
-   "source": "pipe-decision-40",
-   "target": "hub",
-   "kind": "family-wide"
+   "target": "tech-rust",
+   "kind": "about"
   },
   {
    "source": "app-pipe",
@@ -21285,13 +21724,18 @@
   },
   {
    "source": "pipe-decision-41",
-   "target": "pipe-v0.1.0",
-   "kind": "in"
+   "target": "app-plan",
+   "kind": "mentions"
   },
   {
    "source": "pipe-decision-41",
-   "target": "hub",
-   "kind": "family-wide"
+   "target": "app-sim",
+   "kind": "mentions"
+  },
+  {
+   "source": "pipe-decision-41",
+   "target": "app-mesh",
+   "kind": "mentions"
   },
   {
    "source": "app-pipe",
@@ -21304,16 +21748,6 @@
    "kind": "in"
   },
   {
-   "source": "pipe-decision-42",
-   "target": "app-atlas",
-   "kind": "mentions"
-  },
-  {
-   "source": "pipe-decision-42",
-   "target": "hub",
-   "kind": "family-wide"
-  },
-  {
    "source": "app-pipe",
    "target": "pipe-decision-43",
    "kind": "decided"
@@ -21322,11 +21756,6 @@
    "source": "pipe-decision-43",
    "target": "pipe-v0.1.0",
    "kind": "in"
-  },
-  {
-   "source": "pipe-decision-43",
-   "target": "app-calc",
-   "kind": "mentions"
   },
   {
    "source": "app-pipe",
@@ -21349,14 +21778,24 @@
    "kind": "in"
   },
   {
+   "source": "pipe-decision-45",
+   "target": "hub",
+   "kind": "family-wide"
+  },
+  {
    "source": "app-pipe",
    "target": "pipe-decision-46",
    "kind": "decided"
   },
   {
    "source": "pipe-decision-46",
-   "target": "pipe-v0.1.1",
+   "target": "pipe-v0.1.0",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-46",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-pipe",
@@ -21365,8 +21804,18 @@
   },
   {
    "source": "pipe-decision-47",
-   "target": "pipe-v0.1.1",
+   "target": "pipe-v0.1.0",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-47",
+   "target": "app-atlas",
+   "kind": "mentions"
+  },
+  {
+   "source": "pipe-decision-47",
+   "target": "hub",
+   "kind": "family-wide"
   },
   {
    "source": "app-pipe",
@@ -21375,8 +21824,13 @@
   },
   {
    "source": "pipe-decision-48",
-   "target": "pipe-v0.1.1",
+   "target": "pipe-v0.1.0",
    "kind": "in"
+  },
+  {
+   "source": "pipe-decision-48",
+   "target": "app-calc",
+   "kind": "mentions"
   },
   {
    "source": "app-pipe",
@@ -21385,7 +21839,7 @@
   },
   {
    "source": "pipe-decision-49",
-   "target": "pipe-v0.1.1",
+   "target": "pipe-v0.1.0",
    "kind": "in"
   },
   {
@@ -21395,7 +21849,7 @@
   },
   {
    "source": "pipe-decision-50",
-   "target": "pipe-v0.1.1",
+   "target": "pipe-v0.1.0",
    "kind": "in"
   },
   {
@@ -21455,7 +21909,7 @@
   },
   {
    "source": "pipe-decision-56",
-   "target": "pipe-v0.1.2",
+   "target": "pipe-v0.1.1",
    "kind": "in"
   },
   {
@@ -21465,7 +21919,7 @@
   },
   {
    "source": "pipe-decision-57",
-   "target": "pipe-v0.1.2",
+   "target": "pipe-v0.1.1",
    "kind": "in"
   },
   {
@@ -21475,13 +21929,8 @@
   },
   {
    "source": "pipe-decision-58",
-   "target": "pipe-v0.1.4",
+   "target": "pipe-v0.1.1",
    "kind": "in"
-  },
-  {
-   "source": "pipe-decision-58",
-   "target": "pipe-file-crates-core-src-worked-rs",
-   "kind": "touches"
   },
   {
    "source": "app-pipe",
@@ -21490,7 +21939,7 @@
   },
   {
    "source": "pipe-decision-59",
-   "target": "pipe-v0.1.4",
+   "target": "pipe-v0.1.1",
    "kind": "in"
   },
   {
@@ -21500,7 +21949,7 @@
   },
   {
    "source": "pipe-decision-60",
-   "target": "pipe-v0.1.4",
+   "target": "pipe-v0.1.1",
    "kind": "in"
   },
   {
@@ -21510,7 +21959,7 @@
   },
   {
    "source": "pipe-decision-61",
-   "target": "pipe-v0.1.4",
+   "target": "pipe-v0.1.2",
    "kind": "in"
   },
   {
@@ -21520,7 +21969,7 @@
   },
   {
    "source": "pipe-decision-62",
-   "target": "pipe-v0.1.4",
+   "target": "pipe-v0.1.2",
    "kind": "in"
   },
   {
@@ -21534,13 +21983,18 @@
    "kind": "in"
   },
   {
+   "source": "pipe-decision-63",
+   "target": "pipe-file-crates-core-src-worked-rs",
+   "kind": "touches"
+  },
+  {
    "source": "app-pipe",
    "target": "pipe-decision-64",
    "kind": "decided"
   },
   {
    "source": "pipe-decision-64",
-   "target": "pipe-v0.1.3",
+   "target": "pipe-v0.1.4",
    "kind": "in"
   },
   {
@@ -21550,7 +22004,7 @@
   },
   {
    "source": "pipe-decision-65",
-   "target": "pipe-v0.1.3",
+   "target": "pipe-v0.1.4",
    "kind": "in"
   },
   {
@@ -21560,7 +22014,7 @@
   },
   {
    "source": "pipe-decision-66",
-   "target": "pipe-v0.1.3",
+   "target": "pipe-v0.1.4",
    "kind": "in"
   },
   {
@@ -21570,6 +22024,56 @@
   },
   {
    "source": "pipe-decision-67",
+   "target": "pipe-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-pipe",
+   "target": "pipe-decision-68",
+   "kind": "decided"
+  },
+  {
+   "source": "pipe-decision-68",
+   "target": "pipe-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-pipe",
+   "target": "pipe-decision-69",
+   "kind": "decided"
+  },
+  {
+   "source": "pipe-decision-69",
+   "target": "pipe-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-pipe",
+   "target": "pipe-decision-70",
+   "kind": "decided"
+  },
+  {
+   "source": "pipe-decision-70",
+   "target": "pipe-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-pipe",
+   "target": "pipe-decision-71",
+   "kind": "decided"
+  },
+  {
+   "source": "pipe-decision-71",
+   "target": "pipe-v0.1.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-pipe",
+   "target": "pipe-decision-72",
+   "kind": "decided"
+  },
+  {
+   "source": "pipe-decision-72",
    "target": "pipe-v0.1.2",
    "kind": "in"
   },
@@ -21771,6 +22275,16 @@
   {
    "source": "pipe-session-15",
    "target": "pipe-v0.2.0",
+   "kind": "shipped"
+  },
+  {
+   "source": "app-pipe",
+   "target": "pipe-session-16",
+   "kind": "session"
+  },
+  {
+   "source": "pipe-session-16",
+   "target": "pipe-v0.2.1",
    "kind": "shipped"
   },
   {

@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.10 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.11 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
@@ -72,6 +72,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | 2026-10-31 (s27) | **Options that change results are off until switched on** (Plan's resource calendars: `opts.res_cals`, plus a per-item opt-out) | Datum Plan 0.5.4: the user wanted new scheduling rules added "as another part" that change nothing already built; existing files keep their results. |
 | 2026-10-31 (s28) | **A project is a master document holding the ordered list of its parts** (file, name, depth), each part naming its master; no separate project file. Order and depth arrange documents and tabs; results still come from links. The master can show its parts read-only, each opening in its own tab to change | Datum Plan 0.5.8–0.5.9: the user wanted the master and its subschedules to look like one group with a hierarchy, simply. |
 | 2026-10-31 (s29) | **Printing: the app writes the PDF itself, and prints only what the user chose.** Save as PDF goes straight from the WebView (WebView2 PrintToPdf: paper size, no browser header/footer); Print… opens the print window, with the page setup kept until `afterprint`. Header & footer are pictures (left/centre/right), a title and subtitle, and footer tick boxes; no program name or web address ever; code boxes only under Advanced | Datum Plan 0.5.10: users' PDFs carried the browser's date, title and address and came out on split, half-blank sheets. |
+| 2026-10-31 (s30) | **Header pictures are a list per place, each with its own size, on every page; the legend lists only what the pages show.** A picture in the centre puts the title under it. Engine checks find bugs by asserting tests, never by reading alone. | The user wanted one to three logos per side and found the fixed legend incomplete; a full audit of formulas, links and progress found ten real bugs. |
 | 2026-10-25 | FAMILY.md moves to DATUM and becomes the source of truth; section numbers 1–12 are kept so "FAMILY §3" means the same everywhere; §13 "Principles and public words" added | The brief. App repos keep a short `docs/FAMILY.md` that links here. |
 | 2026-10-25 | Commercial product names removed from FAMILY.md ("What it replaces" column → "What it is for"; ribbon, sidebar, chart style and grid wording made neutral) | The user's rule: never name, compare with, or say we copy any commercial product. |
 | 2026-10-25 | The site leaves out any CHANGELOG, highlight or roadmap line that names another product (`NAMES` in `github.ts`) and lists it in the build log | The apps' older CHANGELOG sections still compare with other tools; the public site must not, whatever the app repos say. File formats and interoperability words (Excel, Word, CSV) are not filtered. |
@@ -178,6 +179,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-10-31: Session 30 (from Datum Plan's chat: 0.5.11, print pictures and engine audit)
+- Plan 0.5.11: any number of header pictures left/centre/right (each sized and moved), title under centre pictures and a title size, a legend of what shows, baseline and deadline in print, subplans print as expanded on screen. Audit of formulas, links and progress: ten bugs fixed with tests (DateDiff/DateAdd, Finish fields from formulas, milestones-only %, cost-curve earned value, earned schedule within a day, level of effort, SS from summaries, actuals on a day off, links on summaries, mirror rows, Update Links on long chains). The user's own project files stay private and outside every repo. Brain regenerated.
 
 ### 2026-10-31: Session 29 (from Datum Plan's chat: 0.5.10, printing)
 - The user's PDFs showed the browser's header/footer and blank half-pages, the print panel was squashed, and the header was code-based. Plan 0.5.10: direct Save as PDF, page setup kept until the print window is done, a simple Header & footer, subplans in print, and a fixed class-name clash. Recorded the decision and the FAMILY note; brain regenerated.
