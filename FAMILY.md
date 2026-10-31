@@ -29,6 +29,7 @@ The registry the site builds from is [`apps.json`](apps.json).
 - **Charts:** Chart.js in the family chart style (see §7). An app may add its own SVG plot engine for publication graphs, but must keep this look.
 - **Spreadsheet formulas:** the GridCraft crates (pinned git dependency, attribution in NOTICE) where the app needs them.
 - **Sheets inside an app** (from Datum Plan 0.5.0) behave like a spreadsheet through GridCraft (references by clicking, suggestions, fill and paste that move references, insert and delete rows) and read the app's data by name: GridCraft tables and workbook names, not copied values. Countries show as flags from bundled SVGs (flag-icons, MIT), never emoji. Dashboards of the user's own (from Datum Plan 0.5.3) are tiles on a 12-column grid whose figures are formulas over the same names.
+- **Several documents at once** (from Datum Plan 0.5.5): one tab per open document above the ribbon (a dot for unsaved changes, Ctrl+Tab, Ctrl+W, Save All on close, recovery for each). Links between documents keep the other file and the last known values, and change only when the user updates them.
 - **No Python** inside the apps (size and second runtime). The one exception is **Datum Plot**, which bundles its own Python (numpy, SciPy, matplotlib) for statistics and graphs; the decision is recorded in Plot's `docs/MEMORY.md`.
 - Small, compact code that matches the surrounding style.
 
