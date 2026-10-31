@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.5 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.6 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
@@ -178,7 +178,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
 ### 2026-10-31: Session 27 (from Datum Plan's chat: 0.5.4 and 0.5.5)
-- Plan 0.5.4: resource calendars that drive task dates (each person's base calendar and leave; a task finishes when the last person does; off until switched on; kept in Project XML and XER). Plan 0.5.5: plan tabs and links between plans (Link to Plan, Linked Plans with Moved states, Update All Open Plans), and a four-plan example (a compressor station: main schedule, engineering, procurement, construction). Built together, released back to back. Next in Plan: a combined view of linked plans, then schedule quality. Recorded two decisions and the FAMILY note; brain regenerated.
+- Plan 0.5.4: resource calendars that drive task dates (each person's base calendar and leave; a task finishes when the last person does; off until switched on; kept in Project XML and XER). Plan 0.5.5: plan tabs and links between plans (Link to Plan, Linked Plans with Moved states, Update All Open Plans), and a four-plan example (a compressor station: main schedule, engineering, procurement, construction). Built together, released back to back. Then 0.5.6 made links visible where people look (marks by the ID and labels on the Gantt: purple = waits for another plan, green = another plan waits for it; both directions in Linked Plans), after the user could not tell what was linked to what. Next in Plan: a combined view of linked plans, then schedule quality. Recorded two decisions and the FAMILY note; brain regenerated.
 
 ### 2026-10-30: Session 26 (from Datum Plan's chat: 0.5.0, sheets like Excel)
 - Plan 0.5.0: Sheets work like Excel (point-and-click formulas, 490 functions suggested, AutoSum, fill and paste with formulas, rows and columns) and read the plan live through Tasks/Resources tables and names; Plan Data lists; country flags and a resource Country. Then 0.5.1 fixed a scroll echo between the task sheet and the chart (felt stuck) and the Tell Me overlay hiding the window (a class name colliding with the title bar's). 0.5.2 restyled every chart (still Chart.js: smooth lines, faded fills, rounded bars, light grid, dark tooltip) and stopped charts being cropped (resize with their box and for printing). 0.5.3 added custom dashboards: several per plan, tiles laid out by the user (numbers and rings from formulas with green/red rules, plan charts and lists, charts and tables from sheet ranges, country flags), templates, printing. Next in Plan: schedule quality (health trend, ghost bars, logic change log, milestone trend). Recorded the decision and the FAMILY note; brain regenerated.
