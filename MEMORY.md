@@ -220,6 +220,12 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-29: Session 25 (from Datum Plan's chat: 0.4.4, the guide)
 - Plan 0.4.4 shipped the Datum Plan Guide in English and Simplified Chinese (about 30 pages each, numbered screenshots), downloaded from the release by Help › Guide; 0.4.3 had changed the Windows publisher to "Datum". Recorded the guide pattern (decision, FAMILY §10) and Plan at 0.4.4. Brain regenerated.
 
+### 2026-11-01: Session 26 (pre-exhibition check)
+- Audit: all eight apps in apps.json, README, FAMILY §1, brand/; every app has about, steps, screenshots and a README link to its page; every app's publisher is "Datum"; the hourly build reads every app's GitHub release. Gave the user paste-in text for Plan's chat to reword the old CHANGELOG lines that name commercial products (site already hides them).
+- **Sim screenshots:** Sim's site.json listed one image though its repo has five. Added a **hub override**: `apps.json` may carry `screenshots` (used before site.json's); Sim now shows diagram, scopes (PMSM speed loop) and the dark mass–spring–damper. Left out: Bode (shows "Stable: no" for a lone PID) and Home (old version). **Remove the override once Sim's site.json lists them** (paste-in given to the user).
+- App pages: an odd number of screenshots puts the last one across both columns, centred (no empty grey cell; Sim and Calc have three).
+- Workflows: actions/checkout v4 → v5 and actions/setup-node v4 → v5 (Node 20 deprecation). upload-pages-artifact, deploy-pages, rust-cache and action-gh-release left as they are the day before the exhibition.
+
 ### 2026-11-01: Session 25 (status review of all eight apps)
 - User asked for a full analysis of the eight apps: most and least progressed, where to concentrate. Shallow-cloned every app repo and measured code, tests, releases, docs and CI, and read each roadmap and known-limits list. Report: [status/2026-11-01.md](status/2026-11-01.md).
 - Ranking (rough share of a mature commercial product): Plan ~65–70%, Plot ~70% (lab use), Mesh ~75% frames/2D but ~40% 3D, Pipe ~55–60% static, Schema ~45% enterprise class, Sim ~30% (stopped 30 Oct), Calc ~30%, Atlas ~25–30% (stopped 30 Oct, waiting on the user's six answers in its PLAN-0.3.0 §6).

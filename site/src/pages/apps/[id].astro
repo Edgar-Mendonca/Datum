@@ -211,6 +211,8 @@ const sec = (id: string) => secs.find(s => s.id === id)!;
   .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); }
   .shots.one { grid-template-columns: 1fr; }
   .shots.one figure { padding-inline: max(var(--pad), calc((100% - 960px) / 2)); }
+  /* An odd number of screens: the last one spans both columns, centred, so no empty cell is left. */
+  .shots:not(.one) figure:last-child:nth-child(odd) { grid-column: 1 / -1; padding-inline: max(var(--pad), calc((100% - 640px) / 2)); }
   .shots figure { display: grid; gap: 10px; padding: clamp(16px, 2.6vw, 32px); align-content: start;
     background-color: color-mix(in srgb, var(--c) 6%, var(--paper));
     background-image: linear-gradient(color-mix(in srgb, var(--c) 12%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, transparent) 1px, transparent 1px);

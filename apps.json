@@ -1,5 +1,5 @@
 {
-  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline, for and shot (one screenshot) fields here are only used until the app publishes docs/site.json. An optional status field (Stable, Beta, Alpha) overrides the badge worked out from the version. The about (paragraphs) and steps (how the app is used: title and text) fields fill the app's page on the site; site.json can set its own.",
+  "$schema": "The Datum family registry. One entry per app; the hub site reads each repo's docs/site.json, CHANGELOG.md and latest release when it builds. A branch of HEAD follows the repo's default branch. The name, accent, tagline, for and shot (one screenshot) fields here are only used until the app publishes docs/site.json. An optional status field (Stable, Beta, Alpha) overrides the badge worked out from the version. The about (paragraphs) and steps (how the app is used: title and text) fields fill the app's page on the site; site.json can set its own. An optional screenshots list (paths in the app's repo) is a hub override used instead of site.json's, for when an app's site.json lists too few; remove it once the app lists them itself.",
   "apps": [
     {
       "id": "plan",
@@ -111,6 +111,11 @@
           "title": "Analyse and tune",
           "text": "Sweep parameters, read the step-response specifications and tune the controller."
         }
+      ],
+      "screenshots": [
+        "docs/images/diagram.png",
+        "docs/images/scopes.png",
+        "docs/images/dark.png"
       ]
     },
     {

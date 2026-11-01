@@ -83,8 +83,8 @@ async function loadApp(e: any): Promise<App> {
     roadmap: (s.roadmap ?? []).map((r: Stage) => ({ ...r, items: r.items.filter(i => plain(i, `${e.id} roadmap ${r.v}`)) })), changelog, releases: [],
     shots: [],
   };
-  // The screenshots (up to four) are downloaded now and written into dist after the build; one that fails is left out.
-  const shots = await Promise.all((s.screenshots ?? (e.shot ? [e.shot] : [])).slice(0, 4).map(async (p: string): Promise<Shot> => {
+  // The screenshots (up to four; apps.json may override the app's list) are downloaded now and written into dist after the build; one that fails is left out.
+  const shots = await Promise.all((e.screenshots ?? s.screenshots ?? (e.shot ? [e.shot] : [])).slice(0, 4).map(async (p: string): Promise<Shot> => {
     const base = p.split("/").pop()!.replace(/\.\w+$/, "");
     const png = await get(raw(p), "bytes");
     const bytes = png ? new Uint8Array(await sharp(png).resize({ width: 1440, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer().catch(() => png)) : null;
