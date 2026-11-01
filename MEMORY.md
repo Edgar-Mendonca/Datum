@@ -15,18 +15,20 @@
 
 ## 1. The apps
 
-| App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
-| --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.15 | ✅ |
-| Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
-| Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
-| Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
-| Datum Calc | `Edgar-Mendonca/Datum-Calc` | Amber `#A8650F` | 0.1.6 | ✅ |
-| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Crimson `#B83250` | 0.1.3 | ✅ |
-| Datum Schema | `Edgar-Mendonca/Datum-Schema` | Magenta `#9C1F84` | 0.1.3 (2026-10-29) | ✅ |
-| Datum Pipe | `Edgar-Mendonca/Datum-Pipe` | Moss `#4D7C0F` | 0.1.4 (2026-10-28) | ✅ |
+| App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
+| --- | --- | --- | --- | --- | --- |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.15 | ✅ | **Yes** |
+| Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
+| Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
+| Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
+| Datum Calc | `Edgar-Mendonca/Datum-Calc` | Amber `#A8650F` | 0.1.11 | ✅ | **Yes** |
+| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Crimson `#B83250` | 0.5.5 | ✅ | Not yet |
+| Datum Schema | `Edgar-Mendonca/Datum-Schema` | Magenta `#9C1F84` | 0.5.0 | ✅ | Not yet |
+| Datum Pipe | `Edgar-Mendonca/Datum-Pipe` | Moss `#4D7C0F` | 0.3.0 | ✅ | Not yet |
 
 `apps.json` uses `"branch": "HEAD"`, so the site follows whatever each repo's default branch is.
+
+**Status reports** (dated snapshots of progress, gaps and priorities): [status/2026-11-01.md](status/2026-11-01.md). Write a new dated file at each review; the latest one is the current plan.
 
 **Datum Home** (`home/` in this repo, accent: the family navy and logo) installs, updates, opens and removes the apps. **0.1.0 released 2026-10-28** (`home-v0.1.0`: `DatumHome-0.1.0-setup.exe`, 2.1 MB, + SHA256SUMS.txt); **0.1.1** (session 14) adds Calc and Mesh to its built-in list and icons; **0.1.2** (session 18) adds Pipe; **0.1.3** (session 20) reads every release from the site's home.json, so opening it asks GitHub nothing; **0.1.4** (session 21) publishes as "Datum" and accepts both publisher names; **0.1.5** (session 24) adds Schema.
 
@@ -123,6 +125,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | 2026-10-29 (s21) | **The Windows publisher of every app is "Datum"** (`bundle.publisher` in `tauri.conf.json`), not the author's name; the copyright line keeps the author ("© 2026 Edgar Mendonca"), who holds it. Datum Home accepts both publisher names, so apps installed earlier are still recognised | The user: Settings › Apps showed their name for every app; it should show the brand. Home went first (0.1.4) so no app is ever missed during the switch. |
 | 2026-10-29 (s22) | **Datum Schema** (intelligent P&IDs and process flow diagrams) is the eighth app, for the exhibition; name chosen over "Datum P&ID" (the & breaks file and repo names; "PID" means the controller in Sim; P&ID is narrower than the app) and "Flowsheet"; tagline names P&IDs. Accent **Magenta** `#9C1F84` (FAMILY §3). Bench (DAQ) waits: it depends on hardware and is too risky for a one-day build | Session 15 research: no open-source P&ID tool with proper symbols; an open P&ID data standard (DEXPI) exists with no free desktop app. Schema's edge over a drawing: data, connectivity, checks, lists and hydraulics, plus links to Pipe and Sim. |
 | 2026-10-29 (s23) | **Datum Schema aims at the enterprise class of plant engineering tools** (object-based, plant hierarchy, class library, many disciplines and users), not at drawing tools. From 0.1: objects are the master and symbols are views; plant hierarchy; class library as data; the project is one SQLite file with a change history; names follow DEXPI. Roadmap 0.2–0.7 adds DEXPI, datasheets, PFD stream tables, revisions, instrumentation, multi-user, electrical (brief addendum) | The user has used the enterprise tools (one object-based one especially) and wants that class; the core must be object-based now or it would need rebuilding later. Sent to the running Schema chat as a course correction. |
+| 2026-11-01 (s25) | **Validate before adding.** The family keeps its pace, but every app is validated with real-world use: apps with real users (Plan, Plot, Calc) fix user-reported issues before new features; the others get a real-PC test pass and real-world files before more breadth. Progress is reviewed in dated status reports (`status/`) | Eight apps in under two weeks; real-world use (Plan first) finds problems tests and examples miss; Plot is now used by scientific labs and Calc and Plan by others, and they report issues. |
 
 ## 4. Roadmap (hub)
 
@@ -216,6 +219,12 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 
 ### 2026-10-29: Session 25 (from Datum Plan's chat: 0.4.4, the guide)
 - Plan 0.4.4 shipped the Datum Plan Guide in English and Simplified Chinese (about 30 pages each, numbered screenshots), downloaded from the release by Help › Guide; 0.4.3 had changed the Windows publisher to "Datum". Recorded the guide pattern (decision, FAMILY §10) and Plan at 0.4.4. Brain regenerated.
+
+### 2026-11-01: Session 25 (status review of all eight apps)
+- User asked for a full analysis of the eight apps: most and least progressed, where to concentrate. Shallow-cloned every app repo and measured code, tests, releases, docs and CI, and read each roadmap and known-limits list. Report: [status/2026-11-01.md](status/2026-11-01.md).
+- Ranking (rough share of a mature commercial product): Plan ~65–70%, Plot ~70% (lab use), Mesh ~75% frames/2D but ~40% 3D, Pipe ~55–60% static, Schema ~45% enterprise class, Sim ~30% (stopped 30 Oct), Calc ~30%, Atlas ~25–30% (stopped 30 Oct, waiting on the user's six answers in its PLAN-0.3.0 §6).
+- User: **Plan, Plot and Calc are in use by other people**; Plot by several scientific labs, which report issues. Real-world testing finds unique problems; the family must slow down enough to validate each app. Recorded as a decision and in the apps table (Real users column, today's versions).
+- Priorities: user-reported issues first (Plan, Plot, Calc); unblock Atlas and verify its data; restart Sim (0.3 control design); validate Pipe against the user's past projects; harden Schema; Calc matrices; 1.0 work for Plan and Plot; Mesh depth. Family: a real-PC test week, one code-signing certificate, an issue loop from real users.
 
 ### 2026-10-29: Session 24 (Datum Schema joins the family: eight apps)
 - Datum Schema released 0.1.3 (site.json, icon, SHA256SUMS, publisher "Datum").
