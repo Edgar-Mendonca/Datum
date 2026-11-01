@@ -187,6 +187,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
+### 2026-11-01: Session 34, continued (Plan §13 cleanup)
+- Plan's public text cleaned per FAMILY §13: product comparisons reworded in CHANGELOG 0.1–0.5.13, README, site.json, guide (en, zh), help, Getting Started, glossary, export menus and messages; product names kept only as file types. Committed in Plan, ships with its next release.
+
 ### 2026-11-01: Session 34, continued (Plot dates brief)
 - Plot cannot read dates anywhere (typing, paste, import, axes). Wrote `briefs/PLOT-DATES.md` for Plot's chat: optional date/datetime X columns stored as days since 1970-01-01 (matplotlib's epoch, Plan's day number), `Table.xFormat`, parsing, display formats, date axes, analyses in days, exports, and the hand-off contract (Plan switches `io/dplot.rs` to `xFormat: "date"` once a Plot release has it). Next: the user pastes the brief into Plot's chat; then Plan's chat makes the one-function switch.
 
