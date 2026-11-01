@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-10-29) | `docs/site.json` |
 | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.13 | ✅ |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.14 | ✅ |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.2.23 | ✅ |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.0 | ✅ |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.1.2 | ✅ |
@@ -75,6 +75,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | 2026-10-31 (s30) | **Header pictures are a list per place, each with its own size, on every page; the legend lists only what the pages show.** A picture in the centre puts the title under it. Engine checks find bugs by asserting tests, never by reading alone. | The user wanted one to three logos per side and found the fixed legend incomplete; a full audit of formulas, links and progress found ten real bugs. |
 | 2026-10-31 (s31) | **Dashboards lead with the main chart across the page; a card shows only when the data has it, and the user's choice overrides.** Full audits run as parallel reviewers on copies of the repo, a bug counts only with a failing test, and the test stays. Files named inside a document from someone else never make the app reach a network server they name. | The user wanted the S-curve to lead and no empty or meaningless cards; a full check of Plan found about 45 real bugs, including crashes from hostile files and self-referencing formulas. |
 | 2026-11-01 (s32) | **Each app ships a guided tutorial example: a document that uses every view, with a note on each view (stored in the document) saying how it was filled in; Back/Next walk the views, × hides the notes.** | The user: a guide PDF helps, but notes on every page of a worked example teach faster and show others how the tool is meant to be used. |
+| 2026-11-01 (s33) | **Document tabs sit between the ribbon and the work area (above the timeline), and show even for one document, with ＋ to open the next one at once.** A ribbon never has a fixed height that can clip its group names. | The user: tabs belong with what they switch, and a visible ＋ makes opening and linking the next document immediate. |
 | 2026-10-25 | FAMILY.md moves to DATUM and becomes the source of truth; section numbers 1–12 are kept so "FAMILY §3" means the same everywhere; §13 "Principles and public words" added | The brief. App repos keep a short `docs/FAMILY.md` that links here. |
 | 2026-10-25 | Commercial product names removed from FAMILY.md ("What it replaces" column → "What it is for"; ribbon, sidebar, chart style and grid wording made neutral) | The user's rule: never name, compare with, or say we copy any commercial product. |
 | 2026-10-25 | The site leaves out any CHANGELOG, highlight or roadmap line that names another product (`NAMES` in `github.ts`) and lists it in the build log | The apps' older CHANGELOG sections still compare with other tools; the public site must not, whatever the app repos say. File formats and interoperability words (Excel, Word, CSV) are not filtered. |
@@ -181,6 +182,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-01: Session 33 (from Datum Plan's chat: 0.5.14, tabs below the ribbon)
+- Plan 0.5.14: plan tabs moved below the ribbon, a tab for a single plan, ＋ › Blank plan, ribbon group names no longer clipped. Brain regenerated.
 
 ### 2026-11-01: Session 32 (from Datum Plan's chat: 0.5.13, tutorial and open items)
 - Plan 0.5.13: Help › Tutorial opens an office fit-out five weeks into the work that uses every view, with a note card per view (`ui.tour`). The last open items from the audit were closed (exchange formats, resource formulas, table columns in formulas, sheet bounds, dashboard tiles following sheet changes, calendars for shared tasks), plus a cap that cut cost amounts above 1,000. Brain regenerated.
