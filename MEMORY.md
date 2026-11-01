@@ -184,6 +184,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
+### 2026-11-01: Session 34, continued (Plot dates brief)
+- Plot cannot read dates anywhere (typing, paste, import, axes). Wrote `briefs/PLOT-DATES.md` for Plot's chat: optional date/datetime X columns stored as days since 1970-01-01 (matplotlib's epoch, Plan's day number), `Table.xFormat`, parsing, display formats, date axes, analyses in days, exports, and the hand-off contract (Plan switches `io/dplot.rs` to `xFormat: "date"` once a Plot release has it). Next: the user pastes the brief into Plot's chat; then Plan's chat makes the one-function switch.
+
 ### 2026-11-01: Session 34 (from Datum Plan's chat: 0.5.15, charts and Datum Plot)
 - Plan 0.5.15: sharper charts and a Datum Plot button on every chart (one-way .dplot copy, checked with Plot's own loader and graph engine). Brain regenerated.
 
