@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.15 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.16 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -192,6 +192,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 
 ### 2026-11-01: Session 34, continued (Plan §13 cleanup)
 - Plan's public text cleaned per FAMILY §13: product comparisons reworded in CHANGELOG 0.1–0.5.13, README, site.json, guide (en, zh), help, Getting Started, glossary, export menus and messages; product names kept only as file types. Committed in Plan, ships with its next release.
+
+### 2026-11-02: Session 35 (from Datum Plan's chat: 0.5.16, pictures and hardening)
+- Plan 0.5.16: a picture library kept in the .dplan file (logos by party: client, our company, contractors, consultants, vendors, sub-vendors), used in print headers, an Image dashboard tile and pictures on sheet cells (printed, and in .xlsx export). Save as PDF's blank first page fixed (a scaled page was split by the print engine; pages are now kept whole). A full hardening sweep: 11 print/window fixes and 19 engine fixes, each with a test. Family idea: other apps that print headers (Calc, Pipe, Schema) could keep logos the same way. Brain regenerated.
 
 ### 2026-11-01: Session 34, continued (Plot dates brief)
 - Plot cannot read dates anywhere (typing, paste, import, axes). Wrote `briefs/PLOT-DATES.md` for Plot's chat: optional date/datetime X columns stored as days since 1970-01-01 (matplotlib's epoch, Plan's day number), `Table.xFormat`, parsing, display formats, date axes, analyses in days, exports, and the hand-off contract (Plan switches `io/dplot.rs` to `xFormat: "date"` once a Plot release has it). Next: the user pastes the brief into Plot's chat; then Plan's chat makes the one-function switch.
