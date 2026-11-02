@@ -187,6 +187,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
+### 2026-11-02: Session 35 (from Datum Plan's chat: public repo cleanup)
+- Plan's repo cleaned per the hub's list: the product feature reference deleted, BRAINSTORM/PLAN/MEMORY/CLAUDE.md/Atlas brief and ~70 code comments reworded, docs/FAMILY.md now points here, README and NOTICE carry the trademark note. Old wording stays in git history (not rewritten). Committed in Plan, ships with its next release.
+
 ### 2026-11-01: Session 34, continued (Plan §13 cleanup)
 - Plan's public text cleaned per FAMILY §13: product comparisons reworded in CHANGELOG 0.1–0.5.13, README, site.json, guide (en, zh), help, Getting Started, glossary, export menus and messages; product names kept only as file types. Committed in Plan, ships with its next release.
 
