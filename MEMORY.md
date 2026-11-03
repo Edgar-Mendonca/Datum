@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.20 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.21 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -187,6 +187,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-03: Session 40 (from Datum Plan's chat: 0.5.21, conditional formatting)
+- Plan 0.5.21: conditional formatting on sheets (highlight rules, top and bottom, data bars, colour scales; printed, exported as real workbook rules, round-tripped), Find and Replace, fill up and left, merges in copy and paste, Format Painter number format, and sort fixed to use real numbers. The user is about to plan the HABSHAN-7 package in it. Brain regenerated.
 
 ### 2026-11-03: Session 39 (from Datum Plan's chat: 0.5.20, Sheets and Excel)
 - Plan 0.5.20: workbooks come into Sheets (values, formulas, formats, styles, merges, sizes, frozen panes, tab colour, page setup, pictures) and sheets go out as a workbook to share; flags survive the round trip through a hidden "DatumPlan" sheet. Gantt Chart Tools now come before Sheet Tools. GridCraft's workbook reader was tried but pins zip 3 with open advisories, so Plan reads workbooks with calamine plus its own small XML reader. Family note: for any app's spreadsheet exchange, prefer calamine and rust_xlsxwriter (both clean in cargo deny). Brain regenerated.
