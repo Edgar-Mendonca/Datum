@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.18 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.19 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -187,6 +187,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-03: Session 38 (from Datum Plan's chat: 0.5.19, sheets done properly)
+- Plan 0.5.19: Sheet Tools in two tabs (Cells, Page) grouped in Plan's own way, a cell style gallery, each sheet's own page setup (header and footer off, print area, title rows, breaks, fit), Normal / Page Layout / Page Breaks views, pictures placed in cells, automatic row heights, and about 30 fixes from a review agent (paste, fill, sort, dates in the plan's format, merges, frozen panes, keys). Family note: the user wants spreadsheet-grade ease without looking like a copy of any product. Brain regenerated.
 
 ### 2026-11-03: Session 37 (from Datum Plan's chat: 0.5.18, sheet polish)
 - Plan 0.5.18: ribbon dropdown arrows joined to their buttons (they shared the pane divider's class), pictures in the border, line-style and merge menus, a spreadsheet-style colour palette with a More Colors dialog (no system colour box), white merged cells, and "From the plan" buttons on the Sheets toolbar (Project facts, live lists, Task value…). Family note: any app with colour choices should use an in-app palette, never a detached system colour input. Brain regenerated.
