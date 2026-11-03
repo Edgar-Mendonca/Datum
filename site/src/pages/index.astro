@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Rail from "../components/Rail.astro";
-import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo } from "../lib/github";
+import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum } from "../lib/github";
 
 const apps = await loadAll();
 const recent = latestPerApp(apps);
@@ -11,7 +11,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const letters = "ABCDEFGHIJ";
 // Section headings come into focus word by word as they scroll in.
 const words = (t: string) => t.split(" ");
-const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method", "Method"], ["releases", "Releases"]];
+const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method", "Method"], ["releases", "Releases"], ["in-use", "In use"]];
+// 04 In use: the family's public numbers and how often the apps ship.
+const sum = totals(apps);
+const cad = cadence(apps);
+const C = { w: 1000, h: 200, l: 34, b: 26, t: 10 };
+const plotW = C.w - C.l - 8, plotH = C.h - C.b - C.t;
+const ticks = cad ? Array.from(new Set([0, Math.ceil(cad.max / 2), cad.max])) : [];
+const bw = cad ? plotW / cad.bins.length : 0;
+const every = cad ? Math.max(1, Math.ceil(cad.bins.length / 12)) : 1;
+const dl = apps.filter(a => a.stats).map(a => ({ a, n: a.stats!.downloads })).sort((x, y) => y.n - x.n);
+const dlMax = Math.max(1, ...dl.map(d => d.n));
+const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
 ---
 <Base title="Datum: free, open-source desktop tools for technical work" description="Datum is a family of free, open-source desktop tools for engineers, scientists, researchers and analysts.">
   <!-- Hero: "Datum" and "Tools to …" on the left, one animated tile per app on the right. -->
@@ -67,6 +78,7 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
                   <a class="btn btn-line" href={`${base}/apps/${a.id}`}>About {a.name.replace(/^Datum /, "")}<span aria-hidden="true">→</span></a>
                 </div>
                 <p class="mono app-links"><a href={`https://github.com/${a.repo}`}>Source</a><a href={`https://github.com/${a.repo}/blob/HEAD/CHANGELOG.md`}>What's new</a><a href={`https://github.com/${a.repo}/releases`}>All releases</a><a href={`https://github.com/${a.repo}/issues/new`}>Report an issue</a></p>
+                {a.stats && <p class="mono app-stats"><span title="GitHub stars">★ {fmtNum(a.stats.stars)}</span><span title="Forks">⑂ {fmtNum(a.stats.forks)}</span><span>{fmtNum(a.stats.downloads)} downloads</span><span>{fmtNum(a.stats.releases)} releases</span></p>}
               </div>
             </div>
           </article>
@@ -110,6 +122,58 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
           </li>
         ))}
       </ol>
+    </div>
+  </section>
+
+
+  <!-- 04 In use: public numbers from GitHub, and how often the apps ship -->
+  <section id="in-use" class="ruled" aria-labelledby="use-h" data-rail>
+    <div class="frame">
+      <div class="bar glass mono"><span><b>04</b> / In use</span><span class="r">From GitHub · updated every hour</span></div>
+      <div class="pad sec-intro">
+        <h2 id="use-h" class="h2 words">{words("Built in the open, used every day.").map(w => <span>{w}</span>)}</h2>
+        <p class="lead">Every number here comes from the public repositories and their releases, read when the site is built.</p>
+      </div>
+      <dl class="figs">
+        {sum && <div><dt class="mono">Installer downloads</dt><dd>{fmtNum(sum.downloads)}</dd></div>}
+        <div><dt class="mono">Releases shipped</dt><dd>{fmtNum(sum ? sum.releases : apps.reduce((n, a) => n + a.releases.length, 0))}</dd></div>
+        {sum && <div><dt class="mono">GitHub stars</dt><dd>{fmtNum(sum.stars)}</dd></div>}
+        {sum?.closedIssues !== undefined && <div><dt class="mono">Issues closed</dt><dd>{fmtNum(sum.closedIssues)}</dd></div>}
+        {sum && sum.closedIssues === undefined && <div><dt class="mono">Forks</dt><dd>{fmtNum(sum.forks)}</dd></div>}
+      </dl>
+      <div class="charts">
+        {cad && (
+          <figure class="chart">
+            <figcaption class="mono">Releases per {cad.weekly ? "week" : "day"}, by app</figcaption>
+            <svg viewBox={`0 0 ${C.w} ${C.h}`} role="img" aria-label={`Releases per ${cad.weekly ? "week" : "day"} for each app`}>
+              {ticks.map(v => { const y = C.t + plotH - (v / cad.max) * plotH; return <g><path class="grid" d={`M${C.l} ${y}H${C.w - 8}`} /><text class="ax" x={C.l - 8} y={y + 4} text-anchor="end">{v}</text></g>; })}
+              {cad.bins.map((b, i) => {
+                let y = C.t + plotH;
+                return (
+                  <g>
+                    {apps.filter(a => b.by[a.id]).map(a => { const h = (b.by[a.id] / cad.max) * plotH; y -= h; return <rect x={C.l + i * bw + bw * 0.14} y={y} width={bw * 0.72} height={h} style={`fill:var(--${a.id}, ${a.accent})`}><title>{`${a.name}: ${b.by[a.id]} on ${short(b.date)}`}</title></rect>; })}
+                    {i % every === 0 && <text class="ax" x={C.l + i * bw + bw / 2} y={C.h - 6} text-anchor="middle">{short(b.date)}</text>}
+                  </g>
+                );
+              })}
+              <path class="axis" d={`M${C.l} ${C.t + plotH}H${C.w - 8}`} />
+            </svg>
+            <ul class="legend mono">{apps.map(a => <li style={`--c:var(--${a.id}, ${a.accent})`}>{a.name.replace(/^Datum /, "")}</li>)}</ul>
+          </figure>
+        )}
+        {dl.length > 0 && (
+          <figure class="chart">
+            <figcaption class="mono">Installer downloads, by app</figcaption>
+            <ol class="hbars">
+              {dl.map(({ a, n }) => (
+                <li style={`--c:var(--${a.id}, ${a.accent}); --w:${(n / dlMax * 100).toFixed(1)}%`}>
+                  <a class="mono" href={`${base}/apps/${a.id}`}>{a.name.replace(/^Datum /, "")}</a><span class="track"><span /></span><span class="mono num">{fmtNum(n)}</span>
+                </li>
+              ))}
+            </ol>
+          </figure>
+        )}
+      </div>
     </div>
   </section>
 
@@ -201,4 +265,34 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
   .rel-v:hover { color: var(--c); }
   .rel-sum { color: var(--ink-2); font-size: 15px; }
   @media (max-width: 760px) { .rel li { grid-template-columns: auto auto 1fr; } .rel-sum { grid-column: 1 / -1; } }
+
+  /* Card stats: stars, forks, downloads, releases */
+  .app-stats { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 10.5px; color: var(--muted); letter-spacing: .08em; }
+
+  /* 04 In use: the figures, the releases chart and downloads by app */
+  .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 0; border-top: 1px solid var(--line); }
+  .figs div { padding: 22px var(--pad); border-right: 1px solid var(--line); }
+  .figs div:last-child { border-right: 0; }
+  .figs dt { color: var(--muted); font-size: 10.5px; }
+  .figs dd { margin: 6px 0 0; font: 600 clamp(26px, 3vw, 36px)/1 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .charts { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); border-top: 1px solid var(--line); }
+  .chart { display: grid; gap: 12px; align-content: start; padding: 24px var(--pad) 28px; margin: 0; min-width: 0; }
+  .chart + .chart { border-left: 1px solid var(--line); }
+  .chart figcaption { color: var(--muted); font-size: 10.5px; }
+  .chart svg { width: 100%; height: auto; overflow: visible; }
+  .chart .grid { stroke: var(--line); stroke-width: 1; }
+  .chart .axis { stroke: var(--ink); stroke-width: 1.2; }
+  .chart .ax { font: 500 11px var(--mono); fill: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 10px; color: var(--ink-2); }
+  .legend li { display: flex; align-items: center; gap: 6px; }
+  .legend li::before { content: ""; width: 9px; height: 9px; background: var(--c); }
+  .hbars { display: grid; gap: 10px; }
+  .hbars li { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+  .hbars a { font-size: 10.5px; color: var(--ink-2); }
+  .hbars a:hover { color: var(--c); }
+  .hbars .track { height: 10px; background: var(--bg-2); }
+  .hbars .track span { display: block; height: 100%; width: var(--w); background: var(--c); }
+  .hbars .num { font-size: 11px; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+  @media (max-width: 900px) { .charts { grid-template-columns: 1fr; } .chart + .chart { border-left: 0; border-top: 1px solid var(--line); } }
+  @media (max-width: 560px) { .figs div { border-right: 0; border-bottom: 1px solid var(--line); } }
 </style>

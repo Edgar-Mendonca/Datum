@@ -11,11 +11,13 @@ export type Stage = { v: string; title: string; when: string; items: string[] };
 export type Shot = { path: string; raw: string; file: string; alt: string; bytes?: Uint8Array };
 export type Section = { version: string; date: string; summary: string; html: string };
 export type Release = { app: string; name: string; accent: string; version: string; date: string; url: string; summary: string };
+/** Public numbers from GitHub: stars, forks, every release's installer downloads, issues closed. */
+export type Stats = { stars: number; forks: number; downloads: number; releases: number; closedIssues?: number };
 export type Latest = { version: string; date: string; url: string; download: string; size?: number; sums?: string; fromChangelog?: boolean };
 export type App = {
   id: string; repo: string; branch: string; name: string; accent: string; tagline: string; for: string;
   logo: string; about: string[]; steps: Step[]; highlights: string[]; shots: Shot[]; roadmap: Stage[]; changelog: Section[];
-  latest?: Latest; releases: Release[]; hasSite: boolean; statusSet?: string;
+  latest?: Latest; releases: Release[]; hasSite: boolean; statusSet?: string; stats?: Stats;
 };
 
 // The repo root (the build runs in site/; import.meta.url moves when Astro bundles this file).
@@ -70,7 +72,8 @@ export function parseChangelog(md: string, where = "CHANGELOG"): Section[] {
 async function loadApp(e: any): Promise<App> {
   const raw = (p: string) => `https://raw.githubusercontent.com/${e.repo}/${e.branch ?? "HEAD"}/${p}`;
   const site = JSON.parse((await get(raw("docs/site.json"))) ?? "null");
-  const [md, rels] = await Promise.all([get(raw("CHANGELOG.md")), get(`https://api.github.com/repos/${e.repo}/releases?per_page=10`, "json")]);
+  const [md, rels, repo, closed] = await Promise.all([get(raw("CHANGELOG.md")), get(`https://api.github.com/repos/${e.repo}/releases?per_page=100`, "json"),
+    get(`https://api.github.com/repos/${e.repo}`, "json"), get(`https://api.github.com/search/issues?q=repo:${e.repo}+is:issue+is:closed&per_page=1`, "json")]);
   const s = site ?? {};
   const svg = await get(raw(s.logo ?? `docs/brand/datum-${e.id}-icon.svg`));
   const logo = svgUri(svg?.trimStart().startsWith("<svg") ? svg : localSvg(`datum-${e.id}-icon.svg`) ?? read("brand/datum-icon.svg"));
@@ -109,6 +112,12 @@ async function loadApp(e: any): Promise<App> {
     app.latest = { version: c.version, date: c.date, url: `${gh}/releases/tag/v${c.version}`, download: `${gh}/releases/latest`, fromChangelog: true };
     app.releases = changelog.map(c => ({ app: app.id, name: app.name, accent: app.accent, version: c.version, date: c.date, url: `${gh}/releases/tag/v${c.version}`, summary: c.summary }));
   }
+  // Public numbers (only when GitHub answered; without a token the site simply leaves them out).
+  if (repo && typeof repo.stargazers_count === "number") {
+    const downloads = list.reduce((n: number, r: any) => n + (r.assets ?? []).filter((a: any) => /\.(exe|msi|dmg|appimage|deb|rpm)$/i.test(a.name)).reduce((m: number, a: any) => m + (a.download_count ?? 0), 0), 0);
+    app.stats = { stars: repo.stargazers_count, forks: repo.forks_count ?? 0, downloads, releases: list.length,
+      closedIssues: typeof closed?.total_count === "number" ? closed.total_count : undefined };
+  }
   return app;
 }
 
@@ -122,7 +131,7 @@ export function loadAll(): Promise<App[]> {
       return { ...e, branch: e.branch ?? "HEAD", logo: familyLogo, about: [e.about ?? []].flat(), steps: e.steps ?? [], highlights: [], shots: [], roadmap: [], changelog: [], releases: [], hasSite: false } as App;
     })));
     // One line per app in the build log: the version the site shows, where it came from, and the CHANGELOG's newest.
-    for (const a of apps) console.log(`[datum] ${a.id}: ${a.latest ? `v${a.latest.version} (${a.latest.fromChangelog ? "from CHANGELOG, no release API" : "GitHub release"})` : "no release"}; CHANGELOG ${a.changelog[0]?.version ?? "none"}`);
+    for (const a of apps) console.log(`[datum] ${a.id}: ${a.latest ? `v${a.latest.version} (${a.latest.fromChangelog ? "from CHANGELOG, no release API" : "GitHub release"})` : "no release"}; CHANGELOG ${a.changelog[0]?.version ?? "none"}${a.stats ? `; ★${a.stats.stars} ⑂${a.stats.forks} ${a.stats.downloads} downloads, ${a.stats.releases} releases, ${a.stats.closedIssues ?? "?"} issues closed` : "; no GitHub numbers"}`);
     if (flagged.length) console.warn(`[datum] ${flagged.length} lines name another product and are left out:\n  ${flagged.join("\n  ")}`);
     return apps;
   })();
@@ -193,3 +202,28 @@ export function inkOf(hex: string) {
 export const fmtDate = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 export const fmtSize = (b?: number) => b ? `${(b / 1048576).toFixed(b > 10485760 ? 0 : 1)} MB` : "";
 export const app = async (id: string) => (await loadAll()).find(a => a.id === id);
+
+/** The family's totals, when GitHub answered for at least one app. */
+export const totals = (apps: App[]) => {
+  const st = apps.map(a => a.stats).filter(Boolean) as Stats[];
+  if (!st.length) return null;
+  const sum = (k: keyof Stats) => st.reduce((n, s) => n + (s[k] ?? 0), 0);
+  return { downloads: sum("downloads"), stars: sum("stars"), forks: sum("forks"), releases: apps.reduce((n, a) => n + a.releases.length, 0),
+    closedIssues: st.some(s => s.closedIssues !== undefined) ? sum("closedIssues") : undefined };
+};
+
+/** Releases per day (or per week once the history is longer than eight weeks), stacked by app, for the In use chart. */
+export function cadence(apps: App[]) {
+  const all = apps.flatMap(a => a.releases.map(r => ({ id: a.id, date: r.date })));
+  if (!all.length) return null;
+  const day = (d: string) => Date.parse(`${d}T00:00:00Z`) / 86400000;
+  const first = Math.min(...all.map(r => day(r.date))), last = Math.max(day(new Date().toISOString().slice(0, 10)), ...all.map(r => day(r.date)));
+  const weekly = last - first > 56;
+  const size = weekly ? 7 : 1, start = weekly ? first - ((first + 3) % 7) : first; // weeks start on Monday
+  const n = Math.floor((last - start) / size) + 1;
+  const bins = Array.from({ length: n }, (_, i) => ({ date: new Date((start + i * size) * 86400000).toISOString().slice(0, 10), by: {} as Record<string, number>, total: 0 }));
+  for (const r of all) { const b = bins[Math.floor((day(r.date) - start) / size)]; b.by[r.id] = (b.by[r.id] ?? 0) + 1; b.total++; }
+  return { weekly, bins, max: Math.max(...bins.map(b => b.total)) };
+}
+
+export const fmtNum = (n: number) => n.toLocaleString("en-GB");

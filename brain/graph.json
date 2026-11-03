@@ -824,6 +824,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-60",
+   "type": "decision",
+   "app": "hub",
+   "label": "Public numbers on the site. App cards and pages show stars…",
+   "text": "Public numbers on the site. App cards and pages show stars, forks, installer downloads and releases; a new home section 04 In use shows family totals (downloads, releases, stars, issues closed), releases per day by app (per week after eight weeks) and downloads by app, all read from GitHub at each hourly build and hidden when GitHub does not answer. A daily workflow saves every app's numbers to stats/history.json so growth charts can follow\n\nWhy: The user: show that the apps are progressing and being used. Downloads and releases lead (bigger, more meaningful than stars); this brings figures back to the home page (removed in session 6) as one modest section in the grid style.",
+   "date": "2026-11-03 (s28)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -1019,6 +1028,15 @@
    "label": "Session 25 (from Datum Plan's chat: 0.4.4, the…",
    "date": "2026-10-29",
    "text": "· Plan 0.4.4 shipped the Datum Plan Guide in English and Simplified Chinese (about 30 pages each, numbered screenshots), downloaded from the release by Help › Guide; 0.4.3 had changed the Windows publisher to \"Datum\". Recorded the guide pattern (decision, FAMILY §10) and Plan at 0.4.4. Brain regenerated.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-22",
+   "type": "session",
+   "app": "hub",
+   "label": "Session 28 (stats on the website)",
+   "date": "2026-11-03",
+   "text": "· Session 27 (no files): audit of all eight repos and the hub for commercial names and copyright. Clean: app screens, CHANGELOGs, READMEs, site.json, Atlas data (public sources only), Pipe (equations from free sources, code tables as user inputs, trademark notice, Help › Sources), Plot samples (generated), licences (MIT apps; permissive deps; no GPL linked). To fix (paste-ins given): public planning docs and code comments naming commercial products in Plan (incl. docs/reference/MSP-P6-feature-reference.md), Plot, Mesh, Schema, Atlas; a copied CSS comment in all eight; brain/graph.json carries ~50 names (the site hides them; the hub's NAMES filter lacks some). Trademark: \"Datum\" is used near engineering software (a large CAD vendor's pending \"… DATUM\" filing, Datum360, Datum Technologies, an Australian \"Datum Software\"): the user was advised to get an IP lawyer's clearance. Plan's chat has since cleaned its public text.\n· Session 28: github.ts reads each repo (stars, forks), all releases (per_page=100; installer download counts) and closed issues (search API); totals(), cadence(), fmtNum(); the build log prints each app's numbers. Home: card stats line and 04 In use (figures, a stacked releases chart as build-time SVG in app colours, downloads bars); rail gains \"In use\". App pages: a stats line under the version. stats/snapshot.mjs + .github/workflows/stats.yml (daily 23:41 UTC, commits stats/history.json, includes Datum Home's downloads). Checked with made-up numbers (removed before commit): 1280/375, light and dark, no overflow.\n· Next: once history has a few weeks, draw growth (downloads and stars over time) from stats/history.json; still open from session 27: scrub names in brain/graph.json and extend NAMES.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -15850,6 +15868,11 @@
   {
    "source": "hub",
    "target": "hub-decision-59",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
+   "target": "hub-decision-60",
    "kind": "decided"
   },
   {

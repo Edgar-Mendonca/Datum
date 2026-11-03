@@ -1,0 +1,73 @@
+{
+ "$schema": "Daily public numbers per Datum app (stats/snapshot.mjs): stars, forks, open issues, installer downloads and releases. One entry per day; a later run on the same day replaces it.",
+ "days": [
+  {
+   "date": "2026-11-03",
+   "apps": {
+    "plan": {
+     "stars": 5,
+     "forks": 1,
+     "openIssues": 1,
+     "downloads": 151,
+     "releases": 38
+    },
+    "plot": {
+     "stars": 6,
+     "forks": 1,
+     "openIssues": 5,
+     "downloads": 138,
+     "releases": 40
+    },
+    "atlas": {
+     "stars": 1,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 21,
+     "releases": 5
+    },
+    "sim": {
+     "stars": 2,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 25,
+     "releases": 9
+    },
+    "calc": {
+     "stars": 3,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 32,
+     "releases": 12
+    },
+    "mesh": {
+     "stars": 0,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 64,
+     "releases": 35
+    },
+    "pipe": {
+     "stars": 0,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 60,
+     "releases": 42
+    },
+    "schema": {
+     "stars": 1,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 64,
+     "releases": 35
+    },
+    "home": {
+     "stars": 2,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 26,
+     "releases": 6
+    }
+   }
+  }
+ ]
+}

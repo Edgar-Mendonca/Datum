@@ -4,7 +4,7 @@
 import Base from "../../layouts/Base.astro";
 import AppGlyph from "../../components/AppGlyph.astro";
 import Rail from "../../components/Rail.astro";
-import { loadAll, statusOf, fmtDate, fmtSize, type App } from "../../lib/github";
+import { loadAll, statusOf, fmtDate, fmtSize, fmtNum, type App } from "../../lib/github";
 
 export async function getStaticPaths() {
   const apps = await loadAll();
@@ -46,6 +46,7 @@ const sec = (id: string) => secs.find(s => s.id === id)!;
             <h1 id="app-title" class="title">{a.name}</h1>
           </div>
           <p class="meta mono"><span class:list={["badge", status.toLowerCase().replace(/\s+/g, "-")]}>{status}</span>{a.latest && <span>v{a.latest.version} · {fmtDate(a.latest.date)}</span>}<span>Windows 10 and 11</span></p>
+          {a.stats && <p class="meta mono stats"><a href={gh} title="GitHub stars">★ {fmtNum(a.stats.stars)}</a><span title="Forks">⑂ {fmtNum(a.stats.forks)}</span><span>{fmtNum(a.stats.downloads)} downloads</span><span>{fmtNum(a.stats.releases)} releases</span>{a.stats.closedIssues !== undefined && <span>{fmtNum(a.stats.closedIssues)} issues closed</span>}</p>}
           <p class="tag">{a.tagline}</p>
           <p class="for"><span class="mono">For</span> {a.for}</p>
           <div class="btns">
@@ -177,6 +178,7 @@ const sec = (id: string) => secs.find(s => s.id === id)!;
   .name-row img { width: clamp(48px, 5vw, 64px); height: auto; }
   .title { font: 600 clamp(40px, 5.4vw, 72px)/1 var(--display); letter-spacing: -.035em; }
   .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; color: var(--muted); font-size: 11px; }
+  .stats a:hover { color: var(--c); }
   .badge { font-size: 10px; padding: 3px 8px; border: 1px solid currentColor; letter-spacing: .12em; }
   .badge.stable { color: #1F7A4D; } .badge.beta { color: var(--c); } .badge.alpha { color: #8A5A00; } .badge.coming-soon { color: var(--muted); }
   :root[data-theme="dark"] .badge.stable { color: #4CC38A; } :root[data-theme="dark"] .badge.alpha { color: #F0B450; }
