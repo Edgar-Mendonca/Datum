@@ -833,6 +833,15 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
+   "id": "hub-decision-61",
+   "type": "decision",
+   "app": "hub",
+   "label": "Datum Layout (3D plant layout and piping) is the ninth app…",
+   "text": "Datum Layout (3D plant layout and piping) is the ninth app; the plant workflow is four apps handing data on: Schema (P&ID/PFD, plant package) → Layout (3D) → Pipe (isometrics, stress, vessels), Sim for dynamics. Name chosen over \"Datum Plant\" (too close to Plan) and \"Datum Site\" (clashes with \"the Datum site\", the website). Accent Steel #3A5A78. Parts are generated from shape rules + dimension tables + ports (no downloaded or bundled models; open libraries found are GPL/LGPL or per-asset licensed; vendor files cannot be redistributed); the catalogue lives inside the app repo with drop-in plug-in packs (company pipe classes, extra parts, user-downloaded vendor models): no separate parts repo (the data is a few hundred KB). No Python in 0.1; Python (build123d/CadQuery on OpenCascade, separate process) arrives in 0.5 for STEP, as an optional download on first use\n\nWhy: The user met a large plant-lifecycle vendor at the exhibition and wants spec-driven 3D piping with drag-and-drop fittings, but split across the family's apps and started small.",
+   "date": "2026-11-03 (s31)",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
    "id": "hub-session-0",
    "type": "session",
    "app": "hub",
@@ -1070,13 +1079,22 @@
    "id": "hub-session-26",
    "type": "session",
    "app": "hub",
+   "label": "Session 31 (Datum Layout brief)",
+   "date": "2026-11-03",
+   "text": "· Sessions 29–30 (brainstorm, no files): stats delivered; then the 3D plant app. Found the earlier plan in Schema's MEMORY (2 Nov: Schema → 3D app → Pipe; Schema exports a \"plant package\", its roadmap 0.8). Research: NVIDIA SimReady assets are licensed per asset (some non-commercial); FreeCAD parts and piping libraries are GPL/LGPL; vendor CAD portals forbid redistribution; so parts are generated. The user asked whether a separate parts repo is needed: no (tiny data; catalogue inside the app with plug-in packs).\n· Session 31: name Datum Layout, accent Steel; wrote briefs/DATUM-LAYOUT.md (decisions up front, 0.1 scope: plot, six parametric equipment types with nozzles, routing with automatic elbows/reducers/flanges, drag-and-drop snapping fittings, one pipe class, clash and spec checks, line list and take-off, PCF proved against Pipe's reader, glTF, three examples + \"Find the clashes\"; tests; a six-step plan 0.1.0 → 0.1.4; roadmap 0.2 Schema import and 3D-vs-P&ID check, 0.3 steel and supports, 0.4 drawings and IFC, 0.5 STEP via optional Python, 0.6 big models and teams). FAMILY §3: Steel.\n· Hub tasks when Layout releases: apps.json (layout #3A5A78; --layout #3A5A78 / dark #8FB3D9), icon, AppGlyph \"layout\" (classes never g-layout), phrases; the hero needs a new layout for nine apps (the 3×3 bench is full: e.g. four columns, or a 4×3 bench with the Datum mark and \"More to come\"); FAMILY §1, README, Datum Home built-in list, brain.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-27",
+   "type": "session",
+   "app": "hub",
    "label": "Session 28 (stats on the website)",
    "date": "2026-11-03",
    "text": "· Session 27 (no files): audit of all eight repos and the hub for commercial names and copyright. Clean: app screens, CHANGELOGs, READMEs, site.json, Atlas data (public sources only), Pipe (equations from free sources, code tables as user inputs, trademark notice, Help › Sources), Plot samples (generated), licences (MIT apps; permissive deps; no GPL linked). To fix (paste-ins given): public planning docs and code comments naming commercial products in Plan (incl. docs/reference/MSP-P6-feature-reference.md), Plot, Mesh, Schema, Atlas; a copied CSS comment in all eight; brain/graph.json carries ~50 names (the site hides them; the hub's NAMES filter lacks some). Trademark: \"Datum\" is used near engineering software (a large CAD vendor's pending \"… DATUM\" filing, Datum360, Datum Technologies, an Australian \"Datum Software\"): the user was advised to get an IP lawyer's clearance. Plan's chat has since cleaned its public text.\n· Session 28: github.ts reads each repo (stars, forks), all releases (per_page=100; installer download counts) and closed issues (search API); totals(), cadence(), fmtNum(); the build log prints each app's numbers. Home: card stats line and 04 In use (figures, a stacked releases chart as build-time SVG in app colours, downloads bars); rail gains \"In use\". App pages: a stats line under the version. stats/snapshot.mjs + .github/workflows/stats.yml (daily 23:41 UTC, commits stats/history.json, includes Datum Home's downloads). Checked with made-up numbers (removed before commit): 1280/375, light and dark, no overflow.\n· Next: once history has a few weeks, draw growth (downloads and stars over time) from stats/history.json; still open from session 27: scrub names in brain/graph.json and extend NAMES.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-27",
+   "id": "hub-session-28",
    "type": "session",
    "app": "hub",
    "label": "Session 26 (pre-exhibition check)",
@@ -1085,7 +1103,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-28",
+   "id": "hub-session-29",
    "type": "session",
    "app": "hub",
    "label": "Session 25 (status review of all eight apps)",
@@ -1094,7 +1112,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-29",
+   "id": "hub-session-30",
    "type": "session",
    "app": "hub",
    "label": "Session 24 (Datum Schema joins the family…",
@@ -1103,7 +1121,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-30",
+   "id": "hub-session-31",
    "type": "session",
    "app": "hub",
    "label": "Session 23 (Schema's direction: enterprise…",
@@ -1112,7 +1130,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-31",
+   "id": "hub-session-32",
    "type": "session",
    "app": "hub",
    "label": "Session 22 (Datum Schema brief)",
@@ -1121,7 +1139,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-32",
+   "id": "hub-session-33",
    "type": "session",
    "app": "hub",
    "label": "Session 21 (publisher \"Datum\")",
@@ -1130,7 +1148,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-33",
+   "id": "hub-session-34",
    "type": "session",
    "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
@@ -1139,7 +1157,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-34",
+   "id": "hub-session-35",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -1148,7 +1166,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-35",
+   "id": "hub-session-36",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -1157,7 +1175,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-36",
+   "id": "hub-session-37",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -1166,7 +1184,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-37",
+   "id": "hub-session-38",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -1175,7 +1193,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-38",
+   "id": "hub-session-39",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -1184,7 +1202,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-39",
+   "id": "hub-session-40",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -1193,7 +1211,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-40",
+   "id": "hub-session-41",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -1202,7 +1220,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-41",
+   "id": "hub-session-42",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -1211,7 +1229,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-42",
+   "id": "hub-session-43",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -1220,7 +1238,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-43",
+   "id": "hub-session-44",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -1229,7 +1247,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-44",
+   "id": "hub-session-45",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -1238,7 +1256,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-45",
+   "id": "hub-session-46",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -1247,7 +1265,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-46",
+   "id": "hub-session-47",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -1256,7 +1274,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-47",
+   "id": "hub-session-48",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -1265,7 +1283,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-48",
+   "id": "hub-session-49",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -1307,6 +1325,15 @@
    "label": "Datum Schema (was \"Flowsheet\")",
    "when": "Released (session 24), magenta accent",
    "text": "Intelligent P&IDs and process flow diagrams: our own symbols (ISO 10628-2 / ISA-5.1 conventions), data on every item and line, connectivity, live checks (13 rules), line hydraulics (velocity, ΔP, limits), line list, equipment list, instrument index, valve list, PDF/SVG/DXF, CSV/Excel. Brief: briefs/DATUM-SCHEMA.md\n\nFor: Process, chemical, mechanical, piping and instrument engineers, students\nReuses: Sim's canvas, Calc's units and pipe ΔP, Pipe's size library, Plan's shell and Excel export\nSize: Medium; 0.1 = one unattended run\nStatus: Released (session 24), magenta accent",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "idea-datum-layout",
+   "type": "idea",
+   "app": "hub",
+   "label": "Datum Layout",
+   "when": "Being built (session 31), steel accent",
+   "text": "Spec-driven 3D plant layout and piping: parametric equipment with nozzles, routing with automatic spec elbows, drag-and-drop fittings that snap by ports and size themselves, clash checks, line list and take-off, PCF to Datum Pipe, glTF; later Schema's plant package, steel and supports, drawings, IFC, STEP (optional Python, 0.5). Brief: briefs/DATUM-LAYOUT.md\n\nFor: Piping and layout designers, mechanical and process engineers, students\nReuses: Pipe's 3D view, PCF and pipe library; Schema's object model and plant package; Plan's shell; Mesh's 3D techniques\nSize: Large overall; 0.1 = one unattended run\nStatus: Being built (session 31), steel accent",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -16117,6 +16144,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-decision-61",
+   "kind": "decided"
+  },
+  {
+   "source": "hub",
    "target": "hub-session-0",
    "kind": "session"
   },
@@ -16362,6 +16394,11 @@
   },
   {
    "source": "hub",
+   "target": "hub-session-49",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
    "target": "idea-datum-calc",
    "kind": "idea"
   },
@@ -16378,6 +16415,11 @@
   {
    "source": "hub",
    "target": "idea-datum-schema-was-flowsheet",
+   "kind": "idea"
+  },
+  {
+   "source": "hub",
+   "target": "idea-datum-layout",
    "kind": "idea"
   },
   {
@@ -30259,6 +30301,31 @@
    "source": "idea-datum-schema-was-flowsheet",
    "target": "app-pipe",
    "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-layout",
+   "target": "app-plan",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-layout",
+   "target": "app-mesh",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-layout",
+   "target": "app-pipe",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-layout",
+   "target": "app-schema",
+   "kind": "reuses"
+  },
+  {
+   "source": "idea-datum-layout",
+   "target": "tech-python",
+   "kind": "uses"
   },
   {
    "source": "idea-datum-tolerance",

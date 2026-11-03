@@ -59,7 +59,7 @@ Every app is free and open source (MIT), Windows first, installs in seconds for 
 - [**MEMORY.md**](MEMORY.md): the family memory: decisions that apply to every app, the apps list, the session log.
 - [**apps.json**](apps.json): the registry the website builds from. Adding an app is one line.
 - [**brand/**](brand): the Datum logo ("Continuum") and its guide [BRAND.md](brand/BRAND.md), and every app icon.
-- [**briefs/**](briefs): the briefs new apps start from: [Datum Sim](briefs/DATUM-SIM.md) (released), [Datum Calc](briefs/DATUM-CALC.md) and [Datum Mesh](briefs/DATUM-MESH.md) (released), [Datum Pipe](briefs/DATUM-PIPE.md) (released), [Datum Schema](briefs/DATUM-SCHEMA.md) (released).
+- [**briefs/**](briefs): the briefs new apps start from: [Datum Sim](briefs/DATUM-SIM.md) (released), [Datum Calc](briefs/DATUM-CALC.md) and [Datum Mesh](briefs/DATUM-MESH.md) (released), [Datum Pipe](briefs/DATUM-PIPE.md) (released), [Datum Schema](briefs/DATUM-SCHEMA.md) (released), [Datum Layout](briefs/DATUM-LAYOUT.md) (being built).
 - [**status/**](status): dated status reports: where each app stands, what it lacks, and the priorities.
 - [**stats/**](stats): a daily snapshot of every app's public numbers (stars, forks, downloads, releases), kept for growth charts.
 - [**brain/**](brain): the Datum brain: `graph.json`, one graph of every app, design rule, technology, source file, decision, release, plan and session, generated from the repositories ([BRAIN.md](brain/BRAIN.md)). Read it before starting anything new.
