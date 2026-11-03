@@ -1,0 +1,36 @@
+name: Stats snapshot
+# Once a day: save every app's public numbers (stars, forks, downloads, releases, open issues) to stats/history.json,
+# so the site can show growth over time later. GitHub only gives today's totals, so history must be kept here.
+on:
+  schedule:
+    - cron: "41 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Take today's snapshot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node stats/snapshot.mjs
+      - name: Commit it
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats/history.json
+          git diff --cached --quiet && { echo "No change"; exit 0; }
+          git commit -m "Stats snapshot $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0; sleep 5; done
+          exit 1
