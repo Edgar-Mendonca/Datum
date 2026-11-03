@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.16 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.17 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -186,6 +186,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-03: Session 36 (from Datum Plan's chat: 0.5.17, Sheet Tools)
+- Plan 0.5.17: Sheets get a Sheet Tools › Home ribbon tab that opens with the view (fonts, alignment, wrap, merge & center, borders, number formats, cell styles, cells, picture, editing), row heights, spreadsheet-style tabs (rename in place, move/copy, colour, hide), and the app's own dialogs instead of browser boxes everywhere. Following GridCraft's model rules and palettes (its interface is egui, so not reusable as code). calamine 0.38 for RUSTSEC-2026-0436. Brain regenerated.
 
 ### 2026-11-02: Session 35 (from Datum Plan's chat: public repo cleanup)
 - Plan's repo cleaned per the hub's list: the product feature reference deleted, BRAINSTORM/PLAN/MEMORY/CLAUDE.md/Atlas brief and ~70 code comments reworded, docs/FAMILY.md now points here, README and NOTICE carry the trademark note. Old wording stays in git history (not rewritten). Committed in Plan, ships with its next release.
