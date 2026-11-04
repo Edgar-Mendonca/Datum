@@ -191,6 +191,11 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
+### 2026-11-04: Session 43 (brag-slim skill; an intro video)
+- User: add the brag skill (latent-spaces/brag) and make a short intro for the apps.
+- Added `.claude/skills/brag-slim/` (its SKILL.md unchanged, MIT, attribution in LICENSE). The full `/brag` was not added: it bundles about 60 MB of music and needs Hyperframes; on this model it hands over to brag-slim anyway.
+- Made a 21 s 1920×1080 intro in the site's look: "Datum" and "Tools to …", the site's app bench, Plan's Gantt, Mesh's bracket stress, Schema → Layout → Pipe, the real totals (615 installer downloads, 226 releases on 2026-11-04), the logo and the site address. Built from the site's own tiles and the screenshots each app publishes; music made for it. The video and its files stay outside the repo (given to the user).
+
 ### 2026-11-04: Session 42 (from Datum Plan's chat: 0.5.23, pages set by hand)
 - Plan 0.5.23: Page Breaks view edits the printed pages on the cells (drag the blue print-area edge and the page breaks, grey outside, a right-click menu for breaks and print area, column page breaks both ways with workbooks); title rows above the print area print, the print range is capped, a size guard for .xlsb, new sheet pictures sit inside their cell. Brain regenerated.
 
