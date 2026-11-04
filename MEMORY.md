@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.22 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.23 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -190,6 +190,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-04: Session 42 (from Datum Plan's chat: 0.5.23, pages set by hand)
+- Plan 0.5.23: Page Breaks view edits the printed pages on the cells (drag the blue print-area edge and the page breaks, grey outside, a right-click menu for breaks and print area, column page breaks both ways with workbooks); title rows above the print area print, the print range is capped, a size guard for .xlsb, new sheet pictures sit inside their cell. Brain regenerated.
 
 ### 2026-11-03: Session 41 (from Datum Plan's chat: 0.5.22, Sheets closed out)
 - Plan 0.5.22: date rules in conditional formatting, hide and unhide rows and columns (both ways with workbooks), and 15 fixes from a hardening agent with 28 new tests (an import size guard against workbooks that would exhaust memory, valid unique sheet names in exports, .ods formulas, text kept as text, rule edge cases, inserted rows moving print area and titles, fill dates by the plan's day order). The user tests tomorrow. Brain regenerated.
