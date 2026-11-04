@@ -17,13 +17,36 @@ import calc from "../../../brand/datum-calc-icon.svg";
 import mesh from "../../../brand/datum-mesh-icon.svg";
 import pipe from "../../../brand/datum-pipe-icon.svg";
 import schema from "../../../brand/datum-schema-icon.svg";
+import layout from "../../../brand/datum-layout-icon.svg";
 
-const ICONS: Record<string, string> = { plan, plot, atlas, sim, calc, mesh, pipe, schema };
+const ICONS: Record<string, string> = { plan, plot, atlas, sim, calc, mesh, pipe, schema, layout };
 const SITE = "https://edgar-mendonca.github.io/Datum/";
 const mb = (b: number) => (b ? `${(b / 1048576).toFixed(b > 10485760 ? 0 : 1)} MB` : "");
+// Exact sizes for the progress line: 12.4 MB of 52.0 MB, 3.1 MB/s, about 13 s left.
+const mb1 = (b = 0) => `${(b / 1048576).toFixed(1)} MB`;
+const secs = (s: number) => (s < 60 ? `${Math.max(1, Math.round(s))} s` : `${Math.floor(s / 60)} min ${Math.round(s % 60)} s`);
+/** One plain line for each step of an install or update. */
+const say = (p: Progress | undefined, label: string) => {
+  if (!p) return `${label}…`;
+  const f = p.file ? ` ${p.file}` : "";
+  switch (p.stage) {
+    case "checksums": return `Fetching the checksum list for${f}${p.total ? ` (${mb1(p.total)})` : ""}…`;
+    case "download": {
+      const d = p.done ?? 0, t = p.total ?? 0, r = p.rate ?? 0;
+      const of = t ? `${mb1(d)} of ${mb1(t)} · ${Math.min(100, Math.floor((d / t) * 100))}%` : mb1(d);
+      const speed = r > 0 ? ` · ${mb1(r)}/s` : "";
+      const left = t && r > 0 && d < t ? ` · about ${secs((t - d) / r)} left` : "";
+      return `Downloading${f}: ${of}${speed}${left}`;
+    }
+    case "verify": return `Downloaded ${mb1(p.done)}. Checking its SHA-256 against the release's checksum list…`;
+    case "verified": return `Checksum matches (SHA-256 ${p.sha}…). Starting the installer…`;
+    case "install": return "Installing for your user account (no administrator rights)…";
+  }
+};
+const pct = (p?: Progress) => (p?.stage === "download" && p.total ? Math.min(100, (100 * (p.done ?? 0)) / p.total) : p && p.stage !== "checksums" ? 100 : 0);
 const day = (d: string) => (d ? new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "");
 
-type Row = { app: App; info?: CardInfo; busy?: string; pct?: number; error?: string; notes?: boolean; confirm?: boolean };
+type Row = { app: App; info?: CardInfo; busy?: string; prog?: Progress; error?: string; notes?: boolean; confirm?: boolean };
 
 function Home() {
   const [rows, setRows] = createStore<Row[]>([]);
@@ -33,6 +56,7 @@ function Home() {
   const [version, setVersion] = createSignal("");
   const [self, setSelf] = createSignal<Release | null>(null);
   const [selfBusy, setSelfBusy] = createSignal("");
+  const [selfProg, setSelfProg] = createSignal<Progress | undefined>();
 
   const idx = (id: string) => rows.findIndex(r => r.app.id === id);
   const refresh = async (id: string) => {
@@ -61,10 +85,10 @@ function Home() {
   // Install, Update, Uninstall: one at a time per app; the card shows progress and any error.
   const run = async (id: string, label: string, cmd: string, args: object) => {
     const i = idx(id);
-    setRows(i, { busy: label, pct: 0, error: undefined, confirm: false });
+    setRows(i, { busy: label, prog: undefined, error: undefined, confirm: false });
     try { await invoke(cmd, args); }
     catch (e) { setRows(idx(id), "error", String(e)); }
-    finally { setRows(idx(id), { busy: undefined, pct: undefined }); await refresh(id); }
+    finally { setRows(idx(id), { busy: undefined, prog: undefined }); await refresh(id); }
   };
   const main = (r: Row) => {
     const c = r.info?.card;
@@ -77,7 +101,11 @@ function Home() {
   const web = (url: string) => invoke("open_url", { url }).catch(() => {});
 
   onMount(() => {
-    listen("progress", (p: Progress) => { const i = idx(p.id); if (i >= 0) setRows(i, { pct: p.pct, busy: p.stage === "install" ? "Installing" : rows[i].busy }); });
+    listen("progress", (p: Progress) => {
+      if (p.id === "home") { setSelfProg(p); return; }
+      const i = idx(p.id);
+      if (i >= 0) setRows(i, { prog: p });
+    });
     invoke<string>("version").then(setVersion).catch(() => {});
     if (desktop) check();
   });
@@ -94,11 +122,11 @@ function Home() {
 
       <Show when={self()}>{s => (
         <div class="banner">
-          <span>Datum Home {s().version} is ready{s().date ? ` (${day(s().date)})` : ""}.</span>
+          <span class="grow">{selfBusy() ? say(selfProg(), "Downloading") : `Datum Home ${s().version} is ready${s().date ? ` (${day(s().date)})` : ""}${s().size ? `: a ${mb1(s().size)} download from GitHub, checked with SHA-256 before it runs` : ""}.`}</span>
           <button class="btn solid" disabled={!!selfBusy()} onClick={async () => {
-            setSelfBusy("Downloading…");
-            try { await invoke("update_home", { release: s() }); } catch (e) { setSelfBusy(""); alert(String(e)); }
-          }}>{selfBusy() || "Update and restart"}</button>
+            setSelfBusy("Updating…");
+            try { await invoke("update_home", { release: s() }); } catch (e) { setSelfBusy(""); setSelfProg(undefined); alert(String(e)); }
+          }}>{selfBusy() || `Update and restart${s().size ? ` · ${mb(s().size)}` : ""}`}</button>
         </div>
       )}</Show>
 
@@ -123,7 +151,7 @@ function Home() {
             const label = () => {
               const a = c()?.action;
               if (a === "install") return `Install${rel()?.size ? ` · ${mb(rel()!.size)}` : ""}`;
-              if (a === "update") return `Update to ${rel()!.version}`;
+              if (a === "update") return `Update to ${rel()!.version}${rel()?.size ? ` · ${mb(rel()!.size)}` : ""}`;
               if (a === "open") return r.info?.running ? "Running" : "Open";
               return "Not available yet";
             };
@@ -143,9 +171,12 @@ function Home() {
                   <div><dt>Newest</dt><dd>{rel() ? `${rel()!.version}${rel()!.date ? ` · ${day(rel()!.date)}` : ""}` : r.info?.error ? "Unknown" : r.info ? "No release yet" : "…"}</dd></div>
                 </dl>
 
+                <Show when={!r.busy && (c()?.action === "install" || c()?.action === "update") && rel()?.setup}>
+                  <p class="src">Downloads <b>{rel()!.setup!.split("/").pop()}</b>{rel()!.size ? <> ({mb1(rel()!.size)})</> : null} from {r.app.repo.split("/")[1]}'s GitHub releases; checked with SHA-256 before it runs.</p>
+                </Show>
                 <Show when={r.busy}>
-                  <div class="prog"><span style={{ width: `${r.busy === "Installing" ? 100 : r.pct ?? 0}%` }} classList={{ ind: r.busy === "Installing" || r.busy === "Removing" }} /></div>
-                  <p class="mono muted small">{r.busy}{r.busy !== "Installing" && r.busy !== "Removing" && r.pct ? ` · ${r.pct}%` : "…"}</p>
+                  <div class="prog"><span style={{ width: `${pct(r.prog)}%` }} classList={{ ind: r.busy === "Removing" || r.prog?.stage === "install" || r.prog?.stage === "verify" || r.prog?.stage === "checksums" }} /></div>
+                  <p class="step" aria-live="polite">{r.busy === "Removing" ? "Removing with the app's own uninstaller; your files and documents are kept…" : say(r.prog, r.busy!)}</p>
                 </Show>
                 <Show when={r.error || r.info?.error}><p class="err">{r.error || r.info?.error}</p></Show>
 

@@ -225,6 +225,33 @@
           "text": "Print sheets and lists, or export them to PDF, DXF and Excel."
         }
       ]
+    },
+    {
+      "id": "layout",
+      "repo": "Edgar-Mendonca/Datum-Layout",
+      "branch": "HEAD",
+      "name": "Datum Layout",
+      "accent": "#3A5A78",
+      "tagline": "3D plant layout and piping: place equipment, route lines, check and hand over.",
+      "for": "Piping and layout designers, mechanical and process engineers, and students learning plant design.",
+      "shot": "docs/images/pumps-3d.png",
+      "about": [
+        "Datum Layout places equipment from its datasheet values and routes pipes between nozzles in 3D; elbows, tees, flanges and valves size themselves from the line's size and pipe class."
+      ],
+      "steps": [
+        {
+          "title": "Place the equipment",
+          "text": "Place vessels, tanks, pumps and exchangers with their nozzles."
+        },
+        {
+          "title": "Route the lines",
+          "text": "Route pipes nozzle to nozzle; fittings and valves snap on and size themselves."
+        },
+        {
+          "title": "Check and hand over",
+          "text": "Check clashes, list the lines and send each one to Datum Pipe."
+        }
+      ]
     }
   ]
 }

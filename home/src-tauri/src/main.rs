@@ -106,6 +106,16 @@ async fn home_update(site: Option<Release>) -> R<Option<Release>> {
     .await
 }
 
+/// Tells the window exactly what is happening: which file, how many bytes of how many, how fast, and each step
+/// (checksum list, download, checksum check, install), so the user always sees what Datum Home is doing.
+fn report(app: &AppHandle, id: &str, stage: &str, extra: serde_json::Value) {
+    let mut v = json!({ "id": id, "stage": stage });
+    if let (Some(o), Some(e)) = (v.as_object_mut(), extra.as_object()) {
+        o.extend(e.clone());
+    }
+    let _ = app.emit("progress", v);
+}
+
 /// Downloads an installer to the temp folder and checks it against the release's SHA256SUMS.txt.
 fn download(app: &AppHandle, id: &str, repo: &str, rel: &Release) -> R<std::path::PathBuf> {
     let (Some(url), Some(sums)) = (rel.setup.as_deref(), rel.sums.as_deref()) else {
@@ -115,6 +125,7 @@ fn download(app: &AppHandle, id: &str, repo: &str, rel: &Release) -> R<std::path
         return Err("Installers are only downloaded from the app's own releases page.".into());
     }
     let name = url.rsplit('/').next().filter(|n| !n.is_empty() && !n.contains(['\\', ':'])).unwrap_or("setup.exe").to_string();
+    report(app, id, "checksums", json!({ "file": name, "total": rel.size }));
     let fail = |e: String| format!("Could not fetch the checksums: {e}");
     let list = agent().get(sums).call().map_err(|e| fail(e.to_string()))?.into_string().map_err(|e| fail(e.to_string()))?;
     let want = core::checksum_for(&list, &name).ok_or("The checksum list does not include this installer.")?;
@@ -124,7 +135,14 @@ fn download(app: &AppHandle, id: &str, repo: &str, rel: &Release) -> R<std::path
     let resp = agent().get(url).call().map_err(|e| format!("Download failed: {e}"))?;
     let total: u64 = resp.header("Content-Length").and_then(|v| v.parse().ok()).unwrap_or(rel.size);
     let (mut src, mut file) = (resp.into_reader(), std::fs::File::create(&dest).map_err(|e| e.to_string())?);
-    let (mut hash, mut buf, mut done, mut last) = (Sha256::new(), vec![0u8; 1 << 16], 0u64, 0u64);
+    let (mut hash, mut buf, mut done) = (Sha256::new(), vec![0u8; 1 << 16], 0u64);
+    let start = std::time::Instant::now();
+    let mut shown = start;
+    let tell = |done: u64, start: std::time::Instant| {
+        let secs = start.elapsed().as_secs_f64().max(0.001);
+        report(app, id, "download", json!({ "file": name, "done": done, "total": total, "rate": (done as f64 / secs) as u64 }));
+    };
+    tell(0, start);
     loop {
         let n = src.read(&mut buf).map_err(|e| format!("Download failed: {e}"))?;
         if n == 0 {
@@ -133,17 +151,20 @@ fn download(app: &AppHandle, id: &str, repo: &str, rel: &Release) -> R<std::path
         file.write_all(&buf[..n]).map_err(|e| e.to_string())?;
         hash.update(&buf[..n]);
         done += n as u64;
-        if total > 0 && done * 100 / total > last {
-            last = done * 100 / total;
-            let _ = app.emit("progress", json!({ "id": id, "stage": "download", "pct": last }));
+        if shown.elapsed().as_millis() >= 150 {
+            shown = std::time::Instant::now();
+            tell(done, start);
         }
     }
+    tell(done, start);
     drop(file);
+    report(app, id, "verify", json!({ "file": name, "done": done, "total": total }));
     let got: String = hash.finalize().iter().map(|b| format!("{b:02x}")).collect();
     if got != want {
         let _ = std::fs::remove_file(&dest);
         return Err("The download did not match its checksum and was deleted. Try again.".into());
     }
+    report(app, id, "verified", json!({ "file": name, "done": done, "total": total, "sha": &got[..16] }));
     Ok(dest)
 }
 
@@ -157,7 +178,7 @@ async fn install(handle: AppHandle, app: App, release: Release) -> R<()> {
             }
         }
         let file = download(&handle, &app.id, &app.repo, &release)?;
-        let _ = handle.emit("progress", json!({ "id": app.id, "stage": "install", "pct": 100 }));
+        report(&handle, &app.id, "install", json!({}));
         let out = sys::run_wait(&file, &["/S"]);
         let _ = std::fs::remove_file(&file);
         out?;
@@ -217,6 +238,7 @@ fn open_url(url: String) -> R<()> {
 async fn update_home(handle: AppHandle, release: Release) -> R<()> {
     let h = handle.clone();
     let file = blocking(move || download(&h, "home", core::HOME_REPO, &release)).await?;
+    report(&handle, "home", "install", json!({}));
     sys::replace_self(&file)?;
     handle.exit(0);
     Ok(())

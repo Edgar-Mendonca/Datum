@@ -3,7 +3,7 @@
 // the top of each app page. The drawings loop gently; at rest (reduced motion, no animation) every drawing is complete.
 interface Props { id: string; logo?: string; class?: string }
 const { id, logo, class: cls } = Astro.props;
-const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe", "schema"].includes(id);
+const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe", "schema", "layout"].includes(id);
 
 // Mesh: an L-bracket in 10-unit cells, each split into two triangles, shaded by a stress that peaks at the inner corner.
 const cells: [number, number][] = [];
@@ -64,6 +64,17 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
         <path class="g-sig" d="M108 76V54M54 46H92" />
         <g class="g-pop" style="--k:3"><circle class="g-bubble" cx="108" cy="42" r="12" /><text class="g-text g-tiny-t" x="108" y="45" text-anchor="middle">LIC</text></g>
         <g class="g-pop" style="--k:5"><rect class="g-pass" x="122" y="110" width="66" height="18" rx="2" /><text class="g-text g-small g-pass-t" x="155" y="123" text-anchor="middle">0 errors</text></g>
+      </Fragment>
+    )}
+    {id === "layout" && (
+      <Fragment>
+        <path class="g-iso" d="M10 110L100 58L190 110M10 80L100 28L190 80M55 135L145 83M55 31L145 83" />
+        <g class="g-tank"><path d="M26 44V96A14 7 0 0 0 54 96V44" /><ellipse cx="40" cy="44" rx="14" ry="7" /></g>
+        <path class="g-draw g-route" pathLength="1" d="M54 88L88 108L132 83V58L164 76" />
+        <g class="g-elb"><circle cx="88" cy="108" r="3.4" /><circle cx="132" cy="83" r="3.4" /><circle cx="132" cy="58" r="3.4" /></g>
+        <g class="g-pop" style="--k:4"><path class="g-bowtie" d="M100 88.5V102.5L120 88.5V102.5Z" transform="rotate(-30 110 95.5)" /></g>
+        <g class="g-pump"><path d="M160 70L176 79V95L160 86Z" /><circle cx="176" cy="86" r="9" /></g>
+        <g class="g-pop" style="--k:6"><rect class="g-pass" x="8" y="114" width="72" height="18" rx="2" /><text class="g-text g-small g-pass-t" x="44" y="127" text-anchor="middle">0 clashes</text></g>
       </Fragment>
     )}
     {id === "plan" && (
@@ -176,6 +187,12 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
   .g-sig { fill: none; stroke: var(--c); stroke-width: 1.6; stroke-dasharray: 5 4; }
   .g-bubble { fill: var(--card); stroke: var(--c); stroke-width: 2; }
   .g-tiny-t { font-size: 8.5px; }
+
+  .g-iso { fill: none; stroke: var(--line-2); stroke-width: 1; stroke-dasharray: 3 4; }
+  .g-tank { fill: color-mix(in srgb, var(--c) 14%, var(--card)); stroke: var(--ink); stroke-width: 2; }
+  .g-route { fill: none; stroke: var(--c); stroke-width: 6; stroke-linejoin: round; stroke-linecap: round; }
+  .g-elb { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
+  .g-pump { fill: color-mix(in srgb, var(--c) 14%, var(--card)); stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
 
   /* The loops: 6 s, everything builds up, holds, then clears; staggered by --k. */
   .g-bar { transform-box: fill-box; transform-origin: left center; animation: g-grow 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .3s); }

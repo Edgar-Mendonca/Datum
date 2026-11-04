@@ -1,5 +1,14 @@
 # Datum Home changelog
 
+## 0.1.6 — 2026-11-04
+
+You see exactly what Datum Home downloads and does, and Datum Layout joins.
+
+- Before you install or update, each card says which file it downloads, how big it is, and that it comes from the app's own GitHub releases and is checked with SHA-256 before it runs. The Update button shows the size too.
+- While it works, every step is shown in words: fetching the checksum list; downloading, with megabytes so far of the total, percent, speed and time left; checking the SHA-256 (with the start of the checksum once it matches); installing for your user account.
+- Updating Datum Home itself shows the same steps in its banner.
+- Datum Layout (3D plant layout and piping) is in the list of apps, with its icon.
+
 ## 0.1.5 — 2026-10-29
 
 Datum Schema joins Datum Home.
