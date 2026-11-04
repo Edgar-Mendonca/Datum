@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.23 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.24 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -195,6 +195,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - User: add the brag skill (latent-spaces/brag) and make a short intro for the apps.
 - Added `.claude/skills/brag-slim/` (its SKILL.md unchanged, MIT, attribution in LICENSE). The full `/brag` was not added: it bundles about 60 MB of music and needs Hyperframes; on this model it hands over to brag-slim anyway.
 - Made a 21 s 1920×1080 intro in the site's look: "Datum" and "Tools to …", the site's app bench, Plan's Gantt, Mesh's bracket stress, Schema → Layout → Pipe, the real totals (615 installer downloads, 226 releases on 2026-11-04), the logo and the site address. Built from the site's own tiles and the screenshots each app publishes; music made for it. The video and its files stay outside the repo (given to the user).
+
+### 2026-11-04: Session 43 (from Datum Plan's chat: 0.5.24, Home tab and sheet zoom)
+- Plan 0.5.24: one Home tab for what the task sheet and the Sheets share (clipboard, font, alignment, editing), schedule-building tools on Schedule, Sheet Tools › Cells only for sheet tools; zoom for sheets (10 to 400 %); an automatic page break dragged onto the print area edge joins the pages; no outline on in-cell pictures. Brain regenerated.
 
 ### 2026-11-04: Session 42 (from Datum Plan's chat: 0.5.23, pages set by hand)
 - Plan 0.5.23: Page Breaks view edits the printed pages on the cells (drag the blue print-area edge and the page breaks, grey outside, a right-click menu for breaks and print area, column page breaks both ways with workbooks); title rows above the print area print, the print range is capped, a size guard for .xlsb, new sheet pictures sit inside their cell. Brain regenerated.
