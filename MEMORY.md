@@ -153,6 +153,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 | Lighthouse run on the live site (target 95+) | ⬜ |
 | Brain: regenerate `graph.json` in the daily build and commit it (needs `contents: write`), or have each app's release ping DATUM | ⬜ |
 | Brain: richer links (decisions ↔ FAMILY sections by topic, plans ↔ the decisions behind them) | ⬜ |
+| Code signing for every installer (SignPath Foundation free for open source, or a certificate in the user's name; a code-signing policy page on the site; a signing step before the checksum in each release workflow) | ⬜ at 1.0 (user, s44: not while the apps are alpha) |
 
 ## 5. Session log
 
@@ -199,6 +200,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - User: a user reported VirusTotal flags on DatumHome-0.1.5-setup.exe and DatumAtlas-0.3.0-setup.exe (2/70 each: SecureAge "Malicious", Trapmine "Suspicious.low.ml.score"). Both hashes match our published SHA256SUMS: genuine files; machine-learning guesses at unsigned NSIS installers. The user does not want code signing now.
 - Built: `site/src/components/Safe.astro` (SHA-256, scan report, checksums; "Is it safe?" on app pages, compact on the Home band); `github.ts` reads each installer's SHA-256 (asset digest or SHA256SUMS.txt); `home-release.yml` attests build provenance (`actions/attest-build-provenance@v4`).
 - Gave the user: false-positive reports for SecureAge and Trapmine, and paste-in text for each app's chat (the same attestation step).
+- Explained code signing (cloud signing only since 2023; SignPath Foundation, a cloud signing service or a certificate in the user's name; "Datum" as publisher needs a registered company). User: wait until 1.0; the apps are alpha.
 - Checked: site build; Playwright at 1280 and 375 px on an app page and the Home band (with a test hash; the sandbox had no GitHub API), no overflow.
 
 ### 2026-11-04: Session 43 (brag-slim skill; an intro video)
