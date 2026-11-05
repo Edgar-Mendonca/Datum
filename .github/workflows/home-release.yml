@@ -10,6 +10,8 @@ on:
 permissions:
   contents: write
   actions: write    # to rebuild the site after the release
+  id-token: write   # build provenance: proves the installer was built here, from this commit
+  attestations: write
 
 defaults:
   run:
@@ -45,6 +47,11 @@ jobs:
           mkdir out
           cp target/release/bundle/nsis/*-setup.exe "out/DatumHome-$V-setup.exe"
           cd out && sha256sum "DatumHome-$V-setup.exe" > SHA256SUMS.txt && cat SHA256SUMS.txt
+      # Build provenance. Anyone can check it with: gh attestation verify DatumHome-<version>-setup.exe --repo Edgar-Mendonca/Datum
+      - name: Build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: home/out/DatumHome-${{ env.V }}-setup.exe
       - name: Release notes from CHANGELOG.md
         run: |
           awk -v v="$V" 'index($0, "## " v " ") == 1 || $0 == "## " v {f=1; next} /^## / {f=0} f' CHANGELOG.md > notes.md

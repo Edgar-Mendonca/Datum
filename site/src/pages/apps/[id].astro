@@ -4,6 +4,7 @@
 import Base from "../../layouts/Base.astro";
 import AppGlyph from "../../components/AppGlyph.astro";
 import Rail from "../../components/Rail.astro";
+import Safe from "../../components/Safe.astro";
 import { loadAll, statusOf, fmtDate, fmtSize, fmtNum, type App } from "../../lib/github";
 
 export async function getStaticPaths() {
@@ -152,6 +153,7 @@ const sec = (id: string) => secs.find(s => s.id === id)!;
           <div>
             <h2 class="h2">Get <span class="it">{a.name}.</span></h2>
             <p class="muted">Free and open source (MIT). Installs in seconds for your user account, with no administrator rights, and updates itself from inside the app.</p>
+            <Safe sha={a.latest?.sha} sums={a.latest?.sums} />
           </div>
           <div class="btns">
             {a.latest ? <a class="btn btn-solid" href={a.latest.download}>Download v{a.latest.version}</a> : <span class="btn btn-line" aria-disabled="true">Coming soon</span>}

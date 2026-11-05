@@ -13,7 +13,17 @@ export type Section = { version: string; date: string; summary: string; html: st
 export type Release = { app: string; name: string; accent: string; version: string; date: string; url: string; summary: string };
 /** Public numbers from GitHub: stars, forks, every release's installer downloads, issues closed. */
 export type Stats = { stars: number; forks: number; downloads: number; releases: number; closedIssues?: number };
-export type Latest = { version: string; date: string; url: string; download: string; size?: number; sums?: string; fromChangelog?: boolean };
+export type Latest = { version: string; date: string; url: string; download: string; size?: number; sums?: string; sha?: string; fromChangelog?: boolean };
+
+/** The installer's SHA-256: GitHub's own digest of the asset, else its line in the release's SHA256SUMS.txt. */
+async function shaOf(exe: any, sums: any): Promise<string | undefined> {
+  const d = /^sha256:([0-9a-f]{64})$/i.exec(String(exe?.digest ?? ""));
+  if (d) return d[1].toLowerCase();
+  if (!exe || !sums) return undefined;
+  const text: string | null = await get(sums.browser_download_url);
+  const line = (text ?? "").split(/\r?\n/).find(l => l.trim().replace(/^[0-9a-f]{64}\s+\*?/i, "") === exe.name);
+  return line ? line.slice(0, 64).toLowerCase() : undefined;
+}
 export type App = {
   id: string; repo: string; branch: string; name: string; accent: string; tagline: string; for: string;
   logo: string; about: string[]; steps: Step[]; highlights: string[]; shots: Shot[]; roadmap: Stage[]; changelog: Section[];
@@ -101,7 +111,7 @@ async function loadApp(e: any): Promise<App> {
     const r = list[0], v = String(r.tag_name).replace(/^v/, "");
     const exe = (r.assets ?? []).find((a: any) => /setup\.exe$/i.test(a.name));
     const sums = (r.assets ?? []).find((a: any) => /sha256sums\.txt$/i.test(a.name));
-    app.latest = { version: v, date: String(r.published_at).slice(0, 10), url: r.html_url, download: exe?.browser_download_url ?? `${gh}/releases/latest`, size: exe?.size, sums: sums?.browser_download_url };
+    app.latest = { version: v, date: String(r.published_at).slice(0, 10), url: r.html_url, download: exe?.browser_download_url ?? `${gh}/releases/latest`, size: exe?.size, sums: sums?.browser_download_url, sha: await shaOf(exe, sums) };
     app.releases = list.map((r: any) => {
       const v = String(r.tag_name).replace(/^v/, "");
       return { app: app.id, name: app.name, accent: app.accent, version: v, date: String(r.published_at).slice(0, 10), url: r.html_url, summary: summary(v) };
@@ -177,7 +187,7 @@ export async function copyShots(dist: URL) {
 }
 
 /** Datum Home, the app that installs and updates the others: its newest release in this repository (tags home-vX.Y.Z). */
-export type HomeApp = { version: string; date: string; url: string; download: string; size?: number; sums?: string; notes: string };
+export type HomeApp = { version: string; date: string; url: string; download: string; size?: number; sums?: string; sha?: string; notes: string };
 export function loadHome(): Promise<HomeApp | null> {
   const g = globalThis as any;
   return g.__datumHome ??= (async () => {
@@ -187,7 +197,7 @@ export function loadHome(): Promise<HomeApp | null> {
     const exe = (r.assets ?? []).find((a: any) => /setup\.exe$/i.test(a.name));
     const sums = (r.assets ?? []).find((a: any) => /sha256sums\.txt$/i.test(a.name));
     return { version: String(r.tag_name).replace(/^home-v/, ""), date: String(r.published_at).slice(0, 10), url: r.html_url,
-      download: exe?.browser_download_url ?? r.html_url, size: exe?.size, sums: sums?.browser_download_url, notes: String(r.body ?? "").replace(/\r\n/g, "\n").trim() };
+      download: exe?.browser_download_url ?? r.html_url, size: exe?.size, sums: sums?.browser_download_url, sha: await shaOf(exe, sums), notes: String(r.body ?? "").replace(/\r\n/g, "\n").trim() };
   })();
 }
 

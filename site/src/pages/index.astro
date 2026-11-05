@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Rail from "../components/Rail.astro";
+import Safe from "../components/Safe.astro";
 import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum } from "../lib/github";
 
 const apps = await loadAll();
@@ -44,6 +45,7 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
         <div class="home-text">
           <h3 class="h3">Datum Home {home && <span class="mono muted">v{home.version}</span>}</h3>
           <p class="muted">One small window to install, update, open and remove every Datum app. It checks for new versions when you open it. Prefer just one app? Download it on its own below.</p>
+          <Safe compact sha={home?.sha} sums={home?.sums} />
         </div>
         <div class="btns">
           {home

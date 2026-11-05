@@ -1,0 +1,35 @@
+---
+// "Is it safe?": the installer's SHA-256, its public scan report and the checksum file, and (unless compact) why a
+// few virus scanners may flag a new installer that is not code-signed yet.
+interface Props { sha?: string; sums?: string; compact?: boolean; }
+const { sha, sums, compact = false } = Astro.props;
+const short = sha ? `${sha.slice(0, 8)}…${sha.slice(-6)}` : "";
+---
+{sha && (
+  <div class:list={["safe", { compact }]}>
+    {!compact && (
+      <p class="muted">
+        <b>Is it safe?</b> Every installer is built in public by GitHub Actions from its public source and published with its SHA-256 checksum;
+        Datum Home checks it before it runs anything. The installers are not code-signed yet, so Windows may ask you to confirm,
+        and a few virus scanners that judge a file by its shape can flag a new unsigned installer. Compare the checksum with the file
+        you downloaded, or read the public scan report.
+      </p>
+    )}
+    <p class="mono line">
+      <span title={sha}>SHA-256 <span class="hash">{short}</span></span>
+      <a href={`https://www.virustotal.com/gui/file/${sha}`} rel="noopener">Scan report</a>
+      {sums && <a href={sums}>Checksums</a>}
+    </p>
+  </div>
+)}
+
+<style>
+  .safe { display: grid; gap: 10px; max-width: 72ch; }
+  .safe b { color: var(--ink); font-weight: 600; }
+  .safe p { margin: 0; font-size: 14px; }
+  .line { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 10.5px; letter-spacing: .08em; color: var(--muted); }
+  .line a { color: var(--muted); border-bottom: 1px solid var(--line-2); }
+  .line a:hover { color: var(--c, var(--em)); border-color: currentColor; }
+  .hash { text-transform: none; letter-spacing: .02em; }
+  .compact .line { font-size: 10px; }
+</style>
