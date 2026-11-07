@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.5.29 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.6.0 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -192,6 +192,9 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-07: Session 49 (from Datum Plan's chat: 0.6.0, modules)
+- Plan 0.6.0: new features now ship as 0.6.x. Project › Modules adds registers to a plan only when picked (a plan without modules saves as before). First module: Contract Dates & Payments (contract dates against the forecast with their trend, delay damages at risk, payment milestones and the cash-in curve; a master totals its open subplans). Next: a document register (0.6.1) and a procurement register (0.6.2). Portfolio and hardening move to 0.7.x.
 
 ### 2026-11-05: Session 48 (from Datum Plan's chat: 0.5.29, print text size)
 - Plan 0.5.29: Print › Page Setup › Text for Gantt prints. Text size in points on paper (with the size it really prints at), columns as wide as their text, rows that grow with it, fit-to-width wraps long names before shrinking the page, sizes by row type (top summaries, summaries, tasks, milestones) and for rows chosen in the task sheet.
