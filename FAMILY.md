@@ -13,7 +13,7 @@ This file is the single source for that. It lives in the DATUM repo (`Edgar-Mend
 | Datum Atlas | Choose materials with property charts and selection indices | Violet `#6C4AB6` | Log–log axes, family bubbles, index line + amber diamond | `.datlas` | `com.edgarmendonca.datumatlas` | Edgar-Mendonca/Datum-Atlas |
 | Datum Sim | Model and simulate dynamic systems: block diagrams, control and motors | Orange `#C2410C` | A feedback loop: summing node, tinted block with a settling step response, feedback path + amber diamond | `.dsim` | `com.edgarmendonca.datumsim` | Edgar-Mendonca/Datum-Sim |
 | Datum Calc | Engineering calculations with real units, readable maths, checks and a printable calc sheet | Amber `#A8650F` | See `brand/datum-calc-icon.svg` + amber diamond | `.dcalc` | `com.edgarmendonca.datumcalc` | Edgar-Mendonca/Datum-Calc |
-| Datum Mesh | Finite-element analysis: stresses, deflections and temperatures in parts and frames | Crimson `#B83250` | A meshed L-bracket with its stressed corner + amber diamond | `.dmesh` | `com.edgarmendonca.datummesh` | Edgar-Mendonca/Datum-Mesh |
+| Datum Mesh | Finite-element analysis: stresses, deflections and temperatures in parts and frames | Petrol `#0F6E8C` (from 0.10.0; crimson before) | A tetrahedron (the element it solves with): four nodes, its hidden edge dotted, one face tinted + amber diamond | `.dmesh` | `com.edgarmendonca.datummesh` | Edgar-Mendonca/Datum-Mesh |
 | Datum Pipe | Pipe stress analysis: displacements, support and nozzle loads, code stresses, automatic isometric | Moss `#4D7C0F` | A pipe run with an expansion loop and an anchor + amber diamond | `.dpipe` | `com.edgarmendonca.datumpipe` | Edgar-Mendonca/Datum-Pipe |
 | Datum Schema | Intelligent P&IDs and process flow diagrams: objects with data, connectivity, checks, lists, line hydraulics | Magenta `#9C1F84` | A vessel, a line with a valve and an instrument bubble, a pump + amber diamond | `.dschema` | `com.edgarmendonca.datumschema` | Edgar-Mendonca/Datum-Schema |
 | Datum Layout | 3D plant layout and piping: parametric equipment, spec-driven routing, snapping fittings, clash checks, PCF to Pipe | Steel `#3A5A78` | An isometric plot with a pipe, one elbow and a vessel + amber diamond | `.dlayout` | `com.edgarmendonca.datumlayout` | Edgar-Mendonca/Datum-Layout |
@@ -59,7 +59,7 @@ Dark (`:root[data-theme="dark"]`): `--bg #0B1119 --bg2 #101823 --panel #0D141E -
 | **Atlas · Violet** | #6C4AB6 | #5A3C9C | #C9B8EE | #F0EBFA | #E5DCF6 | #CDBDEE | #A58BEA | #3A2766 |
 | **Sim · Orange** | #C2410C | #A3360A | #F6C3A5 | #FCEEE6 | #F9E0D1 | #F0C2A6 | #F08A5D | #5C220A |
 | **Calc · Amber** (Datum Calc, from session 13) | #A8650F | #8E550C | #F2CF8E | #FBF2E2 | #F6E7CB | #EBD09E | #F0B450 | #5A3A0C |
-| **Mesh · Crimson** (Datum Mesh, from session 13) | #B83250 | #9C2944 | #F1B3C1 | #FBEBEF | #F6DCE3 | #EDBAC7 | #EF7A93 | #5E1A2A |
+| **Mesh · Petrol** (Datum Mesh, from 0.10.0; was Crimson #B83250, now free) | #0F6E8C | #0D5C76 | #93BECB | #E9F2F5 | #D9E8ED | #B7D4DD | #63A1B4 | #07313F |
 | **Pipe · Moss** (Datum Pipe, from session 16) | #4D7C0F | #3F6212 | #BEDC8F | #F1F7E6 | #E4F0CF | #CBE2A4 | #A3D65C | #2A420A |
 | **Schema · Magenta** (Datum Schema, from session 22) | #9C1F84 | #801A6C | #EAB6DD | #FAEBF6 | #F4DCEE | #E7B9DB | #E07BC9 | #4E1043 |
 | **Layout · Steel** (Datum Layout, from session 31) | #3A5A78 | #2E4861 | #B9CCDF | #EEF3F8 | #DFE8F1 | #C2D3E4 | #8FB3D9 | #1F3247 |
