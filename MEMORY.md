@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.6.2 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.7.1 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -198,6 +198,10 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Datum Mesh changes its accent from Crimson `#B83250` to **Petrol `#0F6E8C`** (set: `#0D5C76`, `#93BECB`, `#E9F2F5`, `#D9E8ED`, `#B7D4DD`, dark `#63A1B4`, File sidebar dark `#07313F`) and its glyph from the meshed L-bracket to a **tetrahedron** (four nodes, hidden edge dotted, one face tinted, the amber diamond inside). The user: crimson did not say "solver" and fought the red end of a stress contour. Petrol (hue 194°) sits between Plot's teal (174°) and Plan's blue (210°), and is lighter and more saturated than Layout's steel (209°). Crimson is free again.
 - Hub: FAMILY §1 and §3 rows, `apps.json`, `brand/datum-mesh-icon.svg`, the site's `--mesh` (light `#0F6E8C`, dark `#63A1B4`), Datum Home's app list. The hero's Mesh drawing (a meshed bracket with its contour) still fits what the app does and is kept.
 - Datum Mesh's own roadmap to 1.0 (UI first from mock-ups, then filled in) is in its `docs/PLAN-1.0.md`.
+
+### 2026-11-07: Session 52 (from Datum Plan's chat: 0.7.0 portfolio, 0.7.1 hardening)
+- Plan 0.7.0: Portfolio with workspace totals and three tabs: Plans (with the modules' figures), Timeline (a bar per plan with its baseline finish) and Resource Pool (each resource's work across all plans against its capacity, hours by plan). A plan of the workspace can be the pool, and a plan can take its resources' rates, units and calendars from it.
+- Plan 0.7.1: hardening measured at 100,000 tasks: undo memory bounded (it could reach gigabytes), less work per edit, smaller grid rows, smoother Gantt scrolling; `npm run bench` and `npm run perf:ui` added. Code signing still deferred by the user until near stable.
 
 ### 2026-11-07: Session 51 (from Datum Plan's chat: 0.6.2, Procurement Register)
 - Plan 0.6.2: the Procurement Register module. Sub-orders with RFQ, PO, manufacturing, IRN and delivery planned (typed or from the task for the order) against actual; the vendor's promise against the date the plan needs the item, with float in red/amber/green; weighted progress (presets or own weights, manufacturing pro rata, orders by PO value) and S-curves; an expediting log; links to the Document Register only when the user switches them on (user: linking is an option); Excel import and export. The three registers planned for 0.6.x are done; next per the roadmap: portfolio and hardening (0.7.x).
