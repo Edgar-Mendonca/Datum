@@ -286,6 +286,81 @@
      "releases": 7
     }
    }
+  },
+  {
+   "date": "2026-11-07",
+   "apps": {
+    "plan": {
+     "stars": 8,
+     "forks": 1,
+     "openIssues": 1,
+     "downloads": 227,
+     "releases": 51
+    },
+    "plot": {
+     "stars": 6,
+     "forks": 1,
+     "openIssues": 14,
+     "downloads": 160,
+     "releases": 41
+    },
+    "atlas": {
+     "stars": 1,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 30,
+     "releases": 5
+    },
+    "sim": {
+     "stars": 2,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 27,
+     "releases": 9
+    },
+    "calc": {
+     "stars": 3,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 34,
+     "releases": 12
+    },
+    "mesh": {
+     "stars": 0,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 90,
+     "releases": 46
+    },
+    "pipe": {
+     "stars": 0,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 61,
+     "releases": 42
+    },
+    "schema": {
+     "stars": 2,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 73,
+     "releases": 41
+    },
+    "layout": {
+     "stars": 0,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 8,
+     "releases": 3
+    },
+    "home": {
+     "stars": 3,
+     "forks": 0,
+     "openIssues": 0,
+     "downloads": 32,
+     "releases": 7
+    }
+   }
   }
  ]
 }
