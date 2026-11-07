@@ -22,7 +22,7 @@
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
 | Datum Calc | `Edgar-Mendonca/Datum-Calc` | Amber `#A8650F` | 0.1.11 | ✅ | **Yes** |
-| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Crimson `#B83250` | 0.5.5 | ✅ | Not yet |
+| Datum Mesh | `Edgar-Mendonca/Datum-Mesh` | Petrol `#0F6E8C` (crimson before 0.10.0) | 0.9.1 | ✅ | Not yet |
 | Datum Schema | `Edgar-Mendonca/Datum-Schema` | Magenta `#9C1F84` | 0.5.0 | ✅ | Not yet |
 | Datum Layout | `Edgar-Mendonca/Datum-Layout` | Steel `#3A5A78` | 0.1.4 (2026-11-03) | ✅ | Not yet |
 | Datum Pipe | `Edgar-Mendonca/Datum-Pipe` | Moss `#4D7C0F` | 0.3.0 | ✅ | Not yet |
@@ -67,6 +67,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 
 | Date | Decision | Why |
 | --- | --- | --- |
+| 2026-11-07 (s50) | **Datum Mesh: Petrol `#0F6E8C` and a tetrahedron glyph** (crimson retired, free for a future app) | The user: the colour and mark should say "finite elements"; Petrol is distinct from Plot, Plan and Layout and calm next to contours |
 | 2026-10-29 (s25) | **A guide per app, per language, downloaded on demand** (FAMILY §10): Markdown in `docs/guide/<lang>.md` with numbered screenshots, built to PDF (`scripts/guide.cjs`), attached to every release as `Datum<App>-Guide-<lang>.pdf` (in SHA256SUMS.txt), and fetched by Help › Guide (verify, save to Downloads, open). Translations keep the English UI names in bold with the meaning beside them | Datum Plan 0.4.4: users (some Chinese-speaking) needed a guide; the installer stays small and the guide always matches the version. |
 | 2026-10-30 (s26) | **Spreadsheets inside an app read the app's data by name**: GridCraft tables (`Tasks[Finish]`) and workbook names (`ProjectFinish`), with Excel habits (click cells into formulas, suggestions, fill/paste moving references, insert/delete rows) taken from GridCraft rather than re-written; country flags are a cell format drawn from bundled SVGs (flag-icons, MIT), never emoji | Datum Plan 0.5.0: users built client dashboards in Excel by copying values; Windows does not draw flag emoji. |
 | 2026-10-30 (s26) | **Charts: Chart.js, in the style of its own samples** (smooth monotone lines, faded fill under actuals, rounded bars, light horizontal grid only, round legend markers, dark rounded tooltip); every chart resizes with its box and before printing; empty charts say so. Plotly only where an app needs scientific plots (Datum Plot) | Datum Plan 0.5.2: the user found the old charts plain and saw them cropped in PDFs. |
@@ -192,6 +193,11 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-07: Session 50 (from Datum Mesh's chat: Petrol and the tetrahedron)
+- Datum Mesh changes its accent from Crimson `#B83250` to **Petrol `#0F6E8C`** (set: `#0D5C76`, `#93BECB`, `#E9F2F5`, `#D9E8ED`, `#B7D4DD`, dark `#63A1B4`, File sidebar dark `#07313F`) and its glyph from the meshed L-bracket to a **tetrahedron** (four nodes, hidden edge dotted, one face tinted, the amber diamond inside). The user: crimson did not say "solver" and fought the red end of a stress contour. Petrol (hue 194°) sits between Plot's teal (174°) and Plan's blue (210°), and is lighter and more saturated than Layout's steel (209°). Crimson is free again.
+- Hub: FAMILY §1 and §3 rows, `apps.json`, `brand/datum-mesh-icon.svg`, the site's `--mesh` (light `#0F6E8C`, dark `#63A1B4`), Datum Home's app list. The hero's Mesh drawing (a meshed bracket with its contour) still fits what the app does and is kept.
+- Datum Mesh's own roadmap to 1.0 (UI first from mock-ups, then filled in) is in its `docs/PLAN-1.0.md`.
 
 ### 2026-11-07: Session 49 (from Datum Plan's chat: 0.6.0, modules)
 - Plan 0.6.0: new features now ship as 0.6.x. Project › Modules adds registers to a plan only when picked (a plan without modules saves as before). First module: Contract Dates & Payments (contract dates against the forecast with their trend, delay damages at risk, payment milestones and the cash-in curve; a master totals its open subplans). Next: a document register (0.6.1) and a procurement register (0.6.2). Portfolio and hardening move to 0.7.x.

@@ -150,7 +150,7 @@
       "repo": "Edgar-Mendonca/Datum-Mesh",
       "branch": "HEAD",
       "name": "Datum Mesh",
-      "accent": "#B83250",
+      "accent": "#0F6E8C",
       "tagline": "Finite-element analysis on the desktop: stresses, deflections and temperatures in parts and frames.",
       "for": "Mechanical, structural, process and aerospace engineers, students and lecturers.",
       "shot": "docs/images/frame.png",
