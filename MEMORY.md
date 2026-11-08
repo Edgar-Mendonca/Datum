@@ -194,7 +194,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
 
-### 2026-11-08: Session 52 (from Datum Mesh's chat: the specifications and a new roadmap)
+### 2026-11-08: Session 53 (from Datum Mesh's chat: the specifications and a new roadmap)
 - The user wrote three long specifications for Datum Mesh (structural analysis and design; modelling, sketching and assembly; and a second structural edition on design members and one national steel standard). They were read in full against the code; the plan is in Mesh's `docs/PLAN-SPECS.md`.
 - Decisions for Mesh: **open formulas only**, so no licensed design standard, tables or factors in the code; checks are "mechanics checks, not a design code" until a standard that is free to use, at 1.0. **Four starting points**: 2D frame, 3D frame, 2D part (heat as a choice inside it), 3D solid. **No release until the user approves every piece from screenshots**; then one release.
 - Mesh's roadmap: 0.10.3 model care and frames (point and part-length member loads already built, benchmark 38); 0.10.4 design foundations (design members, restraints and segments, values along a member, section properties, stress/Euler/deflection/drift checks with honest statuses and a trace); 0.10.5 geometry tools; 0.11 to 0.15 results, materials, setup, analyses, meshing; 1.0 complete.
