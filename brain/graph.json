@@ -959,13 +959,31 @@
    "id": "hub-session-9",
    "type": "session",
    "app": "hub",
+   "label": "Session 52 (from Datum Plan's chat: 0.7.0…",
+   "date": "2026-11-07",
+   "text": "· Plan 0.7.0: Portfolio with workspace totals and three tabs: Plans (with the modules' figures), Timeline (a bar per plan with its baseline finish) and Resource Pool (each resource's work across all plans against its capacity, hours by plan). A plan of the workspace can be the pool, and a plan can take its resources' rates, units and calendars from it.\n· Plan 0.7.1: hardening measured at 100,000 tasks: undo memory bounded (it could reach gigabytes), less work per edit, smaller grid rows, smoother Gantt scrolling; npm run bench and npm run perf:ui added. Code signing still deferred by the user until near stable.",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-10",
+   "type": "session",
+   "app": "hub",
+   "label": "Session 51 (from Datum Plan's chat: 0.6.2…",
+   "date": "2026-11-07",
+   "text": "· Plan 0.6.2: the Procurement Register module. Sub-orders with RFQ, PO, manufacturing, IRN and delivery planned (typed or from the task for the order) against actual; the vendor's promise against the date the plan needs the item, with float in red/amber/green; weighted progress (presets or own weights, manufacturing pro rata, orders by PO value) and S-curves; an expediting log; links to the Document Register only when the user switches them on (user: linking is an option); Excel import and export. The three registers planned for 0.6.x are done; next per the roadmap: portfolio and hardening (0.7.x).",
+   "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
+  },
+  {
+   "id": "hub-session-11",
+   "type": "session",
+   "app": "hub",
    "label": "Session 50 (from Datum Plan's chat: 0.6.1…",
    "date": "2026-11-07",
    "text": "· Plan 0.6.1: the Document Register module. Vendor documents and a transmittal log; planned dates from the P date with client review and our turnaround in working days, each on the plan's calendar or a calendar of its own (user: give options, engineering may sit in another country); classes and issue purposes of the cycle, return codes, statuses, client delay past the review period, weighted progress with weekly and monthly S-curves; Excel import with column mapping and export. Next: the Procurement Register (0.6.2).",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-10",
+   "id": "hub-session-12",
    "type": "session",
    "app": "hub",
    "label": "Session 49 (from Datum Plan's chat: 0.6.0…",
@@ -974,7 +992,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-11",
+   "id": "hub-session-13",
    "type": "session",
    "app": "hub",
    "label": "Session 48 (from Datum Plan's chat: 0.5.29…",
@@ -983,7 +1001,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-12",
+   "id": "hub-session-14",
    "type": "session",
    "app": "hub",
    "label": "Session 47 (from Datum Plan's chat: 0.5.28…",
@@ -992,7 +1010,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-13",
+   "id": "hub-session-15",
    "type": "session",
    "app": "hub",
    "label": "Session 46 (from Datum Plan's chat: 0.5.27…",
@@ -1001,7 +1019,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-14",
+   "id": "hub-session-16",
    "type": "session",
    "app": "hub",
    "label": "Session 45 (from Datum Plan's chat: 0.5.26…",
@@ -1010,7 +1028,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-15",
+   "id": "hub-session-17",
    "type": "session",
    "app": "hub",
    "label": "Session 44 (from Datum Plan's chat: 0.5.25…",
@@ -1019,7 +1037,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-16",
+   "id": "hub-session-18",
    "type": "session",
    "app": "hub",
    "label": "Session 44 (virus-scanner false positives)",
@@ -1028,7 +1046,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-17",
+   "id": "hub-session-19",
    "type": "session",
    "app": "hub",
    "label": "Session 43 (brag-slim skill; an intro video)",
@@ -1037,7 +1055,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-18",
+   "id": "hub-session-20",
    "type": "session",
    "app": "hub",
    "label": "Session 43 (from Datum Plan's chat: 0.5.24…",
@@ -1046,7 +1064,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-19",
+   "id": "hub-session-21",
    "type": "session",
    "app": "hub",
    "label": "Session 42 (from Datum Plan's chat: 0.5.23…",
@@ -1055,7 +1073,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-20",
+   "id": "hub-session-22",
    "type": "session",
    "app": "hub",
    "label": "Session 41 (from Datum Plan's chat: 0.5.22…",
@@ -1064,7 +1082,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-21",
+   "id": "hub-session-23",
    "type": "session",
    "app": "hub",
    "label": "Session 40 (from Datum Plan's chat: 0.5.21…",
@@ -1073,7 +1091,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-22",
+   "id": "hub-session-24",
    "type": "session",
    "app": "hub",
    "label": "Session 39 (from Datum Plan's chat: 0.5.20…",
@@ -1082,7 +1100,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-23",
+   "id": "hub-session-25",
    "type": "session",
    "app": "hub",
    "label": "Session 38 (from Datum Plan's chat: 0.5.19…",
@@ -1091,7 +1109,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-24",
+   "id": "hub-session-26",
    "type": "session",
    "app": "hub",
    "label": "Session 37 (from Datum Plan's chat: 0.5.18…",
@@ -1100,7 +1118,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-25",
+   "id": "hub-session-27",
    "type": "session",
    "app": "hub",
    "label": "Session 36 (from Datum Plan's chat: 0.5.17…",
@@ -1109,7 +1127,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-26",
+   "id": "hub-session-28",
    "type": "session",
    "app": "hub",
    "label": "Session 35 (from Datum Plan's chat: public…",
@@ -1118,7 +1136,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-27",
+   "id": "hub-session-29",
    "type": "session",
    "app": "hub",
    "label": "Session 34, continued (Plan §13 cleanup)",
@@ -1127,7 +1145,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-28",
+   "id": "hub-session-30",
    "type": "session",
    "app": "hub",
    "label": "Session 35 (from Datum Plan's chat: 0.5.16…",
@@ -1136,7 +1154,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-29",
+   "id": "hub-session-31",
    "type": "session",
    "app": "hub",
    "label": "Session 34, continued (Plot dates brief)",
@@ -1145,7 +1163,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-30",
+   "id": "hub-session-32",
    "type": "session",
    "app": "hub",
    "label": "Session 34 (from Datum Plan's chat: 0.5.15…",
@@ -1154,7 +1172,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-31",
+   "id": "hub-session-33",
    "type": "session",
    "app": "hub",
    "label": "Session 33 (from Datum Plan's chat: 0.5.14…",
@@ -1163,7 +1181,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-32",
+   "id": "hub-session-34",
    "type": "session",
    "app": "hub",
    "label": "Session 32 (from Datum Plan's chat: 0.5.13…",
@@ -1172,7 +1190,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-33",
+   "id": "hub-session-35",
    "type": "session",
    "app": "hub",
    "label": "Session 31 (from Datum Plan's chat: 0.5.12…",
@@ -1181,7 +1199,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-34",
+   "id": "hub-session-36",
    "type": "session",
    "app": "hub",
    "label": "Session 30 (from Datum Plan's chat: 0.5.11…",
@@ -1190,7 +1208,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-35",
+   "id": "hub-session-37",
    "type": "session",
    "app": "hub",
    "label": "Session 29 (from Datum Plan's chat: 0.5.10…",
@@ -1199,7 +1217,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-36",
+   "id": "hub-session-38",
    "type": "session",
    "app": "hub",
    "label": "Session 28 (from Datum Plan's chat: 0.5.7…",
@@ -1208,7 +1226,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-37",
+   "id": "hub-session-39",
    "type": "session",
    "app": "hub",
    "label": "Session 27 (from Datum Plan's chat: 0.5.4 and…",
@@ -1217,7 +1235,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-38",
+   "id": "hub-session-40",
    "type": "session",
    "app": "hub",
    "label": "Session 26 (from Datum Plan's chat: 0.5.0…",
@@ -1226,7 +1244,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-39",
+   "id": "hub-session-41",
    "type": "session",
    "app": "hub",
    "label": "Session 25 (from Datum Plan's chat: 0.4.4, the…",
@@ -1235,7 +1253,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-40",
+   "id": "hub-session-42",
    "type": "session",
    "app": "hub",
    "label": "Session 32 (Datum Layout joins; transparent…",
@@ -1244,7 +1262,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-41",
+   "id": "hub-session-43",
    "type": "session",
    "app": "hub",
    "label": "Session 31 (Datum Layout brief)",
@@ -1253,7 +1271,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-42",
+   "id": "hub-session-44",
    "type": "session",
    "app": "hub",
    "label": "Session 28 (stats on the website)",
@@ -1262,7 +1280,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-43",
+   "id": "hub-session-45",
    "type": "session",
    "app": "hub",
    "label": "Session 26 (pre-exhibition check)",
@@ -1271,7 +1289,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-44",
+   "id": "hub-session-46",
    "type": "session",
    "app": "hub",
    "label": "Session 25 (status review of all eight apps)",
@@ -1280,7 +1298,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-45",
+   "id": "hub-session-47",
    "type": "session",
    "app": "hub",
    "label": "Session 24 (Datum Schema joins the family…",
@@ -1289,7 +1307,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-46",
+   "id": "hub-session-48",
    "type": "session",
    "app": "hub",
    "label": "Session 23 (Schema's direction: enterprise…",
@@ -1298,7 +1316,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-47",
+   "id": "hub-session-49",
    "type": "session",
    "app": "hub",
    "label": "Session 22 (Datum Schema brief)",
@@ -1307,7 +1325,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-48",
+   "id": "hub-session-50",
    "type": "session",
    "app": "hub",
    "label": "Session 21 (publisher \"Datum\")",
@@ -1316,7 +1334,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-49",
+   "id": "hub-session-51",
    "type": "session",
    "app": "hub",
    "label": "Session 20 (Datum Home: no more rate-limit…",
@@ -1325,7 +1343,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-50",
+   "id": "hub-session-52",
    "type": "session",
    "app": "hub",
    "label": "Session 19 (brainstorm: the brain, AI and…",
@@ -1334,7 +1352,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-51",
+   "id": "hub-session-53",
    "type": "session",
    "app": "hub",
    "label": "Session 18 (Datum Pipe joins the family)",
@@ -1343,7 +1361,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-52",
+   "id": "hub-session-54",
    "type": "session",
    "app": "hub",
    "label": "Session 16 (Datum Pipe brief)",
@@ -1352,7 +1370,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-53",
+   "id": "hub-session-55",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (from Datum Plan's chat: 0.4.0…",
@@ -1361,7 +1379,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-54",
+   "id": "hub-session-56",
    "type": "session",
    "app": "hub",
    "label": "Session 14 (Calc and Mesh join the family)",
@@ -1370,7 +1388,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-55",
+   "id": "hub-session-57",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (from Datum Plan's chat: 0.3.12…",
@@ -1379,7 +1397,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-56",
+   "id": "hub-session-58",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (from Datum Plan's chat: the…",
@@ -1388,7 +1406,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-57",
+   "id": "hub-session-59",
    "type": "session",
    "app": "hub",
    "label": "Session 13 (brainstorm: Calc and Mesh for the…",
@@ -1397,7 +1415,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-58",
+   "id": "hub-session-60",
    "type": "session",
    "app": "hub",
    "label": "Session 12 (Datum Home)",
@@ -1406,7 +1424,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-59",
+   "id": "hub-session-61",
    "type": "session",
    "app": "hub",
    "label": "Session 11 (app pages, simpler hero, README)",
@@ -1415,7 +1433,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-60",
+   "id": "hub-session-62",
    "type": "session",
    "app": "hub",
    "label": "Session 10 (Datum Sim joins the family)",
@@ -1424,7 +1442,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-61",
+   "id": "hub-session-63",
    "type": "session",
    "app": "hub",
    "label": "Session 9 (Datum Sim and Datum Field)",
@@ -1433,7 +1451,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-62",
+   "id": "hub-session-64",
    "type": "session",
    "app": "hub",
    "label": "Session 8 (live site 404)",
@@ -1442,7 +1460,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-63",
+   "id": "hub-session-65",
    "type": "session",
    "app": "hub",
    "label": "Session 7 (bucket list)",
@@ -1451,7 +1469,7 @@
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
-   "id": "hub-session-64",
+   "id": "hub-session-66",
    "type": "session",
    "app": "hub",
    "label": "Session 6 (capability bench, scroll features…",
@@ -18532,6 +18550,16 @@
   {
    "source": "hub",
    "target": "hub-session-64",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-65",
+   "kind": "session"
+  },
+  {
+   "source": "hub",
+   "target": "hub-session-66",
    "kind": "session"
   },
   {
