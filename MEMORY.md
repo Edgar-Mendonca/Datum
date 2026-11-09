@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.7.4 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.7.5 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -199,6 +199,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.7.2 (published inside 0.7.3, after GitHub 504s on the installer tools; the release workflow now retries the installer build): Enter in a dialog keeps the value just typed, small screens (the ribbon folds groups into named buttons, the details pane and timeline start off on short windows), dialogs move by their header.
 - Plan 0.7.3: a test keeps commercial product names out of all public text (FAMILY §13); a colour-blind safe option (Okabe-Ito colours for charts, the heat strip with a dot on over-capacity weeks).
 - Plan 0.7.4: Report › Copy Picture (the task sheet and Gantt as shown) and Copy on every chart, as a bitmap and PNG on the Windows clipboard; OpenDocument spreadsheet (.ods) export of the task table and both registers.
+- Plan 0.7.5: the details pane starts shown again (0.7.2 hid it on short windows, which scaled laptops are) and the details pane and timeline remember on/off.
 - Left from the Plot list, for later: an embedded Gantt that reopens in Plan, Help › Check, list organising, Mac and Linux builds.
 
 ### 2026-11-08: Session 53 (from Datum Mesh's chat: the specifications and a new roadmap)
