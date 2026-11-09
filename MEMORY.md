@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.8.2 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.8.3 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -200,6 +200,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.8.0: Export to XER asks the version, carries activity codes, custom fields, steps and notes, and reports what went in; import reads them back.
 - Plan 0.8.1: schedule quality: a health score (weighted checks, weights kept with the plan, a score in each snapshot and its trend), Compare Projects as a full change log with export, ghost bars, and a milestone trend chart.
 - Plan 0.8.2: delay analysis part one: what the plan holds and which methods can run, as-planned against as-built, windows between snapshots, export; neutral (measures, does not assign responsibility).
+- Plan 0.8.3: delay analysis part two: a register of delay events (extra days, holds, new activities) and time impact, impacted as-planned and collapsed as-built, each saying which plan it ran on.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
