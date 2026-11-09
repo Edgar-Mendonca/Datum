@@ -116,7 +116,42 @@ fn report(app: &AppHandle, id: &str, stage: &str, extra: serde_json::Value) {
     let _ = app.emit("progress", v);
 }
 
-/// Downloads an installer to the temp folder and checks it against the release's SHA256SUMS.txt.
+/// How long to wait before each new try when GitHub's download servers are slow or busy (they sometimes answer
+/// 502/503/504 for a few minutes): 4 tries in all, about 30 s of waiting.
+const WAITS: [u64; 3] = [3, 8, 20];
+
+/// Why a request failed, in plain words, and whether trying again may help (busy or unreachable servers).
+fn why(e: ureq::Error) -> (String, bool) {
+    match e {
+        ureq::Error::Status(c @ (429 | 500..=599), _) => (format!("GitHub's download server did not answer in time ({c})"), true),
+        ureq::Error::Status(c, _) => (format!("GitHub answered {c}"), false),
+        ureq::Error::Transport(t) => (format!("the connection failed ({})", t.kind()), true),
+    }
+}
+
+/// Runs `step` up to four times, telling the window about each wait, while the failure is one that may pass.
+fn retry<T>(app: &AppHandle, id: &str, what: &str, mut step: impl FnMut() -> Result<T, (String, bool)>) -> R<T> {
+    let mut n = 0;
+    loop {
+        match step() {
+            Ok(v) => return Ok(v),
+            Err((msg, again)) if again && n < WAITS.len() => {
+                let wait = WAITS[n];
+                n += 1;
+                report(app, id, "retry", json!({ "file": what, "reason": msg, "wait": wait, "attempt": n + 1, "of": WAITS.len() + 1 }));
+                std::thread::sleep(std::time::Duration::from_secs(wait));
+            }
+            Err((msg, again)) => {
+                let hint = if again { " This is on GitHub's side, not your computer: try again in a few minutes." } else { "" };
+                let tries = if n > 0 { format!(" after {} tries", n + 1) } else { String::new() };
+                return Err(format!("Could not get {what}: {msg}{tries}.{hint}"));
+            }
+        }
+    }
+}
+
+/// Downloads an installer to the temp folder and checks it against the release's SHA256SUMS.txt. Busy or
+/// unreachable servers are tried again (with the wait shown); a download cut off halfway starts again.
 fn download(app: &AppHandle, id: &str, repo: &str, rel: &Release) -> R<std::path::PathBuf> {
     let (Some(url), Some(sums)) = (rel.setup.as_deref(), rel.sums.as_deref()) else {
         return Err("This release has no installer with a checksum. Download it from its releases page.".into());
@@ -126,45 +161,54 @@ fn download(app: &AppHandle, id: &str, repo: &str, rel: &Release) -> R<std::path
     }
     let name = url.rsplit('/').next().filter(|n| !n.is_empty() && !n.contains(['\\', ':'])).unwrap_or("setup.exe").to_string();
     report(app, id, "checksums", json!({ "file": name, "total": rel.size }));
-    let fail = |e: String| format!("Could not fetch the checksums: {e}");
-    let list = agent().get(sums).call().map_err(|e| fail(e.to_string()))?.into_string().map_err(|e| fail(e.to_string()))?;
+    let list = retry(app, id, "the checksum list", || {
+        let r = agent().get(sums).call().map_err(why)?;
+        r.into_string().map_err(|e| (format!("the download was cut off ({e})"), true))
+    })?;
     let want = core::checksum_for(&list, &name).ok_or("The checksum list does not include this installer.")?;
     let dir = std::env::temp_dir().join("DatumHome");
     std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
     let dest = dir.join(&name);
-    let resp = agent().get(url).call().map_err(|e| format!("Download failed: {e}"))?;
-    let total: u64 = resp.header("Content-Length").and_then(|v| v.parse().ok()).unwrap_or(rel.size);
-    let (mut src, mut file) = (resp.into_reader(), std::fs::File::create(&dest).map_err(|e| e.to_string())?);
-    let (mut hash, mut buf, mut done) = (Sha256::new(), vec![0u8; 1 << 16], 0u64);
-    let start = std::time::Instant::now();
-    let mut shown = start;
-    let tell = |done: u64, start: std::time::Instant| {
-        let secs = start.elapsed().as_secs_f64().max(0.001);
-        report(app, id, "download", json!({ "file": name, "done": done, "total": total, "rate": (done as f64 / secs) as u64 }));
-    };
-    tell(0, start);
-    loop {
-        let n = src.read(&mut buf).map_err(|e| format!("Download failed: {e}"))?;
-        if n == 0 {
-            break;
+    let (done, got) = retry(app, id, &name, || {
+        let resp = agent().get(url).call().map_err(why)?;
+        let total: u64 = resp.header("Content-Length").and_then(|v| v.parse().ok()).unwrap_or(rel.size);
+        let (mut src, mut file) = (resp.into_reader(), std::fs::File::create(&dest).map_err(|e| (e.to_string(), false))?);
+        let (mut hash, mut buf, mut done) = (Sha256::new(), vec![0u8; 1 << 16], 0u64);
+        let start = std::time::Instant::now();
+        let mut shown = start;
+        let tell = |done: u64| {
+            let secs = start.elapsed().as_secs_f64().max(0.001);
+            report(app, id, "download", json!({ "file": name, "done": done, "total": total, "rate": (done as f64 / secs) as u64 }));
+        };
+        tell(0);
+        loop {
+            let n = src.read(&mut buf).map_err(|e| (format!("the download was cut off ({})", e.kind()), true))?;
+            if n == 0 {
+                break;
+            }
+            file.write_all(&buf[..n]).map_err(|e| (e.to_string(), false))?;
+            hash.update(&buf[..n]);
+            done += n as u64;
+            if shown.elapsed().as_millis() >= 150 {
+                shown = std::time::Instant::now();
+                tell(done);
+            }
         }
-        file.write_all(&buf[..n]).map_err(|e| e.to_string())?;
-        hash.update(&buf[..n]);
-        done += n as u64;
-        if shown.elapsed().as_millis() >= 150 {
-            shown = std::time::Instant::now();
-            tell(done, start);
+        tell(done);
+        if total > 0 && done < total {
+            return Err((format!("the download stopped at {done} of {total} bytes"), true));
         }
-    }
-    tell(done, start);
-    drop(file);
-    report(app, id, "verify", json!({ "file": name, "done": done, "total": total }));
-    let got: String = hash.finalize().iter().map(|b| format!("{b:02x}")).collect();
+        Ok((done, hash.finalize().iter().map(|b| format!("{b:02x}")).collect::<String>()))
+    })
+    .inspect_err(|_| {
+        let _ = std::fs::remove_file(&dest);
+    })?;
+    report(app, id, "verify", json!({ "file": name, "done": done, "total": done }));
     if got != want {
         let _ = std::fs::remove_file(&dest);
         return Err("The download did not match its checksum and was deleted. Try again.".into());
     }
-    report(app, id, "verified", json!({ "file": name, "done": done, "total": total, "sha": &got[..16] }));
+    report(app, id, "verified", json!({ "file": name, "done": done, "total": done, "sha": &got[..16] }));
     Ok(dest)
 }
 

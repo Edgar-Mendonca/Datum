@@ -1,5 +1,12 @@
 # Datum Home changelog
 
+## 0.1.7 — 2026-11-09
+
+Installs and updates keep going when GitHub's download servers are slow.
+
+- When GitHub's download servers are busy or do not answer in time (errors 502, 503, 504) or the connection drops, Datum Home tries again by itself, up to four times, and says so on the card: what failed, how long it waits, and which try it is on. A download cut off halfway starts again.
+- If every try fails, the message says in plain words that the problem is on GitHub's side and to try again in a few minutes, instead of showing a long web address.
+
 ## 0.1.6 — 2026-11-04
 
 You see exactly what Datum Home downloads and does, and Datum Layout joins.

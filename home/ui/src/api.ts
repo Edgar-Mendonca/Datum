@@ -14,5 +14,5 @@ export interface Installed { name: string; version: string; publisher: string; e
 export type Action = "install" | "update" | "open" | "unavailable";
 export interface Card { app: App; installed: Installed | null; release: Release | null; action: Action }
 export interface CardInfo { card: Card; running: boolean; error: string | null }
-/** What Datum Home is doing right now for one app (or "home"): the step, the file, bytes so far of the total, the speed, and the checksum once checked. */
-export interface Progress { id: string; stage: "checksums" | "download" | "verify" | "verified" | "install"; file?: string; done?: number; total?: number; rate?: number; sha?: string }
+/** What Datum Home is doing right now for one app (or "home"): the step, the file, bytes so far of the total, the speed, the checksum once checked, and why it is trying again. */
+export interface Progress { id: string; stage: "checksums" | "download" | "retry" | "verify" | "verified" | "install"; file?: string; done?: number; total?: number; rate?: number; sha?: string; reason?: string; wait?: number; attempt?: number; of?: number }
