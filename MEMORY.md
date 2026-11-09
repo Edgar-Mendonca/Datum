@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.7.1 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.7.4 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -193,6 +193,13 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-10-28: Session 15 (from Datum Plan's chat: 0.4.1, progress history)
 - Plan 0.4.1 shipped actual S-curves through the stored periods, earned schedule (SPI(t), finish at this pace), Manpower by trade (planned / done / forecast), rules of credit and installed quantities, and a look-ahead with a constraint log. Its roadmap's next stage is 0.4.2 (command line and automation).
 - Recorded here: Plan at 0.4.1, the `<select>` rule (§3 and FAMILY §7). Brain regenerated.
+
+### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
+- Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
+- Plan 0.7.2 (published inside 0.7.3, after GitHub 504s on the installer tools; the release workflow now retries the installer build): Enter in a dialog keeps the value just typed, small screens (the ribbon folds groups into named buttons, the details pane and timeline start off on short windows), dialogs move by their header.
+- Plan 0.7.3: a test keeps commercial product names out of all public text (FAMILY §13); a colour-blind safe option (Okabe-Ito colours for charts, the heat strip with a dot on over-capacity weeks).
+- Plan 0.7.4: Report › Copy Picture (the task sheet and Gantt as shown) and Copy on every chart, as a bitmap and PNG on the Windows clipboard; OpenDocument spreadsheet (.ods) export of the task table and both registers.
+- Left from the Plot list, for later: an embedded Gantt that reopens in Plan, Help › Check, list organising, Mac and Linux builds.
 
 ### 2026-11-08: Session 53 (from Datum Mesh's chat: the specifications and a new roadmap)
 - The user wrote three long specifications for Datum Mesh (structural analysis and design; modelling, sketching and assembly; and a second structural edition on design members and one national steel standard). They were read in full against the code; the plan is in Mesh's `docs/PLAN-SPECS.md`.
