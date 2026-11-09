@@ -1096,7 +1096,7 @@
    "app": "hub",
    "label": "Session 40 (from Datum Plan's chat: 0.5.21…",
    "date": "2026-11-03",
-   "text": "· Plan 0.5.21: conditional formatting on sheets (highlight rules, top and bottom, data bars, colour scales; printed, exported as real workbook rules, round-tripped), Find and Replace, fill up and left, merges in copy and paste, Format Painter number format, and sort fixed to use real numbers. The user is about to plan the HABSHAN-7 package in it. Brain regenerated.",
+   "text": "· Plan 0.5.21: conditional formatting on sheets (highlight rules, top and bottom, data bars, colour scales; printed, exported as real workbook rules, round-tripped), Find and Replace, fill up and left, merges in copy and paste, Format Painter number format, and sort fixed to use real numbers. Brain regenerated.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -17678,6 +17678,36 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Layout"
   },
   {
+   "id": "layout-v0.2.5",
+   "type": "release",
+   "app": "layout",
+   "label": "Layout 0.2.5",
+   "version": "0.2.5",
+   "date": "2026-11-09",
+   "text": "Crosses.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/releases/tag/v0.2.5"
+  },
+  {
+   "id": "layout-v0.2.4",
+   "type": "release",
+   "app": "layout",
+   "label": "Layout 0.2.4",
+   "version": "0.2.4",
+   "date": "2026-11-09",
+   "text": "Eccentric reducers.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/releases/tag/v0.2.4"
+  },
+  {
+   "id": "layout-v0.2.3",
+   "type": "release",
+   "app": "layout",
+   "label": "Layout 0.2.3",
+   "version": "0.2.3",
+   "date": "2026-11-09",
+   "text": "Moving equipment made easy, the view cube, and status badges.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/releases/tag/v0.2.3"
+  },
+  {
    "id": "layout-v0.2.2",
    "type": "release",
    "app": "layout",
@@ -17844,7 +17874,7 @@
    "label": "0.2 Pipe classes and fittings",
    "version": "0.2",
    "when": "Next",
-   "text": "The Library: every pipe class and parts table, browsable, with its source (0.2.0)\nFrom the P&ID: read a plant package, place its equipment, route its lines with their components in order, and check the 3D model against it (0.2.1)\nPipe supports (rest, guide, line stop, anchor) written for Datum Pipe's stress analysis (0.2.2)\nA pipe class editor with its branch table (which tee or reinforcement for each header and branch size)\nEccentric reducers, crosses, sloped lines\nDesign rules for supports and access (with 0.3's steel)",
+   "text": "The Library: every pipe class and parts table, browsable, with its source (0.2.0)\nFrom the P&ID: read a plant package, place its equipment, route its lines with their components in order, and check the 3D model against it (0.2.1)\nPipe supports (rest, guide, line stop, anchor) written for Datum Pipe's stress analysis (0.2.2)\nDrag equipment across the plot, nudge it with the arrow keys, a view cube and status badges (0.2.3)\nEccentric reducers, flat on top or at the bottom (0.2.4)\nCrosses with two branches (0.2.5)\nA pipe class editor with its branch table (which tee or reinforcement for each header and branch size)\nSloped lines\nDesign rules for supports and access (with 0.3's steel)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
   },
   {
@@ -18586,13 +18616,85 @@
    "id": "layout-decision-46",
    "type": "decision",
    "app": "layout",
+   "label": "Equipment moves by dragging the selected item itself across…",
+   "date": "0.2.3 (user)",
+   "text": "Equipment moves by dragging the selected item itself across the plot (first click selects, so a drag elsewhere still orbits); the preview moves the item's own vertices in the one buffer; the engine moves it on release; lines left skewed are routed again as a separate undo step\n\nWhy: The user found moving \"a bit weird\"; the arrows alone were slow and missed",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-47",
+   "type": "decision",
+   "app": "layout",
+   "label": "Arrow keys move along the plant axis nearest to the arrow's…",
+   "date": "0.2.3",
+   "text": "Arrow keys move along the plant axis nearest to the arrow's direction on screen\n\nWhy: Up always means \"away from me\", whatever the view",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-48",
+   "type": "decision",
+   "app": "layout",
+   "label": "Drags capture the pointer on the canvas (the listeners' own…",
+   "date": "0.2.3",
+   "text": "Drags capture the pointer on the canvas (the listeners' own element), and lines are picked within 4 cm (three.js's default is 1 m)\n\nWhy: Both made dragging lose the mouse or grab the wrong thing",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-49",
+   "type": "decision",
+   "app": "layout",
+   "label": "Badges compute their words in one function each: Solid splits…",
+   "date": "0.2.3",
+   "text": "Badges compute their words in one function each: Solid splits chained ternaries in markup into separate memos, and one read a cleared check as a list (the window stopped loading plants)\n\nWhy: Found by the UI test",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-50",
+   "type": "decision",
+   "app": "layout",
+   "label": "An eccentric reducer is a short sloped run of the path between…",
+   "date": "0.2.4",
+   "text": "An eccentric reducer is a short sloped run of the path between its two ends (offset by half the change in outside diameter), not an offset stored on the item: the path stays the centreline everywhere, the PCF writes its real end points, and a PCF read back gives the same path. The builder draws that run as the reducer and puts no elbows at its ends\n\nWhy: One idea of the centreline for routing, checks and exchange",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-51",
+   "type": "decision",
+   "app": "layout",
+   "label": "The run beyond moves; if the line ends at a nozzle or tee just…",
+   "date": "0.2.4",
+   "text": "The run beyond moves; if the line ends at a nozzle or tee just after (pump suction), the run before moves; Route Again makes eccentric reducers concentric first\n\nWhy: The held end never moves",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-52",
+   "type": "decision",
+   "app": "layout",
+   "label": "A cross is a tee item with a second branch opposite the first…",
+   "date": "0.2.5",
+   "text": "A cross is a tee item with a second branch opposite the first: one item kind, the tee's centre-to-end dimension, and a branch number on the line end that leaves it (port, 0 by default so earlier files read unchanged)\n\nWhy: The fewest new ideas; old files keep working",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-53",
+   "type": "decision",
+   "app": "layout",
+   "label": "Pipe's PCF reader takes CROSS but reads only BRANCH1-POINT: a…",
+   "date": "0.2.5 (for Datum Pipe)",
+   "text": "Pipe's PCF reader takes CROSS but reads only BRANCH1-POINT: a second branch line written in the same file does not join the cross there. Layout writes both points (the format's way); Pipe should read BRANCH2-POINT too\n\nWhy: Noted for Pipe's next session",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "layout-decision-54",
+   "type": "decision",
+   "app": "layout",
    "label": "Parked: a shared \"Datum Library\" (data only: tables with…",
    "date": "0.1.4 (2026-11-08)",
    "text": "Parked: a shared \"Datum Library\" (data only: tables with sources, checks, a browsable web page; no generator, no installer). The tables keep being built now in Layout's catalogue, in the plug-in-pack format, so they can move there unchanged. Build the library repo when a second app needs the same table (Schema's pipe classes, Pipe's flange and valve weights, Mesh's fasteners); each app then copies a fixed version into its own build (fully offline). An in-app download and update channel only if the data grows large (vendor models)\n\nWhy: The user, after weighing it: today the overlap is mostly pipe sizes, apps release often enough to carry data updates, and the download channel is the costly part. Generators stay in each app (each needs its own form: ports, solids, elements)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
   },
   {
-   "id": "layout-decision-47",
+   "id": "layout-decision-55",
    "type": "decision",
    "app": "layout",
    "label": "Everything built for 0.1 shipped in 0.1.0, because the engine…",
@@ -18633,7 +18735,7 @@
    "app": "layout",
    "label": "Session 4 (0.2.x)",
    "date": "2026-11-08",
-   "text": "· The user confirmed the family flow (Schema → Layout → Pipe; PCF as the hand-over, a documented plain-text format we read and write with our own code) and asked for a few small 0.2 releases to view in the morning, the look kept in step with Datum Mesh (Datum Pipe is getting the same).\n· 0.2.0: the Library.\n· 0.2.2: pipe supports; scripts/verify.sh with Datum Pipe eca6ebb: every example solved, the rack's lines read with their supports and no warnings.\n· 0.2.1: From the P&ID: plant package format, import, Route Listed Lines, component-order check; brief for Schema.",
+   "text": "· The user confirmed the family flow (Schema → Layout → Pipe; PCF as the hand-over, a documented plain-text format we read and write with our own code) and asked for a few small 0.2 releases to view in the morning, the look kept in step with Datum Mesh (Datum Pipe is getting the same).\n· 0.2.0: the Library.\n· 0.2.5: crosses; engine test (two branches, PCF both ways, old files), UI check routing the second branch; hardening now drops crosses and supports too.\n· 0.2.4: eccentric reducers; two engine tests (free end, pump suction); Datum Pipe eca6ebb read and solved flat-top and flat-bottom files written by a temporary program (removed).\n· 0.2.3 (2026-11-09, the user: moving equipment felt weird; more from Datum Mesh): drag on the plot, nudge, Move to…, view cube, status badges; three window bugs found by the new checks.\n· 0.2.2: pipe supports; scripts/verify.sh with Datum Pipe eca6ebb: every example solved, the rack's lines read with their supports and no warnings.\n· 0.2.1: From the P&ID: plant package format, import, Route Listed Lines, component-order check; brief for Schema.",
    "url": "https://github.com/Edgar-Mendonca/Datum-Layout/blob/HEAD/docs/MEMORY.md"
   }
  ],
@@ -34774,12 +34876,27 @@
    "kind": "then"
   },
   {
+   "source": "layout-v0.2.2",
+   "target": "layout-v0.2.3",
+   "kind": "then"
+  },
+  {
+   "source": "layout-v0.2.3",
+   "target": "layout-v0.2.4",
+   "kind": "then"
+  },
+  {
+   "source": "layout-v0.2.4",
+   "target": "layout-v0.2.5",
+   "kind": "then"
+  },
+  {
    "source": "app-layout",
-   "target": "layout-v0.2.2",
+   "target": "layout-v0.2.5",
    "kind": "released"
   },
   {
-   "source": "layout-v0.2.2",
+   "source": "layout-v0.2.5",
    "target": "layout-plan-0-1",
    "kind": "next"
   },
@@ -35555,23 +35672,8 @@
   },
   {
    "source": "layout-decision-46",
-   "target": "layout-v0.1.4",
+   "target": "layout-v0.2.3",
    "kind": "in"
-  },
-  {
-   "source": "layout-decision-46",
-   "target": "app-mesh",
-   "kind": "mentions"
-  },
-  {
-   "source": "layout-decision-46",
-   "target": "app-pipe",
-   "kind": "mentions"
-  },
-  {
-   "source": "layout-decision-46",
-   "target": "app-schema",
-   "kind": "mentions"
   },
   {
    "source": "app-layout",
@@ -35580,6 +35682,106 @@
   },
   {
    "source": "layout-decision-47",
+   "target": "layout-v0.2.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-48",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-48",
+   "target": "layout-v0.2.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-49",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-49",
+   "target": "layout-v0.2.3",
+   "kind": "in"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-50",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-50",
+   "target": "layout-v0.2.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-51",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-51",
+   "target": "layout-v0.2.4",
+   "kind": "in"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-52",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-52",
+   "target": "layout-v0.2.5",
+   "kind": "in"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-53",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-53",
+   "target": "layout-v0.2.5",
+   "kind": "in"
+  },
+  {
+   "source": "layout-decision-53",
+   "target": "app-pipe",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-54",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-54",
+   "target": "layout-v0.1.4",
+   "kind": "in"
+  },
+  {
+   "source": "layout-decision-54",
+   "target": "app-mesh",
+   "kind": "mentions"
+  },
+  {
+   "source": "layout-decision-54",
+   "target": "app-pipe",
+   "kind": "mentions"
+  },
+  {
+   "source": "layout-decision-54",
+   "target": "app-schema",
+   "kind": "mentions"
+  },
+  {
+   "source": "app-layout",
+   "target": "layout-decision-55",
+   "kind": "decided"
+  },
+  {
+   "source": "layout-decision-55",
    "target": "layout-v0.1.0",
    "kind": "in"
   },
