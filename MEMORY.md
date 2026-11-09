@@ -241,6 +241,11 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 ### 2026-11-05: Session 44 (from Datum Plan's chat: 0.5.25, full-spreadsheet Sheets and an overnight bug hunt)
 - Plan 0.5.25: Sheets gain right-click menus, Format Cells, notes, filters, drop-down lists, remove duplicates, find all and go to (GridCraft's checklist as reference); Sheet Tools always on the ribbon as one Format tab; task basics on Home and Schedule. Four parallel audits (sheet calculations, dashboards/reports, Gantt/scheduling/file exchange, spreadsheet parity) fixed 51 bugs, each with a test. Brain regenerated.
 
+### 2026-11-09: Session 45 (Datum Home 0.1.7: retries when GitHub is slow)
+- User: Datum Home could not install or update: "Could not fetch the checksums … status code 504" (Pipe 0.7.0) and "Download failed … 504" (Layout 0.2.2). Checked from here: GitHub's release downloads answered 504 on about half the tries that day; the files are fine.
+- Built: Home 0.1.7. Downloads and the checksum list are tried up to four times on 429/5xx, dropped connections or a download cut short (waits 3, 8, 20 s), each wait shown on the card ("Trying again in 8 s (try 2 of 4)"); the final message says the problem is on GitHub's side, with no raw URL. Released with tag home-v0.1.7 (the first release with build provenance).
+- Checked: check:ui, build:ui, clippy (Linux and the Windows target), cargo test.
+
 ### 2026-11-05: Session 44 (virus-scanner false positives)
 - User: a user reported VirusTotal flags on DatumHome-0.1.5-setup.exe and DatumAtlas-0.3.0-setup.exe (2/70 each: SecureAge "Malicious", Trapmine "Suspicious.low.ml.score"). Both hashes match our published SHA256SUMS: genuine files; machine-learning guesses at unsigned NSIS installers. The user does not want code signing now.
 - Built: `site/src/components/Safe.astro` (SHA-256, scan report, checksums; "Is it safe?" on app pages, compact on the Home band); `github.ts` reads each installer's SHA-256 (asset digest or SHA256SUMS.txt); `home-release.yml` attests build provenance (`actions/attest-build-provenance@v4`).

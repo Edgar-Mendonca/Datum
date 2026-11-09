@@ -1,6 +1,6 @@
 [package]
 name = "datum-home"
-version = "0.1.6"
+version = "0.1.7"
 edition = "2021"
 description = "Datum Home: install, update, open and remove the Datum apps."
 license = "MIT"

@@ -38,6 +38,7 @@ const say = (p: Progress | undefined, label: string) => {
       const left = t && r > 0 && d < t ? ` · about ${secs((t - d) / r)} left` : "";
       return `Downloading${f}: ${of}${speed}${left}`;
     }
+    case "retry": return `Could not get ${p.file}: ${p.reason}. Trying again in ${p.wait} s (try ${p.attempt} of ${p.of})…`;
     case "verify": return `Downloaded ${mb1(p.done)}. Checking its SHA-256 against the release's checksum list…`;
     case "verified": return `Checksum matches (SHA-256 ${p.sha}…). Starting the installer…`;
     case "install": return "Installing for your user account (no administrator rights)…";
@@ -175,7 +176,7 @@ function Home() {
                   <p class="src">Downloads <b>{rel()!.setup!.split("/").pop()}</b>{rel()!.size ? <> ({mb1(rel()!.size)})</> : null} from {r.app.repo.split("/")[1]}'s GitHub releases; checked with SHA-256 before it runs.</p>
                 </Show>
                 <Show when={r.busy}>
-                  <div class="prog"><span style={{ width: `${pct(r.prog)}%` }} classList={{ ind: r.busy === "Removing" || r.prog?.stage === "install" || r.prog?.stage === "verify" || r.prog?.stage === "checksums" }} /></div>
+                  <div class="prog"><span style={{ width: `${pct(r.prog)}%` }} classList={{ ind: r.busy === "Removing" || r.prog?.stage === "install" || r.prog?.stage === "verify" || r.prog?.stage === "checksums" || r.prog?.stage === "retry" }} /></div>
                   <p class="step" aria-live="polite">{r.busy === "Removing" ? "Removing with the app's own uninstaller; your files and documents are kept…" : say(r.prog, r.busy!)}</p>
                 </Show>
                 <Show when={r.error || r.info?.error}><p class="err">{r.error || r.info?.error}</p></Show>
