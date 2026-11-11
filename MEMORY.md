@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.8.10 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.8.11 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -208,6 +208,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.8.8: sheet tabs can be dragged in the installed app (the window no longer takes drags for file drops); editing a merged cell no longer shows its text twice. Next: a Sheets overhaul (engine update, behaviour check, UI).
 - Plan 0.8.9: Sheets daily-use check with a live harness on the real engine (63 checks); fixed Percent Style, merge keeping hidden values, copy now pastes into Word as a table; added Sum/Average/Count of the selection.
 - Plan 0.8.10: the Gantt's Project Summary Task tick (and the other Show/Hide and bar ticks) is kept across restarts (user bug).
+- Plan 0.8.11: plans reopen the way they were left (each plan's view kept by its file, layout per computer; tabs no longer share a view).
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
