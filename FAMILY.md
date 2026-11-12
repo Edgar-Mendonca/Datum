@@ -156,6 +156,12 @@ Chart.js:
   - publishes `Datum<App>-x.y.z-setup.exe` + `SHA256SUMS.txt`.
   - Run it with workflow_dispatch when tag pushes are blocked.
 - **CI** (`ci.yml`, ubuntu): clippy `-D warnings`, `cargo test --workspace`, `npm run check:ui`, the Playwright UI tests.
+- **Build budget** (GitHub free; every Datum repo is public, so Actions minutes cost nothing, but the account runs only about 20 jobs at once and a slow app blocks the others). Run the checks locally before pushing; CI is the safety net.
+  - CI runs on pushes to `main` and on pull requests only, with `concurrency: { group: ci-${{ github.ref }}, cancel-in-progress: true }`, and `paths-ignore` for docs-only changes.
+  - **Fast job on every push:** Linux, debug build, clippy and tests, `timeout-minutes: 30`.
+  - **Heavy work** (release-mode builds, long verification suites, the Windows build, UI tests) runs nightly when something changed, on manual dispatch, and in the release workflow.
+  - No macOS jobs (Datum ships for Windows). Release in batches, not on every commit.
+  - The release workflow adds `actions/attest-build-provenance` for the installer.
 - Options and recovery files in the app's data folder (`com.edgarmendonca.datum<app>`).
 - **Datum Home** (`home/` in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named `Datum<App>-x.y.z-setup.exe` that accepts `/S`, a `SHA256SUMS.txt` beside it, the Windows display name equal to the app's name in `apps.json` ("Datum Plan") and the publisher **"Datum"** (`bundle.publisher` in `tauri.conf.json`; apps released before 2026-10-29 used "Edgar Mendonca", which Datum Home still accepts). A release without `SHA256SUMS.txt` is never installed by Datum Home.
 - **The family site** rebuilds every hour and on every push to DATUM, so a release appears there within the hour (or at once: run the "Pages" workflow in DATUM).

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Datum Flow: the family tile in the Cobalt accent. A venturi (short inlet, throat, long outlet) with three streamlines tightening in the throat; the amber diamond, the family mark, sits in the throat where the flow is fastest. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ECEEFA"/></linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)" stroke="#C3CAF0" stroke-width="4"/>
+  <path d="M48 163 L52 163 L56 163 L60 163 L64 163 L68 162 L72 160 L76 158 L80 156 L84 154 L88 151 L92 149 L96 147 L100 145 L104 144 L108 144 L112 144 L116 144 L120 144 L124 144 L128 144 L132 144 L136 145 L140 145 L144 146 L148 147 L152 148 L156 149 L160 150 L164 152 L168 153 L172 154 L176 155 L180 157 L184 158 L188 159 L192 160 L196 161 L200 162 L204 162 L208 163" fill="none" stroke="#9AA8E6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 93 L52 93 L56 93 L60 93 L64 93 L68 94 L72 96 L76 98 L80 100 L84 102 L88 105 L92 107 L96 109 L100 111 L104 112 L108 112 L112 112 L116 112 L120 112 L124 112 L128 112 L132 112 L136 111 L140 111 L144 110 L148 109 L152 108 L156 107 L160 106 L164 104 L168 103 L172 102 L176 101 L180 99 L184 98 L188 97 L192 96 L196 95 L200 94 L204 94 L208 93" fill="none" stroke="#9AA8E6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 128H208" stroke="#2F45B5" stroke-width="11" stroke-linecap="round"/>
+  <path d="M36 198 L40 198 L44 198 L48 198 L52 198 L56 198 L60 198 L64 197 L68 195 L72 192 L76 188 L80 184 L84 179 L88 174 L92 170 L96 166 L100 163 L104 161 L108 160 L112 160 L116 160 L120 160 L124 160 L128 160 L132 161 L136 162 L140 163 L144 164 L148 166 L152 168 L156 170 L160 173 L164 175 L168 178 L172 180 L176 183 L180 185 L184 188 L188 190 L192 192 L196 194 L200 195 L204 196 L208 197 L212 198 L216 198 L220 198" fill="none" stroke="#1F2F86" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 58 L40 58 L44 58 L48 58 L52 58 L56 58 L60 58 L64 59 L68 61 L72 64 L76 68 L80 72 L84 77 L88 82 L92 86 L96 90 L100 93 L104 95 L108 96 L112 96 L116 96 L120 96 L124 96 L128 96 L132 95 L136 94 L140 93 L144 92 L148 90 L152 88 L156 86 L160 83 L164 81 L168 78 L172 76 L176 73 L180 71 L184 68 L188 66 L192 64 L196 62 L200 61 L204 60 L208 59 L212 58 L216 58 L220 58" fill="none" stroke="#1F2F86" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M116 115l13 13-13 13-13-13z" fill="#F2B233"/>
+</svg>
