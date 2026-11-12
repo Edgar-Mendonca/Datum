@@ -185,7 +185,7 @@ Mesh's T6 element, quadrature and faer code are **copied** in (FAMILY: self-cont
   - `paths-ignore` for docs-only changes.
   - **Fast job on every push:** Linux, debug build, clippy and tests, `timeout-minutes: 30`.
   - **Heavy work** (release-mode solver tests, the full verification suite, the Windows build, UI tests) runs **nightly when something changed**, on manual dispatch, and in the release workflow.
-  - **No macOS jobs** (Datum ships for Windows).
+  - **No macOS jobs for now** (Datum ships for Windows only today; this is about CI cost, not the product, and other systems can be added to the release workflow later).
   - Keep slow verification cases behind a feature or an `#[ignore]` run by the nightly job.
   - Release in batches, not on every commit.
 - **Build provenance:** the release workflow adds `actions/attest-build-provenance` for the installer (as Datum Home does).
