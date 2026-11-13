@@ -3,7 +3,7 @@
 // the top of each app page. The drawings loop gently; at rest (reduced motion, no animation) every drawing is complete.
 interface Props { id: string; logo?: string; class?: string }
 const { id, logo, class: cls } = Astro.props;
-const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe", "schema", "layout"].includes(id);
+const known = ["plan", "plot", "atlas", "sim", "calc", "mesh", "pipe", "schema", "layout", "flow"].includes(id);
 
 // Mesh: an L-bracket in 10-unit cells, each split into two triangles, shaded by a stress that peaks at the inner corner.
 const cells: [number, number][] = [];
@@ -75,6 +75,21 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
         <g class="g-pop" style="--k:4"><path class="g-bowtie" d="M100 88.5V102.5L120 88.5V102.5Z" transform="rotate(-30 110 95.5)" /></g>
         <g class="g-pump"><path d="M160 70L176 79V95L160 86Z" /><circle cx="176" cy="86" r="9" /></g>
         <g class="g-pop" style="--k:6"><rect class="g-pass" x="8" y="114" width="72" height="18" rx="2" /><text class="g-text g-small g-pass-t" x="44" y="127" text-anchor="middle">0 clashes</text></g>
+      </Fragment>
+    )}
+    {id === "flow" && (
+      <Fragment>
+        <path class="g-wall" d="M8 24H192M8 104H192" />
+        <path class="g-hatch" d="M14 24l-6-6M30 24l-6-6M46 24l-6-6M62 24l-6-6M78 24l-6-6M94 24l-6-6M110 24l-6-6M126 24l-6-6M142 24l-6-6M158 24l-6-6M174 24l-6-6M190 24l-6-6M14 110l-6-6M30 110l-6-6M46 110l-6-6M62 110l-6-6M78 110l-6-6M94 110l-6-6" />
+        <path class="g-draw g-stream" style="--k:0" pathLength="1" d="M10 38C40 38 50 36 64 36S90 38 190 38" />
+        <path class="g-draw g-stream" style="--k:1" pathLength="1" d="M10 51C40 51 48 47 64 47S82 52 112 54S160 51 190 51" />
+        <path class="g-draw g-stream g-wake" style="--k:2" pathLength="1" d="M76 64C96 56 112 72 132 64S166 56 190 64" />
+        <path class="g-draw g-stream" style="--k:1" pathLength="1" d="M10 77C40 77 48 81 64 81S82 76 112 74S160 77 190 77" />
+        <path class="g-draw g-stream" style="--k:0" pathLength="1" d="M10 90C40 90 50 92 64 92S90 90 190 90" />
+        <circle class="g-cyl" cx="64" cy="64" r="11" />
+        <circle class="g-part" r="2.6" style="offset-path: path('M10 38C40 38 50 36 64 36S90 38 190 38')" />
+        <circle class="g-part" r="2.6" style="offset-path: path('M10 90C40 90 50 92 64 92S90 90 190 90'); animation-delay: -1.2s" />
+        <g class="g-pop" style="--k:6"><rect class="g-pass" x="112" y="112" width="80" height="20" rx="2" /><text class="g-text g-small g-pass-t" x="152" y="126" text-anchor="middle">drag 5.58</text></g>
       </Fragment>
     )}
     {id === "plan" && (
@@ -194,6 +209,12 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
   .g-elb { fill: var(--card); stroke: var(--ink); stroke-width: 1.6; }
   .g-pump { fill: color-mix(in srgb, var(--c) 14%, var(--card)); stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
 
+  .g-wall { fill: none; stroke: var(--ink); stroke-width: 2.4; }
+  .g-stream { fill: none; stroke: var(--c); stroke-width: 2.2; stroke-linecap: round; }
+  .g-wake { stroke-width: 1.6; stroke-dasharray: 1; opacity: .75; }
+  .g-cyl { fill: color-mix(in srgb, var(--c) 14%, var(--card)); stroke: var(--ink); stroke-width: 2; }
+  .g-part { fill: var(--amber); offset-distance: 40%; }
+
   /* The loops: 6 s, everything builds up, holds, then clears; staggered by --k. */
   .g-bar { transform-box: fill-box; transform-origin: left center; animation: g-grow 6s var(--ease) infinite both; animation-delay: calc(var(--k) * .3s); }
   @keyframes g-grow { 0% { transform: scaleX(0); } 18%, 86% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
@@ -210,5 +231,7 @@ const meshLines = cells.map(([x, y]) => `M${x} ${y}h10v10h-10zM${x} ${y}l10 10`)
   .g-ring { transform-box: fill-box; transform-origin: center; animation: g-ring 6s var(--ease) infinite both; animation-delay: 1.4s; }
   @keyframes g-ring { 0%, 15% { opacity: 0; transform: scale(1.6); } 25%, 80% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; } }
   .g-dot { animation: g-run 2.4s linear infinite; }
+  .g-stream.g-draw { animation-delay: calc(.4s + var(--k) * .3s); }
+  .g-part { animation: g-run 2.4s linear infinite; }
   @keyframes g-run { from { offset-distance: 0%; } to { offset-distance: 100%; } }
 </style>

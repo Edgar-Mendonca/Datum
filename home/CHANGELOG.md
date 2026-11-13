@@ -1,5 +1,11 @@
 # Datum Home changelog
 
+## 0.1.8 — 2026-11-13
+
+Datum Flow joins Datum Home.
+
+- Datum Flow (fluid flow simulation) is in Datum Home's own list of apps, with its icon, so it shows even when the Datum site cannot be reached.
+
 ## 0.1.7 — 2026-11-09
 
 Installs and updates keep going when GitHub's download servers are slow.

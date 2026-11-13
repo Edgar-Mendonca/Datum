@@ -252,6 +252,33 @@
           "text": "Check clashes, list the lines and send each one to Datum Pipe."
         }
       ]
+    },
+    {
+      "id": "flow",
+      "repo": "Edgar-Mendonca/Datum-Flow",
+      "branch": "HEAD",
+      "name": "Datum Flow",
+      "accent": "#2F45B5",
+      "tagline": "Fluid flow simulation: draw it, set the flow, see and check the results.",
+      "for": "Mechanical, process, HVAC and energy engineers; researchers; students and lecturers.",
+      "shot": "docs/images/cylinder-streamlines.png",
+      "about": [
+        "Datum Flow simulates fluid flow on the desktop: draw a region or pick a template, choose the fluid, mark the inlets, outlets and walls, and it meshes, solves and shows the velocity, pressure and temperature, with a verification report in every release."
+      ],
+      "steps": [
+        {
+          "title": "Draw the geometry",
+          "text": "Draw the flow region and the bodies in it, or start from a template."
+        },
+        {
+          "title": "Set the flow",
+          "text": "Choose the fluid and mark the inlets, outlets and walls; the setup is checked before solving."
+        },
+        {
+          "title": "See and check the results",
+          "text": "Contours, streamlines, probes, pressure drop, forces and heat flow, checked against known answers."
+        }
+      ]
     }
   ]
 }

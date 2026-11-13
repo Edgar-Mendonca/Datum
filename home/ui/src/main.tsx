@@ -18,8 +18,9 @@ import mesh from "../../../brand/datum-mesh-icon.svg";
 import pipe from "../../../brand/datum-pipe-icon.svg";
 import schema from "../../../brand/datum-schema-icon.svg";
 import layout from "../../../brand/datum-layout-icon.svg";
+import flow from "../../../brand/datum-flow-icon.svg";
 
-const ICONS: Record<string, string> = { plan, plot, atlas, sim, calc, mesh, pipe, schema, layout };
+const ICONS: Record<string, string> = { plan, plot, atlas, sim, calc, mesh, pipe, schema, layout, flow };
 const SITE = "https://edgar-mendonca.github.io/Datum/";
 const mb = (b: number) => (b ? `${(b / 1048576).toFixed(b > 10485760 ? 0 : 1)} MB` : "");
 // Exact sizes for the progress line: 12.4 MB of 52.0 MB, 3.1 MB/s, about 13 s left.
