@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.5 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.6 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -222,6 +222,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.3: Add to Claude, a one-click Claude Desktop extension (.mcpb) instead of editing Claude's settings file. Other apps could use the same pattern for their own AI links.
 - Plan 0.9.4: AI Link set 2 (76 tools: risks, delays, snapshots, reports, earned value, health, levelling, updating), tools marked read-only or changing, three ready-made requests (MCP prompts). Checked against PlanCraft's way (server + command line, no one-click install).
 - Plan 0.9.5: AI Link set 3, 101 tools (registers, baselines, sheets and formats, dashboards, exports). The AI tool plan (0.9.2–0.9.5) is complete; next is Task Path (0.9.6).
+- Plan 0.9.6: Task Path (Schedule › Paths: driving predecessors, predecessors, driven successors, successors coloured in the sheet and Gantt) and 7 more AI tools (108). Next: work contours (0.9.7).
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
