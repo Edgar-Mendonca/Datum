@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.2 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.3 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -219,6 +219,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.8.16: Spelling (Home › Proofing, F7) with English UK/US dictionaries and the user's own words.
 - Plan 0.9.0: AI Link: Claude (Claude Desktop) reads and changes the open plan live through the window (MCP, 25 tools, every change an Undo step; off by default, local only). Came out of a comparison with the open-source and commercial planners.
 - Plan 0.9.2: AI Link set 1, 26 more tools (51): resources and assignments, calendars and exceptions, activity codes, custom fields, constraints, deadlines, notes, filters and outline. Sets 2 and 3 (0.9.3, 0.9.4) follow.
+- Plan 0.9.3: Add to Claude, a one-click Claude Desktop extension (.mcpb) instead of editing Claude's settings file. Other apps could use the same pattern for their own AI links.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
