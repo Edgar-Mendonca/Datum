@@ -89,7 +89,7 @@ async function loadApp(e: any): Promise<App> {
   const logo = svgUri(svg?.trimStart().startsWith("<svg") ? svg : localSvg(`datum-${e.id}-icon.svg`) ?? read("brand/datum-icon.svg"));
   const changelog = md ? parseChangelog(md, `${e.id} CHANGELOG`) : [];
   const app: App = {
-    id: e.id, repo: e.repo, branch: e.branch ?? "HEAD", hasSite: !!site, statusSet: s.status ?? e.status,
+    id: e.id, repo: e.repo, branch: e.branch ?? "HEAD", hasSite: !!site, statusSet: e.status ?? s.status,
     name: s.name ?? e.name, accent: s.accent ?? e.accent, tagline: s.tagline ?? e.tagline, for: s.for ?? e.for,
     logo, about: [s.about ?? e.about ?? []].flat().filter((p: string) => plain(p, `${e.id} about`)), steps: s.steps ?? e.steps ?? [],
     highlights: (s.highlights ?? []).filter((h: string) => plain(h, `${e.id} site.json`)),
@@ -148,12 +148,12 @@ export function loadAll(): Promise<App[]> {
 }
 
 /** The newest releases across the family, newest first. */
-/** Stable, Beta or Alpha: from site.json or apps.json ("status"), else from the version (1.x stable, 0.2+ beta). */
+/** Stable, Beta or Alpha: from apps.json ("status", the hub decides) or the app's site.json, else from the version (1.x stable; every 0.x is Alpha). */
 export const statusOf = (a: App) => {
   if (a.statusSet) return a.statusSet;
   const v = a.latest?.version; if (!v) return "Coming soon";
-  const [maj, min] = v.split(".").map(Number);
-  return maj >= 1 ? "Stable" : min >= 2 ? "Beta" : "Alpha";
+  const [maj] = v.split(".").map(Number);
+  return maj >= 1 ? "Stable" : "Alpha";
 };
 
 /** The newest release of each app, newest first. */

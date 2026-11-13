@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Rail from "../components/Rail.astro";
 import Safe from "../components/Safe.astro";
+import Stats from "../components/Stats.astro";
 import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum } from "../lib/github";
 
 const apps = await loadAll();
@@ -80,7 +81,7 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
                   <a class="btn btn-line" href={`${base}/apps/${a.id}`}>About {a.name.replace(/^Datum /, "")}<span aria-hidden="true">→</span></a>
                 </div>
                 <p class="mono app-links"><a href={`https://github.com/${a.repo}`}>Source</a><a href={`https://github.com/${a.repo}/blob/HEAD/CHANGELOG.md`}>What's new</a><a href={`https://github.com/${a.repo}/releases`}>All releases</a><a href={`https://github.com/${a.repo}/issues/new`}>Report an issue</a></p>
-                {a.stats && <p class="mono app-stats"><span title="GitHub stars">★ {fmtNum(a.stats.stars)}</span><span title="Forks">⑂ {fmtNum(a.stats.forks)}</span><span>{fmtNum(a.stats.downloads)} downloads</span><span>{fmtNum(a.stats.releases)} releases</span></p>}
+                {a.stats && <Stats stats={a.stats} repo={a.repo} size="sm" />}
               </div>
             </div>
           </article>
@@ -269,7 +270,6 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
   @media (max-width: 760px) { .rel li { grid-template-columns: auto auto 1fr; } .rel-sum { grid-column: 1 / -1; } }
 
   /* Card stats: stars, forks, downloads, releases */
-  .app-stats { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 10.5px; color: var(--muted); letter-spacing: .08em; }
 
   /* 04 In use: the figures, the releases chart and downloads by app */
   .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 0; border-top: 1px solid var(--line); }
