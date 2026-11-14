@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.9 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.10 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -227,6 +227,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.7: the AI Link's labels in general words (AI group, AI Link on, Add to Claude Desktop), after checking Anthropic's legal page: MCP through Claude Desktop or Claude Code is fine; a panel driven by the user's Claude login is not (not built). Family rule for any app's AI link: name Claude only as the app it works with, never as our feature's name.
 - Plan 0.9.8: the AI Link's install steps as they really go (drag Datum Plan.mcpb onto Claude Desktop › Settings › Extensions; it opens by itself only on some computers); export tools marked as writing.
 - Plan 0.9.9: the AI Link survives a second copy of the app; columns tools (110). Lesson for every app's AI link: when a tool is missing, the assistant falls back to screen control, so cover every command with a tool, keep the link file per window, and tell the assistant to use only the tools. Next for Plan (user): an AI-tools drive before the roadmap.
+- Plan 0.9.10: AI tools batch 1 of 5 (127 tools): the assistant drives the window (views, filters, zoom, selection, panes) and opens, saves and closes plans; docs/AI-TOOLS.md maps every command to a tool (a pattern for the other apps). Extensions must declare tools_generated, or Claude Desktop shows only the manifest's tools.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
