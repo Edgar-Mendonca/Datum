@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.12 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.13 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -230,6 +230,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.10: AI tools batch 1 of 5 (127 tools): the assistant drives the window (views, filters, zoom, selection, panes) and opens, saves and closes plans; docs/AI-TOOLS.md maps every command to a tool (a pattern for the other apps). Extensions must declare tools_generated, or Claude Desktop shows only the manifest's tools.
 - Plan 0.9.11: AI tools batch 2 of 5 (147 tools): project settings and options, looks (titles, bar colours, conditional formatting), report notes, task and resource details, rules of credit, spelling, find and replace.
 - Plan 0.9.12: AI tools batch 3 of 5 (162 tools): Sheets in full (rows, columns, cells, merge, freeze, conditional formatting, notes, hide, tab colour, heights, sort, duplicates, pictures).
+- Plan 0.9.13: AI tools batch 4 of 5 (182 tools): many plans (links between plans, subplans, apply setup, scenarios, compare, portfolio, resource pool, import).
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
