@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.7 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.8 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -225,6 +225,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.6: Task Path (Schedule › Paths: driving predecessors, predecessors, driven successors, successors coloured in the sheet and Gantt) and 7 more AI tools (108). Next: work contours (0.9.7).
 - Plan README rewritten (what makes it different; the AI Link in general words, Claude named once as the current link) and new pictures on its app page (Gantt, dashboards, sheets, schedule risk), taken with `README=1 node tests_ui/guide_shots.cjs` in the Plan repo.
 - Plan 0.9.7: the AI Link's labels in general words (AI group, AI Link on, Add to Claude Desktop), after checking Anthropic's legal page: MCP through Claude Desktop or Claude Code is fine; a panel driven by the user's Claude login is not (not built). Family rule for any app's AI link: name Claude only as the app it works with, never as our feature's name.
+- Plan 0.9.8: the AI Link's install steps as they really go (drag Datum Plan.mcpb onto Claude Desktop › Settings › Extensions; it opens by itself only on some computers); export tools marked as writing.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.

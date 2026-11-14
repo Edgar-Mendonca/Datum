@@ -967,7 +967,7 @@
    "app": "hub",
    "label": "Session 55 (from Datum Plan's chat…",
    "date": "2026-11-09",
-   "text": "· A full comparison of Datum Plan with the main planning tools. Ahead: reports, sheets, the registers, openness, speed. Gaps: XER exchange, schedule quality, delay analysis, what-if scenarios, risk depth. Not to do: a server or shared database (the user works alone), 4D, timesheets, enterprise finance.\n· Plan's new roadmap: 0.8.0 XER files you can send, 0.8.1 schedule quality, 0.8.2 and 0.8.3 delay analysis (neutral, by the data available), 0.8.4 what-if scenarios, 0.8.5 risk depth; numbering continues 0.8.6 and on. \"Working together\" dropped.\n· Plan 0.8.0: Export to XER asks the version, carries activity codes, custom fields, steps and notes, and reports what went in; import reads them back.\n· Plan 0.8.1: schedule quality: a health score (weighted checks, weights kept with the plan, a score in each snapshot and its trend), Compare Projects as a full change log with export, ghost bars, and a milestone trend chart.\n· Plan 0.8.2: delay analysis part one: what the plan holds and which methods can run, as-planned against as-built, windows between snapshots, export; neutral (measures, does not assign responsibility).\n· Plan 0.8.3: delay analysis part two: a register of delay events (extra days, holds, new activities) and time impact, impacted as-planned and collapsed as-built, each saying which plan it ran on.\n· Plan 0.8.4: what-if scenarios: copies saved beside the plan, compared with it (change log, ghost bars) and merged back kind by kind.\n· Plan 0.8.5: deeper schedule risk: tasks that move together, joint confidence of finish and cost, risks with their own chance and delay range. The 0.8 plan from the comparison is complete.\n· Plan 0.8.6: S-curves read planned and actual on the status date (they matched the KPIs, the curve did not look it); charts copied to documents are drawn page-wide and sharp.\n· Plan 0.8.7: risk register fixes: the probability × impact matrix follows the register; Link tasks… in the register.\n· Plan 0.8.8: sheet tabs can be dragged in the installed app (the window no longer takes drags for file drops); editing a merged cell no longer shows its text twice. Next: a Sheets overhaul (engine update, behaviour check, UI).\n· Plan 0.8.9: Sheets daily-use check with a live harness on the real engine (63 checks); fixed Percent Style, merge keeping hidden values, copy now pastes into Word as a table; added Sum/Average/Count of the selection.\n· Plan 0.8.10: the Gantt's Project Summary Task tick (and the other Show/Hide and bar ticks) is kept across restarts (user bug).\n· Plan 0.8.11: plans reopen the way they were left (each plan's view kept by its file, layout per computer; tabs no longer share a view).\n· Plan 0.8.12: S-curves drawn as in a progress report (period bars, cumulative curves on two axes, data date under a centred title) with a Format dialog (user: they looked unprofessional next to the spreadsheet's).\n· Plan 0.8.13: S-curves saved to a workbook (Weekly and Monthly sheets, figures and an editable native chart) and to a plan sheet (user: wanted spreadsheet-quality, editable S-curves).\n· Plan 0.8.14: baseline lock/unlock (Progress › Unlock Baseline lets baseline dates be typed; plans open locked).\n· Plan 0.8.15: project summary row shows Baseline % Complete; percentages with 0–2 decimals (Gantt Chart Tools › Format › Percent).\n· Plan 0.8.16: Spelling (Home › Proofing, F7) with English UK/US dictionaries and the user's own words.\n· Plan 0.9.0: AI Link: Claude (Claude Desktop) reads and changes the open plan live through the window (MCP, 25 tools, every change an Undo step; off by default, local only). Came out of a comparison with the open-source and commercial planners.\n· Plan 0.9.2: AI Link set 1, 26 more tools (51): resources and assignments, calendars and exceptions, activity codes, custom fields, constraints, deadlines, notes, filters and outline. Sets 2 and 3 (0.9.3, 0.9.4) follow.\n· Plan 0.9.3: Add to Claude, a one-click Claude Desktop extension (.mcpb) instead of editing Claude's settings file. Other apps could use the same pattern for their own AI links.\n· Plan 0.9.4: AI Link set 2 (76 tools: risks, delays, snapshots, reports, earned value, health, levelling, updating), tools marked read-only or changing, three ready-made requests (MCP prompts). Checked against PlanCraft's way (server + command line, no one-click install).\n· Plan 0.9.5: AI Link set 3, 101 tools (registers, baselines, sheets and formats, dashboards, exports). The AI tool plan (0.9.2–0.9.5) is complete; next is Task Path (0.9.6).\n· Plan 0.9.6: Task Path (Schedule › Paths: driving predecessors, predecessors, driven successors, successors coloured in the sheet and Gantt) and 7 more AI tools (108). Next: work contours (0.9.7).\n· Plan README rewritten (what makes it different; the AI Link in general words, Claude named once as the current link) and new pictures on its app page (Gantt, dashboards, sheets, schedule risk), taken with README=1 node tests_ui/guide_shots.cjs in the Plan repo.\n· Plan 0.9.7: the AI Link's labels in general words (AI group, AI Link on, Add to Claude Desktop), after checking Anthropic's legal page: MCP through Claude Desktop or Claude Code is fine; a panel driven by the user's Claude login is not (not built). Family rule for any app's AI link: name Claude only as the app it works with, never as our feature's name.",
+   "text": "· A full comparison of Datum Plan with the main planning tools. Ahead: reports, sheets, the registers, openness, speed. Gaps: XER exchange, schedule quality, delay analysis, what-if scenarios, risk depth. Not to do: a server or shared database (the user works alone), 4D, timesheets, enterprise finance.\n· Plan's new roadmap: 0.8.0 XER files you can send, 0.8.1 schedule quality, 0.8.2 and 0.8.3 delay analysis (neutral, by the data available), 0.8.4 what-if scenarios, 0.8.5 risk depth; numbering continues 0.8.6 and on. \"Working together\" dropped.\n· Plan 0.8.0: Export to XER asks the version, carries activity codes, custom fields, steps and notes, and reports what went in; import reads them back.\n· Plan 0.8.1: schedule quality: a health score (weighted checks, weights kept with the plan, a score in each snapshot and its trend), Compare Projects as a full change log with export, ghost bars, and a milestone trend chart.\n· Plan 0.8.2: delay analysis part one: what the plan holds and which methods can run, as-planned against as-built, windows between snapshots, export; neutral (measures, does not assign responsibility).\n· Plan 0.8.3: delay analysis part two: a register of delay events (extra days, holds, new activities) and time impact, impacted as-planned and collapsed as-built, each saying which plan it ran on.\n· Plan 0.8.4: what-if scenarios: copies saved beside the plan, compared with it (change log, ghost bars) and merged back kind by kind.\n· Plan 0.8.5: deeper schedule risk: tasks that move together, joint confidence of finish and cost, risks with their own chance and delay range. The 0.8 plan from the comparison is complete.\n· Plan 0.8.6: S-curves read planned and actual on the status date (they matched the KPIs, the curve did not look it); charts copied to documents are drawn page-wide and sharp.\n· Plan 0.8.7: risk register fixes: the probability × impact matrix follows the register; Link tasks… in the register.\n· Plan 0.8.8: sheet tabs can be dragged in the installed app (the window no longer takes drags for file drops); editing a merged cell no longer shows its text twice. Next: a Sheets overhaul (engine update, behaviour check, UI).\n· Plan 0.8.9: Sheets daily-use check with a live harness on the real engine (63 checks); fixed Percent Style, merge keeping hidden values, copy now pastes into Word as a table; added Sum/Average/Count of the selection.\n· Plan 0.8.10: the Gantt's Project Summary Task tick (and the other Show/Hide and bar ticks) is kept across restarts (user bug).\n· Plan 0.8.11: plans reopen the way they were left (each plan's view kept by its file, layout per computer; tabs no longer share a view).\n· Plan 0.8.12: S-curves drawn as in a progress report (period bars, cumulative curves on two axes, data date under a centred title) with a Format dialog (user: they looked unprofessional next to the spreadsheet's).\n· Plan 0.8.13: S-curves saved to a workbook (Weekly and Monthly sheets, figures and an editable native chart) and to a plan sheet (user: wanted spreadsheet-quality, editable S-curves).\n· Plan 0.8.14: baseline lock/unlock (Progress › Unlock Baseline lets baseline dates be typed; plans open locked).\n· Plan 0.8.15: project summary row shows Baseline % Complete; percentages with 0–2 decimals (Gantt Chart Tools › Format › Percent).\n· Plan 0.8.16: Spelling (Home › Proofing, F7) with English UK/US dictionaries and the user's own words.\n· Plan 0.9.0: AI Link: Claude (Claude Desktop) reads and changes the open plan live through the window (MCP, 25 tools, every change an Undo step; off by default, local only). Came out of a comparison with the open-source and commercial planners.\n· Plan 0.9.2: AI Link set 1, 26 more tools (51): resources and assignments, calendars and exceptions, activity codes, custom fields, constraints, deadlines, notes, filters and outline. Sets 2 and 3 (0.9.3, 0.9.4) follow.\n· Plan 0.9.3: Add to Claude, a one-click Claude Desktop extension (.mcpb) instead of editing Claude's settings file. Other apps could use the same pattern for their own AI links.\n· Plan 0.9.4: AI Link set 2 (76 tools: risks, delays, snapshots, reports, earned value, health, levelling, updating), tools marked read-only or changing, three ready-made requests (MCP prompts). Checked against PlanCraft's way (server + command line, no one-click install).\n· Plan 0.9.5: AI Link set 3, 101 tools (registers, baselines, sheets and formats, dashboards, exports). The AI tool plan (0.9.2–0.9.5) is complete; next is Task Path (0.9.6).\n· Plan 0.9.6: Task Path (Schedule › Paths: driving predecessors, predecessors, driven successors, successors coloured in the sheet and Gantt) and 7 more AI tools (108). Next: work contours (0.9.7).\n· Plan README rewritten (what makes it different; the AI Link in general words, Claude named once as the current link) and new pictures on its app page (Gantt, dashboards, sheets, schedule risk), taken with README=1 node tests_ui/guide_shots.cjs in the Plan repo.\n· Plan 0.9.7: the AI Link's labels in general words (AI group, AI Link on, Add to Claude Desktop), after checking Anthropic's legal page: MCP through Claude Desktop or Claude Code is fine; a panel driven by the user's Claude login is not (not built). Family rule for any app's AI link: name Claude only as the app it works with, never as our feature's name.\n· Plan 0.9.8: the AI Link's install steps as they really go (drag Datum Plan.mcpb onto Claude Desktop › Settings › Extensions; it opens by itself only on some computers); export tools marked as writing.",
    "url": "https://github.com/Edgar-Mendonca/Datum/blob/HEAD/MEMORY.md"
   },
   {
@@ -1725,6 +1725,16 @@
    "accent": "#0B5CAD",
    "text": "Plan, schedule, track and report your projects: one small, fast app for Windows.\n\nFor: Project managers, planners, engineers and contractors.\n\nStack: Rust (engine + shell), Tauri 2, WebView2, SolidJS + Vite UI in strict TypeScript (TSX), plain CSS with light/dark tokens, Chart.js, IBM Plex fonts; spreadsheet formulas from the GridCraft crates (pinned git dependency, see NOTICE)",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plan"
+  },
+  {
+   "id": "plan-v0.9.8",
+   "type": "release",
+   "app": "plan",
+   "label": "Plan 0.9.8",
+   "version": "0.9.8",
+   "date": "2026-11-14",
+   "text": "AI Link › Add to Claude Desktop says what really happens: Datum Plan saves Datum Plan.mcpb in Downloads and shows it; drag it onto Claude Desktop › Settings › Extensions and click Install. (Claude Desktop opens it by itself only on some computers.) The guide says the same, and not to ask the assistant to do the install.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plan/releases/tag/v0.9.8"
   },
   {
    "id": "plan-v0.9.7",
@@ -5022,6 +5032,26 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot"
   },
   {
+   "id": "plot-v0.4.7",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.4.7",
+   "version": "0.4.7",
+   "date": "2026-11-14",
+   "text": "Each graph chooses its own significance brackets.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.4.7"
+  },
+  {
+   "id": "plot-v0.4.6",
+   "type": "release",
+   "app": "plot",
+   "label": "Plot 0.4.6",
+   "version": "0.4.6",
+   "date": "2026-11-14",
+   "text": "Many significance brackets stay readable, and columns resize from their titles.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.4.6"
+  },
+  {
    "id": "plot-v0.4.5",
    "type": "release",
    "app": "plot",
@@ -5562,11 +5592,11 @@
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/releases/tag/v0.1.0"
   },
   {
-   "id": "plot-plan-0-4-6",
+   "id": "plot-plan-0-4-8",
    "type": "roadmap",
    "app": "plot",
-   "label": "0.4.6 Mac and Linux",
-   "version": "0.4.6",
+   "label": "0.4.8 Mac and Linux",
+   "version": "0.4.8",
    "when": "Next",
    "text": "Mac and Linux versions",
    "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
@@ -7095,6 +7125,33 @@
   },
   {
    "id": "plot-decision-100",
+   "type": "decision",
+   "app": "plot",
+   "label": "Significance brackets are spaced in printed points…",
+   "date": "Session 14",
+   "text": "Significance brackets are spaced in printed points (graph.draw_brackets): each bracket sits just above the data under it and above every bracket it overlaps (touching ends overlap), one step = 1.35 × the label's height; the axis top and the spacing are settled together (fixed point). The brackets take at most 70 % of the plot's height: past that the labels shrink (to 55 % at least) and then the spacing, so the axis never runs away; \"ns\" is drawn at 85 % of the stars' size\n\nWhy: #52: with many groups the step (12 % of the data range) became shorter than a label once the axis grew, so labels sat on other brackets' lines and \"ns\" looked oversized. Tested: no label overlaps another or touches a line above it (the old code fails this), the axis stays sensible with 28 brackets.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-101",
+   "type": "decision",
+   "app": "plot",
+   "label": "Users' and testers' data never go into screenshots, tests or…",
+   "date": "Session 14",
+   "text": "Users' and testers' data never go into screenshots, tests or anything committed (the user's rule): reproduce with their file in the scratchpad only, then build the screenshot or test from made-up values of the same shape\n\nWhy: \"for the screen shot dont use the users datat … use some example data by yourself\". The #50 test had copied the tester's three columns; replaced in 0.4.6 by made-up values that also broke the old code.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-102",
+   "type": "decision",
+   "app": "plot",
+   "label": "Brackets per graph (GraphSettings.bracket_opts, JSON…",
+   "date": "Session 14",
+   "text": "Brackets per graph (GraphSettings.bracket_opts, JSON bracketOpts: analysis id → BracketView { brackets: all/sig/none, ptext: stars/p }, empty = as the analysis). Overlays sent to the engine now carry the analysis id; draw_overlays lets the graph's values win. normalize keeps entries only for analyses the graph shows and known values; renumber and Duplicate (with graphs and results) remap the ids\n\nWhy: #51: the bracket choice lived in the analysis, so two graphs of one analysis could not differ. This reverses the 0.4.2 choice of keeping it per analysis, at the tester's request.",
+   "url": "https://github.com/Edgar-Mendonca/Datum-Plot/blob/HEAD/docs/MEMORY.md"
+  },
+  {
+   "id": "plot-decision-103",
    "type": "decision",
    "app": "plot",
    "label": "Wavelets are operations of the Signals analysis (op: cwt…",
@@ -23304,12 +23361,17 @@
    "kind": "then"
   },
   {
+   "source": "plan-v0.9.7",
+   "target": "plan-v0.9.8",
+   "kind": "then"
+  },
+  {
    "source": "app-plan",
-   "target": "plan-v0.9.7",
+   "target": "plan-v0.9.8",
    "kind": "released"
   },
   {
-   "source": "plan-v0.9.7",
+   "source": "plan-v0.9.8",
    "target": "plan-plan-0-8",
    "kind": "next"
   },
@@ -26299,17 +26361,27 @@
    "kind": "then"
   },
   {
+   "source": "plot-v0.4.5",
+   "target": "plot-v0.4.6",
+   "kind": "then"
+  },
+  {
+   "source": "plot-v0.4.6",
+   "target": "plot-v0.4.7",
+   "kind": "then"
+  },
+  {
    "source": "app-plot",
-   "target": "plot-v0.4.5",
+   "target": "plot-v0.4.7",
    "kind": "released"
   },
   {
-   "source": "plot-v0.4.5",
-   "target": "plot-plan-0-4-6",
+   "source": "plot-v0.4.7",
+   "target": "plot-plan-0-4-8",
    "kind": "next"
   },
   {
-   "source": "plot-plan-0-4-6",
+   "source": "plot-plan-0-4-8",
    "target": "plot-plan-1-0-0",
    "kind": "next"
   },
@@ -27669,12 +27741,27 @@
    "kind": "decided"
   },
   {
-   "source": "plot-decision-100",
+   "source": "app-plot",
+   "target": "plot-decision-101",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-102",
+   "kind": "decided"
+  },
+  {
+   "source": "app-plot",
+   "target": "plot-decision-103",
+   "kind": "decided"
+  },
+  {
+   "source": "plot-decision-103",
    "target": "tech-numpy",
    "kind": "about"
   },
   {
-   "source": "plot-decision-100",
+   "source": "plot-decision-103",
    "target": "tech-scipy",
    "kind": "about"
   },
