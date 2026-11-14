@@ -223,6 +223,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.4: AI Link set 2 (76 tools: risks, delays, snapshots, reports, earned value, health, levelling, updating), tools marked read-only or changing, three ready-made requests (MCP prompts). Checked against PlanCraft's way (server + command line, no one-click install).
 - Plan 0.9.5: AI Link set 3, 101 tools (registers, baselines, sheets and formats, dashboards, exports). The AI tool plan (0.9.2–0.9.5) is complete; next is Task Path (0.9.6).
 - Plan 0.9.6: Task Path (Schedule › Paths: driving predecessors, predecessors, driven successors, successors coloured in the sheet and Gantt) and 7 more AI tools (108). Next: work contours (0.9.7).
+- Plan README rewritten (what makes it different; the AI Link in general words, Claude named once as the current link) and new pictures on its app page (Gantt, dashboards, sheets, schedule risk), taken with `README=1 node tests_ui/guide_shots.cjs` in the Plan repo.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
