@@ -4,7 +4,7 @@ import Hero from "../components/Hero.astro";
 import Rail from "../components/Rail.astro";
 import Safe from "../components/Safe.astro";
 import Stats from "../components/Stats.astro";
-import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum } from "../lib/github";
+import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum, history, change, spark } from "../lib/github";
 
 const apps = await loadAll();
 const recent = latestPerApp(apps);
@@ -17,13 +17,28 @@ const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method",
 // 04 In use: the family's public numbers and how often the apps ship.
 const sum = totals(apps);
 const cad = cadence(apps);
-const C = { w: 1000, h: 200, l: 34, b: 26, t: 10 };
-const plotW = C.w - C.l - 8, plotH = C.h - C.b - C.t;
-const ticks = cad ? Array.from(new Set([0, Math.ceil(cad.max / 2), cad.max])) : [];
-const bw = cad ? plotW / cad.bins.length : 0;
-const every = cad ? Math.max(1, Math.ceil(cad.bins.length / 12)) : 1;
+// The daily history: the downloads curve, the 7-day changes and the sparklines on the figures.
+const hist = history();
+const ch = { downloads: change(hist, "downloads"), releases: change(hist, "releases"), stars: change(hist, "stars") };
+const sp = { downloads: spark(hist, "downloads"), releases: spark(hist, "releases"), stars: spark(hist, "stars") };
+const since = (c: { by: number; days: number } | null) => c && c.days > 0 ? `+${fmtNum(c.by)} in ${c.days === 7 ? "the last 7 days" : `${c.days} days`}` : "";
+// Downloads over time (all apps, from zero): a 100 × 100 plot stretched to the box, with the labels in HTML so they stay readable.
+const dMax = hist.length ? Math.max(...hist.map(d => d.downloads)) : 0;
+const step = dMax > 0 ? Math.pow(10, Math.floor(Math.log10(dMax / 2))) * (dMax / 2 / Math.pow(10, Math.floor(Math.log10(dMax / 2))) > 5 ? 5 : dMax / 2 / Math.pow(10, Math.floor(Math.log10(dMax / 2))) > 2 ? 2 : 1) : 1;
+const yTop = Math.max(step, Math.ceil(dMax * 1.08 / step) * step);
+const yTicks = Array.from({ length: Math.floor(yTop / step) + 1 }, (_, i) => i * step).filter((_, i, a) => a.length <= 6 || i % 2 === 0);
+const px = (i: number) => hist.length > 1 ? (i / (hist.length - 1)) * 100 : 50;
+const py = (v: number) => 100 - (v / yTop) * 100;
+const line = hist.map((d, i) => `${i ? "L" : "M"}${px(i).toFixed(2)} ${py(d.downloads).toFixed(2)}`).join("");
+const area = hist.length > 1 ? `${line}L100 100L0 100Z` : "";
+const xEvery = Math.max(1, Math.ceil(hist.length / 6));
+// Release activity: one row per app, one cell per day (or week), shaded by how many releases it shipped.
+const cols = cad ? cad.bins.slice(-42) : [];
+const lvl = (n: number) => !n ? 0 : n === 1 ? 1 : n === 2 ? 2 : n <= 4 ? 3 : 4;
+const colEvery = Math.max(1, Math.ceil(cols.length / 6));
 const dl = apps.filter(a => a.stats).map(a => ({ a, n: a.stats!.downloads })).sort((x, y) => y.n - x.n);
 const dlMax = Math.max(1, ...dl.map(d => d.n));
+const dlSum = dl.reduce((n, d) => n + d.n, 0) || 1;
 const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
 ---
 <Base title="Datum: free, open-source desktop tools for technical work" description="Datum is a family of free, open-source desktop tools for engineers, scientists, researchers and analysts.">
@@ -138,30 +153,55 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
         <p class="lead">Every number here comes from the public repositories and their releases, read when the site is built.</p>
       </div>
       <dl class="figs">
-        {sum && <div><dt class="mono">Installer downloads</dt><dd>{fmtNum(sum.downloads)}</dd></div>}
-        <div><dt class="mono">Releases shipped</dt><dd>{fmtNum(sum ? sum.releases : apps.reduce((n, a) => n + a.releases.length, 0))}</dd></div>
-        {sum && <div><dt class="mono">GitHub stars</dt><dd>{fmtNum(sum.stars)}</dd></div>}
-        {sum?.closedIssues !== undefined && <div><dt class="mono">Issues closed</dt><dd>{fmtNum(sum.closedIssues)}</dd></div>}
-        {sum && sum.closedIssues === undefined && <div><dt class="mono">Forks</dt><dd>{fmtNum(sum.forks)}</dd></div>}
+        {sum && (
+          <div class="fig" style="--k:var(--ok-c)">
+            <dt class="mono"><span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v11M7 9.5l5 5 5-5M4 16.5V20h16v-3.5" /></svg></span>Installer downloads</dt>
+            <dd>{fmtNum(sum.downloads)}</dd>
+            {since(ch.downloads) && <dd class="delta mono">{since(ch.downloads)}</dd>}
+            {sp.downloads && <dd class="spark" aria-hidden="true"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path d={sp.downloads} /></svg></dd>}
+          </div>
+        )}
+        <div class="fig" style="--k:var(--em)">
+          <dt class="mono"><span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h8.2L21 12.8 12.8 21 3 11.2z" /><circle cx="7.6" cy="7.6" r="1.6" /></svg></span>Releases shipped</dt>
+          <dd>{fmtNum(sum ? sum.releases : apps.reduce((n, a) => n + a.releases.length, 0))}</dd>
+          {since(ch.releases) && <dd class="delta mono">{since(ch.releases)}</dd>}
+          {sp.releases && <dd class="spark" aria-hidden="true"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path d={sp.releases} /></svg></dd>}
+        </div>
+        {sum && (
+          <div class="fig" style="--k:var(--star-c)">
+            <dt class="mono"><span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8l2.75 5.6 6.15.9-4.45 4.33 1.05 6.12L12 16.9l-5.5 2.85 1.05-6.12L3.1 9.3l6.15-.9z" /></svg></span>GitHub stars</dt>
+            <dd>{fmtNum(sum.stars)}</dd>
+            {since(ch.stars) && <dd class="delta mono">{since(ch.stars)}</dd>}
+            {sp.stars && <dd class="spark" aria-hidden="true"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path d={sp.stars} /></svg></dd>}
+          </div>
+        )}
+        {sum?.closedIssues !== undefined && (
+          <div class="fig" style="--k:var(--done-c)">
+            <dt class="mono"><span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M7.5 12.3l3 3 6-6.3" /></svg></span>Issues closed</dt>
+            <dd>{fmtNum(sum.closedIssues)}</dd>
+            <dd class="delta mono">Reported, fixed and closed</dd>
+          </div>
+        )}
       </dl>
       <div class="charts">
-        {cad && (
+        {hist.length > 1 && (
           <figure class="chart">
-            <figcaption class="mono">Releases per {cad.weekly ? "week" : "day"}, by app</figcaption>
-            <svg viewBox={`0 0 ${C.w} ${C.h}`} role="img" aria-label={`Releases per ${cad.weekly ? "week" : "day"} for each app`}>
-              {ticks.map(v => { const y = C.t + plotH - (v / cad.max) * plotH; return <g><path class="grid" d={`M${C.l} ${y}H${C.w - 8}`} /><text class="ax" x={C.l - 8} y={y + 4} text-anchor="end">{v}</text></g>; })}
-              {cad.bins.map((b, i) => {
-                let y = C.t + plotH;
-                return (
-                  <g>
-                    {apps.filter(a => b.by[a.id]).map(a => { const h = (b.by[a.id] / cad.max) * plotH; y -= h; return <rect x={C.l + i * bw + bw * 0.14} y={y} width={bw * 0.72} height={h} style={`fill:var(--${a.id}, ${a.accent})`}><title>{`${a.name}: ${b.by[a.id]} on ${short(b.date)}`}</title></rect>; })}
-                    {i % every === 0 && <text class="ax" x={C.l + i * bw + bw / 2} y={C.h - 6} text-anchor="middle">{short(b.date)}</text>}
-                  </g>
-                );
-              })}
-              <path class="axis" d={`M${C.l} ${C.t + plotH}H${C.w - 8}`} />
-            </svg>
-            <ul class="legend mono">{apps.map(a => <li style={`--c:var(--${a.id}, ${a.accent})`}>{a.name.replace(/^Datum /, "")}</li>)}</ul>
+            <figcaption class="mono">Installer downloads, all apps <span>since {short(hist[0].date)}</span></figcaption>
+            <div class="tl" role="img" aria-label={`Installer downloads for all apps grew from ${fmtNum(hist[0].downloads)} on ${short(hist[0].date)} to ${fmtNum(hist[hist.length - 1].downloads)} on ${short(hist[hist.length - 1].date)}`}>
+              <div class="tl-plot">
+                {yTicks.map(v => <span class="tl-y mono" style={`bottom:${(v / yTop * 100).toFixed(2)}%`}><i>{fmtNum(v)}</i></span>)}
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="tl-area" d={area} />
+                  <path class="tl-line" d={line} vector-effect="non-scaling-stroke" />
+                </svg>
+                <span class="tl-dot" style={`left:${px(hist.length - 1)}%;top:${py(hist[hist.length - 1].downloads).toFixed(2)}%`}></span>
+                <span class="tl-last mono" style={`top:${py(hist[hist.length - 1].downloads).toFixed(2)}%`}>{fmtNum(hist[hist.length - 1].downloads)}</span>
+                <div class="tl-hits" style={`--n:${hist.length}`}>
+                  {hist.map((d, i) => <span style={`--x:${px(i)}%;--y:${py(d.downloads).toFixed(2)}%`} data-tip={`${short(d.date)} · ${fmtNum(d.downloads)}`} title={`${short(d.date)}: ${fmtNum(d.downloads)} downloads`}></span>)}
+                </div>
+              </div>
+              <div class="tl-x mono" aria-hidden="true">{hist.map((d, i) => ((i % xEvery === 0 && hist.length - 1 - i >= xEvery / 2) || i === hist.length - 1) && <span style={`left:${px(i)}%`}>{short(d.date)}</span>)}</div>
+            </div>
           </figure>
         )}
         {dl.length > 0 && (
@@ -170,13 +210,34 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
             <ol class="hbars">
               {dl.map(({ a, n }) => (
                 <li style={`--c:var(--${a.id}, ${a.accent}); --w:${(n / dlMax * 100).toFixed(1)}%`}>
-                  <a class="mono" href={`${base}/apps/${a.id}`}>{a.name.replace(/^Datum /, "")}</a><span class="track"><span /></span><span class="mono num">{fmtNum(n)}</span>
+                  <a class="mono" href={`${base}/apps/${a.id}`}><img src={a.logo} width="18" height="18" alt="" loading="lazy" />{a.name.replace(/^Datum /, "")}</a>
+                  <span class="track" title={`${a.name}: ${fmtNum(n)} installer downloads`}><span /></span>
+                  <span class="mono num"><b>{fmtNum(n)}</b><i>{Math.round(n / dlSum * 100)}%</i></span>
                 </li>
               ))}
             </ol>
           </figure>
         )}
       </div>
+      {cols.length > 0 && (
+        <figure class="chart heat-wrap">
+          <figcaption class="mono">Releases per {cad!.weekly ? "week" : "day"}, by app</figcaption>
+          <div class="heat" style={`--n:${cols.length}`}>
+            {apps.map(a => {
+              const tot = cols.reduce((n, b) => n + (b.by[a.id] ?? 0), 0);
+              return (
+                <div class="hrow" style={`--c:var(--${a.id}, ${a.accent})`}>
+                  <a class="hlab mono" href={`${base}/apps/${a.id}`}><img src={a.logo} width="16" height="16" alt="" loading="lazy" />{a.name.replace(/^Datum /, "")}</a>
+                  <div class="hcells">{cols.map(b => { const n = b.by[a.id] ?? 0; return <span class={`l${lvl(n)}`} data-tip={`${a.name.replace(/^Datum /, "")} · ${short(b.date)} · ${n}`} title={`${a.name}, ${cad!.weekly ? "week of " : ""}${short(b.date)}: ${n} release${n === 1 ? "" : "s"}`}></span>; })}</div>
+                  <span class="htot mono">{tot}</span>
+                </div>
+              );
+            })}
+            <div class="hrow hx mono" aria-hidden="true"><span></span><div class="hcells">{cols.map((b, i) => <span class={i % (colEvery * 2) === 0 ? "k2" : ""}>{(i % colEvery === 0) ? short(b.date) : ""}</span>)}</div><span></span></div>
+          </div>
+          <p class="hkey mono" aria-hidden="true">Releases <span class="l1"></span>1 <span class="l2"></span>2 <span class="l3"></span>3–4 <span class="l4"></span>5+</p>
+        </figure>
+      )}
     </div>
   </section>
 
@@ -271,30 +332,103 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
 
   /* Card stats: stars, forks, downloads, releases */
 
-  /* 04 In use: the figures, the releases chart and downloads by app */
-  .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 0; border-top: 1px solid var(--line); }
-  .figs div { padding: 22px var(--pad); border-right: 1px solid var(--line); }
-  .figs div:last-child { border-right: 0; }
-  .figs dt { color: var(--muted); font-size: 10.5px; }
-  .figs dd { margin: 6px 0 0; font: 600 clamp(26px, 3vw, 36px)/1 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-  .charts { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); border-top: 1px solid var(--line); }
-  .chart { display: grid; gap: 12px; align-content: start; padding: 24px var(--pad) 28px; margin: 0; min-width: 0; }
+  /* 04 In use: the figures (icon, number, 7-day change, sparkline), downloads over time, downloads by app, release activity */
+  #in-use { --ok-c: #1F7A4D; --star-c: #D99A16; --done-c: #0B7468; }
+  :global(:root[data-theme="dark"]) #in-use { --ok-c: #4CC38A; --star-c: #F2B233; --done-c: #3FC2B2; }
+  @media (prefers-color-scheme: dark) { :global(:root:not([data-theme="light"])) #in-use { --ok-c: #4CC38A; --star-c: #F2B233; --done-c: #3FC2B2; } }
+  .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 0; border-top: 1px solid var(--line); }
+  .fig { position: relative; display: grid; align-content: start; gap: 6px; padding: 22px var(--pad) 18px; border-right: 1px solid var(--line); overflow: hidden; }
+  .fig:last-child { border-right: 0; }
+  .fig::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--k); transform-origin: left; }
+  .fig dt { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 10.5px; }
+  .fi { display: grid; place-items: center; width: 24px; height: 24px; background: color-mix(in srgb, var(--k) 14%, var(--card)); color: var(--k); }
+  .fi svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .fig dd { margin: 0; }
+  .fig dd:nth-of-type(1) { margin-top: 4px; font: 600 clamp(26px, 3vw, 36px)/1 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .delta { font-size: 10.5px; letter-spacing: .06em; color: var(--ink-2); }
+  .spark { margin-top: 6px !important; height: 30px; }
+  .spark svg { width: 100%; height: 100%; overflow: visible; }
+  .spark path { fill: none; stroke: var(--k); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+
+  .charts { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); border-top: 1px solid var(--line); }
+  .chart { display: grid; gap: 14px; align-content: start; padding: 24px var(--pad) 28px; margin: 0; min-width: 0; }
   .chart + .chart { border-left: 1px solid var(--line); }
-  .chart figcaption { color: var(--muted); font-size: 10.5px; }
-  .chart svg { width: 100%; height: auto; overflow: visible; }
-  .chart .grid { stroke: var(--line); stroke-width: 1; }
-  .chart .axis { stroke: var(--ink); stroke-width: 1.2; }
-  .chart .ax { font: 500 11px var(--mono); fill: var(--muted); }
-  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 10px; color: var(--ink-2); }
-  .legend li { display: flex; align-items: center; gap: 6px; }
-  .legend li::before { content: ""; width: 9px; height: 9px; background: var(--c); }
-  .hbars { display: grid; gap: 10px; }
-  .hbars li { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
-  .hbars a { font-size: 10.5px; color: var(--ink-2); }
+  .chart figcaption { color: var(--ink-2); font-size: 10.5px; }
+  .chart figcaption span { color: var(--muted); margin-left: 8px; }
+
+  /* Downloads over time */
+  .tl { display: grid; gap: 8px; padding-left: 44px; }
+  .tl-plot { position: relative; height: 220px; border-bottom: 1.5px solid var(--ink); }
+  .tl-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .tl-y { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid var(--line); font-size: 10.5px; color: var(--muted); }
+  .tl-y i { position: absolute; right: calc(100% + 8px); top: -7px; font-style: normal; white-space: nowrap; }
+  .tl-area { fill: color-mix(in srgb, var(--em) 12%, transparent); }
+  .tl-line { fill: none; stroke: var(--em); stroke-width: 2; stroke-linejoin: round; }
+  .tl-dot { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; background: var(--em); border: 2px solid var(--bg); border-radius: 50%; }
+  .tl-last { position: absolute; right: 0; transform: translateY(calc(-100% - 10px)); font-size: 12px; font-weight: 600; color: var(--ink); }
+  .tl-hits { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(var(--n), 1fr); margin: 0 calc(-50% / (var(--n) - 1)); }
+  .tl-hits span { position: relative; }
+  .tl-hits span:hover::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px dashed var(--ink-2); }
+  .tl-hits span:hover::after { content: attr(data-tip); position: absolute; left: 50%; top: var(--y); transform: translate(-50%, calc(-100% - 12px)); padding: 5px 8px; white-space: nowrap; font: 600 11px var(--mono); color: var(--on-ink, #fff); background: var(--ink); pointer-events: none; z-index: 2; }
+  .tl-x { position: relative; height: 14px; font-size: 10.5px; color: var(--muted); }
+  .tl-x span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  .tl-x span:last-child { transform: translateX(-100%); }
+
+  /* Downloads by app */
+  .hbars { display: grid; gap: 12px; }
+  .hbars li { display: grid; grid-template-columns: 84px minmax(0, 1fr) 82px; gap: 12px; align-items: center; }
+  .hbars a { display: inline-flex; align-items: center; gap: 7px; font-size: 10.5px; color: var(--ink-2); }
   .hbars a:hover { color: var(--c); }
-  .hbars .track { height: 10px; background: var(--bg-2); }
-  .hbars .track span { display: block; height: 100%; width: var(--w); background: var(--c); }
-  .hbars .num { font-size: 11px; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+  .hbars img { width: 18px; height: 18px; }
+  .hbars .track { height: 12px; background: var(--bg-2); }
+  .hbars .track span { display: block; height: 100%; width: var(--w); background: var(--c); border-radius: 0 4px 4px 0; transform-origin: left; transition: filter .2s; }
+  .hbars li:hover .track span { filter: brightness(1.12); }
+  .hbars .num { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-variant-numeric: tabular-nums; }
+  .hbars .num b { font-weight: 600; color: var(--ink); }
+  .hbars .num i { font-style: normal; color: var(--muted); }
+
+  /* Release activity */
+  .heat-wrap { border-top: 1px solid var(--line); }
+  .heat { display: grid; gap: 4px; }
+  .hrow { display: grid; grid-template-columns: 84px minmax(0, 1fr) 36px; gap: 12px; align-items: center; }
+  .hlab { display: inline-flex; align-items: center; gap: 7px; font-size: 10.5px; color: var(--ink-2); }
+  .hlab:hover { color: var(--c); }
+  .hlab img { width: 16px; height: 16px; }
+  .hcells { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 3px; }
+  .hcells span { position: relative; height: 18px; background: var(--bg-2); }
+  .hcells .l1 { background: color-mix(in srgb, var(--c) 30%, var(--card)); }
+  .hcells .l2 { background: color-mix(in srgb, var(--c) 55%, var(--card)); }
+  .hcells .l3 { background: color-mix(in srgb, var(--c) 78%, var(--card)); }
+  .hcells .l4 { background: var(--c); }
+  .hrow:not(.hx) .hcells span:hover { outline: 2px solid var(--ink); outline-offset: 1px; z-index: 1; }
+  .hrow:not(.hx) .hcells span:hover::after { content: attr(data-tip); position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); padding: 5px 8px; white-space: nowrap; font: 600 11px var(--mono); color: var(--on-ink, #fff); background: var(--ink); pointer-events: none; z-index: 3; }
+  .htot { font-size: 11px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+  .hx .hcells span { background: none; height: auto; font-size: 10px; color: var(--muted); white-space: nowrap; overflow: visible; }
+  .hkey { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--muted); }
+  .hkey span { width: 12px; height: 12px; margin-left: 6px; --c: var(--ink-2); }
+  .hkey .l1 { background: color-mix(in srgb, var(--c) 30%, var(--card)); }
+  .hkey .l2 { background: color-mix(in srgb, var(--c) 55%, var(--card)); }
+  .hkey .l3 { background: color-mix(in srgb, var(--c) 78%, var(--card)); }
+  .hkey .l4 { background: var(--c); }
+
+  /* Things grow in as the section scrolls into view, where the browser supports it. */
+  @supports (animation-timeline: view()) {
+    .fig::before { animation: grow-x both linear; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    .hbars .track span { animation: grow-x both linear; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+    .tl-plot svg, .spark svg { animation: wipe both linear; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+  }
+  @keyframes grow-x { from { transform: scaleX(0); } to { transform: none; } }
+  @keyframes wipe { from { clip-path: inset(-10px 100% -10px 0); } to { clip-path: inset(-10px -10px -10px 0); } }
+  @media (prefers-reduced-motion: reduce) { .fig::before, .hbars .track span, .tl-plot svg, .spark svg { animation: none !important; } }
+
   @media (max-width: 900px) { .charts { grid-template-columns: 1fr; } .chart + .chart { border-left: 0; border-top: 1px solid var(--line); } }
-  @media (max-width: 560px) { .figs div { border-right: 0; border-bottom: 1px solid var(--line); } }
+  @media (max-width: 560px) {
+    .fig { border-right: 0; border-bottom: 1px solid var(--line); }
+    .hbars li, .hrow { grid-template-columns: 72px minmax(0, 1fr) 64px; gap: 8px; }
+    .hrow { grid-template-columns: 72px minmax(0, 1fr) 24px; }
+    .hcells { gap: 2px; }
+    .hcells span { height: 14px; }
+    .hx .hcells span:not(.k2) { visibility: hidden; }
+    .tl-plot { height: 180px; }
+  }
 </style>

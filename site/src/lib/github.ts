@@ -237,3 +237,38 @@ export function cadence(apps: App[]) {
 }
 
 export const fmtNum = (n: number) => n.toLocaleString("en-GB");
+
+/** One day of the family's public numbers (the apps, not Datum Home), from stats/history.json. */
+export type Day = { date: string; downloads: number; releases: number; stars: number };
+/** The daily history for the In use section. A failed read on one day can leave an app out or make it look smaller, so each
+ * app's numbers are carried forward and never fall below the day before. Empty when the file is missing. */
+export function history(): Day[] {
+  let days: any[] = [];
+  try { days = JSON.parse(read("stats/history.json")).days ?? []; } catch { return []; }
+  const last: Record<string, { downloads: number; releases: number; stars: number }> = {};
+  return days.map(d => {
+    for (const [id, v] of Object.entries<any>(d.apps ?? {})) {
+      if (id === "home") continue;
+      const p = last[id];
+      last[id] = { downloads: Math.max(v.downloads ?? 0, p?.downloads ?? 0), releases: Math.max(v.releases ?? 0, p?.releases ?? 0), stars: Math.max(v.stars ?? 0, p?.stars ?? 0) };
+    }
+    const s = (k: "downloads" | "releases" | "stars") => Object.values(last).reduce((n, x) => n + x[k], 0);
+    return { date: d.date, downloads: s("downloads"), releases: s("releases"), stars: s("stars") };
+  });
+}
+
+/** The change over the last `n` days of the history (or over all of it when shorter), and how many days that covers. */
+export function change(h: Day[], k: "downloads" | "releases" | "stars", n = 7) {
+  if (h.length < 2) return null;
+  const end = h[h.length - 1], from = h[Math.max(0, h.length - 1 - n)];
+  const days = Math.round((Date.parse(end.date) - Date.parse(from.date)) / 86400000);
+  return { by: end[k] - from[k], days };
+}
+
+/** A sparkline path in a 100 × 30 box for the last `n` days of one number. */
+export function spark(h: Day[], k: "downloads" | "releases" | "stars", n = 30) {
+  const s = h.slice(-n).map(d => d[k]);
+  if (s.length < 2) return "";
+  const lo = Math.min(...s), hi = Math.max(...s), r = hi - lo || 1;
+  return s.map((v, i) => `${i ? "L" : "M"}${(i / (s.length - 1) * 100).toFixed(2)} ${(28 - (v - lo) / r * 26).toFixed(2)}`).join("");
+}
