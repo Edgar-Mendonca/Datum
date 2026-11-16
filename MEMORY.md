@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.16 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.17 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -235,6 +235,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.14: AI tools batch 5 of 5 (190 tools): print and reports (page setup, a view or report as PDF in Downloads, Report Builder, period notes); every window command now has a tool. Next: 0.9.15 work contours.
 - Plan 0.9.15: fix, printed Gantt links drawn whole (row lines had been painted over the links). Planned items after it move up by one (work contours 0.9.16).
 - Plan 0.9.16: print wraps long text in every column (predecessors and other text columns, long headings); work contours move to 0.9.17.
+- Plan 0.9.17: the status date in the status bar (bold, amber when over a week old, click to change). Approved next: spreadsheet-style charts for the whole app (0.9.18 engine and Sheets charts, 0.9.19 dashboards and views); dashboard layout after.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
