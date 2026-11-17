@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.19 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.20 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -238,6 +238,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.17: the status date in the status bar (bold, amber when over a week old, click to change). Approved next: spreadsheet-style charts for the whole app (0.9.18 engine and Sheets charts, 0.9.19 dashboards and views); dashboard layout after.
 - Plan 0.9.18: charts in Sheets (Insert › Chart, Format Chart, saved chart styles, vector print, native workbook charts; 193 AI tools). Next: 0.9.19 dashboards and views on the same charts.
 - Plan 0.9.19: every view and dashboard chart on the same vector engine, Format chart on each (look kept with the plan), old chart library removed. Next: dashboards (layout, filters, drill-down, templates), as the user decides.
+- Plan 0.9.20: work on a chart directly: values under the pointer, click a part to select it and double-click to format it, the chart's own right-click menu (type, select data, templates, pictures, order), title edited in place, Delete per part. Next: 0.9.21 Chart Tools tab + side buttons + chart type dialog; 0.9.22 select data, data table, chart sheets. Dashboards on hold.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
