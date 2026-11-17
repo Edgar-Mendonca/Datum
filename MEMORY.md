@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.21 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.22 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -240,6 +240,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.19: every view and dashboard chart on the same vector engine, Format chart on each (look kept with the plan), old chart library removed. Next: dashboards (layout, filters, drill-down, templates), as the user decides.
 - Plan 0.9.20: work on a chart directly: values under the pointer, click a part to select it and double-click to format it, the chart's own right-click menu (type, select data, templates, pictures, order), title edited in place, Delete per part. Next: 0.9.21 Chart Tools tab + side buttons + chart type dialog; 0.9.22 select data, data table, chart sheets. Dashboards on hold.
 - Plan 0.9.21: Chart Tools: a Chart Design ribbon tab while a sheet chart is selected (elements, quick layouts, colours, styles drawn with the chart's data, switch row/column, select data, chart type), the + / brush / funnel buttons beside the chart (the funnel hides series or categories, cells unchanged), and a Change Chart Type dialog with previews and a Combo tab. Next: 0.9.22 select data, data table, chart sheets.
+- Plan 0.9.22: Select Data (ranges picked on the sheet), chart sheets and Move Chart, a data table under the chart, one bar's own colour, month date axes with label angle and interval, data label content and position, empty cells as gaps, zero or joined. The chart track (0.9.18 to 0.9.22) is complete; next by the roadmap: work contours, unless the user picks the dashboards or the register work.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
