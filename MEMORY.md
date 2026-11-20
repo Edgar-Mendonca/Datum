@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.32 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.33 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -251,6 +251,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.30: the Procurement Register rebuilt as spreadsheets like the Document Register (register and expediting log grids, record milestone and note for many, order card, lists, own columns, status words, templates, delete, settings-sheet import, Orders[…]/Expediting[…] in Sheets); shared register code.
 - Plan 0.9.31: the AI Link reaches Claude Code (two commands to copy: the plan open in the window, or plan files without it); `Datum Plan.exe --mcp-file` and `datum-cli mcp` now serve every one-plan tool on files. Agreed next: register layout (dashboard + bottom tabs), Contract Register, Task Board, Milestones + several baselines, Workload; Timesheet skipped.
 - Plan 0.9.32: the registers as workbooks: Document, Procurement and Contract open on a Dashboard (key figures, what needs attention, S-curves, breakdowns), with tabs along the bottom as in Sheets and the grids filling the window.
+- Plan 0.9.33: the Contract Register: contract dates, payments, variations, notices with their time bars, guarantees and insurances, invoices and obligations as grids on bottom tabs with badges and a Dashboard of what needs attention; contract tables in sheet formulas; AI tools for many documents or orders at once.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
