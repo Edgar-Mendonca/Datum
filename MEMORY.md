@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.36 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.37 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -255,6 +255,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.34: the Task Board: tasks as cards by status or any field, swimlanes, drag sets actual start or finish, critical edge, float, steps, people and the vendor documents and orders a task waits for (blocked by itself when they are late), Blocked with reasons, look-ahead, WIP limits, Print A3; the same board for documents and orders.
 - Plan 0.9.35: a Milestones view (every milestone against each baseline, deadline and contract date, float, days moved since the last period close, status, a chart of baselines and forecast) and up to three more baselines drawn under the Gantt bars, each in its own colour.
 - Plan 0.9.36: the Workload view: people against weeks or months by trade, hours booked against capacity (red when over on any day), peak per person, open a person to their tasks and drag one to someone else or to a later week. The agreed order after the review of the other planning tool is done (Timesheet skipped).
+- Plan 0.9.37: hardening, a full audit of every calculation after faults turned up in another app: 118 audit tests across scheduling, progress and cost, analysis, registers, files and sheets, many plans and window dates; every fault they proved is fixed (about 75), with all checks, live tests and speed checks passing.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
