@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.40 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.9.41 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -259,6 +259,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.9.38: work contours: a Work Contour column (flat, back or front loaded, peaks, bell, turtle or a custom curve) shapes how each person's hours fall over a task; usage, workload, manpower and the S-curves follow it; Project XML keeps it.
 - Plan 0.9.39: type a person's hours per day in Task and Resource Usage (by Days); the work and cost follow the typed days and the dates stay.
 - Plan 0.9.40: roles: generic resources (a Mechanical Engineer × 2) planned before names are known; Assign people lists who could take the role's tasks (trade first, free hours on its days) and hands them over.
+- Plan 0.9.41: Expected Finish for tasks under way (remaining work fits the date; XER both ways); a finish no earlier than a day off now rolls to the next working day.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
