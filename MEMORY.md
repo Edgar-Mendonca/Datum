@@ -17,7 +17,7 @@
 
 | App | Repo (default branch) | Accent | Version (2026-11-01) | `docs/site.json` | Real users |
 | --- | --- | --- | --- | --- | --- |
-| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.11.3 | ✅ | **Yes** |
+| Datum Plan | `Edgar-Mendonca/Datum-Plan` (`claude/fervent-keller-ddas5s`) | Blue `#0B5CAD` | 0.11.4 | ✅ | **Yes** |
 | Datum Plot | `Edgar-Mendonca/Datum-Plot` (`claude/epic-mayer-6faugf`) | Teal `#0E8C7F` | 0.3.10 | ✅ | **Yes** (scientific labs, reporting issues) |
 | Datum Atlas | `Edgar-Mendonca/Datum-Atlas` (`claude/bold-volta-90lu2c`) | Violet `#6C4AB6` | 0.2.1 | ✅ | Not yet |
 | Datum Sim | `Edgar-Mendonca/Datum-Sim` (`claude/dreamy-babbage-dyf9nr`) | Orange `#C2410C` | 0.2.0 | ✅ | Not yet |
@@ -266,6 +266,7 @@ Deploy: on push to the default branch, hourly at :17 (was daily until session 12
 - Plan 0.11.1: the time-location view (chainage against time, for pipelines and roads) and the closing audit of everything added since 0.9.37 (16 tests, 9 faults fixed). The plan agreed for the owner's travel is done.
 - Plan 0.11.2: the Logic view opened with "invalid args" in the app (issue #3 from the owner, handled by the scheduled issue check); command argument names fixed, with a test over every command; url 2.5.9 for a new advisory.
 - Plan 0.11.3: the Logic and Location views show their legend at the top, in a box like the Network Diagram's (issue #5 from the owner, fixed by the scheduled issue check).
+- Plan 0.11.4: the S-curve page scrolls again (issue #8); for large plans on a laptop screen the ribbon collapses to its tabs (Ctrl+F1) and the Logic view gets Fit, zoom, drag and a date ruler that stays at the top (issue #7); cookie 0.18.3 for a new advisory.
 
 ### 2026-11-09: Session 54 (from Datum Plan's chat: 0.7.2 to 0.7.4, lessons from Datum Plot's testing)
 - Issues found in Datum Plot's testing were checked against Plan; the ones that apply became three releases.
