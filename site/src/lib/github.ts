@@ -79,10 +79,22 @@ export function parseChangelog(md: string, where = "CHANGELOG"): Section[] {
   return out;
 }
 
+/** Every release of a repository: GitHub gives at most 100 per page, so the pages are read until one comes back short. */
+async function releasesOf(repo: string): Promise<any[] | null> {
+  const all: any[] = [];
+  for (let page = 1; page <= 20; page++) {
+    const r = await get(`https://api.github.com/repos/${repo}/releases?per_page=100&page=${page}`, "json");
+    if (!Array.isArray(r)) return page === 1 ? null : all;
+    all.push(...r);
+    if (r.length < 100) break;
+  }
+  return all;
+}
+
 async function loadApp(e: any): Promise<App> {
   const raw = (p: string) => `https://raw.githubusercontent.com/${e.repo}/${e.branch ?? "HEAD"}/${p}`;
   const site = JSON.parse((await get(raw("docs/site.json"))) ?? "null");
-  const [md, rels, repo, closed] = await Promise.all([get(raw("CHANGELOG.md")), get(`https://api.github.com/repos/${e.repo}/releases?per_page=100`, "json"),
+  const [md, rels, repo, closed] = await Promise.all([get(raw("CHANGELOG.md")), releasesOf(e.repo),
     get(`https://api.github.com/repos/${e.repo}`, "json"), get(`https://api.github.com/search/issues?q=repo:${e.repo}+is:issue+is:closed&per_page=1`, "json")]);
   const s = site ?? {};
   const svg = await get(raw(s.logo ?? `docs/brand/datum-${e.id}-icon.svg`));
@@ -191,7 +203,7 @@ export type HomeApp = { version: string; date: string; url: string; download: st
 export function loadHome(): Promise<HomeApp | null> {
   const g = globalThis as any;
   return g.__datumHome ??= (async () => {
-    const rels = await get("https://api.github.com/repos/Edgar-Mendonca/Datum/releases?per_page=20", "json");
+    const rels = await releasesOf("Edgar-Mendonca/Datum");
     const r = (Array.isArray(rels) ? rels : []).find((r: any) => !r.draft && !r.prerelease && /^home-v\d/.test(r.tag_name));
     if (!r) return null;
     const exe = (r.assets ?? []).find((a: any) => /setup\.exe$/i.test(a.name));
@@ -214,12 +226,31 @@ export const fmtSize = (b?: number) => b ? `${(b / 1048576).toFixed(b > 10485760
 export const app = async (id: string) => (await loadAll()).find(a => a.id === id);
 
 /** The family's totals, when GitHub answered for at least one app. */
-export const totals = (apps: App[]) => {
+/** The hub repository's own numbers (Edgar-Mendonca/Datum: the website, the family memory and Datum Home), so the family
+ * totals cover every Datum repository: its stars and forks, its closed issues, and Datum Home's releases and installer downloads. */
+export type Hub = { stars: number; forks: number; closedIssues?: number; downloads: number; releases: number };
+export function loadHub(): Promise<Hub | null> {
+  const g = globalThis as any;
+  return g.__datumHub ??= (async () => {
+    const [repo, rels, closed] = await Promise.all([get("https://api.github.com/repos/Edgar-Mendonca/Datum", "json"), releasesOf("Edgar-Mendonca/Datum"),
+      get("https://api.github.com/search/issues?q=repo:Edgar-Mendonca/Datum+is:issue+is:closed&per_page=1", "json")]);
+    if (!repo || typeof repo.stargazers_count !== "number") return null;
+    const home = (rels ?? []).filter((r: any) => !r.draft && !r.prerelease && /^home-v\d/.test(r.tag_name));
+    const downloads = home.reduce((n: number, r: any) => n + (r.assets ?? []).filter((a: any) => /\.(exe|msi)$/i.test(a.name)).reduce((m: number, a: any) => m + (a.download_count ?? 0), 0), 0);
+    console.log(`[datum] hub: ★${repo.stargazers_count} ⑂${repo.forks_count ?? 0}; Datum Home ${downloads} downloads, ${home.length} releases`);
+    return { stars: repo.stargazers_count, forks: repo.forks_count ?? 0, closedIssues: typeof closed?.total_count === "number" ? closed.total_count : undefined, downloads, releases: home.length };
+  })();
+}
+
+/** The family totals: every app, plus the hub repository and Datum Home when GitHub answered for them. */
+export const totals = (apps: App[], hub: Hub | null = null) => {
   const st = apps.map(a => a.stats).filter(Boolean) as Stats[];
   if (!st.length) return null;
   const sum = (k: keyof Stats) => st.reduce((n, s) => n + (s[k] ?? 0), 0);
-  return { downloads: sum("downloads"), stars: sum("stars"), forks: sum("forks"), releases: apps.reduce((n, a) => n + a.releases.length, 0),
-    closedIssues: st.some(s => s.closedIssues !== undefined) ? sum("closedIssues") : undefined };
+  const h = hub ?? { stars: 0, forks: 0, downloads: 0, releases: 0, closedIssues: undefined };
+  const closed = st.some(s => s.closedIssues !== undefined) ? sum("closedIssues") + (h.closedIssues ?? 0) : undefined;
+  return { downloads: sum("downloads") + h.downloads, stars: sum("stars") + h.stars, forks: sum("forks") + h.forks,
+    releases: apps.reduce((n, a) => n + a.releases.length, 0) + h.releases, closedIssues: closed, home: hub ? hub.downloads : undefined };
 };
 
 /** Releases per day (or per week once the history is longer than eight weeks), stacked by app, for the In use chart. */
@@ -238,7 +269,7 @@ export function cadence(apps: App[]) {
 
 export const fmtNum = (n: number) => n.toLocaleString("en-GB");
 
-/** One day of the family's public numbers (the apps, not Datum Home), from stats/history.json. */
+/** One day of the family's public numbers (every app, plus the hub repository's stars and Datum Home), from stats/history.json. */
 export type Day = { date: string; downloads: number; releases: number; stars: number };
 /** The daily history for the In use section. A failed read on one day can leave an app out or make it look smaller, so each
  * app's numbers are carried forward and never fall below the day before. Empty when the file is missing. */
@@ -248,7 +279,6 @@ export function history(): Day[] {
   const last: Record<string, { downloads: number; releases: number; stars: number }> = {};
   return days.map(d => {
     for (const [id, v] of Object.entries<any>(d.apps ?? {})) {
-      if (id === "home") continue;
       const p = last[id];
       last[id] = { downloads: Math.max(v.downloads ?? 0, p?.downloads ?? 0), releases: Math.max(v.releases ?? 0, p?.releases ?? 0), stars: Math.max(v.stars ?? 0, p?.stars ?? 0) };
     }

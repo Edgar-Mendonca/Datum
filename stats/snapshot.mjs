@@ -11,8 +11,19 @@ const get = async url => {
 };
 const installer = a => /\.(exe|msi|dmg|appimage|deb|rpm)$/i.test(a.name);
 
+// Every release: GitHub gives at most 100 per page, so read pages until one comes back short.
+async function allReleases(repo) {
+  const all = [];
+  for (let page = 1; page <= 20; page++) {
+    const r = await get(`https://api.github.com/repos/${repo}/releases?per_page=100&page=${page}`);
+    all.push(...r);
+    if (r.length < 100) break;
+  }
+  return all;
+}
+
 async function numbers(repo, tagPrefix) {
-  const [info, rels] = await Promise.all([get(`https://api.github.com/repos/${repo}`), get(`https://api.github.com/repos/${repo}/releases?per_page=100`)]);
+  const [info, rels] = await Promise.all([get(`https://api.github.com/repos/${repo}`), allReleases(repo)]);
   const list = rels.filter(r => !r.draft && !r.prerelease && (tagPrefix ? r.tag_name.startsWith(tagPrefix) : true));
   return {
     stars: info.stargazers_count, forks: info.forks_count, openIssues: info.open_issues_count,

@@ -165,7 +165,7 @@ Chart.js:
   - The release workflow adds `actions/attest-build-provenance` for the installer.
 - Options and recovery files in the app's data folder (`com.edgarmendonca.datum<app>`).
 - **Datum Home** (`home/` in DATUM) installs and updates every app from one window. It relies on this release shape: a per-user NSIS installer named `Datum<App>-x.y.z-setup.exe` that accepts `/S`, a `SHA256SUMS.txt` beside it, the Windows display name equal to the app's name in `apps.json` ("Datum Plan") and the publisher **"Datum"** (`bundle.publisher` in `tauri.conf.json`; apps released before 2026-10-29 used "Edgar Mendonca", which Datum Home still accepts). A release without `SHA256SUMS.txt` is never installed by Datum Home.
-- **The family site** rebuilds every hour and on every push to DATUM, so a release appears there within the hour (or at once: run the "Pages" workflow in DATUM).
+- **The family site** rebuilds on every push to DATUM, after the daily stats snapshot, and on an hourly schedule that GitHub does not always keep, so a release usually appears within a few hours (or at once: run the "Pages" workflow in DATUM).
 
 ## 10. Docs in every repo
 

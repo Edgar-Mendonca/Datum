@@ -4,7 +4,7 @@ import Hero from "../components/Hero.astro";
 import Rail from "../components/Rail.astro";
 import Safe from "../components/Safe.astro";
 import Stats from "../components/Stats.astro";
-import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum, history, change, spark } from "../lib/github";
+import { loadAll, loadHome, latestPerApp, statusOf, fmtDate, fmtSize, familyLogo, totals, cadence, fmtNum, history, change, spark, loadHub } from "../lib/github";
 
 const apps = await loadAll();
 const recent = latestPerApp(apps);
@@ -15,7 +15,10 @@ const letters = "ABCDEFGHIJ";
 const words = (t: string) => t.split(" ");
 const rail: [string, string][] = [["top", "Datum"], ["apps", "Apps"], ["method", "Method"], ["releases", "Releases"], ["in-use", "In use"]];
 // 04 In use: the family's public numbers and how often the apps ship.
-const sum = totals(apps);
+const hub = await loadHub();
+const sum = totals(apps, hub);
+// When the numbers were read (the site is rebuilt several times a day and after every release).
+const readAt = new Date().toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "UTC" }) + " UTC";
 const cad = cadence(apps);
 // The daily history: the downloads curve, the 7-day changes and the sparklines on the figures.
 const hist = history();
@@ -36,7 +39,12 @@ const xEvery = Math.max(1, Math.ceil(hist.length / 6));
 const cols = cad ? cad.bins.slice(-42) : [];
 const lvl = (n: number) => !n ? 0 : n === 1 ? 1 : n === 2 ? 2 : n <= 4 ? 3 : 4;
 const colEvery = Math.max(1, Math.ceil(cols.length / 6));
-const dl = apps.filter(a => a.stats).map(a => ({ a, n: a.stats!.downloads })).sort((x, y) => y.n - x.n);
+// Downloads by app, with Datum Home as its own row so the rows add up to the total above.
+type Row = { id: string; name: string; logo: string; href: string; c: string; n: number };
+const dl: Row[] = [
+  ...apps.filter(a => a.stats).map(a => ({ id: a.id, name: a.name.replace(/^Datum /, ""), logo: a.logo, href: `${base}/apps/${a.id}`, c: `var(--${a.id}, ${a.accent})`, n: a.stats!.downloads })),
+  ...(sum?.home !== undefined ? [{ id: "home", name: "Home", logo: familyLogo, href: "#apps", c: "var(--ink-2)", n: sum.home }] : []),
+].sort((x, y) => y.n - x.n);
 const dlMax = Math.max(1, ...dl.map(d => d.n));
 const dlSum = dl.reduce((n, d) => n + d.n, 0) || 1;
 const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
@@ -147,10 +155,10 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
   <!-- 04 In use: public numbers from GitHub, and how often the apps ship -->
   <section id="in-use" class="ruled" aria-labelledby="use-h" data-rail>
     <div class="frame">
-      <div class="bar glass mono"><span><b>04</b> / In use</span><span class="r">From GitHub · updated every hour</span></div>
+      <div class="bar glass mono"><span><b>04</b> / In use</span><span class="r">From GitHub · read {readAt}</span></div>
       <div class="pad sec-intro">
         <h2 id="use-h" class="h2 words">{words("Built in the open, used every day.").map(w => <span>{w}</span>)}</h2>
-        <p class="lead">Every number here comes from the public repositories and their releases, read when the site is built.</p>
+        <p class="lead">Every number here comes from the public Datum repositories (each app, and the hub with Datum Home) and their releases, read when the site is built.</p>
       </div>
       <dl class="figs">
         {sum && (
@@ -186,8 +194,8 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
       <div class="charts">
         {hist.length > 1 && (
           <figure class="chart">
-            <figcaption class="mono">Installer downloads, all apps <span>since {short(hist[0].date)}</span></figcaption>
-            <div class="tl" role="img" aria-label={`Installer downloads for all apps grew from ${fmtNum(hist[0].downloads)} on ${short(hist[0].date)} to ${fmtNum(hist[hist.length - 1].downloads)} on ${short(hist[hist.length - 1].date)}`}>
+            <figcaption class="mono">Installer downloads, all of Datum <span>since {short(hist[0].date)}</span></figcaption>
+            <div class="tl" role="img" aria-label={`Installer downloads for all of Datum grew from ${fmtNum(hist[0].downloads)} on ${short(hist[0].date)} to ${fmtNum(hist[hist.length - 1].downloads)} on ${short(hist[hist.length - 1].date)}`}>
               <div class="tl-plot">
                 {yTicks.map(v => <span class="tl-y mono" style={`bottom:${(v / yTop * 100).toFixed(2)}%`}><i>{fmtNum(v)}</i></span>)}
                 <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -208,10 +216,10 @@ const short = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-G
           <figure class="chart">
             <figcaption class="mono">Installer downloads, by app</figcaption>
             <ol class="hbars">
-              {dl.map(({ a, n }) => (
-                <li style={`--c:var(--${a.id}, ${a.accent}); --w:${(n / dlMax * 100).toFixed(1)}%`}>
-                  <a class="mono" href={`${base}/apps/${a.id}`}><img src={a.logo} width="18" height="18" alt="" loading="lazy" />{a.name.replace(/^Datum /, "")}</a>
-                  <span class="track" title={`${a.name}: ${fmtNum(n)} installer downloads`}><span /></span>
+              {dl.map(({ name, logo, href, c, n }) => (
+                <li style={`--c:${c}; --w:${(n / dlMax * 100).toFixed(1)}%`}>
+                  <a class="mono" href={href}><img src={logo} width="18" height="18" alt="" loading="lazy" />{name}</a>
+                  <span class="track" title={`Datum ${name}: ${fmtNum(n)} installer downloads`}><span /></span>
                   <span class="mono num"><b>{fmtNum(n)}</b><i>{Math.round(n / dlSum * 100)}%</i></span>
                 </li>
               ))}
